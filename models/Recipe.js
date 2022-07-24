@@ -1,6 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-import RecipeIngredient from "./RecipeIngredient.js"
+
+let ObjectId = Schema.ObjectId
+
+const RecipeIngredientSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    // ingredient_id: {
+    //     type: Schema.ObjectId,
+    //     required: true
+    // },
+    unit_type: {
+        type: String,
+        required: false
+    }, 
+    unit_amount: {
+        type: Number,
+        required: true
+    }
+    //mb recipe_id idk
+}, {
+    timestamps: true
+})
+//????? EXTRANEOUS? change to a require import
+
 
 
 const RecipeSchema = new Schema({
@@ -9,8 +34,9 @@ const RecipeSchema = new Schema({
         required: true
     },
     author_id: {
-        type: Schema.ObjectId,
-        required: true
+        type: ObjectId,
+        ref: "User",
+        required: false
     },
     description: {
         type: String,
@@ -18,7 +44,7 @@ const RecipeSchema = new Schema({
     }, 
     instructions: {
         type: [String],
-        required: true
+        required: false
     },
     prep_time: {
         type: Number,
@@ -38,18 +64,13 @@ const RecipeSchema = new Schema({
     },
     num_ratings: {
         type: Number,
-        default: 0,
-        required: true
+        default: 0
     },
     total_rating: {
         type: Number,
-        default: 0, 
-        required: true
+        default: 0    
     },
-    ingredients: {
-        type: [RecipeIngredient],
-        required: true
-    },
+    ingredients:[RecipeIngredientSchema],
     num_favorites: {
         type: Number,
         default: 0,

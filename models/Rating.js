@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Rating = new Schema({
+let ObjectId = Schema.ObjectId;
+const RatingSchema = new Schema({
     user_id: {
-        type: Schema.ObjectId,
-        required: true
+        type: ObjectId,
+        required: true,
+        ref: "User"
     },
     recipe_id: {
-        type: Schema.ObjectId,
-        required: true
+        type: ObjectId,
+        required: true,
+        ref: "Recipe"
     },
     stars: {
         type: Number,
@@ -20,4 +23,4 @@ const Rating = new Schema({
     timestamps: true
 })
 
-module.exports = Rating = mongoose.model('Rating', Rating);
+module.exports = Rating = mongoose.model('Rating', RatingSchema);
