@@ -1,5 +1,5 @@
 import {
-    RECEIVE_ALL_RECIPES
+    RECEIVE_ALL_RECIPES, RECEIVE_RECIPE
 } from '../actions/recipe_actions';
 
 export default function (state = {}, action) {
@@ -10,6 +10,9 @@ export default function (state = {}, action) {
             action.recipes.forEach((recipe)=>(
                 nextState[recipe._id] = recipe
             ));
+            return nextState;
+        case RECEIVE_RECIPE:
+            nextState[action.recipe.id] = action.recipe
             return nextState;
         default:
             return state;
