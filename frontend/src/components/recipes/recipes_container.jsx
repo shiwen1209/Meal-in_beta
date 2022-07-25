@@ -3,7 +3,7 @@ import {fetchRecipe} from '../../actions/recipe_actions';
 import Recipe from './recipes'
 
 const mSTP = (state, ownProps) => {
-    debugger
+    // debugger
     return{
     recipe: state.entities.recipes[ownProps.match.params.recipeId]
 }}

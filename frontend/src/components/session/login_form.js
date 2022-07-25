@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import loginCss from '../../css/login.css'
+// import loginCss from '../../css/login.css'
 
 
 class LoginForm extends React.Component {
@@ -67,7 +67,7 @@ class LoginForm extends React.Component {
                     <div className='login-info'>
                         <div className="login-header">Log In</div>
                          <div className="login-page-text-login">Email</div>
-                        <input class="login-box" type="text"
+                        <input className="login-box" type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"

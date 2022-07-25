@@ -13,9 +13,14 @@ class Recipe extends React.Component{
     render(){
         const {recipe} = this.props;
         if (!recipe) return null;
-        debugger
+        // debugger
         return (
             <div>
+
+                <div className='user-box'>
+                    <div className="user-img"></div>
+                </div>
+
                 {recipe.title}
             </div>
         )
