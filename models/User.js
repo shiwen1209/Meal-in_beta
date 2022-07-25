@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
+let ObjectId = Schema.ObjectId
+
+
 const UserSchema = new Schema({
     handle: {
         type: String,
@@ -18,7 +21,15 @@ const UserSchema = new Schema({
     bio: {
         type: String,
         required: false
-    }
+    },
+    pfp_url: {
+        type: String,
+        required: false
+    },
+    recipes_liked: [{
+        type: ObjectId,
+        ref: "Recipe"
+    }]
 }, {
     timestamps: true
 })
