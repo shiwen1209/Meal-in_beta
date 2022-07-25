@@ -19,21 +19,35 @@ class NavBar extends React.Component {
         const {loggedIn, currentUserId} = this.props
         if (loggedIn) {
             return (
-                <div>
-                    <Link to={'/'}>Browse Recipes</Link>
-                    &nbsp; 
+                <div className="logged-in-nav">
+                    <h1 className="logo">Meal'in</h1>
+                    <div className="browse-rec-links">
+                        <Link to={'/'}>Browse Recipes</Link>
+
+                    </div>
+                    <div className="recipe-link">
                     <Link to={`/myrecipes/${currentUserId}`}>My Recipes</Link>
-                    &nbsp; 
-                    <Link to={`/mymealplans/${currentUserId}`}>My Mealplans</Link>
-                    &nbsp; 
-                    <button onClick={this.logoutUser}>Logout</button>
+                    </div>
+                    <div className="meal-plan-links">
+                        <Link to={`/mymealplans/${currentUserId}`}>My Mealplans</Link>
+                    </div> 
+                    <div className="logout-button">
+                        <button onClick={this.logoutUser}>Logout</button>
+                    </div> 
                 </div>
             );
         } else {
             return (
-                <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                <div className="new-nav">
+                    <h1 className="logo">Meal'in</h1>
+                    <div className="login-signup">
+                        <div className="nav-bar-login">
+                        <Link to={'/login'}>Login</Link>
+                        </div>
+                        <div className="nav-bar-signup">
+                        <Link to={'/signup'}>Sign up</Link>
+                        </div>
+                    </div>
                 </div>
             );
         }
@@ -42,7 +56,6 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <h1>Meal'in</h1>
                 {this.getLinks()}
             </div>
         );

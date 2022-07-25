@@ -19,7 +19,9 @@ class RecipeIndex extends React.Component {
         
         return(
             <div>
-                <img src={indexbg} alt="" className="recipe-bg" />
+                <div className="image-section">
+                    <img src={indexbg} alt="" className="recipe-bg" />
+                </div>
                <h1>List of recipes</h1>
                 {/* <div className='responsive'> */}
                 <div className='recipe-box'>

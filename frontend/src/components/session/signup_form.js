@@ -59,32 +59,33 @@ class SignupForm extends React.Component {
             <div className="signup-form-container">
                 <form onSubmit={this.handleSubmit}>
                     <div className="signup-form">
-                        <br />
-                        <input type="text"
+                        <div className="signup-header">Sign Up</div>
+                        <div className="email-text">Email</div>
+                        <input  id="boxbox"type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            placeholder="Email"
+                            // placeholder="Email"
                         />
-                        <br />
-                        <input type="text"
+                           <div className="username-text">Username</div>
+                        <input id ="boxbox" type="text"
                             value={this.state.handle}
                             onChange={this.update('handle')}
-                            placeholder="Handle"
+                            // placeholder="Handle"
                         />
-                        <br />
-                        <input type="password"
+                           <div className="pass-text">Password</div>
+                        <input id="boxbox"type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            placeholder="Password"
+                            // placeholder="Password"
                         />
-                        <br />
-                        <input type="password"
+                           <div className="confirm-pas-text">Confirm password</div>
+                        <input id="boxbox"type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
-                            placeholder="Confirm Password"
+                            // placeholder="Confirm Password"
                         />
-                        <br />
-                        <input type="submit" value="Submit" />
+                        
+                        <input className="signup-submit" type="submit" value="Submit" />
                         {this.renderErrors()}
                     </div>
                 </form>

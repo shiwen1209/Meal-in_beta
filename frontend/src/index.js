@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import './app.css'
+// import './styles/reset.css'
 // We will create this component shortly
 import Root from './components/root';
 
