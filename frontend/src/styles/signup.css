@@ -1,0 +1,66 @@
+.signup-form-container{
+    /* border: 1px black solid; */
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form{
+    box-shadow: 0 0 11px #d4d8df;
+    border-radius: 5px;
+    /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
+    width: 400px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    margin-top: 40px;
+
+
+}
+#boxbox{
+    margin-top: 10px;
+    width: 360px;
+
+    /* border: red 3px solid; */
+    display: flex;
+    /* justify-content: center; */
+    height: 40px;
+
+}
+
+.signup-header{
+    padding-top: 25px;
+    font-size: 30px;
+    padding-bottom: 30px; 
+}
+
+.signup-submit{
+    width: 370px;
+    height: 40px;
+    background-color:#027333;
+    color: white;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.email-text{ 
+    margin-left: -320px;
+}
+
+.username-text{
+    padding-top: 10px;
+    margin-left: -295px;
+}
+
+.pass-text{
+    padding-top: 10px;
+    margin-left: -300px;
+}
+
+.confirm-pas-text{
+    padding-top: 10px;
+    margin-left: -240px;
+}
