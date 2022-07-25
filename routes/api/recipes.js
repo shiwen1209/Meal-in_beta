@@ -15,6 +15,7 @@ router.get("/", (req, res) => {
                 r.total_rating = recipe.total_rating
                 r.author_name = await User.findOne({ _id: recipe.author_id }).then((res) => { return res.handle })
                 r.authorImageUrl = "";
+                r.recipeImageUrl = recipe.image_url;
                 return r;
             }))
             res.json(payload)
