@@ -13,11 +13,11 @@ export default function (state = {}, action) {
                 nextState[recipe.id] = recipe
             ));
             return nextState;
-        case RECEIVE_RECIPE:
-            nextState[action.recipe.id] = action.recipe
-            return nextState;
+        // case RECEIVE_RECIPE:
+        //     nextState[action.recipe.id] = action.recipe
+        //     return nextState;
         case RECEIVE_USER:
-            debugger
+            // debugger
             action.recipes.forEach((recipe) => (
                 nextState[recipe.id] = recipe
             ));

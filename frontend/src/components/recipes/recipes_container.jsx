@@ -5,7 +5,7 @@ import Recipe from './recipes'
 const mSTP = (state, ownProps) => {
     // debugger
     return{
-    recipe: state.entities.recipes[ownProps.match.params.recipeId]
+        recipe: state.entities.recipes[ownProps.match.params.recipeId]
 }}
 
 const mDTP = (dispatch) => ({

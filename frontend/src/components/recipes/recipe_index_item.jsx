@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../../images/default_recipe.jpg';
+import headshot from '../../images/default_headshot.png';
 
 
 class RecipeIndex extends React.Component {
@@ -7,7 +8,6 @@ class RecipeIndex extends React.Component {
     render(){
         const {recipe} = this.props
         return(
-            // <div className='recipe-item'>
             <div>
             <div className='responsive'>
                 <div className='gallery'>
@@ -20,7 +20,9 @@ class RecipeIndex extends React.Component {
                     </div>
 
                     <div className='user-little-info'>
-                        <div className='user-little-img'></div>
+                        <div className='user-little-img'>
+                            <img src={headshot} alt="" />
+                        </div>
                         <div className="user-little-name">{recipe.author_name}</div>
                     </div>
                     {/* <div>{recipe.title}</div> */}
