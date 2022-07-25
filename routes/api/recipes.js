@@ -20,7 +20,8 @@ router.get("/", (req, res) => {
                 })
                 r.authorImageUrl = "";
                 r.recipeImageUrl = recipe.image_url;
-                r.id = recipe._id;
+                r._id = recipe._id;
+                r.id = recipe.id;
                 return r;
             }))
             res.json(payload)
@@ -31,9 +32,15 @@ router.get("/", (req, res) => {
 
 // get one recipe
 router.get("/:id", (req, res) => {
-    Recipe.findOne({ id: req.params.id })
-        .then((payload) => res.json(payload))
-        .catch(err => console.log(err));
+    Recipe.findOne({id: req.params.id})
+    .then(async recipe => 
+    {
+        console.log("recipe: ", recipe);
+        let ans;
+        await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
+        return res.json(ans);
+    })
+    .catch(err => console.log(err));
 })
 
 

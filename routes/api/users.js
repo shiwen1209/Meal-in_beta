@@ -100,7 +100,8 @@ router.post("/login", (req, res) => {
 // user show (myrecipes and my mealplans)
 router.get("/:id", async(req, res) => {
     const ans = {};
-    User.findOne({ id: req.params.id }).then((user) => {
+    User.findOne({id: req.params.id}).then( (user) => {
+        console.log("res", user);
         ans.user = {
             handle: user.handle,
             bio: user.bio,
@@ -109,9 +110,10 @@ router.get("/:id", async(req, res) => {
             pfp_url: user.pfp_url ///we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
             //PROFILE PICTURE HERE
         };
-        return Recipe.find({author_id: user._id}) //this kind of trash, can be optimized with adding subdocuments in User for Recipes-Created, with pre save middleware to auto-assoicate
+        return Recipe.find({author: user._id}) //this kind of trash, can be optimized with adding subdocuments in User for Recipes-Created, with pre save middleware to auto-assoicate
                                                  
     }).then((recipes) => {
+        console.log("recipes created", recipes);
         ans.recipes_created = [];
         for(let i = 0; i < recipes.length; i++)
         {
