@@ -172,7 +172,7 @@ const seedDB = async () => {
     await Recipe.deleteMany({});
     await RecipeIngredient.deleteMany({});
 
-    await User.insertMany(UserSeeds);
+    await User.create(UserSeeds); //INSERT MANY
     let TrashCodeTime = 0; //to be replaced with Promise.all
     for(let i = 0; i < RecipeSeeds.length; i++)
     {

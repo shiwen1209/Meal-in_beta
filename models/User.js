@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const UserSchema = new Schema({
     handle: {
@@ -21,5 +22,8 @@ const UserSchema = new Schema({
 }, {
     timestamps: true
 })
+
+UserSchema.plugin(AutoIncrement, {id: "user_id_counter", inc_field: 'id'});
+
 
 module.exports = User = mongoose.model('User', UserSchema);

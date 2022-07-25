@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const AutoIncrement = require('mongoose-sequence')(mongoose);
+
 let ObjectId = Schema.ObjectId
 
 const RecipeIngredientSchema = new Schema({
@@ -29,6 +31,9 @@ const RecipeIngredientSchema = new Schema({
 
 
 const RecipeSchema = new Schema({
+    // _id:{
+    //     type: Number
+    // },
     title: {
         type: String,
         required: true
@@ -76,9 +81,9 @@ const RecipeSchema = new Schema({
         default: 0,
         required: true
     }
-    
 }, {
     timestamps: true
 })
 
+RecipeSchema.plugin(AutoIncrement, {id: "recipe_id_counter",inc_field: 'id'});
 module.exports = Recipe = mongoose.model('Recipe', RecipeSchema);

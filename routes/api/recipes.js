@@ -10,8 +10,8 @@ router.get("/", (req, res) => {
 })
 
 // get one recipe
-router.get("/recipes/:id", (req, res) => {
-    Recipe.find({})
+router.get("/:id", (req, res) => {
+    Recipe.findById(req.parmas.id)
         .then((payload) => res.json(payload))
         .catch(err => console.log(err));
 })
