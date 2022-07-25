@@ -2,6 +2,11 @@ import React from 'react';
 
 class MyRecipes extends React.Component {
 
+    componentDidMount() {
+        debugger
+        this.props.fetchUser(this.props.match.params.userId)
+    }
+
     render() {
         return (
             <div>

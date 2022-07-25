@@ -17,8 +17,8 @@ const App = () => (
             <Route exact path="/recipe/:recipeId" component={RecipeContainer}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/myrecipes/:userId" component={MyRecipesContainer} />
-            <ProtectedRoute exact path="/mymealplans/:userId" component={MyMealplansContainer} />
+            <Route exact path="/myrecipes/:userId" component={MyRecipesContainer} />
+            <Route exact path="/mymealplans/:userId" component={MyMealplansContainer} />
             {/* <Route path="/howitworks" component={} /> */}
             {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
         </Switch>

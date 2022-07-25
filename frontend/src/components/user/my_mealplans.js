@@ -3,7 +3,6 @@ import React from 'react';
 class MyMealplans extends React.Component {
 
     componentDidMount(){
-        debugger
         this.props.fetchUser(this.props.match.params.userId)
     }
 
