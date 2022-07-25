@@ -8,7 +8,7 @@ export default function (state = {}, action) {
     switch (action.type) {
         case RECEIVE_ALL_RECIPES:
             action.recipes.forEach((recipe)=>(
-                nextState[recipe._id] = recipe
+                nextState[recipe.id] = recipe
             ));
             return nextState;
         case RECEIVE_RECIPE:
