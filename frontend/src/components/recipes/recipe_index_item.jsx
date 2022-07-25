@@ -1,5 +1,6 @@
 import React from 'react';
-import image from '../../images/default_recipe.jpg'
+import image from '../../images/default_recipe.jpg';
+import '../../reset.css'
 
 
 class RecipeIndex extends React.Component {
@@ -7,11 +8,17 @@ class RecipeIndex extends React.Component {
     render(){
         const {recipe} = this.props
         return(
-            <li className='recipe-item'>
-                <p>{recipe.title}</p>
-                <p>{recipe.description}</p>
-                <img src={image} alt="" width="400" height="300" />
-            </li>
+            // <div className='recipe-item'>
+            <div>
+            <div className='responsive'>
+                <div className='gallery'>
+                    <img src={image} alt="" className='recipe-index-img' />
+                    <div>{recipe.title}</div>
+                    {/* <div>{recipe.description}</div> */}
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            </div>
         )
     }
 }

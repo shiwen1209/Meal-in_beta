@@ -1,6 +1,7 @@
 import React from 'react';
 import RecipeIndexItem from './recipe_index_item'
 import indexbg from '../../images/indexbg.jpg'
+import "../../app.css"
 
 class RecipeIndex extends React.Component {
     
@@ -18,11 +19,14 @@ class RecipeIndex extends React.Component {
         
         return(
             <div>
-                <img src={indexbg} alt=""  />
+                <img src={indexbg} alt="" className="recipe-bg" />
                <h1>List of recipes</h1>
-               <ul>
+                {/* <div className='responsive'> */}
+                <div className='recipe-box'>
                     {recipesList}
-               </ul>
+                </div>
+               {/* </div> */}
+                
 
             </div>
             
