@@ -5,6 +5,6 @@ export const fetchRecipes = () => {
     return axios.get('/api/recipes');
 };
 
-export const fetchRecipe = (recipeId) => {
-    return axios.get(`/api/recipes/${recipeId}`);
+export const fetchRecipe = (id) => {
+    return axios.get(`/api/recipes/${id}`);
 };

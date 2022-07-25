@@ -28,7 +28,6 @@ const RecipeIngredientSchema = new Schema({
 })
 //????? EXTRANEOUS? change to a require import
 
-
 const NutrientSchema = new Schema({
     "calories":{
         type: Number,
@@ -132,18 +131,13 @@ const RecipeSchema = new Schema({
         type: String,
         required: true
     },
-    author_id: {
-        type: ObjectId,
-        ref: "User",
-        required: false
-    },
     description: {
         type: String,
         required: false
     }, 
     instructions: {
         type: [String],
-        required: false
+        required: true
     },
     prep_time: {
         type: Number,
@@ -151,6 +145,19 @@ const RecipeSchema = new Schema({
     },
     category: {
         type: [String], //could just be string
+        required: false
+    },
+    author_id:{
+        type: ObjectId,
+        required: true,
+        ref: "User"
+    },
+    author_handle: {
+        type: String,
+        required: true
+    },
+    author_pfp_url: {
+        type: String,
         required: false
     },
     // meal_type: { //Breakfast, Lunch, Dinner, Snack/Drink? <- DONT NEED THIS

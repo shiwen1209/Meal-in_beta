@@ -1,9 +1,9 @@
 import { connect } from "react-redux"
 import MyRecipes from "./my_recipes"
 
-const mstp = (state)=>{
+const mstp = (state, ownProps)=>{
     return{
-
+        
     }
 }
 
