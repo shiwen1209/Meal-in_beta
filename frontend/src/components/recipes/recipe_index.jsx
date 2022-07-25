@@ -21,11 +21,11 @@ class RecipeIndex extends React.Component {
             <div>
                 <img src={indexbg} alt="" className="recipe-bg" />
                <h1>List of recipes</h1>
-                {/* <div className='responsive'> */}
+
                 <div className='recipe-box'>
                     {recipesList}
                 </div>
-               {/* </div> */}
+
                 
 
             </div>

@@ -105,10 +105,10 @@ div.gallery img {
 
 .responsive {
     padding: 0 6px;
-    float: left;
+    /* float: left; */
     /* width: 24.99999%; */
     flex-wrap: wrap;
-    margin: 10px;
+    margin: 8px;
 }
 
 @media only screen and (max-width: 700px) {
