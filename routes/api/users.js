@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const Recipe = require('../../models/Recipe');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -98,9 +99,12 @@ router.post("/login", (req, res) => {
 
 // user show (myrecipes and my mealplans)
 router.get("/:id", (req, res) => {
-    User.findOne({id: req.params.id})
-        .then((payload) => res.json(payload))
-        .catch(err => console.log(err));
+    const user =  User.findOne({id: req.params.id})
+    Recipe.find(
+        {author_id: user._id}
+    ).then((payload) => res.json(payload))
+    .catch(err => console.log(err));
+
 });
 
 module.exports = router;
