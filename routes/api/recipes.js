@@ -7,16 +7,22 @@ const User = require('../../models/User');
 // get all recipes
 router.get("/", (req, res) => {
     Recipe.find({})
-        .then((recipes)=>{
-            const payload = recipes.map((recipe)=>{
+        .then(async (recipes) => {
+            const payload = await Promise.all(recipes.map(async recipe => {
                 const r = {};
-                // const author = User.findOne({_id: recipe.author_id});
-                r.author = "Test user"; // Update later
+                r.title = recipe.title
+                r.num_ratings = recipe.num_ratings
+                r.total_rating = recipe.total_rating
+                r.author_name = await User.findOne({ _id: recipe.author_id }).then((res) => { 
+                    console.log("result: ", res);
+                    // return res.handle 
+                    return "test_name";
+                })
                 r.authorImageUrl = "";
-                r._id = recipe._id;
-                r.title = recipe.title;
-                return r
-            })
+                r.recipeImageUrl = recipe.image_url;
+                r.id = recipe._id;
+                return r;
+            }))
             res.json(payload)
         }
         )

@@ -29,6 +29,100 @@ const RecipeIngredientSchema = new Schema({
 //????? EXTRANEOUS? change to a require import
 
 
+const NutrientSchema = new Schema({
+    "calories":{
+        type: Number,
+        required: false, 
+        default: 0
+    },
+    "carbohydrates_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "fat_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "saturated_fat_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "cholesterol_mg":{
+        type: Number,
+        required: false, default: 0
+    },
+    "protein_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "sugars_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "protein_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "dietary_fiber_g":{
+        type: Number,
+        required: false, default: 0
+    },
+    "sodium_mg":{
+        type: Number,
+        required: false, default: 0
+    },
+    "calories_from_fat":{
+        type: Number,
+        required: false, default: 0
+    },
+    "calcium_mg":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "iron_mg":{
+        type: Number,
+        required: false, default: 0
+        
+    },
+    "magneisum_mg":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "potassium_mg":{
+        type: Number,
+        required: false, default: 0
+        
+    },
+    "vitamin_a_iu_IU":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "niacin_equivalents_mg":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "vitamin_c_mg":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "folate_mcg":{
+        type: Number,
+        required: false, default: 0
+
+    },
+    "thiamin_mg":{
+        type: Number,
+        required: false, default: 0
+    }
+}, {
+    timestamps: true
+})
+
 
 const RecipeSchema = new Schema({
     // _id:{
@@ -59,10 +153,10 @@ const RecipeSchema = new Schema({
         type: [String], //could just be string
         required: false
     },
-    meal_type: { //Breakfast, Lunch, Dinner, Snack/Drink?
-        type: [String],
-        required: false
-    },
+    // meal_type: { //Breakfast, Lunch, Dinner, Snack/Drink? <- DONT NEED THIS
+    //     type: [String],
+    //     required: false
+    // },
     budget: { //1,2,3,4
         type: Number,
         required: false
@@ -73,13 +167,37 @@ const RecipeSchema = new Schema({
     },
     total_rating: {
         type: Number,
-        default: 0    
+        default: 0
     },
-    ingredients:[RecipeIngredientSchema],
+    yield: {
+        type: String,
+        default: '',
+        required: false
+    },
+    // ingredients:[RecipeIngredientSchema], //<- should be like this later
+    ingredients: {
+        type: [String]
+    },
     num_favorites: {
         type: Number,
         default: 0,
         required: false // update later
+    },
+    image_url: {
+        type: String,
+        require: false
+    },
+    category: {
+        type: String,
+        required: false
+    },
+    prep_time: {
+        type: String,
+        required: false
+    },
+    nutrients: {
+        type: NutrientSchema,
+        required: false
     }
 }, {
     timestamps: true
