@@ -96,5 +96,12 @@ router.post("/login", (req, res) => {
 });
 
 
+// user show (myrecipes and my mealplans)
+router.get("/:id", (req, res) => {
+    User.findOne({id: req.params.id})
+        .then((payload) => res.json(payload))
+        .catch(err => console.log(err));
+});
+
 module.exports = router;
 
