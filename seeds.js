@@ -48,7 +48,7 @@ const RecipeSeeds = [
         ingredients:
         [{
             name: "Beef",
-            unit_type: "g",
+            unit_name: "g",
             unit_amount: 500
         },
         {
@@ -61,7 +61,7 @@ const RecipeSeeds = [
         },
         {
             name: "Garlic",
-            unit_type: "clove",
+            unit_name: "clove",
             unit_amount: 2
         },
         {
@@ -70,66 +70,62 @@ const RecipeSeeds = [
         },
         {
             name: "Red Wine",
-            unit_type: "mL",
+            unit_name: "mL",
             unit_amount: 200
         },
         {
             name: "water",
-            unit_type: "L",
+            unit_name: "L",
             unit_amount: 2
         },
         {
             name: "mustard",
-            unit_type: "tbsp",
+            unit_name: "tbsp",
             unit_amount: 3
         },
         {
             name: "Salt",
-            unit_type: "tbsp",
+            unit_name: "tbsp",
             unit_amount: 1        
         },
         {
             name: "Pepper",
-            unit_type: "tsp",
+            unit_name: "tsp",
             unit_amount: .5
         },
         {
             name: "Paprika",
-            unit_type: "tsp",
+            unit_name: "tsp",
             unit_amount: .5
         },
         {
             name: "Vegetable Oil",
-            unit_type: "tbsp",
+            unit_name: "tbsp",
             unit_amount: 2
         }]
     }
 ]
 
-const fillRecipeInfo = function(recipe, AuthorId) {
-    // return db.Ingredient.create(comment).then(docComment => {
-    //   console.log("\n>> Created Comment:\n", docComment);
-    //   return db.Tutorial.findByIdAndUpdate(
-    //     tutorialId,
-    //     { $push: { comments: docComment._id } },
-    //     { new: true, useFindAndModify: false }
-    //   );
-    // });
+const fillRecipeInfo = async function(recipe, AuthorId) {
     let newRecipe = {};
     newRecipe.title = recipe.title;
+    console.log("AUTHOR", AuthorId);
 
+    let TrashCodeTime = null;
+    
     if(recipe.ingredients && recipe.ingredients.length > 0)
     {
         newRecipe.ingredients = [];
+        TrashCodeTime = 0;
+        
         for(let i = 0; i<recipe.ingredients.length; i++)
         {
             await RecipeIngredient.create(recipe.ingredients[i]).then((ing) => { //add await here maybe
-                console.log("Ingredient made: ", ing, "for ", recipe.title);
                 newRecipe.ingredients.push(ing);
-            })
+                TrashCodeTime++;
+            }, (err) => console.log(err));
         }
     }
-    //!!!! ABOVE COULD HAVE PROMISE ISSUES... NOT ALL INGREDIENTS DONE?
 
     if(recipe.description)
     newRecipe.description = recipe.description;
@@ -159,21 +155,41 @@ const fillRecipeInfo = function(recipe, AuthorId) {
     newRecipe.num_favorites = recipe.num_favorites;
     if(recipe.total_ratings)
     newRecipe.total_ratings = recipe.total_ratings;
+    newRecipe.author_id = AuthorId
+
+    if(TrashCodeTime !== null)
+    {
+        while(TrashCodeTime < recipe.ingredients.length)
+        {
+            // console.log("waiting for finish...")
+        }
+    }
     return newRecipe;
   };
 
 const seedDB = async () => {
-    // await User.deleteMany({});
-    // await Recipe.deleteMany({});
-    // await IngredientRecipe.deleteMany({});
+    await User.deleteMany({});
+    await Recipe.deleteMany({});
+    await RecipeIngredient.deleteMany({});
 
     await User.insertMany(UserSeeds);
+    let TrashCodeTime = 0; //to be replaced with Promise.all
     for(let i = 0; i < RecipeSeeds.length; i++)
     {
-        let randomUser = db.mycoll.aggregate([{ $sample: { size: 1 } }]);
-        console.log("ru", randomUser);
-        await Recipe.create(fillRecipe(RecipeSeeds[i], randomUser._id)); //slow potentially
+        
+        let randomUser = User.aggregate([{ $sample: { size: 1 } }]); //WHAT IS THIS STUPID AGGREGATE THING
+        let num;
+        for await (const brooo of randomUser) { //dont know how to properly extract frmo it
+            num = brooo._id;
+        }
+        let newRecipe = await fillRecipeInfo(RecipeSeeds[i], num);
+        await Recipe.create(newRecipe).then(() => TrashCodeTime++); //slow potentially
     }
+    while(TrashCodeTime != RecipeSeeds.length)
+    {
+        // console.log("bad code let's go")
+    }
+
 }
 
 seedDB().then(() => {
