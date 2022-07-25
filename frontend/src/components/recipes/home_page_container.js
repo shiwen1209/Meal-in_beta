@@ -6,7 +6,7 @@ import { fetchRecipes } from '../../actions/recipe_actions';
 const mstp = (state)=>{
     return{
         recipes: Object.values(state.entities.recipes),
-        type: "splash"
+        type: "home"
     }
 }
 

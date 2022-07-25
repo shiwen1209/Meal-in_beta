@@ -37,7 +37,7 @@ router.get("/:id", (req, res) => {
     {
         console.log("recipe: ", recipe);
         let ans;
-        await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
+        await recipe.populate("author", "-email -recipes_liked -__v -password").then((result) => {ans = result;});
         return res.json(ans);
     })
     .catch(err => console.log(err));

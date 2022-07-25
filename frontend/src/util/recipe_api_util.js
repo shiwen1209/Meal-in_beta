@@ -8,3 +8,5 @@ export const fetchRecipes = () => {
 export const fetchRecipe = (id) => {
     return axios.get(`/api/recipes/${id}`);
 };
+
+

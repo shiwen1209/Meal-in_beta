@@ -21,8 +21,10 @@ class NavBar extends React.Component {
                 <div className="logged-in-nav">
                     <h1 className="logo">Meal'in</h1>
                     <div className="browse-rec-links">
-                        <Link to={'/'}>Browse Recipes</Link>
-
+                        <Link to={'/recipes'}>Browse Recipes</Link>
+                    </div>
+                    <div className="recipe-link">
+                        <Link to={'/recipes'}>How it works</Link>
                     </div>
                     <div className="recipe-link">
                     <Link to={`/myrecipes/${currentUserId}`}>My Recipes</Link>
@@ -39,6 +41,13 @@ class NavBar extends React.Component {
             return (
                 <div className="new-nav">
                     <h1 className="logo">Meal'in</h1>
+                    <div className="browse-rec-links">
+                        <Link to={'/recipes'}>Browse Recipes</Link>
+                    </div>
+                    <div className="recipe-link">
+                        <Link to={'/recipes'}>How it works</Link>
+                    </div>
+                    
                     <div className="login-signup">
                         <div className="nav-bar-login">
                         <Link to={'/login'}>Login</Link>
