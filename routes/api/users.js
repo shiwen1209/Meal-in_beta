@@ -98,14 +98,71 @@ router.post("/login", (req, res) => {
 
 
 // user show (myrecipes and my mealplans)
-router.get("/:id", (req, res) => {
-    const user =  User.findOne({id: req.params.id})
-    Recipe.find(
-        {author_id: user._id}
-    ).then((payload) => res.json(payload))
-    .catch(err => console.log(err));
-
+router.get("/:id", async(req, res) => {
+    const ans = {};
+    User.findOne({id: req.params.id}).then( (user) => {
+        ans.user = {
+            handle: user.handle,
+            bio: user.bio,
+            id: user.id,
+            _id: user._id //we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
+            //PROFILE PICTURE HERE
+        };
+        return Recipe.find({author_id: user._id})
+    }).then((recipes) => {
+        ans.recipes_created = [];
+        for(let i = 0; i < recipes.length; i++)
+        {
+            let oneRecipe = {};
+            oneRecipe = {
+                title: recipes[i].title,
+                id: recipes[i].id,
+                _id: recipes[i]._id
+                //RECIPE IMAGE HERE
+            }
+            ans.recipes_created.push(oneRecipe);
+        }
+        res.json(ans);
+    }).catch(err => console.log(err));
 });
+
+/*OUTPUT LOOKS LIKE
+
+
+    "user": {
+        "handle": "James",
+        "id": 16,
+        "_id": "62de08c13678778432e5aa2c"
+    },
+    "recipes_created": [
+        {
+            "title": "Traditional Croatian Goulash",
+            "id": 2,
+            "_id": "62de08c23678778432e5aa63"
+        },
+        {
+            "title": "Pesto Eggs",
+            "id": 3,
+            "_id": "62de08c33678778432e5aa74"
+        },
+        {
+            "title": "Folded Kimbap",
+            "id": 4,
+            "_id": "62de08c33678778432e5aa79"
+        },
+        {
+            "title": "Baked Feta Pasta",
+            "id": 6,
+            "_id": "62de08c33678778432e5aa83"
+        }
+    ],
+    "recipes_favorited": [
+        blah blah blah same format as above
+        note that all three of these subcategories, users, recipes favorited, recipes created, should have an image_url also sent back
+    ]
+}
+*/
+
 
 module.exports = router;
 
