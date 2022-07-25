@@ -4,6 +4,7 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const recipes = require("./routes/api/recipes");
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
