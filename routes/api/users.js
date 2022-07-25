@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
 // user show (myrecipes and my mealplans)
 router.get("/:id", async(req, res) => {
     const ans = {};
-    User.findOne({id: req.params.id}).then( (user) => {
+    User.findOne({ id: req.params.id }).then(async (user) => {
         ans.user = {
             handle: user.handle,
             bio: user.bio,

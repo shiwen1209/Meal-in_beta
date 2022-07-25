@@ -10,6 +10,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const passport = require('passport');
 
+//image upload functionality
+// const multer = require('multer')
+// const upload = multer({dest: 'uploads/'})
+// app.post('/images', upload.single())
+
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log("Connected to MongoDB successfully"))
@@ -21,6 +26,7 @@ require('./config/passport')(passport);
 
 app.use("/api/users", users);
 app.use("/api/recipes", recipes);
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

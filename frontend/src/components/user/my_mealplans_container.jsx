@@ -3,13 +3,12 @@ import MyMealplans from "./my_mealplans";
 
 const mstp = (state)=>{
     return{
-
+        // recipes: state.entities.recipes[state]
     }
 }
 
 const mdtp = (dispatch) => {
     return {
-
     }
 }
 

@@ -1,3 +1,6 @@
+@import './reset.css';
+@import './css/mealplan.css';
+
 * {
     box-sizing: border-box;
 }
@@ -20,8 +23,15 @@ div.gallery {
     justify-content: center;
 }
 
-div.gallery:hover {
+.hide{
+    display: none;
+}
+
+div.gallery:hover .hide {
     border: 1px solid #777;
+    background-color: #777;
+    cursor: pointer;
+    display: block;
 }
 
 div.gallery img {

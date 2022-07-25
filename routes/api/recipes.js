@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
                 r.num_ratings = recipe.num_ratings
                 r.total_rating = recipe.total_rating
                 r.author_name = await User.findOne({ _id: recipe.author_id }).then((res) => { 
-                    console.log("result: ", res);
+                    // console.log("result: ", res);
                     // return res.handle 
                     return "test_name";
                 })
@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 // get one recipe
 router.get("/:id", (req, res) => {
-    Recipe.findById(req.params.id)
+    Recipe.findOne({ id: req.params.id })
         .then((payload) => res.json(payload))
         .catch(err => console.log(err));
 })
