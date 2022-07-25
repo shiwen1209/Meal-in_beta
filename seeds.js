@@ -16,31 +16,6 @@ mongoose
     .then(() => console.log("Connected to MongoDB successfully for seeds!"))
     .catch(err => console.log(err));
 
- 
-    
-    
-
-const getPicture = async(url) => {
-    console.log("??")
-    return axios.get(url).then(resp => {
-        console.log("dont test me")
-        let dom = new jsdom.JSDOM(resp.data)
-        console.log("dom", dom);
-        // Selector when there is a video
-        let pic = dom.window.document.querySelector('body > div.docked-sharebar-content-container > div > main > div.recipe-container.two-col-container > div.content.two-col-main-content.karma-content-container > div.recipe-content.two-col-content.karma-main-column > div.two-col-content-wrapper > div.recipe-content-container > div.lead-content-wrapper.two-col-style > div.lead-content-aside-wrapper.video-with-tout-image > aside > div')
-        if (!pic) {
-            // No video
-            console.log("option 2");
-            pic = dom.window.document.querySelector('div[data-main-recipe=true]')
-        }
-        if (!pic) {
-            console.log("nope");
-            return ""
-        }
-        return pic.getAttribute('data-src')
-    })
-}
-    
 
 const UserSeeds = [
     {
@@ -66,6 +41,75 @@ const UserSeeds = [
     },
     {
         handle: "Barbara", email: "barbara@test.com", password: "test12", bio: "Aspiring chef"
+    },
+    {
+        handle: "Alan", email: "alan@test.com", password: "test12"
+    },
+    {
+        handle: "Evie", email: "evie@test.com", password: "test12"
+    },
+    {
+        handle: "Adam", email: "adam@test.com", password: "test12"
+    },
+    {
+        handle: "Richard", email: "richard@test.com", password: "test12"
+    },
+    {
+        handle: "thomas", email: "thomas@test.com", password: "test12"
+    },
+    {
+        handle: "tears", email: "tears@test.com", password: "test12"
+    },
+    {
+        handle: "Chef Boy R. Dee", email: "chefboy@test.com", password: "test12"
+    },
+    {
+        handle: "Ramsay Gordon", email: "ramsay@test.com", password: "test12", bio: "you fookin donkey"
+    },
+    {
+        handle: "Remy", email: "remy@test.com", password: "test12"
+    },
+    {
+        handle: "Auguste Gusteau", email: "ratatouille@test.com", password: "test12"
+    },
+    {
+        handle: "Wendy", email: "wen@test.com", password: "test12"
+    },
+    {
+        handle: "Charlie", email: "char@test.com", password: "test12"
+    },
+    {
+        handle: "alec", email: "alec@test.com", password: "test12"
+    },
+    {
+        handle: "Zuzu", email: "zuzu@test.com", password: "test12"
+    },
+    {
+        handle: "Anthonie", email: "anthonie@test.com", password: "test12"
+    },
+    {
+        handle: "Brian", email: "brian@test.com", password: "test12", bio: "brian eats owner and CEO"
+    },
+    {
+        handle: "Lucy", email: "lucy@test.com", password: "test12"
+    },
+    {
+        handle: "cindy", email: "cindy@test.com", password: "test12"
+    },
+    {
+        handle: "danny", email: "danny@test.com", password: "test12"
+    },
+    {
+        handle: "alex", email: "alex@test.com", password: "test12"
+    },
+    {
+        handle: "jacob", email: "jacob@test.com", password: "test12"
+    },
+    {
+        handle: "peter", email: "peter@test.com", password: "test12"
+    },
+    {
+        handle: "h", email: "h@test.com", password: "test12"
     }
 ]
 
@@ -264,7 +308,18 @@ const UserSeeds = [
 //     return newRecipe;
 //   };
 
-const fillScrapedRecipeInfo = async function(recipe) {
+
+
+const addRecipeToUserFavorite = async function(userId, recipe) {
+return await User.findByIdAndUpdate(
+    userId,
+    { $push: { recipes_liked: recipe._id } },
+    { new: true, useFindAndModify: false }
+);
+};
+  
+
+const fillScrapedRecipeInfo = async function(recipe, author) {
 
     let newRecipe = {};
     newRecipe.title = recipe.name;
@@ -288,6 +343,7 @@ const fillScrapedRecipeInfo = async function(recipe) {
         newRecipe.ingredients = ans;
     }
 
+    
     if(recipe.summary)
         newRecipe.description = recipe.summary;
    
@@ -331,8 +387,10 @@ const fillScrapedRecipeInfo = async function(recipe) {
     newRecipe.prep_time = recipe.total;
     if(recipe.category)
     newRecipe.category = recipe.category;
-    // if(recipe.budget)
-    // newRecipe.budget = recipe.budget;
+    if(recipe.budget)
+        newRecipe.budget = recipe.budget;
+    else
+        newRecipe.budget = Math.floor(Math.random()* 4) +1;
     if(recipe.rating_count)
     newRecipe.num_ratings = recipe.rating_count;
     if(recipe.review_count)
@@ -344,24 +402,28 @@ const fillScrapedRecipeInfo = async function(recipe) {
         newRecipe.num_favorites = Math.floor(Math.random() * 15);
     }
     if(recipe.rating && recipe.rating_count)
-        newRecipe.total_ratings = recipe.rating * recipe.rating_count;
+        newRecipe.total_rating = recipe.rating * recipe.rating_count;
    
     if(recipe.yield)
     newRecipe.yield = recipe.yield;
 
-    if(recipe.author)
+    if(author) //ignore Recipe Author
     {
-        let existingUser = await User.findOne({handle: recipe.author}).exec()
+        let existingUser = await User.findOne({handle: author.handle}).exec()
         if(existingUser)
         {
             newRecipe.author_id = existingUser._id;
+            newRecipe.author_pfp_url = existingUser.pfp_url;
+            newRecipe.author_handle = existingUser.handle;
         }
         else
         {
-            let newUser = new User({handle: recipe.author, email: recipe.author + "@seedings.com", password: "pass123"});
+            let newUser = new User({handle: author.handle, email: author.email, password: "pass123"});
             await newUser.save().then( (res) => 
             {
                 newRecipe.author_id = res._id;
+                newRecipe.author_pfp_url = res.pfp_url;
+                newRecipe.author_handle = res.handle;
             })
         }
     }
@@ -376,23 +438,34 @@ const seedDB = async () => {
 
     const RecipeBigSeeds = obj.slice(0, 200);
 
-    // await User.create(UserSeeds); //INSERT MANY
+    await User.create(UserSeeds); //INSERT MANY
     let TrashCodeTime = 0; //to be replaced with Promise.all
     for(let i = 0; i < RecipeBigSeeds.length; i++)
     {
-       //////
-        // let randomUser = User.aggregate([{ $sample: { size: 1 } }]); //WHAT IS THIS STUPID AGGREGATE THING
-        // let num;
-        // for await (const brooo of randomUser) { //dont know how to properly extract frmo it
-        //     num = brooo._id;
-        // }
+       ////
+        let randomUser = User.aggregate([{ $sample: { size: 1 } }]); //WHAT IS THIS STUPID AGGREGATE THING
+        let usr;
+        for await (const brooo of randomUser) { //dont know how to properly extract frmo it
+            usr = brooo;
+        }
 
         // let newRecipe = await fillRecipeInfo(RecipeSeeds[i], num);
         ///////
     
-        let newRecipe = await fillScrapedRecipeInfo(RecipeBigSeeds[i]);
-        await Recipe.create(newRecipe).then(() => TrashCodeTime++, (errs) => 
+        let newRecipe = await fillScrapedRecipeInfo(RecipeBigSeeds[i], usr);
+        await Recipe.create(newRecipe).then(async res => 
         {
+            let randomUsers = User.aggregate([{ $sample: { size: 10 } }]); 
+            console.log("?", randomUsers);
+            (await randomUsers).forEach( async (a_user) => { 
+                // await addUserFavoriteToRecipe(res._id, a_user);
+                await addRecipeToUserFavorite(a_user._id, res);
+            }) 
+
+            TrashCodeTime++
+        }, (errs) => 
+        {
+            console.log(errs);
             TrashCodeTime++;
         }); //slow potentially
     }
