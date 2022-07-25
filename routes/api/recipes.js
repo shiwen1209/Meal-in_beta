@@ -1,20 +1,35 @@
 const express = require("express");
 const router = express.Router();
 const Recipe = require('../../models/Recipe');
+const User = require('../../models/User');
+
 
 // get all recipes
 router.get("/", (req, res) => {
     Recipe.find({})
-        .then((payload)=>res.json(payload))
+        .then((recipes)=>{
+            const payload = recipes.map((recipe)=>{
+                const r = {};
+                // const author = User.findOne({_id: recipe.author_id});
+                r.author = "Test user"; // Update later
+                r.authorImageUrl = "";
+                r._id = recipe._id;
+                r.title = recipe.title;
+                return r
+            })
+            res.json(payload)
+        }
+        )
         .catch(err => console.log(err));
 })
 
 // get one recipe
 router.get("/:id", (req, res) => {
-    Recipe.findById(req.parmas.id)
+    Recipe.findById(req.params.id)
         .then((payload) => res.json(payload))
         .catch(err => console.log(err));
 })
+
 
 //post a recipe
 router.post("/", (req, res) => {

@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 
@@ -103,7 +102,39 @@ const RecipeSeeds = [
             unit_name: "tbsp",
             unit_amount: 2
         }]
+    },
+
+    {
+        title: "Pesto Eggs",
+        description: "This viral TikTok recipe for pesto eggs is wildly flavorful. The eggs are fried in a layer of pesto sauce and served with a spread of goat cheese on some crusty toast.",
+    },
+
+    {
+        title: "Folded Kimbap",
+        description: "Make these quick and easy nori sandwich by folding a seaweed sheet and filling it with various ingredients of your choice. Trending on social medias these past months, these kimbap are perfect for a different kind of lunch!"
+    },
+
+    {
+        title: "Baked Feta Pasta",
+        description: "Once you try this delectable blend of pasta, roasted tomatoes, feta, and fresh herbs, you’ll know why this Tik Tok baked feta pasta recipe is such a big hit on the internet. Truly yummy!"
+    },
+
+    {
+        title: "Baked Feta Pasta",
+        description: "Once you try this delectable blend of pasta, roasted tomatoes, feta, and fresh herbs, you’ll know why this Tik Tok baked feta pasta recipe is such a big hit on the internet. Truly yummy!"
+    },
+
+    {
+        title: "Salmon and Rice Bowl",
+        description: "tbd"
+    },
+
+    {
+        title: "Vegan Pici Pasta",
+        description: "tbd"
     }
+
+
 ]
 
 const fillRecipeInfo = async function(recipe, AuthorId) {

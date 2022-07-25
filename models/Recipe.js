@@ -79,7 +79,7 @@ const RecipeSchema = new Schema({
     num_favorites: {
         type: Number,
         default: 0,
-        required: true
+        required: false // update later
     }
 }, {
     timestamps: true

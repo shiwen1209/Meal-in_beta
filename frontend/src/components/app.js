@@ -1,21 +1,24 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
-import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
-import { Route } from "react-router-dom";
+import MyRecipesContainer from './user/my_recipes_container';
+import MyMealplansContainer from './user/my_mealplans_container';
 
 const App = () => (
     <div>
         <NavBarContainer />
-        <Switch>
-            <AuthRoute exact path="/" component={MainPage} />
+        <Switch>    
+            <Route exact path="/" component={RecipeIndexContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route path="/recipes" component={RecipeIndexContainer} />
+            <ProtectedRoute exact path="/myrecipes" component={MyRecipesContainer} />
+            <ProtectedRoute exact path="/mymealplans" component={MyMealplansContainer} />
+            {/* <Route path="/howitworks" component={} /> */}
+            {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
         </Switch>
     </div>
 );
