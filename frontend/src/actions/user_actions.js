@@ -7,7 +7,8 @@ export const receiveUser = (data) => {
     return {
         type: RECEIVE_USER,
         user: data.user,
-        recipes: data.recipes_created
+        recipes_liked: data.recipes_liked,
+        recipes_created: data.recipes_created
     }
 };
 
