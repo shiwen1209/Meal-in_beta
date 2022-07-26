@@ -1,7 +1,7 @@
 import React from 'react';
-import RecipeIndexItem from './recipe_index_item'
-import indexbg from '../../images/indexbg.jpg'
-import "../../app.css"
+import RecipeIndexItem from './recipe_index_item';
+import indexbg from '../../images/indexbg.jpg';
+import SearchBar from '../search/search_bar';
 
 class RecipeIndex extends React.Component {
     
@@ -18,12 +18,15 @@ class RecipeIndex extends React.Component {
         ))
         
         return(
-            <div>
+            <div className='recipe-index'>
+                {this.props.type === "splash" ? 
                 <div className="image-section">
                     <img src={indexbg} alt="" className="recipe-bg" />
-                </div>
-               <h1>List of recipes</h1>
+                </div> :
+                <div></div>
+                }
 
+                <SearchBar />
                 <div className='recipe-box'>
                     {recipesList}
                 </div>

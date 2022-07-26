@@ -19,41 +19,51 @@ class NavBar extends React.Component {
         if (loggedIn) {
             return (
                 <div className="logged-in-nav">
-                    <h1 className="logo">Meal'in</h1>
-                    <div className="browse-rec-links">
-                        <Link to={'/recipes'}>Browse Recipes</Link>
+                    <div>
+                        <Link to={'/'} className="logo">
+                            <h1>Meal'in</h1>
+                        </Link>
+                        <div className="recipe-link">
+                            <Link to={'/recipes'}>Browse Recipes</Link>
+                        </div>
+                        <div className="recipe-link">
+                            <Link to={'/howitworks'}>How it works</Link>
+                        </div>
+                        <div className="recipe-link">
+                            <Link to={`/myrecipes/${currentUserId}`}>My Recipes</Link>
+                        </div>
+                        <div className="recipe-link">
+                            <Link to={`/mymealplans/${currentUserId}`}>My Mealplans</Link>
+                        </div> 
                     </div>
-                    <div className="recipe-link">
-                        <Link to={'/recipes'}>How it works</Link>
+                    <div className="login-signup">
+                        <div className="nav-bar-login">
+                            <button onClick={this.logoutUser}>Logout</button>
+                        </div> 
                     </div>
-                    <div className="recipe-link">
-                    <Link to={`/myrecipes/${currentUserId}`}>My Recipes</Link>
-                    </div>
-                    <div className="meal-plan-links">
-                        <Link to={`/mymealplans/${currentUserId}`}>My Mealplans</Link>
-                    </div> 
-                    <div className="logout-button">
-                        <button onClick={this.logoutUser}>Logout</button>
-                    </div> 
                 </div>
             );
         } else {
             return (
-                <div className="new-nav">
-                    <h1 className="logo">Meal'in</h1>
-                    <div className="browse-rec-links">
-                        <Link to={'/recipes'}>Browse Recipes</Link>
+                <div className="logged-in-nav">
+                    <div>
+                        <Link to={'/'} className="logo">
+                            <h1>Meal'in</h1>
+                        </Link>
+                        <div className="recipe-link">
+                            <Link to={'/recipes'}>Browse Recipes</Link>
+                        </div>
+                        <div className="recipe-link">
+                            <Link to={'/recipes'}>How it works</Link>
+                        </div>
                     </div>
-                    <div className="recipe-link">
-                        <Link to={'/recipes'}>How it works</Link>
-                    </div>
-                    
+
                     <div className="login-signup">
                         <div className="nav-bar-login">
-                        <Link to={'/login'}>Login</Link>
+                            <Link to={'/login'}>Login</Link>
                         </div>
-                        <div className="nav-bar-signup">
-                        <Link to={'/signup'}>Sign up</Link>
+                        <div className="nav-bar-login">
+                            <Link to={'/signup'}>Sign up</Link>
                         </div>
                     </div>
                 </div>
