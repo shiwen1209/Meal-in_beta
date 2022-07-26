@@ -1,0 +1,48 @@
+ .modal-background {
+     position: fixed;
+     top: 0;
+     bottom: 0;
+     right: 0;
+     left: 0;
+     background: rgba(0, 0, 0, 0.7);
+     z-index: 10;
+ }
+
+ .modal-child {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+
+ /* .modal-child button {
+     width: 100px;
+ }
+
+ .modal-child .button-container {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     border-top: 1px solid lightgray;
+ }
+
+ .modal-child .component-title {
+     border: none;
+     border-bottom: 1px solid lightgray;
+
+ }
+
+ .modal-child textarea {
+     width: 100%;
+     min-height: 140px;
+     margin: 10px;
+ }
+
+ .modal-child input {
+     width: 100%;
+     width: 500px;
+ }
+
+ .modal-child form {
+     height: 400px;
+ } */

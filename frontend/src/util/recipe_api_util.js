@@ -6,7 +6,9 @@ export const fetchRecipes = () => {
 };
 
 export const fetchRecipe = (id, userId) => {
-    console.log("2")
+    if (userId === undefined){
+        return axios.get(`/api/recipes/${id}`);
+    }
     return axios.get(`/api/recipes/${id}/${userId}`);
 };
 
