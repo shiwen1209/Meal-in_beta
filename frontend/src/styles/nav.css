@@ -1,102 +1,68 @@
 .logged-in-nav{
-    border: 1px black solid;
+    border-bottom: 1px solid lightgray;
     height: 48px;
-    display: flex;
-    padding: 12px;
-    /* justify-content: space-between; */
-    /* align-items: center; */
-}
-
-
-.new-nav{
-    display: flex;
-    height: 48px;
-    border: 1px black solid;
-    display: flex;
-    justify-content: space-between;
-    padding: 12px;
-
-}
-
-.login-signup{
-    /* border: 1px black solid; */
-    margin-right: 40px;
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.nav-bar-login{
-    /* border: 1px black solid; */
-    width: 100px;
-    display:flex;
-    justify-content: center;
+.logged-in-nav > div{
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
-.nav-bar-signup{
-    /* border: 1px black solid;  */
-    width: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #025928;
-    border-radius: 3px;
+.logged-in-nav>div:nth-child(1){
+    width: 800px;
+    justify-content: flex-start;
+    padding-left: 40px;
 }
 
-.nav-bar-signup:hover{
-    background-color: #027333;
+.logged-in-nav>div:nth-child(2) {
+    justify-content: flex-end;
+    padding-right: 40px;
 }
 
 .logo{
     display: flex;
     align-items: center;
-    margin-left: 100px;
-}
-
-.browse-rec-links{
-    display: flex;
-    /* border: 1px black solid; */
-    align-items: center;
-    margin-left: 10px;
-    font-size: 14px;
-    color: #72735F;
-    
-}
-
-.meal-plan-links{
-    display: flex;
-    /* border: 1px black solid; */
-    align-items: center;
-    margin-left: 20px;
-    font-size: 14px;
-    color: #72735F;
+    margin-right: 20px;
+    color: #027333;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .recipe-link{
     display: flex;
-    /* border: 1px black solid; */
     align-items: center;
-    margin-left: 20px;
+    justify-content: center;
     font-size: 14px;
     color: #72735F;
+    width: 150px;
+    /* border: 1px black solid; */
 }
 
-.logout-button{
+.nav-bar-login {
+    width: 100px;
+    height: 40px;
     display: flex;
     justify-content: center;
-    /* border: 1px black solid; */
-    width: 100px;
-    margin-left: 800px;
+    align-items: center;
     background-color: #025928;
-    border-radius: 3px;
-
+    color: white;
+    margin-left: 10px;
+    border-radius: 5px;
 }
 
-.logout-button:hover {
-    background-color: #027333;
-
+.nav-bar-login:hover {
+    background-color: #10ca61;
 }
 
-
-
+.loggedin-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

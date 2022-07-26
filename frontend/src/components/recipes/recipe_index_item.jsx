@@ -1,6 +1,7 @@
 import React from 'react';
 import image from '../../images/default_recipe.jpg';
 import headshot from '../../images/default_headshot.png';
+import { Link } from 'react-router-dom';
 
 
 class RecipeIndex extends React.Component {
@@ -9,16 +10,15 @@ class RecipeIndex extends React.Component {
         const {recipe} = this.props
         return(
             <div>
+            <Link to={`/recipes/${recipe.id}`}>
             <div className='responsive'>
                 <div className='gallery'>
-
                     <div className="image-container">
-                      <img src={image} alt="" className='recipe-index-img' />
+                        <img src={recipe.image_url} alt="" className='recipe-index-img' />
                         <div className="overlay">
                             <div className="text">{recipe.title}</div>
                         </div>
                     </div>
-
                     <div className='user-little-info'>
                         <div className='user-little-img'>
                             <img src={headshot} alt="" />
@@ -32,7 +32,7 @@ class RecipeIndex extends React.Component {
             </div>
 
                 <div className="clearfix"></div>
-
+                </Link>
             </div>
         )
     }

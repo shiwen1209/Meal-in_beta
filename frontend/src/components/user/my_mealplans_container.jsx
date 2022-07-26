@@ -4,7 +4,7 @@ import { fetchUser } from "../../actions/user_actions";
 
 const mstp = (state, ownProps)=>{
     return{
-        recipes: state.entities.recipes,
+        recipes: Object.values(state.entities.recipes),
         user: state.entities.users[ownProps.match.params.userId]
     }
 }

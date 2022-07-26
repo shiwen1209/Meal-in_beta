@@ -13,13 +13,11 @@ router.get("/", (req, res) => {
                 r.title = recipe.title
                 r.num_ratings = recipe.num_ratings
                 r.total_rating = recipe.total_rating
-                r.author_name = await User.findOne({ _id: recipe.author_id }).then((res) => { 
-                    // console.log("result: ", res);
-                    // return res.handle 
+                r.author_name = await User.findOne({ _id: recipe.author }).then((res) => { 
                     return "test_name";
                 })
                 r.authorImageUrl = "";
-                r.recipeImageUrl = recipe.image_url;
+                r.image_url = recipe.image_url;
                 r._id = recipe._id;
                 r.id = recipe.id;
                 return r;
@@ -37,7 +35,7 @@ router.get("/:id", (req, res) => {
     {
         console.log("recipe: ", recipe);
         let ans;
-        await recipe.populate("author", "-email -recipes_liked -__v -password").then((result) => {ans = result;});
+        await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
         return res.json(ans);
     })
     .catch(err => console.log(err));
@@ -45,6 +43,7 @@ router.get("/:id", (req, res) => {
 
 
 //post a recipe
+//yo this is lacking!!!!! add mroe feilds
 router.post("/", (req, res) => {
             const newRecipe = new Recipe({
                 title: req.body.title,

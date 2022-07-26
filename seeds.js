@@ -8,6 +8,7 @@ const RecipeIngredient = require('./models/RecipeIngredient.js');
 const axios = require("axios")
 const parser = require('node-html-parser')
 const jsdom = require("jsdom")
+const bcrypt = require("bcrypt")
 
 let obj = require("./recipes.json");
 
@@ -438,7 +439,17 @@ const seedDB = async () => {
 
     const RecipeBigSeeds = obj.slice(0, 200);
 
-    await User.create(UserSeeds); //INSERT MANY
+    let newUserSeeds = await Promise.all(UserSeeds.map(async(user) => {
+       let newUser = Object.assign({}, user);
+       newUser.password = null;
+       newUser.password = await bcrypt.hash(user.password, 10);
+       return newUser;
+      })
+    );
+
+    await User.create(newUserSeeds);
+
+
     let TrashCodeTime = 0; //to be replaced with Promise.all
     for(let i = 0; i < RecipeBigSeeds.length; i++)
     {
@@ -455,7 +466,7 @@ const seedDB = async () => {
         let newRecipe = await fillScrapedRecipeInfo(RecipeBigSeeds[i], usr);
         await Recipe.create(newRecipe).then(async res => 
         {
-            let randomUsers = User.aggregate([{ $sample: { size: 5 } }]); 
+            let randomUsers = User.aggregate([{ $sample: { size: 4 } }]); 
             (await randomUsers).forEach( async (a_user) => { 
                 // await addUserFavoriteToRecipe(res._id, a_user);
                 console.log(a_user);

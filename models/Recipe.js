@@ -147,18 +147,10 @@ const RecipeSchema = new Schema({
         type: [String], //could just be string
         required: false
     },
-    author_id:{
+    author:{
         type: ObjectId,
         required: true,
         ref: "User"
-    },
-    author_handle: {
-        type: String,
-        required: true
-    },
-    author_pfp_url: {
-        type: String,
-        required: false
     },
     // meal_type: { //Breakfast, Lunch, Dinner, Snack/Drink? <- DONT NEED THIS
     //     type: [String],
