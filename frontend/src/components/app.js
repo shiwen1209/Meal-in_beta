@@ -8,6 +8,7 @@ import RecipeIndexContainer from './recipes/recipe_index_container';
 import MyRecipesContainer from './user/my_recipes_container';
 import MyMealplansContainer from './user/my_mealplans_container';
 import RecipeContainer from './recipes/recipes_container';
+import UserShowPageContainer from './user/user_show_page_container';
 
 const App = () => (
     <div>
@@ -20,6 +21,7 @@ const App = () => (
             <Route exact path="/myrecipes/:userId" component={MyRecipesContainer} />
             <Route exact path="/mymealplans/:userId" component={MyMealplansContainer} />
             <Route exact path="/recipes" component={RecipeIndexContainer} />
+            <Route exact path="/users/:userId" component={UserShowPageContainer} />
             {/* <Route path="/howitworks" component={} /> */}
             {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
         </Switch>

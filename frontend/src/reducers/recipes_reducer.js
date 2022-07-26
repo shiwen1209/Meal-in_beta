@@ -1,5 +1,5 @@
 import {
-    RECEIVE_ALL_RECIPES, RECEIVE_RECIPE
+    RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, RECEIVE_NEW_RECIPES
 } from '../actions/recipe_actions';
 
 import { RECEIVE_USER } from '../actions/user_actions';
@@ -22,6 +22,8 @@ export default function (state = {}, action) {
                 nextState[recipe.id] = recipe
             ));
             return nextState;
+        case RECEIVE_NEW_RECIPES:
+            return action.recipes
         default:
             return state;
     }

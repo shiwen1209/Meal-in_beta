@@ -3,8 +3,7 @@ import {
 } from '../actions/recipe_actions';
 
 // import { RECEIVE_USER } from '../actions/user_actions';
-
-export default function (state = {}, action) {
+ let current_recipe = function (state = {}, action) {
     Object.freeze(state);
     // let nextState = Object.assign({}, state)
     switch (action.type) {
@@ -14,3 +13,5 @@ export default function (state = {}, action) {
             return state;
     }
 }
+
+export default current_recipe
