@@ -1,0 +1,75 @@
+.user-profile-pic{
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 0 4px #8a8d91;
+    /* z-index: 45; */
+    border-radius: 100px;
+    display: flex;
+    margin-left: 200px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.profile-pic-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+.user-handle{
+    display: flex;
+    /* border: 1px black solid; */
+    margin-left: 400px;
+    font-size: 26px;
+    margin-top: -150px;
+    width: 500px;
+
+}
+
+.user-bio{
+    display: flex;
+    /* border: 1px black solid; */
+    margin-left: 400px;
+    width: 500px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.created-recipe{
+    display: flex;
+    /* border: 1px black solid; */
+    width: 270px;
+    height: 230px;
+    margin: 15px;
+    box-shadow: 0 0 4px #8a8d91;
+    border-radius: 10px;
+}
+
+.created-recipes-index{
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: 100px;
+    /* margin-left: 50px; */
+    /* margin-right: 100px; */
+}
+
+.recipe-count{
+    padding-top: 20px;
+    margin-left: 400px;
+}
+
+.make-meal-plan-button{
+    width: 150px;
+    height: 60px;
+    background: green;
+    display: flex;
+    margin-left: 1100px;
+    margin-top: -150px;
+    justify-content: center;
+    align-items: center;
+}
+
+

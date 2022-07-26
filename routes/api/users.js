@@ -102,7 +102,7 @@ router.post("/login", (req, res) => {
 router.get("/:id", async(req, res) => {
     const ans = {};
     User.findOne({id: req.params.id}).then( async (user) => {
-        // console.log("res", user);
+        console.log("res", user);
         ans.user = {
             handle: user.handle,
             bio: user.bio,
