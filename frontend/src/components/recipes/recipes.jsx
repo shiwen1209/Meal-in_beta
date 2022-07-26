@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../rating/rating"
 import { SiCodechef } from "react-icons/si";
 import { BiMessageSquareDetail } from "react-icons/bi";
 import { GiShadowFollower } from "react-icons/gi";
@@ -21,13 +22,14 @@ class Recipe extends React.Component{
     }
 
     componentDidMount() {
-        // debugger
-        this.props.fetchRecipe(this.props.match.params.recipeId)
+        this.props.fetchRecipe(this.props.match.params.recipeId, this.props.currentUser.id);
     }
 
     render(){
         const {recipe} = this.props;
         let ingredients = recipe.ingredients;
+        const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
+
         // debugger
         if (!recipe ||!recipe.author) return null;
         // debugger
@@ -66,13 +68,7 @@ class Recipe extends React.Component{
                             <span>{recipe.prep_time}</span>
                         </div>
                         <div className="time">
-                            <span>
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                            </span>
+                            <span><Rating rating={avgRating} className="rating-icon"/></span>
                             <span>({recipe.num_ratings})</span>
                         </div>
                         <div className="time">
@@ -82,7 +78,7 @@ class Recipe extends React.Component{
                     </div>
 
                     <div className="recipe-des">{recipe.description}</div>
-                    <img src={recipeimg} alt="recipeimg" className="recipe-img" />
+                    <img src={recipe.image_url} alt="recipeimg" className="recipe-img" />
 
                     <div className="ingredient-instruction-box">
                         <div className="ingredient">

@@ -20,8 +20,8 @@ export const fetchRecipes = () => dispatch => (
     .then((payload)=> dispatch(receiveAllRecipes(payload.data)))
 );
 
-export const fetchRecipe = (recipeId) => dispatch => (
-    RecipeApiUtil.fetchRecipe(recipeId)
+export const fetchRecipe = (recipeId, userId) => dispatch => (
+    RecipeApiUtil.fetchRecipe(recipeId, userId)
         .then((recipe) => dispatch(receiveRecipe(recipe.data)))
 );
 

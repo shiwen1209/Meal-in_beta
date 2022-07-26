@@ -35,9 +35,10 @@
     /* position: absolute; */
     left: 80%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+    border: #027333 2px solid;
 }
 
 .gallery:hover .overlay {
@@ -56,7 +57,7 @@
     color: black;
     font-size: 20px;
     /* position: absolute; */
-    margin-left: 300px;
+    /* margin-left: 300px;
     padding-left: 10px;
     width: 300px;
     top: 50%;
@@ -66,8 +67,15 @@
     transform: translate(-50%, -1000%);
     text-align: center;
     display: flex;
-    
+    border: #027333 2px solid;
+     */
 }
+
+.recipe-little-info{
+    display: flex;
+    flex-direction: column;
+}
+
 .recipe-box{
     width: 100%;
     height: 100%;

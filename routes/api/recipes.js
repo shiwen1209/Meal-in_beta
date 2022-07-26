@@ -29,13 +29,45 @@ router.get("/", (req, res) => {
 })
 
 // get one recipe
-router.get("/:id", (req, res) => {
+// router.get("/:id", (req, res) => {
+//     Recipe.findOne({id: req.params.id})
+//     .then(async recipe => 
+//     {
+//         console.log("recipe: ", recipe);
+//         let ans;
+//         await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
+//         return res.json(ans);
+//     })
+//     .catch(err => console.log(err));
+// })
+
+router.get("/:id/:userid", (req, res) => {
     Recipe.findOne({id: req.params.id})
     .then(async recipe => 
     {
-        console.log("recipe: ", recipe);
+        // console.log("recipe real shit", recipe);
         let ans;
-        await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
+        await recipe.populate("author", "-email -recipes_liked -__v -password -recipes_rated").then(async result => {
+            ans = result;
+            ans.user_liked = false;
+            await User.findOne({ id: req.params.userid }).then((current_user) => {
+                console.log(current_user, "cu");
+                console.log(current_user.recipes_liked);
+                console.log(recipe._id);
+                if (current_user.recipes_liked.includes(recipe._id)) {
+                    ans.user_liked = true;
+                }
+                // current_user.populate('recipes_liked').then((result) => result.recipes_liked.forEach((ele) => 
+                // {
+                //     if(ele._id === recipe._id)
+                //     {
+                //         console.log("found em", ele);
+                //     }
+                // }));
+            })
+        });
+        
+        console.log(ans, "ans");
         return res.json(ans);
     })
     .catch(err => console.log(err));
