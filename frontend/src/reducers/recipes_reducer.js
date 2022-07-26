@@ -2,6 +2,8 @@ import {
     RECEIVE_ALL_RECIPES, RECEIVE_RECIPE
 } from '../actions/recipe_actions';
 
+import { RECEIVE_USER } from '../actions/user_actions';
+
 export default function (state = {}, action) {
     Object.freeze(state);
     let nextState = Object.assign({}, state)
@@ -11,8 +13,14 @@ export default function (state = {}, action) {
                 nextState[recipe.id] = recipe
             ));
             return nextState;
-        case RECEIVE_RECIPE:
-            nextState[action.recipe.id] = action.recipe
+        // case RECEIVE_RECIPE:
+        //     nextState[action.recipe.id] = action.recipe
+        //     return nextState;
+        case RECEIVE_USER:
+            // debugger
+            action.recipes.forEach((recipe) => (
+                nextState[recipe.id] = recipe
+            ));
             return nextState;
         default:
             return state;
