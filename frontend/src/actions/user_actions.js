@@ -5,11 +5,11 @@ export const RECEIVE_USER = "RECEIVE_USER";
 
 export const receiveUser = (data) => {
     return {
-      type: RECEIVE_USER,
-      user: data.user,
-      recipes_liked: data.recipes_liked,
-      recipes_created: data.recipes_created,
-    };
+        type: RECEIVE_USER,
+        user: data.user,
+        recipes_liked: data.recipes_liked,
+        recipes_created: data.recipes_created
+    }
 };
 
 

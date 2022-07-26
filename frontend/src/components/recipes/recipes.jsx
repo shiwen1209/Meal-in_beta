@@ -28,7 +28,7 @@ class Recipe extends React.Component{
     render(){
         const {recipe} = this.props;
         let ingredients = recipe.ingredients;
-        // debugger
+        // debuggerp
         if (!recipe ||!recipe.author) return null;
         // debugger
         return (

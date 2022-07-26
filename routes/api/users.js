@@ -174,5 +174,17 @@ router.get("/:id", async(req, res) => {
 }
 */
 
+// passport.authenticate('jwt', { session: false }) // add this later
+router.patch("/:id",  (req, res) => {
+        // const { errors, isValid } = validateStudentInput(req.body);
+        User.findByIdAndUpdate(req.params.id,
+            req.body,
+            { new: true, useFindAndModify: false },
+            (err, student) => {
+                if (err) return res.status(500).send(err);
+                return res.json(student);
+            })
+})
+
 module.exports = router;
 
