@@ -35,7 +35,9 @@ input{
     /* margin-right: -50px; */
 }
 
-
+.show-page-section{
+    font-family: 'Albert Sans', sans-serif;
+}
 
 
 .password-box{
@@ -54,6 +56,7 @@ input{
     /* border: 1px black solid; */
     display: flex;
     justify-content: center;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .login-page-text-login{

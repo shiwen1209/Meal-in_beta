@@ -5,17 +5,18 @@ import { fetchUser, fetchLikedRecipes, fetchCreatedRecipes } from "../../actions
 
 const mstp = ( state, ownProps) => {
     return {
-        recipes: Object.values(state.entities.recipes),
-        user: state.entities.users[ownProps.match.params.userId],
-        // recipes2: state.entities.recipes
-    }
+      recipes_liked: state.entities.recipes.recipes_liked,
+      recipes_created: state.entities.recipes.recipes_created,
+      user: state.entities.users[ownProps.match.params.userId],
+      // recipes2: state.entities.recipes
+    };
 }
 
 const mdtp = (dispatch) => {
     return {
         fetchUser: (userId) => dispatch(fetchUser(userId)),
-        fetchLikedRecipes : (userId) => dispatch(fetchLikedRecipes(userId)),
-        fetchCreatedRecipes: (userId) => dispatch(fetchCreatedRecipes(userId))
+        // fetchLikedRecipes : (userId) => dispatch(fetchLikedRecipes(userId)),
+        // fetchCreatedRecipes: (userId) => dispatch(fetchCreatedRecipes(userId))
     }
 }
 

@@ -28,7 +28,7 @@
 
 .user-bio{
     display: flex;
-    /* border: 1px black solid; */
+    border: 1px black solid;
     margin-left: 400px;
     width: 500px;
     height: 100px;
@@ -45,15 +45,24 @@
     border-radius: 10px;
 }
 
+.created-recipe:hover .user-show-recipe-image{
+    opacity: 0.5;
+}
+.created-recipe:hover .user-show-recipe-title{
+    display: flex;
+    opacity: 1;
+}
+
 .created-recipes-index{
     
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 100px;
+    margin-left: 110px;
     /* margin-left: 50px; */
-    /* margin-right: 100px; */
+    margin-right: 100px;
 }
 
 .recipe-count{
@@ -65,11 +74,44 @@
     width: 150px;
     height: 60px;
     background: green;
+    box-shadow: 0 0 4px #8a8d91;
     display: flex;
     margin-left: 1100px;
     margin-top: -150px;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
+.user-show-recipe-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.user-show-recipe-title{
+    display: none;
+    position: absolute;
+
+    /* border: 1px black solid; */
+    height: 230px;
+    width: 270px;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    /* font-size: 60; */
+    /* margin-left: 40px; */
+    /* margin-top: 60px; */
+}
+
+
+.edit-button{
+    display: flex;
+    position: absolute;
+    margin-left: 240px;
+    margin-top: 10px;
+    color: white;
+    z-index: 99;
+}
 

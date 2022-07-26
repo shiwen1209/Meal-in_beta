@@ -7,6 +7,8 @@
 /* @import './styles/mealplan.css';
 @import './styles/recipe_show.css'; */
 
+
+
 * {
     box-sizing: border-box;
 }
@@ -77,6 +79,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 70px;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .user-little-img{
@@ -186,6 +189,7 @@ div.gallery img {
     width: 400px;
     margin-top: 20px;
     font-size: 30px;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .index-search input{
