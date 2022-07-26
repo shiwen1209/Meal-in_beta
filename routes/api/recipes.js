@@ -14,14 +14,12 @@ router.get("/", (req, res) => {
                 r.num_ratings = recipe.num_ratings
                 r.total_rating = recipe.total_rating
                 r.author_name = await User.findOne({ _id: recipe.author }).then((res) => { 
-                    console.log("result: ", res);
-                    // return res.handle 
                     return "test_name";
                 })
                 r.authorImageUrl = "";
                 r.recipeImageUrl = recipe.image_url;
                 r._id = recipe._id;
-                r.id = r.id;
+                r.id = recipe.id;
                 return r;
             }))
             res.json(payload)

@@ -13,7 +13,7 @@ class RecipeIndex extends React.Component {
                 <div className='gallery'>
 
                     <div className="image-container">
-                      <img src={image} alt="" className='recipe-index-img' />
+                        <img src={recipe.recipeImageUrl} alt="" className='recipe-index-img' />
                         <div className="overlay">
                             <div className="text">{recipe.title}</div>
                         </div>
