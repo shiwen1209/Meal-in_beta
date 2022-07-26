@@ -26,7 +26,7 @@ class RecipeIndex extends React.Component {
                 <div></div>
                 }
 
-                <SearchBar />
+                <SearchBar formType="index-search" />
                 <div className='recipe-box'>
                     {recipesList}
                 </div>

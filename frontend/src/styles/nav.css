@@ -1,5 +1,5 @@
 .logged-in-nav{
-    /* border: 1px solid #027333; */
+    border-bottom: 1px solid lightgray;
     height: 48px;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
 }
 
 .logged-in-nav>div:nth-child(1){
-    width: 600px;
+    width: 800px;
     justify-content: flex-start;
     padding-left: 40px;
 }
@@ -42,7 +42,7 @@
     font-size: 14px;
     color: #72735F;
     width: 150px;
-        /* border: 1px black solid; */
+    /* border: 1px black solid; */
 }
 
 .nav-bar-login {
@@ -59,4 +59,10 @@
 
 .nav-bar-login:hover {
     background-color: #10ca61;
+}
+
+.loggedin-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
