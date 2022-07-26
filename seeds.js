@@ -8,6 +8,7 @@ const RecipeIngredient = require('./models/RecipeIngredient.js');
 const axios = require("axios")
 const parser = require('node-html-parser')
 const jsdom = require("jsdom")
+const bcrypt = require("bcrypt")
 
 let obj = require("./recipes.json");
 
@@ -412,18 +413,18 @@ const fillScrapedRecipeInfo = async function(recipe, author) {
         let existingUser = await User.findOne({handle: author.handle}).exec()
         if(existingUser)
         {
-            newRecipe.author_id = existingUser._id;
-            newRecipe.author_pfp_url = existingUser.pfp_url;
-            newRecipe.author_handle = existingUser.handle;
+            newRecipe.author = existingUser._id;
+            // newRecipe.author_pfp_url = existingUser.pfp_url;
+            // newRecipe.author_handle = existingUser.handle;
         }
         else
         {
             let newUser = new User({handle: author.handle, email: author.email, password: "pass123"});
             await newUser.save().then( (res) => 
             {
-                newRecipe.author_id = res._id;
-                newRecipe.author_pfp_url = res.pfp_url;
-                newRecipe.author_handle = res.handle;
+                newRecipe.author = res._id;
+                // newRecipe.author_pfp_url = res.pfp_url;
+                // newRecipe.author_handle = res.handle;
             })
         }
     }
@@ -438,7 +439,17 @@ const seedDB = async () => {
 
     const RecipeBigSeeds = obj.slice(0, 200);
 
-    await User.create(UserSeeds); //INSERT MANY
+    let newUserSeeds = await Promise.all(UserSeeds.map(async(user) => {
+       let newUser = Object.assign({}, user);
+       newUser.password = null;
+       newUser.password = await bcrypt.hash(user.password, 10);
+       return newUser;
+      })
+    );
+
+    await User.create(newUserSeeds);
+
+
     let TrashCodeTime = 0; //to be replaced with Promise.all
     for(let i = 0; i < RecipeBigSeeds.length; i++)
     {
@@ -455,10 +466,10 @@ const seedDB = async () => {
         let newRecipe = await fillScrapedRecipeInfo(RecipeBigSeeds[i], usr);
         await Recipe.create(newRecipe).then(async res => 
         {
-            let randomUsers = User.aggregate([{ $sample: { size: 10 } }]); 
-            console.log("?", randomUsers);
+            let randomUsers = User.aggregate([{ $sample: { size: 4 } }]); 
             (await randomUsers).forEach( async (a_user) => { 
                 // await addUserFavoriteToRecipe(res._id, a_user);
+                console.log(a_user);
                 await addRecipeToUserFavorite(a_user._id, res);
             }) 
 

@@ -77,6 +77,7 @@ router.post("/login", (req, res) => {
             errors.email = "This email does not exist";
             return res.status(400).json(errors);
         }
+        console.log("huh???", user);
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
@@ -100,7 +101,8 @@ router.post("/login", (req, res) => {
 // user show (myrecipes and my mealplans)
 router.get("/:id", async(req, res) => {
     const ans = {};
-    User.findOne({id: req.params.id}).then( (user) => {
+    User.findOne({id: req.params.id}).then( async (user) => {
+        // console.log("res", user);
         ans.user = {
             handle: user.handle,
             bio: user.bio,
@@ -109,9 +111,14 @@ router.get("/:id", async(req, res) => {
             pfp_url: user.pfp_url ///we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
             //PROFILE PICTURE HERE
         };
-        return Recipe.find({author_id: user._id}) //this kind of trash, can be optimized with adding subdocuments in User for Recipes-Created, with pre save middleware to auto-assoicate
+
+        await user.populate("recipes_liked", "_id title category num_ratings total_rating image_url id");
+        ans.recipes_liked = user.recipes_liked;
+
+        return Recipe.find({author: user._id}) //this kind of trash, can be optimized with adding subdocuments in User for Recipes-Created, with pre save middleware to auto-assoicate
                                                  
     }).then((recipes) => {
+        // console.log("recipes created", recipes);
         ans.recipes_created = [];
         for(let i = 0; i < recipes.length; i++)
         {
@@ -160,7 +167,7 @@ router.get("/:id", async(req, res) => {
             "_id": "62de08c33678778432e5aa83"
         }
     ],
-    "recipes_favorited": [
+    "recipes_liked": [
         blah blah blah same format as above
         note that all three of these subcategories, users, recipes favorited, recipes created, should have an image_url also sent back
     ]
