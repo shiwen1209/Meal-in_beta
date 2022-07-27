@@ -5,6 +5,7 @@ class MyMealplans extends React.Component {
         super(props);
         this.state = {
             display: "mealplan",
+            displayFinalize: false,
             searchValue: "",
             filteredResult: this.props.recipes,
             activeRecipe: null,
@@ -17,6 +18,7 @@ class MyMealplans extends React.Component {
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleMPClick = this.handleMPClick.bind(this);
         this.updateMpName = this.updateMpName.bind(this);
+        this.submitMealplan = this.submitMealplan.bind(this);
     }
 
     componentDidMount(){
@@ -63,8 +65,11 @@ class MyMealplans extends React.Component {
         console.log(this.state)
     }
 
-
-
+    submitMealplan(e){
+        e.preventDefault();
+        this.props.createMealplan(this.state.mealplan);
+        this.setState({ displayFinalize: true })
+    }
 
     render() {
         console.log(this.state)
@@ -141,10 +146,13 @@ class MyMealplans extends React.Component {
                     </div>
                     {this.state.display === "mealplan" ?
                     <div className='mealplan-sub'>
-                        <input type="text" placeholder='Enter a mealplan name'
-                        onChange={this.updateMpName}
-                        value = {this.state.mealplan.name}
-                        />
+                        <div>
+                            <label>Enter a mealplan name
+                                <input type="text" placeholder='Enter a mealplan name'
+                                onChange={this.updateMpName} value = {this.state.mealplan.name}/>
+                            </label>
+                            <p>Number of servings</p>
+                        </div>
                         <div className="grid-container">
                             <div className="grid-item"></div>
                             <div className="grid-item">BREAKFAST</div>
@@ -265,13 +273,75 @@ class MyMealplans extends React.Component {
                                 this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "dinner"))[0].recipe_title : ""
                                 }</div>
                         </div>
-                        <div className='mealplan-buttons'>
-                            <button className='nav-bar-login'>Clear All</button>
-                            <button className='nav-bar-login'>Finalize Mealplan</button>
-                        </div>
+                        {!this.state.displayFinalize ? 
+                            <div className='mealplan-buttons'>
+                                    <button className='nav-bar-login'>Clear All</button>
+                                    <button
+                                        onClick={this.submitMealplan}
+                                        className='nav-bar-login'>Finalize Mealplan</button>
+                            </div> : 
+                            <div className='mealplan-results'>
+                                    <h1>Mealplan finalized!</h1>
+                                    <h1 className='shopping-link'>See shopping list</h1>
+                            </div>
+                        
+                        
+                        }
+
                     </div> : 
                     <div className='nutrition-sub'>
-                        nutrition value
+                        <ul>
+                                <li>
+                                    <h1>Calories</h1>
+                                    <div></div>
+                                </li>
+                                <li>
+                                    <h1>carbohydrates</h1>
+
+                                </li>
+                                <li>
+                                    <h1>carbohydrates</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Sugar</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Saturated fat</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Sugar</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Sugar</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Vitamin A</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Vitamin B</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Vitamin C</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Vitamin D</h1>
+
+                                </li>
+                                <li>
+                                    <h1>Protein</h1>
+
+                                </li>
+
+                        </ul>
+
                     </div>
                     }
 

@@ -4,7 +4,7 @@ const MealPlan = require('./models/MealPlan.js')
 const User = require('./models/User.js');
 const Recipe = require('./models/Recipe.js')
 
-let obj = require("./recipes.json");
+// let obj = require("./recipes.json");
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
