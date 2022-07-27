@@ -59,9 +59,9 @@ class UserShowPage extends React.Component {
 
                   <div>
                     <div className="user-handle">{user && <div>{user.handle}</div>}</div>
-                    <div  className="edit-button-start"onClick={this.handleClick}>
+                    <button className="edit-button-start" onClick={this.handleClick}>
                       <i className="fa-solid fa-pen"></i>
-                    </div>
+                    </button>
                   </div>
 
                   <div className="recipe-count"> {recipes_created.length} recipes</div>
@@ -85,9 +85,9 @@ class UserShowPage extends React.Component {
               <div className="user-buttons">
                     {currentUserId === user.id ? 
                       <div>
-                        <div className="make-a-recipe"
-                        onClick={(e)=>openModalPayload({ modal: 'createRecipe', payload: null })}
-                        >Create a Recipe</div>
+                        <button className="make-a-recipe"
+                        onClick={(e)=>openModalPayload("createRecipe")}
+                        >Create a Recipe</button>
                         <div className="make-meal-plan-button">Make a meal plan</div>
                       </div>
                     : 
@@ -111,9 +111,9 @@ class UserShowPage extends React.Component {
                     alt="background-pic"
                   />
                   <div className="user-show-recipe-title">{recipe.title}</div>
-                  <div className="edit-button">
+                  <button className="edit-button" onClick={(e)=>openModalPayload("updateRecipe")}>
                     <i className="fa-solid fa-pen"></i>
-                  </div>
+                  </button>
                 </div>
               </Link>
             ))}

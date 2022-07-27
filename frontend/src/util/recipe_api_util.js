@@ -13,4 +13,14 @@ export const fetchRecipe = (id, userId) => {
 };
 
 
+export const createRecipe = data => {
+  
+    return axios.post(`/api/recipes/`, data );
+};
+
+
+export const updateRecipe = recipe => {
+    console.log(recipe, 'lolo')
+    return axios.patch(`/api/recipes/${recipe.id}`, recipe )
+}
 

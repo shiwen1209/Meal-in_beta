@@ -1,19 +1,19 @@
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-// import { createExp } from "../../actions/exp_actions";
+import { createRecipe} from "../../actions/recipe_actions"
+
 import RecipeForm from "./recipe_form";
 
 const mstp = (state) => {
   return {
     formType: "Create",
-    recipe: {
-    },
-  };
+    currentUserId: state.session.user._id
+    };
 };
 
 const mdtp = (dispatch) => {
   return {
-    // processForm: (exp) => dispatch(createRecipe(exp)),
+    processForm: (exp) => dispatch(createRecipe(exp)),
     closeModal: () => dispatch(closeModal()),
   };
 };

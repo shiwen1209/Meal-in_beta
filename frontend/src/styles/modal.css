@@ -1,21 +1,100 @@
- .modal-background {
-     position: fixed;
-     top: 0;
-     bottom: 0;
-     right: 0;
-     left: 0;
-     background: rgba(0, 0, 0, 0.7);
-     z-index: 10;
-     height: 800px;
-     width: 1000px;
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+  }
+  
+  
+ .modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+  }
+
+  .create-form-container {
+    width: 750px;
+    height: 800px;
+    overflow-y: scroll;
+    background: white;
+  }
+
+ .add-ingredients{
+    width: 200px;
+    height: 200px;
+    border: 1px black solid;
+    display: flex;
  }
 
- .modal-child {
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
+ .recipe-form-title{
+    /* width: 300px; */
+    height: 50px;
+    /* border: 1px black solid; */
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+
+
  }
+ .ingredientsList{
+    height: 20px;
+    border: 1px black solid;
+ }
+
+ #title-input{
+    width: 340px;
+    height: 60px;
+    margin-bottom: 20px;
+   
+ }
+ #description-input{
+    width: 340px;
+    height: 170px;
+   
+ }
+ #tester{
+    /* border: 1px black solid; */
+    padding-top: 20px;
+   
+ }
+
+ .how-to{
+    display: flex;
+    justify-content: center;
+ }
+
+ .how-to-title{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 202px;
+ }
+
+ .money-drop{
+    margin-left: 390px;
+    width: 100px;
+ }
+
+
+ .creating-form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: space-around;
+    padding-top: px;
+    /* border: 1px black solid; */
+    /* height: 500px; */
+
+ }
+
+ /* .title-box{
+    width
+ } */
 
  /* .modal-child button {
      width: 100px;

@@ -56,6 +56,10 @@
     opacity: 1;
 }
 
+.created-recipe:hover .edit-button{
+    display: flex;
+}
+
 .created-recipes-index{
     
     display: flex;
@@ -111,11 +115,11 @@
 
 
 .edit-button{
-    display: flex;
+    display: none;
     position: absolute;
-    margin-left: 240px;
+    margin-left: 250px;
     margin-top: 10px;
-    color: white;
+    color: rgb(175, 30, 30);
     z-index: 99;
     
 }
