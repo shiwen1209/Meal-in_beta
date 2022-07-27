@@ -1,6 +1,6 @@
 import React from "react";
 
-class ERecipeForm extends React.Component {
+class EditRecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.recipe;
@@ -25,11 +25,11 @@ class ERecipeForm extends React.Component {
     return(
         <div className="createForm">
             <div>
-              
+              YO
             </div>
         </div>
     )
   }
 }
 
-export default ERecipeForm;
+export default EditRecipeForm;
