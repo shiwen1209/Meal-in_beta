@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
     return {
         createLike: (like) => dispatch(createLike(like)),
-        deleteLike: (dislike) => dispatch(deleteLike(dislike)),
+        deleteLike: (like) => dispatch(deleteLike(like)),
         fetchRecipe: (recipeId, userId) => dispatch(fetchRecipe(recipeId, userId))
     }
 }

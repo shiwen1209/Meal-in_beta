@@ -4,11 +4,10 @@ import { BiHeartCircle } from "react-icons/bi";
 class Like extends React.Component{
     constructor(props){
         super(props)
-
         this.state = {
             userId: this.props.currentUserId,
-            recipeId: this.props.recipe.id,
-            user_liked: this.props.currentRecipe.user_liked
+            recipeId: this.props.recipe.id
+            // user_liked: this.props.currentRecipe.user_liked
         }
         this.handleLike = this.handleLike.bind(this);
         // this.handleDislike = this.handleDislike.bind(this);
@@ -20,16 +19,15 @@ class Like extends React.Component{
 
     handleLike(e){
         e.preventDefault();
-        if (this.state.user_liked){
+        if (this.props.currentRecipe.user_liked){
+            // this.setState({user_liked: false})
             debugger
-            this.setState({
-                user_liked: !this.props.currentRecipe.user_liked
-            })
             this.props.deleteLike(this.state);
         }else{
-            this.setState({
-                user_liked: !this.props.currentRecipe.user_liked
-            })
+            // this.setState({
+            //     user_liked: true
+            // })
+            debugger
             this.props.createLike(this.state);
         }
     };
@@ -47,12 +45,13 @@ class Like extends React.Component{
 
 
     render(){
-        const {recipe} = this.props;
+        console.log(this.state)
+        const { recipe, currentRecipe } = this.props;
         if (!recipe) return null;
         return(
             <div>
                     <button onClick={this.handleLike } >
-                    {this.state.user_liked === false ? <BiHeartCircle /> : <BiHeartCircle style={{ color: "red" }} />}
+                    {!currentRecipe.user_liked ? <BiHeartCircle /> : <BiHeartCircle style={{ color: "red" }} />}
                     </button> 
             </div>
         )
