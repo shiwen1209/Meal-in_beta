@@ -6,19 +6,19 @@ class CreateRatingForm extends React.Component{
     constructor(props) {
         super(props)
 
-        console.log("our props", this.props);
+        // console.log("our props", this.props);
         this.state = {
             rating: 0,
             userId: this.props.currentUserId,
-            recipeId: this.props.recipeId
+            recipeId: this.props.recipe.id
+
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
-
     }
 
     componentDidMount() {
-        this.props.fetchRecipe(this.props.recipeId, this.props.currentUserId);
+        this.props.fetchRecipe(this.props.recipe.id, this.props.currentUserId);
     }
 
 
@@ -28,7 +28,9 @@ class CreateRatingForm extends React.Component{
     }
 
     update(field){
-        return (e) => this.setState({ [field]: e.currentTarget.value })
+        return (e) => this.setState({
+            [field]: parseInt(e.currentTarget.value), 
+            recipeId: this.props.recipe.id })
     }
 
     rate() {
@@ -46,11 +48,14 @@ class CreateRatingForm extends React.Component{
             return "Excellent"
         }
     }
-
     render(){
+        // debugger
         const {recipe, review} = this.props;
-        if (!recipe || !review) return null;
-
+        if (!recipe || !review) {
+            return (
+                <div>rating does not exist</div>
+            )
+        };
         return (
             <div>
 

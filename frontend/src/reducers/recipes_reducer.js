@@ -1,6 +1,7 @@
 import {
     RECEIVE_ALL_RECIPES, RECEIVE_NEW_RECIPE, RECEIVE_NEW_RECIPES, RECEIVE_UPDATED_RECIPE
 } from '../actions/recipe_actions';
+// import { RECEIVE_RATING } from '../actions/review_actions';
 
 import { RECEIVE_USER } from '../actions/user_actions';
 

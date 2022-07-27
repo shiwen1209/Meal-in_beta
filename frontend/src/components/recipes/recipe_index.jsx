@@ -10,7 +10,7 @@ class RecipeIndex extends React.Component {
     }
 
     render(){
-        const {recipes} = this.props;
+        const {recipes, currentUser} = this.props;
         if (!recipes){return}
         
         const recipesList1 = recipes

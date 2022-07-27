@@ -3,12 +3,14 @@ import image from '../../images/default_recipe.jpg';
 import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom';
 import Rating from '../rating/rating';
+import LikeContainer from "../like/like_container";
+
 
 
 class RecipeIndex extends React.Component {
 
     render(){
-        const {recipe} = this.props
+        const { recipe, currentUser} = this.props
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
         return(
             <div>
@@ -21,6 +23,8 @@ class RecipeIndex extends React.Component {
                             <div className='recipe-little-info'>
                             <div className="text">{recipe.title}</div>
                             <div className="index-rating"><Rating rating={avgRating}/></div>
+                            {/* <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span> */}
+
                             </div>
                         </div>
                     </div>
