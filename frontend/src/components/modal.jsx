@@ -1,47 +1,67 @@
 import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
-import CreateRecipeContainer from './recipes/create_recipe_container';
+import CreateRecipeModal from "./recipes/create_recipe_container";
+import UpdateRecipeModal from "./recipes/update_recipe_container";
 
-function Modal({ modal, closeModal }) {
+class Modal extends React.Component{
+  constructor(props)
+  {
+    super(props)
+    this.escFunction = this.escFunction.bind(this);
+  }
 
-    if (!modal) {
-        return null;
+  escFunction(event){
+    if (event.key === "Escape") {
+      this.props.hideModal();
+    }
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.escFunction, false);
+  }
+
+  render()
+  {
+
+    if (!this.props.modals) {
+      return null;
     }
     let component;
-    switch (modal.modal) {
-        // case 'login':
-        //     component = <LoginFormContainer />;
-        //     break;
-        // case 'signup':
-        //     component = <SignupFormContainer />;
-        //     break;
-        case 'createRecipe':
-            // debugger
-            component = <CreateRecipeContainer />;
-            break;
-        default:
-            return null;
+    switch (this.props.modals) {
+      //this code could be refactored to be significantly more modular and DRY
+      case 'createRecipe':
+        component = <CreateRecipeModal/>;
+        break;
+      case 'updateRecipe': 
+      component = <UpdateRecipeModal/>;
+        break;
+      default:
+        return null;
     }
     return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
-            </div>
+      <div className="modal-background" onClick={this.props.hideModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
         </div>
+      </div>
     );
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        modal: state.modal
-    };
+  return {
+    modals: state.modal
+  }
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    };
+  return {
+    hideModal: () => dispatch(closeModal())
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

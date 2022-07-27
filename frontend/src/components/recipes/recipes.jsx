@@ -19,7 +19,6 @@ import recipeimg from '../../images/default_recipe.jpg';
 class Recipe extends React.Component{
     constructor(props){
         super(props)
-
     }
 
     componentDidMount() {
