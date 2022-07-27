@@ -1,4 +1,5 @@
 import React from "react";
+import dounut from "../../images/doughnut.png"
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -9,15 +10,16 @@ class RecipeForm extends React.Component {
       budget: null,
       description: '',
       ingredients: [],
-      author_id: this.props.currentUserId,
+      author: this.props.currentUserId,
       prep_time: '',
-      image_url: '',
+      image_url: donut,
       instructions: [],
       newIngredient: '',
       newInstruction: ''
     }
     this.addIngredient = this.addIngredient.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addInstruction = this.addInstruction.bind(this);
   }
 
   handleSubmit(e) {

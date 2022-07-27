@@ -7,7 +7,7 @@ import RecipeForm from "./recipe_form";
 const mstp = (state) => {
   return {
     formType: "Create",
-    currentUserId: state.session.user.id
+    currentUserId: state.session.user._id
     };
 };
 

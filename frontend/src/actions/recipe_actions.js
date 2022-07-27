@@ -4,7 +4,7 @@ export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const RECEIVE_NEW_RECIPES = "RECEIVE_NEW_RECIPES";
 export const RECEIVE_NEW_RECIPE = "RECEIVE_NEW_RECIPE";
-
+export const RECEIVE_UPDATED_RECIPE = "RECEIVE_UPDATED_RECIPE";
 
 
 export const receiveAllRecipes = (recipes)=> {
@@ -18,6 +18,14 @@ export const receiveRecipe = (recipe) => ({
     type: RECEIVE_RECIPE,
     recipe
 })
+
+export const receiveUpdatedRecipe = (data) => {
+    // console.log(data, 'data')
+    return {
+        type: RECEIVE_UPDATED_RECIPE,
+        recipe: data.recipe
+    }
+}
 
 export const receiveNewRecipes = (recipes) => ({
     type: RECEIVE_NEW_RECIPES,
@@ -44,5 +52,11 @@ export const fetchRecipe = (recipeId, userId) => dispatch => (
 export const createRecipe = data => dispatch => {
     RecipeApiUtil.createRecipe(data)
         .then((recipe) => dispatch(receiveNewRecipe(recipe)))
+}
+
+export const updateRecipe = (recipe) => dispatch => {
+    return RecipeApiUtil.updateRecipe(recipe).then((payload) =>
+    dispatch(receiveUpdatedRecipe(payload.data))
+    )
 }
 

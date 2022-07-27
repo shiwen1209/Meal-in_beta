@@ -1,10 +1,10 @@
 import {
-    RECEIVE_ALL_RECIPES, RECEIVE_NEW_RECIPE, RECEIVE_NEW_RECIPES
+    RECEIVE_ALL_RECIPES, RECEIVE_NEW_RECIPE, RECEIVE_NEW_RECIPES, RECEIVE_UPDATED_RECIPE
 } from '../actions/recipe_actions';
 
 import { RECEIVE_USER } from '../actions/user_actions';
 
-export default function (state = {}, action) {
+const recipesReducer = (state = {}, action) => {
     Object.freeze(state);
     let nextState = Object.assign({}, state)
     switch (action.type) {
@@ -22,7 +22,11 @@ export default function (state = {}, action) {
             return action.recipes;
         case RECEIVE_NEW_RECIPE:
             return action.recipe;
+        case RECEIVE_UPDATED_RECIPE:
+            return Object.assign({}, state, {[action.recipe.id]: action.recipe });
         default:
             return state;
     }
 }
+
+export default recipesReducer;
