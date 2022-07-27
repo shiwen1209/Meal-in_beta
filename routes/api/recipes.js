@@ -3,7 +3,6 @@ const router = express.Router();
 const Recipe = require('../../models/Recipe');
 const User = require('../../models/User');
 
-
 // get all recipes
 router.get("/", (req, res) => {
     Recipe.find({})
@@ -57,7 +56,6 @@ router.get("/:id/:userid", (req, res) => {
                     ans.user_liked = true;
                 }
                 current_user.populate('recipes_rated').then((result) => {
-                    // console.log("res: ", result);
                     console.log(result.recipes_rated.length);
                     for (let i = 0; i < result.recipes_rated.length; i++) {
                         if (result.recipes_rated[i].recipe.equals(recipe._id)) {

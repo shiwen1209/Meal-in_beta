@@ -4,8 +4,9 @@
 @import './styles/nav.css';
 @import './styles/recipe_show.css';
 @import './styles/user_show.css';
-@import './styles/rating_review.css'
-@import './styles/modal.css'
+@import './styles/rating_review.css';
+@import './styles/modal.css';
+@import './styles/mealplan.css';
 /* @import './styles/mealplan.css';
 @import './styles/recipe_show.css'; */
 
@@ -16,7 +17,7 @@
 }
 
 .recipe-item {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 
@@ -85,11 +86,12 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 70px;
     font-family: 'Albert Sans', sans-serif;
+    /* border: 1px solid red; */
 }
 
 .user-little-img{
@@ -217,75 +219,58 @@ div.gallery img {
 
 
 
-/* my mealplan */
-.my-mealplan{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;    
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
 
-}
-
-.mealplan-recipes{
+.index-cg{
+    /* border: 1px solid red; */
+    height: 450px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    margin: 0px;
-    padding: 0px;
-    border: 1px solid green;
-    width: 420px;
-    /* height: 600px; */
+    align-items: center;
 }
 
-.mealplan-recipes .mp-recipe-list{
-    height: 650px;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px solid red;
-}
-
-.mealplan-main{
-    border: 1px solid green;
-    width: 900px;
-
-}
-
-.mealplan-search{
-    background-color: aqua;
-    width: 100%;
-}
-
-.mealplan-search input{
-    width: 100%;
-}
-
-.mp-recipe-item > img{
-    height: 200px;
-    border: 1px solid red;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    /* background-color: wheat; */
-    /* padding: 10px; */
-    column-gap: 0px;
-}
-
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #027333;;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-.mealplan-buttons{
+.index-cg > div:nth-child(1){
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin: 0px;
+    justify-content: flex-start;
+    width: 95%;
+    /* border: 1px solid green; */
+    margin-bottom: 20px;
+}
+
+.index-cg>div:nth-child(1) > h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: #027333;
+}
+
+.recipe-cg-container{
+    /* border: 1px solid red; */
+    width: 90%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.recipe-cg-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nutrition-sub, .mealplan-sub{
+
+    border: 1px solid red;
+    height: 100%;
+}
+
+.mealplan-tabs {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+
+}
+
+.mealplan-tabs >div{
+    border: 1px solid red;
 }

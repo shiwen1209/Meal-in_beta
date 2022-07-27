@@ -34,12 +34,9 @@ const App = () => (
         path="/mymealplans/:userId"
         component={MyMealplansContainer}
       />
-      <Route exact path="/recipes" component={RecipeIndexContainer} />
-      {/* <Route path="/howitworks" component={} /> */}
       <Route exact path="/recipes" component={HomePageContainer} />
       <Route path="/howitworks" component={HowItWorks} />
 
-      {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
     </Switch>
   </div>
 );
