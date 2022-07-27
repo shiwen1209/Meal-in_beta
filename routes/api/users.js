@@ -137,61 +137,16 @@ router.get("/:id", async(req, res) => {
     }).catch(err => console.log(err));
 });
 
-/*OUTPUT LOOKS LIKE
-
-
-    "user": {
-        "handle": "James",
-        "id": 16,
-        "_id": "62de08c13678778432e5aa2c"
-    },
-    "recipes_created": [
-        {
-            "title": "Traditional Croatian Goulash",
-            "id": 2,
-            "_id": "62de08c23678778432e5aa63"
-        },
-        {
-            "title": "Pesto Eggs",
-            "id": 3,
-            "_id": "62de08c33678778432e5aa74"
-        },
-        {
-            "title": "Folded Kimbap",
-            "id": 4,
-            "_id": "62de08c33678778432e5aa79"
-        },
-        {
-            "title": "Baked Feta Pasta",
-            "id": 6,
-            "_id": "62de08c33678778432e5aa83"
-        }
-    ],
-    "recipes_liked": [
-        blah blah blah same format as above
-        note that all three of these subcategories, users, recipes favorited, recipes created, should have an image_url also sent back
-    ]
-}
-*/
 
 // passport.authenticate('jwt', { session: false }) // add this later
 router.patch("/:id",  (req, res) => {
         // const { errors, isValid } = validateStudentInput(req.body);
-        User.findOneAndUpdate({id: req.params.id},
+        User.findOneAndUpdate({ id: req.params.id },
             req.body,
             { new: true, useFindAndModify: false },
             (err, user) => {
                 if (err) return res.status(500).send(err);
-                const ans = {};
-                    ans.user = {
-                    handle: user.handle,
-                    bio: user.bio,
-                    id: user.id,
-                    _id: user._id,
-                    pfp_url: user.pfp_url, ///we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
-                          //PROFILE PICTURE HERE
-                };
-                return res.json(ans);
+                return res.json(user);
             })
 })
 
