@@ -7,6 +7,7 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .logged-in-nav > div{
@@ -55,6 +56,7 @@
     color: white;
     margin-left: 10px;
     border-radius: 5px;
+    font-family: 'Albert Sans', sans-serif;
 }
 
 .nav-bar-login:hover {

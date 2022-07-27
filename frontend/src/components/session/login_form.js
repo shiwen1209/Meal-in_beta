@@ -27,6 +27,11 @@ class LoginForm extends React.Component {
         this.setState({ errors: nextProps.errors })
     }
 
+    demologin(e){
+        e.preventDefault();
+        this.props.demo()
+    }
+
     // Handle field updates (called in the render method)
     update(field) {
         return e => this.setState({
@@ -81,6 +86,7 @@ class LoginForm extends React.Component {
                         />
                         <br />
                         <input className="login-submit"type="submit" value="Submit" />
+                        <button onClick={e => this.demologin(e)} className="login-submit">Demo User</button>
                         {this.renderErrors()}
                     </div>
                 </form>

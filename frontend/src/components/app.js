@@ -11,25 +11,37 @@ import RecipeContainer from './recipes/recipes_container';
 import UserShowPageContainer from './user/user_show_page_container';
 import HomePageContainer from './recipes/home_page_container';
 import HowItWorks from './how_it_works';
+import Modal from './modal'
+
 
 
 const App = () => (
-    <div>
-        <NavBarContainer />
-        <Switch>    
-            <Route exact path="/" component={RecipeIndexContainer} />
-            <Route exact path="/recipes/:recipeId" component={RecipeContainer}/>
-            <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route exact path="/myrecipes/:userId" component={UserShowPageContainer} />
-            <Route exact path="/mymealplans/:userId" component={MyMealplansContainer} />
-            <Route exact path="/recipes" component={RecipeIndexContainer} />
-            {/* <Route path="/howitworks" component={} /> */}
-            <Route exact path="/recipes" component={HomePageContainer} />
-            <Route path="/howitworks" component={HowItWorks} />
-            {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
-        </Switch>
-    </div>
+  <div>
+    <Modal />
+    <NavBarContainer />
+    <Switch>
+      <Route exact path="/" component={RecipeIndexContainer} />
+      <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route
+        exact
+        path="/myrecipes/:userId"
+        component={UserShowPageContainer}
+      />
+      <Route
+        exact
+        path="/mymealplans/:userId"
+        component={MyMealplansContainer}
+      />
+      <Route exact path="/recipes" component={RecipeIndexContainer} />
+      {/* <Route path="/howitworks" component={} /> */}
+      <Route exact path="/recipes" component={HomePageContainer} />
+      <Route path="/howitworks" component={HowItWorks} />
+
+      {/* <Route path="/recipes" component={RecipeIndexContainer} /> */}
+    </Switch>
+  </div>
 );
 
 export default App;
