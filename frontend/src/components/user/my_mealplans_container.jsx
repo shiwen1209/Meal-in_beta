@@ -6,7 +6,8 @@ import { recipeSelector } from "../../actions/recipes_selector"
 const mstp = (state, ownProps)=>{
     return{
         recipes: recipeSelector(state),
-        user: state.entities.users[ownProps.match.params.userId]
+        user: state.entities.users[ownProps.match.params.userId],
+        currentUserId: state.session.user._id
     }
 }
 
