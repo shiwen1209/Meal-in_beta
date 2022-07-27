@@ -40,7 +40,7 @@ class MyMealplans extends React.Component {
             const m = {
                 day,
                 meal_type,
-                recipe_id: this.state.activeRecipe.id,
+                recipe_id: this.state.activeRecipe._id,
                 recipe_title: this.state.activeRecipe.title
             }
             if(dup.length === 0 ){

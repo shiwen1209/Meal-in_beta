@@ -13,36 +13,61 @@ const DaysOfWeek = {
     Sunday: 'sun',
 }
 
+const MealType = {
+    Breakfast: 'breakfast',
+    Lunch: 'lunch',
+    Dinner: 'dinner'
+}
+
 const MealDay = new Schema({
     day: {
         type: String,
         required: true,
         enum: Object.values(DaysOfWeek)
+    },
+    meal_type: {
+        type: String,
+        required: true,
+        enum: Object.values(MealType)
+    },
+    recipe_id: {
+        type: ObjectId,
+        ref: "Recipe"
+    },
+    recipe_title: {
+        type: String,
+        required: true,
     }
 })
 
+
 function validateMealDayArray(arr) {
-    return arr.length <= 7
+    return arr.length <= 7 * 3 && arr.length >= 1
 }
 
 const MealPlanSchema = new Schema({
     name: {
         type: String,
-        required: true
-    },
-    owner: {
-        type: ObjectId,
         required: true,
-        ref: "User"
+        // unique: true,
     },
-    meal_days: {
+    owner_id: {
+        type: ObjectId,
+        ref: "User",
+        // unique: true,
+        required: true,
+    },
+    meals: {
         type: [MealDay],
         required: true,
-        validate: [validateMealDayArray, '{PATH} exceeds max size of 7']
+        validate: [validateMealDayArray, '{PATH} exceeds max size of 21']
     },
 })
+
+// MealPlanSchema.index({name: 1, owner_id: 1})
 
 module.exports = {
     DaysOfWeek: DaysOfWeek,
     MealPlan: mongoose.model('MealPlan', MealPlanSchema),
+    MealType: MealType,
 }

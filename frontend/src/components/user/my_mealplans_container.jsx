@@ -7,7 +7,7 @@ const mstp = (state, ownProps)=>{
     return{
         recipes: recipeSelector(state),
         user: state.entities.users[ownProps.match.params.userId],
-        currentUserId: state.session.user.id
+        currentUserId: state.session.user._id
     }
 }
 

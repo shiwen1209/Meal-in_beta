@@ -7,6 +7,8 @@ const recipes = require("./routes/api/recipes");
 const ratings = require("./routes/api/ratings");
 const likes = require("./routes/api/likes");
 const mainpage = require("./routes/api/mainpage");
+const mealplan = require("./routes/api/mealplan");
+const seedDb = require("./seed_plan");
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +23,7 @@ const passport = require('passport');
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log("Connected to MongoDB successfully"))
+    .then(seedDb) // can remove later
     .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("Hello World!!"));
@@ -32,6 +35,7 @@ app.use("/api/recipes", recipes);
 app.use("/api/ratings", ratings);
 app.use("/api/likes", likes);
 app.use("/api/mainpage", mainpage);
+app.use("/api/mealplan", mealplan)
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
