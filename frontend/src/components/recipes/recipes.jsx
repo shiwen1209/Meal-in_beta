@@ -8,6 +8,7 @@ import { TiLeaf } from "react-icons/ti";
 import { BiTimeFive } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiFillStar } from "react-icons/ai";
+import CreateRatingContainer from "../review/create_review_container";
 
 
 import headshot from '../../images/default_headshot.png';
@@ -26,7 +27,7 @@ class Recipe extends React.Component{
     }
 
     render(){
-        const {recipe} = this.props;
+        const {recipe, currentUser} = this.props;
         let ingredients = recipe.ingredients;
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
 
@@ -100,8 +101,11 @@ class Recipe extends React.Component{
                             }</ol>
                         </div>
                     </div>
+                    <div className="rating-review">
+                        <p>Rate this Recipe</p>
+                        <CreateRatingContainer currentUserId={currentUser.id} recipeId={recipe.id} />
+                    </div>
                 </div>
-                
             </div>
         )
     }
