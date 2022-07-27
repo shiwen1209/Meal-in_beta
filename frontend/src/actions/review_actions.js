@@ -11,7 +11,7 @@ export const receiveRating = (rating) => ({
 export const createRating = (rating) => dispatch => {
     return (
         RatingApiUtil.createRating(rating)
-            .then((rating) => dispatch(receiveRating(rating)))
+            .then((payload) => dispatch(receiveRating(payload.data)))
     )
 }
 
