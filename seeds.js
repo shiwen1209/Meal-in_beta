@@ -10,7 +10,7 @@ const parser = require('node-html-parser')
 const jsdom = require("jsdom")
 const bcrypt = require("bcrypt")
 
-let obj = require("./recipes.json");
+// let obj = require("./recipes.json");
 
 mongoose
     .connect(db, { useNewUrlParser: true })

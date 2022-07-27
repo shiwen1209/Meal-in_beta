@@ -30,7 +30,7 @@
 
 .mealplan-main {
     border: 1px solid green;
-    width: 900px;
+    width: 890px;
 
 }
 
@@ -51,23 +51,70 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    /* background-color: wheat; */
-    /* padding: 10px; */
     column-gap: 0px;
+    font-size: 20px;
+    width: 880px;
 }
 
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #027333;
     ;
-    padding: 20px;
+    /* padding: 20px; */
     font-size: 30px;
-    text-align: center;
+    font-size: 20px;
+    width: 220px;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.mealplan-buttons {
+.mealplan-buttons, .mealplan-results {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0px;
+    margin: 20px;
+    
+    
 }
+.mealplan-buttons button{
+    width: 200px;
+
+}
+
+.mealplan-sub > div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mealplan-tabs > div{
+    background-color: antiquewhite;
+    width: 180px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mealplan-results{
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.shopping-link{
+    margin-left: 20px;
+    
+
+}
+
+.shopping-link:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
