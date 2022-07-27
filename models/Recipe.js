@@ -5,122 +5,100 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let ObjectId = Schema.ObjectId
 
-const RecipeIngredientSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    // ingredient_id: {
-    //     type: Schema.ObjectId,
-    //     required: true
-    // },
-    unit_type: {
-        type: String,
-        required: false
-    }, 
-    unit_amount: {
-        type: Number,
-        required: true
-    }
-    //mb recipe_id idk
-}, {
-    timestamps: true
-})
-//????? EXTRANEOUS? change to a require import
-
 const NutrientSchema = new Schema({
-    "calories":{
+    "calories": {
         type: Number,
-        required: false, 
+        required: false,
         default: 0
     },
-    "carbohydrates_g":{
+    "carbohydrates_g": {
         type: Number,
         required: false, default: 0
     },
-    "fat_g":{
+    "fat_g": {
         type: Number,
         required: false, default: 0
     },
-    "saturated_fat_g":{
+    "saturated_fat_g": {
         type: Number,
         required: false, default: 0
     },
-    "cholesterol_mg":{
+    "cholesterol_mg": {
         type: Number,
         required: false, default: 0
     },
-    "protein_g":{
+    "protein_g": {
         type: Number,
         required: false, default: 0
     },
-    "sugars_g":{
+    "sugars_g": {
         type: Number,
         required: false, default: 0
     },
-    "protein_g":{
+    "protein_g": {
         type: Number,
         required: false, default: 0
     },
-    "dietary_fiber_g":{
+    "dietary_fiber_g": {
         type: Number,
         required: false, default: 0
     },
-    "sodium_mg":{
+    "sodium_mg": {
         type: Number,
         required: false, default: 0
     },
-    "calories_from_fat":{
+    "calories_from_fat": {
         type: Number,
         required: false, default: 0
     },
-    "calcium_mg":{
-        type: Number,
-        required: false, default: 0
-
-    },
-    "iron_mg":{
-        type: Number,
-        required: false, default: 0
-        
-    },
-    "magneisum_mg":{
+    "calcium_mg": {
         type: Number,
         required: false, default: 0
 
     },
-    "potassium_mg":{
-        type: Number,
-        required: false, default: 0
-        
-    },
-    "vitamin_a_iu_IU":{
+    "iron_mg": {
         type: Number,
         required: false, default: 0
 
     },
-    "niacin_equivalents_mg":{
+    "magneisum_mg": {
         type: Number,
         required: false, default: 0
 
     },
-    "vitamin_c_mg":{
+    "potassium_mg": {
         type: Number,
         required: false, default: 0
 
     },
-    "folate_mcg":{
+    "vitamin_a_iu_IU": {
         type: Number,
         required: false, default: 0
 
     },
-    "thiamin_mg":{
+    "niacin_equivalents_mg": {
+        type: Number,
+        required: false, default: 0
+
+    },
+    "vitamin_c_mg": {
+        type: Number,
+        required: false, default: 0
+
+    },
+    "folate_mcg": {
+        type: Number,
+        required: false, default: 0
+
+    },
+    "thiamin_mg": {
         type: Number,
         required: false, default: 0
     }
 }, {
     timestamps: true
 })
+
 
 
 const RecipeSchema = new Schema({
@@ -134,7 +112,7 @@ const RecipeSchema = new Schema({
     description: {
         type: String,
         required: false
-    }, 
+    },
     instructions: {
         type: [String],
         required: true
@@ -147,15 +125,11 @@ const RecipeSchema = new Schema({
         type: [String], //could just be string
         required: false
     },
-    author:{
+    author: {
         type: ObjectId,
         required: true,
         ref: "User"
     },
-    // meal_type: { //Breakfast, Lunch, Dinner, Snack/Drink? <- DONT NEED THIS
-    //     type: [String],
-    //     required: false
-    // },
     budget: { //1,2,3,4
         type: Number,
         required: false
@@ -177,7 +151,7 @@ const RecipeSchema = new Schema({
     ingredients: {
         type: [String]
     },
-    num_favorites: {
+    num_likes: {
         type: Number,
         default: 0,
         required: false // update later
@@ -202,5 +176,5 @@ const RecipeSchema = new Schema({
     timestamps: true
 })
 
-RecipeSchema.plugin(AutoIncrement, {id: "recipe_id_counter",inc_field: 'id'});
+RecipeSchema.plugin(AutoIncrement, { id: "recipe_id_counter", inc_field: 'id' });
 module.exports = Recipe = mongoose.model('Recipe', RecipeSchema);

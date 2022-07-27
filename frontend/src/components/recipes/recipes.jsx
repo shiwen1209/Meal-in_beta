@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../rating/rating"
 import { SiCodechef } from "react-icons/si";
 import { BiMessageSquareDetail } from "react-icons/bi";
 import { GiShadowFollower } from "react-icons/gi";
@@ -7,6 +8,7 @@ import { TiLeaf } from "react-icons/ti";
 import { BiTimeFive } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiFillStar } from "react-icons/ai";
+import CreateRatingContainer from "../review/create_review_container";
 
 
 import headshot from '../../images/default_headshot.png';
@@ -21,14 +23,15 @@ class Recipe extends React.Component{
     }
 
     componentDidMount() {
-        // debugger
-        this.props.fetchRecipe(this.props.match.params.recipeId)
+        this.props.fetchRecipe(this.props.match.params.recipeId, this.props.currentUser.id);
     }
 
     render(){
-        const {recipe} = this.props;
+        const {recipe, currentUser} = this.props;
         let ingredients = recipe.ingredients;
-        // debuggerp
+        const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
+
+        // debugger
         if (!recipe ||!recipe.author) return null;
         // debugger
         return (
@@ -66,13 +69,7 @@ class Recipe extends React.Component{
                             <span>{recipe.prep_time}</span>
                         </div>
                         <div className="time">
-                            <span>
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                                <AiFillStar className="rating-icon" />
-                            </span>
+                            <span><Rating rating={avgRating} className="rating-icon"/></span>
                             <span>({recipe.num_ratings})</span>
                         </div>
                         <div className="time">
@@ -82,7 +79,7 @@ class Recipe extends React.Component{
                     </div>
 
                     <div className="recipe-des">{recipe.description}</div>
-                    <img src={recipeimg} alt="recipeimg" className="recipe-img" />
+                    <img src={recipe.image_url} alt="recipeimg" className="recipe-img" />
 
                     <div className="ingredient-instruction-box">
                         <div className="ingredient">
@@ -104,8 +101,11 @@ class Recipe extends React.Component{
                             }</ol>
                         </div>
                     </div>
+                    <div className="rating-review">
+                        <p>Rate this Recipe</p>
+                        <CreateRatingContainer currentUserId={currentUser.id} recipeId={recipe.id} />
+                    </div>
                 </div>
-                
             </div>
         )
     }

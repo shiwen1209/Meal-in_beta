@@ -32,7 +32,7 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }, 
+    },
     bio: {
         type: String,
         required: false
@@ -45,13 +45,13 @@ const UserSchema = new Schema({
         type: ObjectId,
         ref: "Recipe"
     }],
-    recipes_rated:[RecipeRatingSchema]
-    
+    recipes_rated: [RecipeRatingSchema]
+
 }, {
     timestamps: true
 })
 
-UserSchema.plugin(AutoIncrement, {id: "user_id_counter", inc_field: 'id'});
+UserSchema.plugin(AutoIncrement, { id: "user_id_counter", inc_field: 'id' });
 
 
 module.exports = User = mongoose.model('User', UserSchema);

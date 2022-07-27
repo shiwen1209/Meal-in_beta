@@ -12,7 +12,7 @@ const mstp = (state)=>{
 
 const mdtp = (dispatch)=>{
     return{
-        fetchRecipes: ()=> dispatch(fetchRecipes())
+        fetchRecipes: () => dispatch(fetchRecipes())
     }
 }
 

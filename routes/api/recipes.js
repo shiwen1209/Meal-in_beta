@@ -29,16 +29,49 @@ router.get("/", (req, res) => {
 })
 
 // get one recipe
-router.get("/:id", (req, res) => {
-    Recipe.findOne({id: req.params.id})
-    .then(async recipe => 
-    {
-        console.log("recipe: ", recipe);
-        let ans;
-        await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
-        return res.json(ans);
-    })
-    .catch(err => console.log(err));
+// router.get("/:id", (req, res) => {
+//     Recipe.findOne({id: req.params.id})
+//     .then(async recipe => 
+//     {
+//         console.log("recipe: ", recipe);
+//         let ans;
+//         await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
+//         return res.json(ans);
+//     })
+//     .catch(err => console.log(err));
+// })
+
+router.get("/:id/:userid", (req, res) => {
+    Recipe.findOne({ id: req.params.id })
+        .then(async recipe => {
+            let ans;
+            await recipe.populate("author", "-email -recipes_liked -__v -password -recipes_rated").then((result) => {
+                ans = result.toObject();
+                ans.user_liked = false;
+                ans.user_rating = null;
+            });
+
+            await User.findOne({ id: req.params.userid }).then((current_user) => {
+                console.log("cu", current_user);
+                if (current_user.recipes_liked.includes(recipe._id)) {
+                    ans.user_liked = true;
+                }
+                current_user.populate('recipes_rated').then((result) => {
+                    // console.log("res: ", result);
+                    console.log(result.recipes_rated.length);
+                    for (let i = 0; i < result.recipes_rated.length; i++) {
+                        if (result.recipes_rated[i].recipe.equals(recipe._id)) {
+                            console.log("???")
+                            ans.user_rating = result.recipes_rated[i].rating;
+                            break;
+                        }
+                    }
+                });
+            })
+            console.log(ans, "ans");
+            return res.json(ans);
+        })
+        .catch(err => console.log(err));
 })
 
 
