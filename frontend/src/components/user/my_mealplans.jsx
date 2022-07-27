@@ -1,6 +1,4 @@
 import React from 'react';
-import SearchBar from "../search/search_bar";
-// import RecipeIndexItem from '../recipes/recipe_index_item';
 
 class MyMealplans extends React.Component {
     constructor(props){

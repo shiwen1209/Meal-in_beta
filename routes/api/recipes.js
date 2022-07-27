@@ -78,21 +78,25 @@ router.get("/:id/:userid", (req, res) => {
 //post a recipe
 //yo this is lacking!!!!! add mroe feilds
 router.post("/", (req, res) => {
-            const newRecipe = new Recipe({
-                title: req.body.title,
-                description: req.body.description,
-                instructions: req.body.instructions
-            });
-
-        newRecipe
-        .save()
-        .then(recipe => {
-            const payload = { title: recipe.title,
-                description: recipe.description,
-                instructions: recipe.instructions };
-            res.json(payload)
-        })
-        .catch(err => console.log(err));
+    const newRecipe = new Recipe(req.body);
+    newRecipe
+    .save()
+    .then(recipe => {
+        res.json(recipe)
+    })
+    .catch(err => console.log(err));
 })
+
+router.patch("/:id", (req, res) => {
+
+    Recipe.findOneAndUpdate({id: req.params.id},
+        req.body,
+        { new: true, useFindAndModify: false },
+        (err, recipe) => {
+            if (err) return res.status(500).send(err);
+            return res.json(recipe);
+        })
+})
+
 
 module.exports = router;
