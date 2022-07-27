@@ -1,6 +1,7 @@
 import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
+import CreateRecipeContainer from './recipes/create_recipe_container';
 
 function Modal({ modal, closeModal }) {
 
@@ -9,11 +10,15 @@ function Modal({ modal, closeModal }) {
     }
     let component;
     switch (modal.modal) {
-        case 'login':
-            component = <LoginFormContainer />;
-            break;
-        case 'signup':
-            component = <SignupFormContainer />;
+        // case 'login':
+        //     component = <LoginFormContainer />;
+        //     break;
+        // case 'signup':
+        //     component = <SignupFormContainer />;
+        //     break;
+        case 'createRecipe':
+            // debugger
+            component = <CreateRecipeContainer />;
             break;
         default:
             return null;
@@ -29,7 +34,7 @@ function Modal({ modal, closeModal }) {
 
 const mapStateToProps = state => {
     return {
-        modal: state.ui.modal
+        modal: state.modal
     };
 };
 

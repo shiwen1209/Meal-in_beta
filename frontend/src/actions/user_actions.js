@@ -1,7 +1,8 @@
 import * as UserApiUtil from '../util/user_api_util';
-import { receiveNewRecipes } from './recipe_actions'
+
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_UPDATED_USER = "RECEIVE_UPDATED_USER";
 
 export const receiveUser = (data) => {
     return {
@@ -12,22 +13,22 @@ export const receiveUser = (data) => {
     }
 };
 
+export const receiveUpdatedUser = (data) => {
+  return {
+    type: RECEIVE_UPDATED_USER,
+    user: data.user,
+  };
+};
+
 
 export const fetchUser = (userId) => dispatch => (
     UserApiUtil.fetchUser(userId)
         .then((payload) => dispatch(receiveUser(payload.data)))
 );
 
-export const fetchLikedRecipes = (userId) => dispatch => {
-    UserApiUtil.fetchUser(userId).then(res => 
-        {
-            dispatch(receiveNewRecipes(res.data.recipes_liked))
-        })
-}
+export const updateUser = (user) => dispatch => {
+    return UserApiUtil.updateUser(user).then((payload) =>
+      dispatch(receiveUpdatedUser(payload.data))
+    );
+};
 
-export const fetchCreatedRecipes = (userId) => dispatch => {
-    UserApiUtil.fetchUser(userId).then(res => 
-        {
-            dispatch(receiveNewRecipes(res.data.recipes_created))
-        })
-}

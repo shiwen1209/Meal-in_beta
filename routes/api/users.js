@@ -177,12 +177,21 @@ router.get("/:id", async(req, res) => {
 // passport.authenticate('jwt', { session: false }) // add this later
 router.patch("/:id",  (req, res) => {
         // const { errors, isValid } = validateStudentInput(req.body);
-        User.findByIdAndUpdate(req.params.id,
+        User.findOneAndUpdate({id: req.params.id},
             req.body,
             { new: true, useFindAndModify: false },
-            (err, student) => {
+            (err, user) => {
                 if (err) return res.status(500).send(err);
-                return res.json(student);
+                const ans = {};
+                    ans.user = {
+                    handle: user.handle,
+                    bio: user.bio,
+                    id: user.id,
+                    _id: user._id,
+                    pfp_url: user.pfp_url, ///we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
+                          //PROFILE PICTURE HERE
+                };
+                return res.json(ans);
             })
 })
 
