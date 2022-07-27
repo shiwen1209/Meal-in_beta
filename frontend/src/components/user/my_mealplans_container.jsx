@@ -1,10 +1,11 @@
 import { connect } from "react-redux"
 import MyMealplans from "./my_mealplans";
 import { fetchUser } from "../../actions/user_actions";
+import { recipeSelector } from "../../actions/recipes_selector"
 
 const mstp = (state, ownProps)=>{
     return{
-        recipes: Object.values(state.entities.recipes),
+        recipes: recipeSelector(state),
         user: state.entities.users[ownProps.match.params.userId]
     }
 }
