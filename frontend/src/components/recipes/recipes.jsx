@@ -10,10 +10,8 @@ import { FcLike } from "react-icons/fc";
 import { AiFillStar } from "react-icons/ai";
 import CreateRatingContainer from "../review/create_review_container";
 
-
 import headshot from '../../images/default_headshot.png';
 import recipeimg from '../../images/default_recipe.jpg';
-
 
 
 class Recipe extends React.Component{
@@ -86,8 +84,8 @@ class Recipe extends React.Component{
                             <div className="ingredient-title">INGREDIENTS</div>
                         <ul>
                         {
-                            ingredients.map(ingredient => (
-                                <li><TiLeaf className="leaf"/>{ingredient}</li>
+                            ingredients.map((ingredient, idx) => (
+                                <li key={idx}><TiLeaf className="leaf"/>{ingredient}</li>
                             ))
                         }
                         </ul>
@@ -103,7 +101,7 @@ class Recipe extends React.Component{
                     </div>
                     <div className="rating-review">
                         <p>Rate this Recipe</p>
-                        <CreateRatingContainer currentUserId={currentUser.id} recipeId={recipe.id} />
+                        <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
                     </div>
                 </div>
             </div>

@@ -7,8 +7,7 @@ const ratingReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_RATING:
-            nextState[action.rating.id] = action.rating
-            return nextState;
+            return action.rating;
         default: 
             return state;
     }
