@@ -3,7 +3,6 @@ const router = express.Router();
 const Recipe = require('../../models/Recipe');
 const User = require('../../models/User');
 
-
 // get all recipes
 router.get("/", (req, res) => {
     Recipe.find({})

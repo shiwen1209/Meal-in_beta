@@ -28,7 +28,46 @@ class RecipeIndex extends React.Component {
 
                 <SearchBar formType="index-search" />
                 <div className='recipe-box'>
-                    {recipesList}
+                    <div className='index-cg'>
+                        <div>
+                            <h1>Recommended for your</h1>
+                        </div>
+                        <div className="recipe-cg-container">
+                            {recipesList.slice(0, 8)}
+                        </div>
+                    </div>
+                    <div className='index-cg'>
+                        <div>
+                            <h1>TicTok trending</h1>
+                        </div>
+                        <div className="recipe-cg-container">
+                            {recipesList.slice(0, 8)}
+                        </div>
+                    </div>
+                    <div className='index-cg'>
+                        <div>
+                            <h1>Boozy brunch</h1>
+                        </div>
+                        <div className="recipe-cg-container">
+                            {recipesList.slice(0, 8)}
+                        </div>
+                    </div>
+                    <div className='index-cg'>
+                        <div>
+                            <h1>Party faves</h1>
+                        </div>
+                        <div className="recipe-cg-container">
+                            {recipesList.slice(0, 8)}
+                        </div >
+                    </div>
+                    <div className='index-cg'>
+                        <div>
+                            <h1>Vegan loves</h1>
+                        </div>
+                        <div className="recipe-cg-container">
+                            {recipesList.slice(0, 8)}
+                        </div>
+                    </div>
                 </div>
 
                 
