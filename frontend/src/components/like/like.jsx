@@ -21,13 +21,11 @@ class Like extends React.Component{
         e.preventDefault();
         if (this.props.currentRecipe.user_liked){
             // this.setState({user_liked: false})
-            debugger
             this.props.deleteLike(this.state);
         }else{
             // this.setState({
             //     user_liked: true
             // })
-            debugger
             this.props.createLike(this.state);
         }
     };

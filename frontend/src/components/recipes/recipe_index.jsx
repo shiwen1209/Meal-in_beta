@@ -100,9 +100,6 @@ class RecipeIndex extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                
-
             </div>
             
         )

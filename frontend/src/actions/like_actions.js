@@ -9,7 +9,6 @@ export const receiveLike = (like) => ({
 });
 
 export const removeLike = (recipeId) => {
-    debugger
     return {
     type: REMOVE_LIKE,
     recipeId
@@ -23,10 +22,8 @@ export const createLike = (like) => dispatch => {
 };
 
 export const deleteLike = (like) => dispatch => {
-    debugger
     return LikeApiUtil.deleteLike(like)
         .then((payload) => {
-            debugger
             return dispatch(removeLike(payload.data))
         })
 }

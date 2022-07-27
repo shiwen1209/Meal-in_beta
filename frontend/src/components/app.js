@@ -36,7 +36,6 @@ const App = () => (
       />
       <Route exact path="/recipes" component={HomePageContainer} />
       <Route path="/howitworks" component={HowItWorks} />
-
     </Switch>
   </div>
 );
