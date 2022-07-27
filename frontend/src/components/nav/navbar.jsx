@@ -10,10 +10,10 @@ class NavBar extends React.Component {
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
-    }
+    }   
 
     render(){
-            return (
+        return (
                 <div className="logged-in-nav">
                     <div>
                         <Link to={'/'} className="logo">

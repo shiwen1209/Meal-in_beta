@@ -4,15 +4,25 @@ class MyMealplans extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            display: "mealplan",
             searchValue: "",
             filteredResult: this.props.recipes,
+            activeRecipe: null,
+            mealplan: {
+                name: "",
+                owner_id: this.props.currentUserId,
+                meals: []
+            }
         };
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleMPClick = this.handleMPClick.bind(this);
+        this.updateMpName = this.updateMpName.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.userId)
-    }
+            .then(async ()=> this.setState({ filteredResult: this.props.recipes}));
+        }
 
     handleUpdate(e){
         const word = e.currentTarget.value.toLowerCase();
@@ -21,19 +31,88 @@ class MyMealplans extends React.Component {
         this.setState({ filteredResult: resultList });
     }
 
+    handleMPClick(day, meal_type){
+        return (e)=>{
+        if(this.state.activeRecipe){
+            const dup = this.state.mealplan.meals.filter((meal)=>(meal.day === day && meal.meal_type === meal_type))
+            let mealplan = this.state.mealplan
+            // debugger
+            const m = {
+                day,
+                meal_type,
+                recipe_id: this.state.activeRecipe.id,
+                recipe_title: this.state.activeRecipe.title
+            }
+            if(dup.length === 0 ){
+                mealplan.meals.push(m)
+            } else {
+                mealplan.meals = this.state.mealplan.meals.filter((meal) => (meal.day !== day || meal.meal_type !== meal_type))
+                mealplan.meals.push(m)
+            }
+            // debugger
+            this.setState({ mealplan, activeRecipe: null})
+            console.log(this.state)
+        }
+        }
+    }
+
+    updateMpName(e){
+        let mealplan = this.state.mealplan;
+        mealplan.name = e.currentTarget.value;
+        this.setState({mealplan})
+        console.log(this.state)
+    }
+
+
+
 
     render() {
         console.log(this.state)
         const {user, recipes} = this.props;
         if(!user || !recipes){return null}
+   
         const recipesList = this.state.filteredResult.map((recipe, idx) => (
-            <li key={idx} className="mp-recipe-item">
+            <li key={idx} className="mp-recipe-item"
+                onClick={(e) => {
+                    this.setState({ activeRecipe : recipe});
+                    console.log(this.state)
+                    
+                    }}>
                 <img src={recipe.image_url} alt="" className='recipe-index-img' />
                 <div>
                     <h2>{recipe.title}</h2>
                 </div>
             </li>
-        ))
+        ))  
+
+
+        const meals = [];
+        const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+        const mealTypes = [0, "breakfast", "lunch", "dinner"];
+        for(let i=0; i< days.length; i++) {
+            for (let j = 0; j < mealTypes.length; j++){
+                meals.push([days[i], mealTypes[j]]);
+            }
+        }
+
+        // const mealGrid = meals.map((meal)=>{
+        //     if(meal[1] === 0 ){
+        //         return (<div className="grid-item">{meal[0]}</div>)
+        //     } else {
+        //         return (
+        //             <div className="grid-item" onClick={this.handleMPClick(meal[0], meal[1])}>
+        //                 {this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0] ?
+        //                 this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0].recipe_title : ""
+        //                 }
+        //             </div>
+        //         )
+        //     }
+        // })
+
+  
+
+        
+
         return (
             <div className='my-mealplan'>
                 <div className='mealplan-recipes'>
@@ -43,55 +122,166 @@ class MyMealplans extends React.Component {
                         type="text" placeholder="Find a recipe" />
                     </div>
                     <div className='mp-recipe-list'>
+                        {recipesList.length > 0 ? 
                         <ul>
                             {recipesList}
-                        </ul>
+                        </ul> : <div>Result not found</div>
+                        }
                     </div>
 
                 </div>
                 <div className='mealplan-main'>
-                    <h1>MyMealplans</h1>
-                    <div className="grid-container">
-                        <div className="grid-item"></div>
-                        <div className="grid-item">BREAKFAST</div>
-                        <div className="grid-item">  LUNCH  </div>
-                        <div className="grid-item">  DINNER </div>
-                        <div className="grid-item">MON</div>
-                        <div className="grid-item">6</div>
-                        <div className="grid-item">7</div>
-                        <div className="grid-item">8</div>
-                        <div className="grid-item">TUE</div>
-                        <div className="grid-item">1</div>
-                        <div className="grid-item">2</div>
-                        <div className="grid-item">3</div>
-                        <div className="grid-item">WED</div>
-                        <div className="grid-item">5</div>
-                        <div className="grid-item">6</div>
-                        <div className="grid-item">7</div>
-                        <div className="grid-item">THU</div>
-                        <div className="grid-item">9</div>
-                        <div className="grid-item">7</div>
-                        <div className="grid-item">8</div>
-                        <div className="grid-item">FRI</div>
-                        <div className="grid-item">7</div>
-                        <div className="grid-item">8</div>
-                        <div className="grid-item">9</div>
-                        <div className="grid-item">SAT</div>
-                        <div className="grid-item">2</div>
-                        <div className="grid-item">3</div>
-                        <div className="grid-item">4</div>
-                        <div className="grid-item">SUN</div>
-                        <div className="grid-item">6</div>
-                        <div className="grid-item">7</div>
-                        <div className="grid-item">8</div>
+                    <div className='mealplan-tabs'>
+                        <div>
+                            <h1 onClick={(e) => this.setState({display: "mealplan"})}>MyMealplans</h1>
+                        </div>
+                        <div>
+                            <h1 onClick={(e) => this.setState({display: "nutrition"})}>Nutrition Value</h1>
+                        </div>
                     </div>
-                    <div className='mealplan-buttons'>
-                        <button className='nav-bar-login'>Clear All</button>
-                        <button className='nav-bar-login'>Finalize Mealplan</button>
+                    {this.state.display === "mealplan" ?
+                    <div className='mealplan-sub'>
+                        <input type="text" placeholder='Enter a mealplan name'
+                        onChange={this.updateMpName}
+                        value = {this.state.mealplan.name}
+                        />
+                        <div className="grid-container">
+                            <div className="grid-item"></div>
+                            <div className="grid-item">BREAKFAST</div>
+                            <div className="grid-item">  LUNCH  </div>
+                            <div className="grid-item">  DINNER </div>
+                            {/* {mealGrid} */}
+
+                            <div className="grid-item">MON</div>
+                            <div className="grid-item" 
+                                onClick={this.handleMPClick("mon", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "breakfast"))[0] ? 
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                            }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("mon", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("mon", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "mon" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">TUE</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("tue", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("tue", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("tue", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "tue" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">WED</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("wed", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("wed", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("wed", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "wed" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">THU</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("thu", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("thu", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("thu", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "thu" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">FRI</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("fri", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("fri", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("fri", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "fri" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">SAT</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sat", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sat", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sat", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sat" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item">SUN</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sun", "breakfast")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "breakfast"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "breakfast"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sun", "lunch")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "lunch"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "lunch"))[0].recipe_title : ""
+                                }</div>
+                            <div className="grid-item"
+                                onClick={this.handleMPClick("sun", "dinner")}
+                            >{this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "dinner"))[0] ?
+                                this.state.mealplan.meals.filter((meal) => (meal.day === "sun" && meal.meal_type === "dinner"))[0].recipe_title : ""
+                                }</div>
+                        </div>
+                        <div className='mealplan-buttons'>
+                            <button className='nav-bar-login'>Clear All</button>
+                            <button className='nav-bar-login'>Finalize Mealplan</button>
+                        </div>
+                    </div> : 
+                    <div className='nutrition-sub'>
+                        nutrition value
                     </div>
+                    }
+
                 </div>
             </div>
-        );
+        )
+
+
+
+    
     }
 }
 
