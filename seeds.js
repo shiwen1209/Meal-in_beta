@@ -310,11 +310,11 @@ const UserSeeds = [
 //   };
 
 
-
+//for these fake dudes, if they favorited it, they also rated it 4 or 5. but dont need both at same time in general 
 const addRecipeToUserFavorite = async function(userId, recipe) {
 return await User.findByIdAndUpdate(
     userId,
-    { $push: { recipes_liked: recipe._id } },
+    { $push: { recipes_liked: recipe._id, recipes_rated: { rating: Math.floor(Math.random()*2) + 4, recipe: recipe._id}}},
     { new: true, useFindAndModify: false }
 );
 };

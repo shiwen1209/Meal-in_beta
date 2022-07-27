@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
     }
@@ -12,8 +12,7 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    render() {
-        const {loggedIn, currentUserId } = this.props
+    render(){
             return (
                 <div className="logged-in-nav">
                     <div>
@@ -26,18 +25,18 @@ class NavBar extends React.Component {
                         <div className="recipe-link">
                             <Link to={'/howitworks'}>How it works</Link>
                         </div>
-                        {loggedIn ? 
+                        {this.props.loggedIn ? 
                         <div className="loggedin-links">
                             <div className="recipe-link">
-                                <Link to={`/myrecipes/${currentUserId}`}>My Recipes</Link>
+                                <Link to={`/myrecipes/${this.props.currentUserId}`}>My Recipes</Link>
                             </div>
                             <div className="recipe-link">
-                                <Link to={`/mymealplans/${currentUserId}`}>My Mealplans</Link>
+                                <Link to={`/mymealplans/${this.props.currentUserId}`}>My Mealplans</Link>
                             </div>
                         </div> : <div></div>}
                     </div>
 
-                    {loggedIn ? 
+                    {this.props.loggedIn ? 
                         <div className="login-signup">
                             <div className="nav-bar-login">
                                 <button onClick={this.logoutUser}>Logout</button>
