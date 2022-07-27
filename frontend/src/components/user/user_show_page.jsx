@@ -85,9 +85,9 @@ class UserShowPage extends React.Component {
               <div className="user-buttons">
                     {currentUserId === user.id ? 
                       <div>
-                        <div className="make-a-recipe"
-                        onClick={(e)=>openModalPayload({ modal: 'createRecipe', payload: null })}
-                        >Create a Recipe</div>
+                        <button className="make-a-recipe"
+                        onClick={(e)=>openModalPayload("createRecipe")}
+                        >Create a Recipe</button>
                         <div className="make-meal-plan-button">Make a meal plan</div>
                       </div>
                     : 

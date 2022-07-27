@@ -6,7 +6,7 @@ const modalReducer = (state = null, action) => {
             return null;
         case OPEN_MODAL_PAYLOAD:
             // debugger;
-            return {modal: action.modal, payload: action.payload};
+            return action.modal;
         default:
             return state;
     }

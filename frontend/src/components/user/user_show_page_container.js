@@ -19,7 +19,7 @@ const mdtp = (dispatch) => {
     return {
       fetchUser: (userId) => dispatch(fetchUser(userId)),
       updateUser: (user) => dispatch(updateUser(user)),
-      openModalPayload: (obj) => dispatch(openModalPayload(obj)),
+      openModalPayload: (modal_name) => dispatch(openModalPayload(modal_name)),
       closeModal: () => dispatch(closeModal()),
     };
 }

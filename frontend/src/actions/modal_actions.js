@@ -8,11 +8,10 @@ export const closeModal = () => {
     };
 };
 
-export const openModalPayload = ({ modal, payload = null }) => {
+export const openModalPayload = (modal) => {
     // debugger
     return {
         type: OPEN_MODAL_PAYLOAD,
-        modal: modal,
-        payload: payload
+        modal: modal
     }
 }

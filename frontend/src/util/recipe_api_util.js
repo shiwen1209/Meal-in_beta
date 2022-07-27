@@ -13,4 +13,9 @@ export const fetchRecipe = (id, userId) => {
 };
 
 
+export const createRecipe = data => {
+  
+    return axios.post(`/api/recipes/`, data );
+};
+
 
