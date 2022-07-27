@@ -6,11 +6,12 @@ class CreateRatingForm extends React.Component{
     constructor(props) {
         super(props)
 
-        console.log("our props", this.props);
+        // console.log("our props", this.props);
         this.state = {
             rating: 0,
             userId: this.props.currentUserId,
             recipeId: this.props.recipe.id
+
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,7 +28,8 @@ class CreateRatingForm extends React.Component{
     }
 
     update(field){
-        return (e) => this.setState({ [field]: e.currentTarget.value, 
+        return (e) => this.setState({
+            [field]: parseInt(e.currentTarget.value), 
             recipeId: this.props.recipe.id })
     }
 
@@ -46,8 +48,8 @@ class CreateRatingForm extends React.Component{
             return "Excellent"
         }
     }
-
     render(){
+        // debugger
         const {recipe, review} = this.props;
         if (!recipe || !review) {
             return (

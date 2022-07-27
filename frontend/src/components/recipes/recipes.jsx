@@ -9,6 +9,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiFillStar } from "react-icons/ai";
 import CreateRatingContainer from "../review/create_review_container";
+import LikeContainer from "../like/like_container";
 
 import headshot from '../../images/default_headshot.png';
 import recipeimg from '../../images/default_recipe.jpg';
@@ -22,6 +23,11 @@ class Recipe extends React.Component{
 
     componentDidMount() {
         this.props.fetchRecipe(this.props.match.params.recipeId, this.props.currentUser.id);
+    }
+
+    componentWillUnmount(){
+        this.props.fetchRecipe(this.props.match.params.recipeId, this.props.currentUser.id)
+        .then(() => window.location.reload())
     }
 
     render(){
@@ -71,8 +77,9 @@ class Recipe extends React.Component{
                             <span>({recipe.num_ratings})</span>
                         </div>
                         <div className="time">
-                            <span><FcLike className="time-icon" /></span>
-                            <span>{recipe.num_favorites}</span>
+                            <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span>
+                            {/* <span><FcLike className="time-icon" /></span> */}
+                            <span>{recipe.num_likes}</span>
                         </div>
                     </div>
 

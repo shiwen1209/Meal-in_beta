@@ -153,3 +153,7 @@ ol{
     font-weight: bolder;
     margin-bottom: 10px;
 }
+
+.rating-review{
+    display: fixed;
+}
