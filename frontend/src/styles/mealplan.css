@@ -46,6 +46,11 @@
     width: 100%;
 }
 
+.mealplan-recipes{
+    border: 1px solid lightgray;
+
+}
+
 .mealplan-search i{
     color: white;
     background-color: green;
