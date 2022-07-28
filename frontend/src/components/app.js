@@ -5,7 +5,6 @@ import NavBarContainer from './nav/navbar_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
-// import MyRecipesContainer from './user/my_recipes_container';
 import MyMealplansContainer from './user/my_mealplans_container';
 import RecipeContainer from './recipes/recipes_container';
 import UserShowPageContainer from './user/user_show_page_container';
@@ -21,25 +20,27 @@ const App = () => (
   <div>
     <Modal />
     <NavBarContainer />
-    <Switch>
-      <Route exact path="/" component={RecipeIndexContainer} />
-      <Route path="/search" component={SearchContainer} />
+    <Switch>   
       <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route
+      <Route exact path="/recipes" component={HomePageContainer} />
+      <ProtectedRoute
         exact
         path="/myrecipes/:userId"
         component={UserShowPageContainer}
       />
-      <Route
+      <ProtectedRoute
         exact
         path="/mymealplans/:userId"
         component={MyMealplansContainer}
       />
-      <Route exact path="/recipes" component={HomePageContainer} />
-      <Route path="/howitworks" component={HowItWorks} />
-      <Route path='/shopping_list' component={ShoppingList} />
+      
+      
+      <Route exact path="/howitworks" component={HowItWorks} />
+      <Route  exact path='/shopping_list' component={ShoppingList} />
+      <Route path="/search" component={SearchContainer} />
+      <Route exact path="/" component={RecipeIndexContainer} />
 
     </Switch>
   </div>

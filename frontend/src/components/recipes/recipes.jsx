@@ -76,7 +76,7 @@ class Recipe extends React.Component{
                     <div className="recipe-show-item">
                         <div className="time">
                             <span><BiTimeFive className="time-icon"/></span>
-                            <span>{recipe.prep_time}</span>
+                            <span>{recipe.prep_time ? recipe.prep_time : "30 mins"}</span>
                         </div>
                         <div className="time">
                             <span><Rating rating={avgRating} className="rating-icon"/></span>

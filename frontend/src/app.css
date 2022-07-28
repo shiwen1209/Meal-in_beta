@@ -262,3 +262,39 @@ div.gallery img {
     display: none;
 }
 
+.user-little-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.user-little-info .sub-info {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 30px;
+    margin: 0;
+
+}
+
+.user-little-info .time{
+    font-size: 15px;
+    /* border: 1px solid red; */
+
+}
+
+.user-little-info .rating{
+    /* border: 1px solid red; */
+    margin: 0;
+
+}
+
+.user-little-info h3{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}

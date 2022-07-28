@@ -1,7 +1,5 @@
 import * as MpApiUtil from '../util/mp_api_util';
 
-ALEC COMMENT THIS BACK IN
-
 export const RECEIVE_MEALPLAN = "RECEIVE_MEALPLAN";
 
 export const receiveMealplan = (mealplan) => ({
