@@ -88,3 +88,11 @@
     /* border: 1px solid red; */
     width: 180px;
 }
+
+.search-container .recipe-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1320px;
+}

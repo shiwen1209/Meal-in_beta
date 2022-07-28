@@ -43,17 +43,6 @@ class RecipeIndex extends React.Component {
                                         <span>{recipe.prep_time ? recipe.prep_time : "30 mins"}</span>
                                  </div>
                             </div>
-
-                                
-                            
-
-
-                                {/* {currentUser ?
-                                        <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span> :
-                                        <div></div>
-
-                                } */}
-                          
                     </div>
                 </div>
 

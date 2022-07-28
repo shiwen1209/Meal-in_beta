@@ -129,9 +129,9 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
 
-                {this.props.page !== "index-search" ? 
-                    <div className="search-result">
-                        {searchResult}
+                {this.props.page !== "index-search" && this.props.location.pathname !== '/recipes' ? 
+                    <div className='recipe-box'>
+                            {searchResult}
                     </div> :
                     <div></div>
                 }
