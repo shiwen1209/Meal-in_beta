@@ -64,10 +64,11 @@ class Recipe extends React.Component{
 
                     </div>
                 </div>
-
-                <div className="rating-review">
+                
+                {(currentUser.id !== undefined) ? 
+                (<div className="rating-review">
                     <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
-                </div>
+                </div>) : ""}
                 </div>
 
                 <div className="recipe-show-box">

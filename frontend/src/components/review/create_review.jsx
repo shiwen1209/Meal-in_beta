@@ -72,6 +72,7 @@ class CreateRatingForm extends React.Component{
         };
         return (
             <div>
+                
                 {recipe.user_rating === null ? 
             (<div>
                     <div className="flex-rating-title">Rate this Recipe</div>

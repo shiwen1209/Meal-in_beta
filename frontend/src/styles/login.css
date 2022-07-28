@@ -69,14 +69,19 @@ input{
  }
 
 
- .login-submit{
+.login-submit {
     width: 370px;
     height: 40px;
-    background-color:#027333;
+    background-color: #027333;
     color: white;
     display: flex;
     justify-content: center;
- }
+    margin-top: 10px;
+    border: 1px rgb(195, 194, 194) solid;
+    border-radius: 3px;
+    box-shadow: 0 0 4px #d4d8df;
+    align-items: center;
+}
 
  .login-header{
     padding-top: 25px;
