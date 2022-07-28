@@ -4,3 +4,9 @@
     justify-content: space-between;
 
 }
+
+.nutrition-data {
+    width: 800px;
+    /* height: 900px; */
+    /* border: 1px black solid; */
+}
