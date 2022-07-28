@@ -79,9 +79,8 @@ class SearchBar extends React.Component {
             ))
         }
 
-
         return (
-            <div id={this.props.page} className="search-container">
+            <div id={this.props.page} className={this.props.location.pathname === '/recipes' ? "search-container2" : "search-container"}>
                 <div className="search-bar">
                     <div className="icon">
                     <i className="fa-solid fa-utensils"></i>
