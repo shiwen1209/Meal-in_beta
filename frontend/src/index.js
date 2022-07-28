@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './include/bootstrap'
+
 import './app.css'
 // import './styles/reset.css'
 // We will create this component shortly

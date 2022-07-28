@@ -39,6 +39,7 @@ app.use("/api/likes", likes);
 app.use("/api/mainpage", mainpage);
 app.use("/api/mealplan", mealplan);
 app.use("/api/search", search);
+app.use(express.static(__dirname + "/frontend"));
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

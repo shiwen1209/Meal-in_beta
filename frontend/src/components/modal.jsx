@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CreateRecipeModal from "./recipes/create_recipe_container";
 import UpdateRecipeModal from "./recipes/update_recipe_container";
 import ShoppingListContainer from "./shopping_list/shopping_list_container"
+import RecipeLabel from "./recipes/recipe_label"
 
 class Modal extends React.Component{
   constructor(props)
@@ -44,6 +45,9 @@ class Modal extends React.Component{
       case 'shoppingList':
         // debugger
         component = <ShoppingListContainer />;
+        break;
+      case 'recipeLabel':
+        component = <RecipeLabel payload={this.props.modals.payload}/>;
         break;
       default:
         return null;

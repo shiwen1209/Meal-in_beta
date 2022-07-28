@@ -43,12 +43,14 @@ router.get("/", (req, res) => {
 
     //note: sorting can be added later, but it requires converting an array of ObjectIds back into an array of objects
 
-    Recipe.find(filter).sort(sortFilter).limit(20).exec().then((result) => {
+    Recipe.find(filter).sort(sortFilter).limit(20).select("-ingredients -instructions -nutrients").exec().then((result) => {
         console.log("res", result);
         return res.json(result);
     });
 
 })
+
+
 
 module.exports = router;
 
