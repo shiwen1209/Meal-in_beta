@@ -122,6 +122,7 @@ class MyMealplans extends React.Component {
             <div className='my-mealplan'>
                 <div className='mealplan-recipes'>
                     <div className="mealplan-search">
+                        <i className="fa-solid fa-magnifying-glass"></i>
                         <input 
                         onChange={this.handleUpdate}
                         type="text" placeholder="Find a recipe" />

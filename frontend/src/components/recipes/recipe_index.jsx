@@ -1,7 +1,8 @@
 import React from 'react';
 import RecipeIndexItem from './recipe_index_item';
 import indexbg from '../../images/indexbg.jpg';
-import SearchContainer from '../search/search_bar';
+import SearchContainer from '../search/search_bar_container';
+import {withRouter } from 'react-router-dom';
 
 
 class RecipeIndex extends React.Component {
@@ -9,6 +10,7 @@ class RecipeIndex extends React.Component {
     componentDidMount(){
         this.props.fetchRecipes();
     }
+
 
     render(){
         const {recipes, currentUser} = this.props;
@@ -55,7 +57,7 @@ class RecipeIndex extends React.Component {
                 <div></div>
                 }
 
-                <SearchContainer />
+                <SearchContainer page={this.props.type === "splash" ? "index-search" : ""}/>
                 <div className='recipe-box'>
                     <div className='index-cg'>
                         <div>
@@ -105,4 +107,4 @@ class RecipeIndex extends React.Component {
 
 }
 
-export default RecipeIndex;
+export default withRouter(RecipeIndex);
