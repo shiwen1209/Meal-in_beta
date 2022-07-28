@@ -6,7 +6,6 @@
     padding-top: 20px;
     padding-left: 40px;
     padding-right: 40px;
-
 }
 
 .mealplan-recipes {
@@ -16,7 +15,7 @@
     align-items: flex-start;
     margin: 0px;
     padding: 0px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 420px;
     /* height: 600px; */
 }
@@ -29,23 +28,41 @@
 }
 
 .mealplan-main {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 890px;
+    
+
+
 
 }
 
 .mealplan-search {
-    background-color: aqua;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid lightgray;
     width: 100%;
 }
 
+.mealplan-search i{
+    color: white;
+    background-color: green;
+    padding: 10px;
+    border-radius: 50%;
+}
 .mealplan-search input {
-    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    width: 90%;
+    border: none;
+    box-shadow: none;
 }
 
 .mp-recipe-item>img {
     height: 200px;
-    /* border: 1px solid red; */
+   
 }
 
 .grid-container {
@@ -53,17 +70,20 @@
     grid-template-columns: auto auto auto auto;
     column-gap: 0px;
     font-size: 20px;
-    width: 880px;
+    width: 810px;
+ 
+    align-items: center;
+
+
 }
 
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #027333;
+    border: 1px solid lightgray;
     ;
     /* padding: 20px; */
-    font-size: 30px;
-    font-size: 20px;
-    width: 220px;
+    font-size: 15px;
+    width: 200px;
     height: 65px;
     display: flex;
     flex-direction: row;
@@ -76,6 +96,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
+    width: 810px;
     
     
 }
@@ -88,16 +109,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 810px;
+    margin-bottom: 20px;
+   
 }
 
-.mealplan-tabs > div{
-    background-color: antiquewhite;
-    width: 180px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .mealplan-results{
     justify-content: center;
@@ -118,3 +135,63 @@
     text-decoration: underline;
 }
 
+
+.nutrition-sub,
+.mealplan-sub {
+
+    /* border: 1px solid red; */
+
+    height: 620px;
+    /* background-color: rgba(230, 218, 160, 0.371); */
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            background-color: rgba(36, 174, 36, 0.067);
+
+}
+
+.mealplan-tabs {
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid red; */
+
+}
+
+.mealplan-tabs>div {
+    /* border: 1px solid red; */
+}
+
+.mealplan-tabs>div {
+    background-color: rgba(36, 174, 36, 0.067);;
+    width: 180px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.grid-item:nth-child(-n+4){
+    background-color: #027333;
+    border-right: 1px solid white;
+    height: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+.grid-item:nth-child(1){
+    background-color: rgba(0, 0, 0, 0);;
+    border: none;
+}
+
+.grid-item:nth-child(5), .grid-item:nth-child(9), .grid-item:nth-child(13),
+.grid-item:nth-child(17), .grid-item:nth-child(21), .grid-item:nth-child(25), 
+.grid-item:nth-child(29){
+    font-size: 20px;
+    background-color: #37a63762;
+    writing-mode: sideways-rl;
+    text-orientation: mixed;
+    /* width: 70px; */
+
+}

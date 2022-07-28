@@ -17,12 +17,16 @@
 
 .user-box{
     padding: 20px;
-    border: 1px solid rgb(218, 250, 218);
-    box-shadow: 2px 2px 10px 4px rgb(221, 254, 221);
+    border: 1px solid rgb(0, 73, 0);
+    box-shadow: 2px 2px 10px 4px rgb(184, 198, 185);
     max-width: 260px;
-    float: left;
+    /* float: left; */
     border-radius: 10px;
     /* margin: 20px; */
+}
+
+.left{
+    float: left;
 }
 
 .single-user-info{
@@ -155,5 +159,15 @@ ol{
 }
 
 .rating-review{
-    display: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    position: fixed;
+    border: 1px solid green;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 260px;
+    background-color: rgb(252, 255, 252);
+    /* float: left; */
 }

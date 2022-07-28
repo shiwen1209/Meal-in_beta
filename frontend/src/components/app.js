@@ -12,9 +12,10 @@ import UserShowPageContainer from './user/user_show_page_container';
 import HomePageContainer from './recipes/home_page_container';
 import HowItWorks from './how_it_works';
 import Modal from './modal'
-import SearchContainer from "./search/search_bar"
+import ShoppingList from './shopping_list/shopping_list'
 
 
+import SearchContainer from "./search/search_bar_container"
 
 const App = () => (
   <div>
@@ -23,7 +24,6 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={RecipeIndexContainer} />
       <Route path="/search" component={SearchContainer} />
-
       <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -39,6 +39,8 @@ const App = () => (
       />
       <Route exact path="/recipes" component={HomePageContainer} />
       <Route path="/howitworks" component={HowItWorks} />
+      <Route path='/shopping_list' component={ShoppingList} />
+
     </Switch>
   </div>
 );

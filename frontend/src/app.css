@@ -7,6 +7,8 @@
 @import './styles/rating_review.css';
 @import './styles/modal.css';
 @import './styles/mealplan.css';
+@import './styles/how_it_work.css';
+@import './styles/shopping_list.css';
 @import './styles/howitworks.css';
 @import './styles/search.css';
 /* @import './styles/mealplan.css';
@@ -260,19 +262,3 @@ div.gallery img {
     display: none;
 }
 
-.nutrition-sub, .mealplan-sub{
-
-    border: 1px solid red;
-    height: 100%;
-}
-
-.mealplan-tabs {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid red;
-
-}
-
-.mealplan-tabs >div{
-    border: 1px solid red;
-}

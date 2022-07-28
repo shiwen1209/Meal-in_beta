@@ -2,8 +2,9 @@ import { connect } from "react-redux"
 import MyMealplans from "./my_mealplans";
 import { fetchUser } from "../../actions/user_actions";
 import { recipeSelector } from "../../actions/recipes_selector";
-// ALEC COMMENT THIS BACK IN
-// import { createMealplan } from "../../actions/meaplan_actions";
+import { createMealplan } from "../../actions/meaplan_actions";
+import { openModalPayload, closeModal } from "../../actions/modal_actions"
+
 
 const mstp = (state, ownProps) => {
     return{
@@ -16,8 +17,9 @@ const mstp = (state, ownProps) => {
 const mdtp = (dispatch) => {
     return {
         fetchUser: (userId)=> dispatch(fetchUser(userId)),
-        //ALEC COMMENT THIS BACK IN
-        // createMealplan: (mealplan) => dispatch(createMealplan(mealplan))
+        createMealplan: (mealplan) => dispatch(createMealplan(mealplan)),
+        openModalPayload: (modal_name) => dispatch(openModalPayload(modal_name)),
+        closeModal: () => dispatch(closeModal())
     }
 }
 export default connect(mstp, mdtp)(MyMealplans)

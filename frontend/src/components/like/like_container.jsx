@@ -6,7 +6,7 @@ import { fetchRecipe } from '../../actions/recipe_actions';
 
 const mSTP = (state, ownProps) => {
     return {
-        currentRecipe: state.entities.currentRecipe
+        currentRecipe: state.entities.currentRecipe,
         // review: state.entities.rating,
         // total_rating: state.entities.currentRecipe.total_rating
     }

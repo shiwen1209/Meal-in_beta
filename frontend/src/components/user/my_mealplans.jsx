@@ -73,7 +73,7 @@ class MyMealplans extends React.Component {
 
     render() {
         console.log(this.state)
-        const {user, recipes} = this.props;
+        const { user, recipes, openModalPayload} = this.props;
         if(!user || !recipes){return null}
    
         const recipesList = this.state.filteredResult.map((recipe, idx) => (
@@ -122,6 +122,7 @@ class MyMealplans extends React.Component {
             <div className='my-mealplan'>
                 <div className='mealplan-recipes'>
                     <div className="mealplan-search">
+                        <i className="fa-solid fa-magnifying-glass"></i>
                         <input 
                         onChange={this.handleUpdate}
                         type="text" placeholder="Find a recipe" />
@@ -281,8 +282,9 @@ class MyMealplans extends React.Component {
                                         className='nav-bar-login'>Finalize Mealplan</button>
                             </div> : 
                             <div className='mealplan-results'>
-                                    <h1>Mealplan finalized!</h1>
-                                    <h1 className='shopping-link'>See shopping list</h1>
+                                    <h1 >Mealplan finalized!</h1>
+                                    <h1 onClick={e => openModalPayload("shoppingList")}
+                                     className='shopping-link'>See shopping list</h1>
                             </div>
                         
                         

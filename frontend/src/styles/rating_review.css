@@ -4,3 +4,62 @@
     flex-direction: row;
 }
 
+.form-rating input[type=radio]{
+    display: none;
+}
+
+.submit-review-button{
+    margin-top: 30px;
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form-rating{
+    margin-top: 30px;
+}
+
+label{
+    cursor: pointer;
+}
+
+.edit-review-button{
+    padding: 5px;
+    background-color: green;
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-rating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid rgb(220, 220, 220);
+}
+
+.square{
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.flex-rating-title{
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(0, 75, 0);
+
+}
+
+.rating-show{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.rating-show-1{
+    margin-left: 8px;
+}

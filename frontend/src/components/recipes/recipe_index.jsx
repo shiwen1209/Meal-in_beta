@@ -1,7 +1,8 @@
 import React from 'react';
 import RecipeIndexItem from './recipe_index_item';
 import indexbg from '../../images/indexbg.jpg';
-import SearchContainer from '../search/search_bar';
+import SearchContainer from '../search/search_bar_container';
+import {withRouter } from 'react-router-dom';
 
 
 class RecipeIndex extends React.Component {
@@ -10,6 +11,7 @@ class RecipeIndex extends React.Component {
         this.props.fetchRecipes();
     }
 
+
     render(){
         const {recipes, currentUser} = this.props;
         if (!recipes){return}
@@ -17,32 +19,32 @@ class RecipeIndex extends React.Component {
         const recipesList1 = recipes
         .filter((recipe) => (recipe.category === "world-cuisine") )
         .map((recipe, index)=>(
-            <RecipeIndexItem key={index} recipe ={recipe}/>
+            <RecipeIndexItem key={index} recipe ={recipe} currentUser={currentUser}/>
         ))
 
         const recipesList2 = recipes
             .filter((recipe) => (recipe.category === "main-dish"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser}/>
             ))
 
         const recipesList3 = recipes
             .filter((recipe) => (recipe.category === "breakfast-and-brunch" ||
                 recipe.category === "drinks"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
         const recipesList4 = recipes
             .filter((recipe) => (recipe.category === "appetizers-and-snacks"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
         const recipesList5 = recipes
             .filter((recipe) => (recipe.category === "salad"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
 
@@ -55,7 +57,7 @@ class RecipeIndex extends React.Component {
                 <div></div>
                 }
 
-                <SearchContainer />
+                <SearchContainer page={this.props.type === "splash" ? "index-search" : ""}/>
                 <div className='recipe-box'>
                     <div className='index-cg'>
                         <div>
@@ -105,4 +107,4 @@ class RecipeIndex extends React.Component {
 
 }
 
-export default RecipeIndex;
+export default withRouter(RecipeIndex);

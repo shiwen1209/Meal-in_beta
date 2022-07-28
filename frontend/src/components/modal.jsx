@@ -3,6 +3,7 @@ import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateRecipeModal from "./recipes/create_recipe_container";
 import UpdateRecipeModal from "./recipes/update_recipe_container";
+import ShoppingListContainer from "./shopping_list/shopping_list_container"
 
 class Modal extends React.Component{
   constructor(props)
@@ -38,6 +39,9 @@ class Modal extends React.Component{
         break;
       case 'updateRecipe': 
       component = <UpdateRecipeModal recipeId={this.props.modals.payload}/>;
+        break;
+      case 'shoppingList':
+        component = <ShoppingListContainer />;
         break;
       default:
         return null;
