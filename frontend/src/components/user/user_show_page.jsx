@@ -104,27 +104,28 @@ class UserShowPage extends React.Component {
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
                         >Create a Recipe</button>
-                        <div className="make-meal-plan-button">Make a meal plan</div>
+                        <button className="make-meal-plan-button">Make a meal plan</button>
                       </div>
                     : 
                       <div></div>
                     }
-  
-
         </div>
 
 
         <div className="recipe-tabs">
-                <div>
-                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipes"})}>Posted Recipes</h1>
+                <div className={this.state.recipeDisplay === "createdRecipe" ? "tab-active" : "tab-inactive"}>
+                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipe"})}>My posted recipes</h1>
                 </div>
-                <div>
-                  <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>Liked Recipes</h1>
+          <div className={this.state.recipeDisplay === "likedRecipes" ? "tab-active" : "tab-inactive"}>
+                  <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>My liked recipes</h1>
+                </div>
+            <div>
+              <h1 onClick={(e) => this.setState({ recipeDisplay: "likedRecipes" })}>My mealplans</h1>
 
-                </div>
+            </div>
         </div>
 
-        {this.state.recipeDisplay === "createdRecipes" ?
+        {this.state.recipeDisplay === "createdRecipe" ?
         <div className="created-recipes-index">
           {recipes_created &&
             recipes_created.map((recipe, idx) => (
