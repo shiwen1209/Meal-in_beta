@@ -111,7 +111,7 @@ class SearchBar extends React.Component {
                 <form id="search-form" onSubmit={this.handleSubmit}>
                     {/* <form id="search-form" onSubmit={this.handleSubmit}> */}
                     <select value={this.state.catgeory} onChange={this.update("category")}>
-                        <option value={null} selected>Select a meal category</option>
+                        <option value={null} selected>Select meal category</option>
                         <option value="appetizers-and-snacks">Appetizers and Snacks</option>
                         <option value="breakfast-and-brunch">Breakfast</option>
                         <option value="desserts">Desserts</option>
@@ -122,13 +122,15 @@ class SearchBar extends React.Component {
                         <option value="World Cuisine">World Cuisine</option>
                     </select>
                     <select value={this.state.budget} onChange={this.update("budget")}>
-                        <option value={null} selected>--Budget--</option>
+                        <option value={null} selected>Select budget</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
                         <option value="3">$$$</option>
                         <option value="4">$$$$</option>
                     </select>
-                    <input value={this.state.title} onChange={this.update("title")} type="text" />
+                    <input 
+                    placeholder="Enter a dish name"
+                    value={this.state.title} onChange={this.update("title")} type="text" />
                     {/* <select value={this.state.rating}>
                         <option value="3">3 Stars+</option>
                         <option value="4">4 Stars+</option>
@@ -137,7 +139,7 @@ class SearchBar extends React.Component {
 
                     {/* <label htmlFor="sort-method-select">Sorted By:</label> */}
                     <select id="sort-method-select" value={this.state.sortme} onChange={this.update("sortme")}>
-                        <option value={null} selected >Sort by:</option>
+                        <option value={null} selected >Sort by type</option>
                         <option value="recent" >Recent</option>
                         <option value="popularity" >Popular</option>
                     </select>
