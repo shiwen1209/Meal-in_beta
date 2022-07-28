@@ -14,11 +14,11 @@ class Rating extends React.Component {
         return (
             
             <div>
-                {this.props.rating >= 1 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }}/>}
-                {this.props.rating >= 2 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }}/>}
-                {this.props.rating >= 3 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }}/>}
-                {this.props.rating >= 4 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }}/>}
-                {this.props.rating >= 5 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }}/>}
+                {this.props.rating >= 1 ? <AiFillStar style={{ color: "green", fontSize: '25px'}} /> : < AiOutlineStar style={{ color: "green" ,fontSize: '25px'}}/>}
+                {this.props.rating >= 2 ? <AiFillStar style={{ color: "green", fontSize: '25px' }} /> : < AiOutlineStar style={{ color: "green",fontSize: '25px' }}/>}
+                {this.props.rating >= 3 ? <AiFillStar style={{ color: "green", fontSize: '25px' }} /> : < AiOutlineStar style={{ color: "green",fontSize: '25px' }}/>}
+                {this.props.rating >= 4 ? <AiFillStar style={{ color: "green",fontSize: '25px' }} /> : < AiOutlineStar style={{ color: "green" ,fontSize: '25px'}}/>}
+                {this.props.rating >= 5 ? <AiFillStar style={{ color: "green",fontSize: '25px' }} /> : < AiOutlineStar style={{ color: "green" ,fontSize: '25px'}}/>}
             </div>
         )
     }

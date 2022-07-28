@@ -35,10 +35,11 @@ class Recipe extends React.Component{
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
 
         // debugger
-        if (!recipe ||!recipe.author) return null;
+        if (!recipe || !recipe.author) return null;
         // debugger
         return (
             <div className="recipe-show-page">
+                <div className="left">
                 <div className='user-box'>
                     <div className="user-img">
                         <img src={headshot} alt="" />
@@ -49,10 +50,6 @@ class Recipe extends React.Component{
                             <span>{recipe.author.handle}</span>
                         </div>
                         <div className="single-user-info">
-                            <span className="user-box-icon"><BiMessageSquareDetail /></span>
-                            <span>userbio</span>
-                        </div>
-                        <div className="single-user-info">
                             <span className="user-box-icon"><GiShadowFollower/></span>
                             <span>300 follow</span>
                         </div>
@@ -60,7 +57,17 @@ class Recipe extends React.Component{
                             <span className="user-box-icon"><MdOutlineFoodBank/></span>
                             <span>21 recipes</span>
                         </div>
+                        <div className="single-user-info">
+                            <span className="user-box-icon"><BiMessageSquareDetail /></span>
+                            <span>{recipe.author.bio}</span>
+                        </div>
+
                     </div>
+                </div>
+
+                <div className="rating-review">
+                    <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
+                </div>
                 </div>
 
                 <div className="recipe-show-box">
@@ -105,10 +112,10 @@ class Recipe extends React.Component{
                             }</ol>
                         </div>
                     </div>
-                    <div className="rating-review">
+                    {/* <div className="rating-review">
                         <p>Rate this Recipe</p>
                         <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
