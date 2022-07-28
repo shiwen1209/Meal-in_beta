@@ -26,17 +26,6 @@
 
 }
 
-.user-bio{
-    display: flex;
-    box-shadow: 0 0 4px #8a8d91;
-    /* border: 1px black solid; */
-    margin-left: 400px;
-    width: 500px;
-    height: 100px;
-    margin-top: 20px;
-    border-radius: 10px;
-    padding: 10px;
-}
 
 .created-recipe{
     display: flex;
@@ -74,7 +63,7 @@
 
 .recipe-count{
     padding-top: 20px;
-    margin-left: 600px;
+    margin-left: 560px;
 }
 
 .make-meal-plan-button{
@@ -100,7 +89,7 @@
 .user-show-recipe-title{
     display: none;
     position: absolute;
-
+    
     /* border: 1px black solid; */
     height: 230px;
     width: 270px;
@@ -126,9 +115,9 @@
 .editing-bio{
     display: flex;
     /* border: 1px black solid; */
-    margin-left: 400px;
-    width: 500px;
-    height: 100px;
+    margin-left: 550px;
+    width: 270px;
+    height: 80px;
     margin-top: 20px;
     justify-content: flex-start;
     align-items: flex-start;
@@ -141,6 +130,17 @@
     /* position: absolute; */
 }
 
+.user-bio{
+    display: flex;
+    box-shadow: 0 0 4px #8a8d91;
+    /* border: 1px black solid; */
+    margin-left: 550px;
+    width: 270px;
+    height: 80px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
 .bio-edit-container{
     width: 500px;
     height: 100px;
@@ -170,13 +170,14 @@
 
 
 
+
 .edit-bio-button{
     display: flex;
     position: absolute;
-    margin-left: 934px;
+    margin-left: 780px;
     /* border: 1px black solid; */
-    box-shadow: 0 0 4px #8a8d91;
-    margin-top: -30px;
+    /* box-shadow: 0 0 4px #8a8d91; */
+    margin-top: -35px;
     padding: 5px;
     border-radius: 5px;
 }

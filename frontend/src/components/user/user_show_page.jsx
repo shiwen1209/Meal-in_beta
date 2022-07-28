@@ -79,7 +79,7 @@ class UserShowPage extends React.Component {
 
                     <div className="recipe-count"> {recipes_created.length} created recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
-                    <div>
+                    <div id="">
                           {this.state.displayEdit ? (
                             <div>
                               <textarea
