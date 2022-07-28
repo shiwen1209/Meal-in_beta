@@ -1,7 +1,8 @@
 import React from 'react';
 import RecipeIndexItem from './recipe_index_item';
 import indexbg from '../../images/indexbg.jpg';
-import SearchBar from '../search/search_bar';
+import SearchContainer from '../search/search_bar';
+
 
 class RecipeIndex extends React.Component {
     
@@ -45,9 +46,6 @@ class RecipeIndex extends React.Component {
             ))
 
 
-
-
-        
         return(
             <div className='recipe-index'>
                 {this.props.type === "splash" ? 
@@ -57,7 +55,7 @@ class RecipeIndex extends React.Component {
                 <div></div>
                 }
 
-                <SearchBar formType="index-search" />
+                <SearchContainer />
                 <div className='recipe-box'>
                     <div className='index-cg'>
                         <div>
