@@ -113,7 +113,7 @@ class Recipe extends React.Component{
                         </div>
                     </div>
 
-                    <button onClick={(e) => this.props.openModalPayload({name: "recipeLabel", payload: -1})}>YO WHERE AM I</button>
+                    <button id="recipe-label-button" onClick={(e) => this.props.openModalPayload({name: "recipeLabel", payload: -1})}>Generate Recipe Label</button>
                     {/* <div className="rating-review">
                         <p>Rate this Recipe</p>
                         <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
