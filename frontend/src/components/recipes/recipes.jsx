@@ -34,9 +34,7 @@ class Recipe extends React.Component{
         let ingredients = recipe.ingredients;
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
 
-        // debugger
         if (!recipe || !recipe.author) return null;
-        // debugger
         return (
             <div className="recipe-show-page">
                 <div className="left">

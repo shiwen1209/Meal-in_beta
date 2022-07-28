@@ -7,7 +7,6 @@ import { MdOutlineDateRange } from 'react-icons/md';
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
 class HowItWorks extends React.Component {
     render() {
-        // debugger
         return (
             <div className='howitworks'>
                 <div className='howitworks-image'>

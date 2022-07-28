@@ -60,7 +60,7 @@ class UserShowPage extends React.Component {
       return null;
     }
     
-    // debugger
+
     return (
       <div className="show-page-section">
         <div className="profile-container">

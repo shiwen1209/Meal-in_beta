@@ -31,7 +31,6 @@ class Modal extends React.Component{
     if (!this.props.modals) {
       return null;
     }
-    // debugger
     let component;
     switch (this.props.modals.name) {
       //this code could be refactored to be significantly more modular and DRY
@@ -42,7 +41,6 @@ class Modal extends React.Component{
       component = <UpdateRecipeModal recipeId={this.props.modals.payload}/>;
         break;
       case 'shoppingList':
-        // debugger
         component = <ShoppingListContainer payload={this.props.modals.payload}/>;
         break;
       default:

@@ -70,12 +70,10 @@ class SearchBar extends React.Component {
         }
         this.props.history.push(`${newLink}`)
     }
-        //
+    
     render() {
-        // debugger
         let searchResult;
         if (this.props.recipes.constructor === Array){
-            // debugger
           searchResult = this.props.recipes.map((recipe, idx) => (
                 <RecipeIndexItem key={idx} recipe={recipe} />
             ))
