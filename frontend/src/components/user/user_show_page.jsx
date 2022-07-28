@@ -2,6 +2,7 @@ import React from "react";
 import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom'
 import donut from '../../images/donut.png'
+import RecipeIndexItem from '../recipes/recipe_index_item';
 // import UserEditFormContainer from './user_edit_form_container'
 // ;
 class UserShowPage extends React.Component {
@@ -154,19 +155,17 @@ class UserShowPage extends React.Component {
         : 
         <div className="created-recipes-index">
           {recipes_liked &&
-            recipes_liked.map((recipe, idx) => (
-              <Link to={`/recipes/${recipe.id}`} key={idx}>
-                <div className="created-recipe">
-                  <img
-                    className="user-show-recipe-image"
-
-                    src={recipe.image_url}
-                    alt="background-pic"
-                  />
-                  <div className="user-show-recipe-title">{recipe.title}</div>
-                  
-                </div> 
-              </Link>
+            recipes_liked.map((recipe, idx) => ( 
+            <Link to={`/recipes/${recipe.id}`} key={idx}>
+              <div className="created-recipe">
+                <img
+                  className="user-show-recipe-image"
+                  src={recipe.image_url}
+                  alt="background-pic"
+                />
+                <div className="user-show-recipe-title">{recipe.title}</div>
+              </div> 
+            </Link>
             ))}
         </div>}
         
