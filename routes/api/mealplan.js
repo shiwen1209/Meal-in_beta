@@ -62,6 +62,7 @@ router.get("/", (req, res) => {
     })
 })
 
+
 router.get("/:id", (req, res) => {
     console.log("TRYING TO GET ID")
     MealPlan.MealPlan.findOne({ _id: req.params.id }).then(resp => {
@@ -89,7 +90,7 @@ router.post("/", async (req, res) => {
     let doc = new MealPlan.MealPlan({
         name: data.name,
         owner_id: data.owner_id,
-        meals: data.meals,
+        meals: data.meals
     })
 
     try {

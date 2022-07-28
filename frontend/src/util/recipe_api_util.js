@@ -24,3 +24,11 @@ export const updateRecipe = (recipe, recipeId) => {
     return axios.patch(`/api/recipes/${recipeId}`, recipe )
 }
 
+export const getRecipesBreakdown = (info) => {
+    console.log("what up", info);
+    return axios.get('/api/testme', {
+        params: {
+            info: info
+        }
+    })
+}
