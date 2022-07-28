@@ -283,7 +283,9 @@ class MyMealplans extends React.Component {
                             </div> : 
                             <div className='mealplan-results'>
                                     <h1 >Mealplan finalized!</h1>
-                                    <h1 onClick={e => openModalPayload("shoppingList")}
+                                    <h1 onClick={e => {
+                                        console.log("clicked")
+                                        openModalPayload({ name: "shoppingList" })}}
                                      className='shopping-link'>See shopping list</h1>
                             </div>
                         

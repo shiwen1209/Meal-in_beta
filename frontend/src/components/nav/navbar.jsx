@@ -18,7 +18,7 @@ class NavBar extends React.Component {
                         <h1>Meal'in</h1>
                     </Link>
                     <div className="recipe-link">
-                        <Link to={'/recipes'}>Browse Recipes</Link>
+                        <Link to={'/recipes'}>Browse recipes</Link>
                     </div>
                     <div className="recipe-link">
                         <Link to={'/howitworks'}>How it works</Link>
@@ -26,10 +26,10 @@ class NavBar extends React.Component {
                     {this.props.loggedIn ?
                         <div className="loggedin-links">
                             <div className="recipe-link">
-                                <Link to={`/myrecipes/${this.props.currentUserId}`}>My Recipes</Link>
+                                <Link to={`/myrecipes/${this.props.currentUserId}`}>My collection</Link>
                             </div>
                             <div className="recipe-link">
-                                <Link to={`/mymealplans/${this.props.currentUserId}`}>My Mealplans</Link>
+                                <Link to={`/mymealplans/${this.props.currentUserId}`}>Make a mealplans</Link>
                             </div>
                         </div> : <div></div>}
                 </div>

@@ -72,11 +72,10 @@ class UserShowPage extends React.Component {
                   <div className="user-info">
                     <div>
                       <div className="user-handle">{user && <div>{user.handle}</div>}</div>
-                      <button className="edit-button-start" onClick={this.handleClick}>
+                      <div onClick={this.handleClick} className="icon">
                         <i className="fa-solid fa-pen"></i>
-                      </button>
+                      </div>
                     </div>
-
                     <div className="recipe-count"> {recipes_created.length} created recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
                     <div id="">
@@ -90,20 +89,17 @@ class UserShowPage extends React.Component {
                               <button  className="edit-bio-button" onClick={this.submitUser}>Save</button>
                             </div>
                           ) : (
-                            <div className="user-bio">{user.bio}</div>
+                            <div className="user-bio">Bio: {user.bio}</div>
                           )}
-
                     </div>
 
 
                   </div>
-
             </div>
-
-
-              <div className="user-buttons">
+ 
+       
                     {currentUserId === user.id ? 
-                      <div>
+              <div className="user-buttons">
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
                         >Create a Recipe</button>
@@ -112,8 +108,7 @@ class UserShowPage extends React.Component {
                     : 
                       <div></div>
                     }
-              </div>
-
+  
 
         </div>
 

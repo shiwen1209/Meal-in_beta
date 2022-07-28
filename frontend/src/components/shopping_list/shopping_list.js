@@ -18,7 +18,6 @@ class ShoppingList extends React.Component{
 
                 <div className="list-box">
                     {
-
                         lists.map(list => (
                             <div className="list">
                                 <label className="container">

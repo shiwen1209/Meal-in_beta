@@ -5,10 +5,11 @@
     /* z-index: 45; */
     border-radius: 100px;
     display: flex;
-    margin-left: 315px;
-    margin-top: 20px;
+    /* margin-left: 315px;
+    margin-top: 20px; */
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
 }
 .profile-pic-img{
     width: 150px;
@@ -19,10 +20,11 @@
 .user-handle{
     display: flex;
     /* border: 1px black solid; */
-    margin-left: 565px;
+    /* margin-left: 565px; */
     font-size: 26px;
-    margin-top: -140px;
+    /* margin-top: -140px; */
     width: 500px;
+    border: 1px solid red;
 
 }
 
@@ -32,7 +34,7 @@
     /* border: 1px black solid; */
     width: 270px;
     height: 230px;
-    margin: 15px;
+    /* margin: 15px; */
     box-shadow: 0 0 4px #8a8d91;
     border-radius: 10px;
 }
@@ -55,16 +57,17 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: flex-start;
-    margin-top: 100px;
+    /* margin-top: 100px;
     margin-left: 110px;
     /* margin-left: 50px; */
-    margin-right: 100px;
+    /* margin-right: 100px; */ 
 }
 
 .recipe-count{
-    padding-top: 20px;
-    margin-left: 560px;
+    padding-top: 10px;
+    /* margin-left: 560px; */
 }
+
 
 .make-meal-plan-button{
     width: 150px;
@@ -88,7 +91,7 @@
 
 .user-show-recipe-title{
     display: none;
-    position: absolute;
+    /* position: absolute; */
     
     /* border: 1px black solid; */
     height: 230px;
@@ -105,9 +108,9 @@
 
 .edit-button{
     display: none;
-    position: absolute;
-    margin-left: 250px;
-    margin-top: 10px;
+    /* position: absolute; */
+    /* margin-left: 250px;
+    margin-top: 10px; */
     color: rgb(175, 30, 30);
     z-index: 99;
     
@@ -115,10 +118,10 @@
 .editing-bio{
     display: flex;
     /* border: 1px black solid; */
-    margin-left: 550px;
+    /* margin-left: 550px; */
     width: 270px;
     height: 80px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     justify-content: flex-start;
     align-items: flex-start;
     /* position: absolute; */
@@ -132,23 +135,24 @@
 
 .user-bio{
     display: flex;
-    box-shadow: 0 0 4px #8a8d91;
+    border: none;
+    /* box-shadow: 0 0 4px #8a8d91; */
     /* border: 1px black solid; */
-    margin-left: 550px;
+    /* margin-left: 550px; */
     width: 270px;
     height: 80px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border-radius: 10px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 .bio-edit-container{
     width: 500px;
     height: 100px;
     /* border: 1px black solid; */
     display: flex;
-    position: absolute;
-    margin-top: -632px;
-    margin-left: 400px;
+    /* position: absolute; */
+    /* margin-top: -632px;
+    margin-left: 400px; */
     box-shadow: 0 0 4px #8a8d91;
 }
 
@@ -173,11 +177,11 @@
 
 .edit-bio-button{
     display: flex;
-    position: absolute;
-    margin-left: 780px;
+    /* position: absolute; */
+    /* margin-left: 780px; */
     /* border: 1px black solid; */
     /* box-shadow: 0 0 4px #8a8d91; */
-    margin-top: -35px;
+    /* margin-top: -35px; */
     padding: 5px;
     border-radius: 5px;
 }
@@ -185,33 +189,49 @@
 .edit-button-start{
     display: flex;
     position: absolute;
-    margin-left: 935px;
-    margin-top: 60px;
+    /* margin-left: 935px;
+    margin-top: 60px; */
 }
 
 
 .profile-container{
-    border: 1px black solid;
+    border: 1px solid green;
     padding-bottom: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
 }
 .user-buttons{
     border: 1px black solid;
-    width: 150px;
-    height: 200px;
+    /* width: 300px; */
+    /* width: 150px; */
+    /* height: 200px; */
     display: flex;
+    flex-direction: row;
+
     /* align-items: spac; */
     /* position: absolute; */
-    margin-left: 1100px;
-    margin-top: -200px;
+    /* margin-left: 1100px;
+    margin-top: -200px; */
     align-content: space-around;
-    
-
+    color: white;
 }
+
+.user-buttons button:nth-child(1){
+    margin-right: 20px;
+}
+
 .recipe-tabs{
     border: 1px black solid
 }
 .profile-info{
-    /* border: 1px black solid; */
+    border: 1px solid red;
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
     /* padding-bottom: 20px; */
     /* display:contents; */
     /* justify-content: center; */
@@ -219,8 +239,28 @@
     
 }
 
-/* .user-info{
+.user-info{
     border: 3px rgb(195, 23, 23) solid;
     height: 200px;
     display: flex;
-} */
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.user-info > div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-info .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+}
+.user-info .icon > i {
+    color: green;
+}
