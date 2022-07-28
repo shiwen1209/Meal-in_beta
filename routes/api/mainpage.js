@@ -4,6 +4,7 @@ const Recipe = require('../../models/Recipe');
 
 router.get("/", async (req, res) => {
     Recipe.find({})
+        .populate('author', '-password -email -recipes_liked -recipes_rated')
         .then(async (recipes) => {
             let ans = [];
             // let categories = {
