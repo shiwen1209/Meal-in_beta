@@ -4,15 +4,23 @@ import { Link } from 'react-router-dom'
 class NavBar extends React.Component {
     constructor(props){
         super(props);
+        this.state ={
+            loggedIn: this.props.loggedIn
+        }
         this.logoutUser = this.logoutUser.bind(this);
+
     }
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
+        console.log('logout', this.props)
+        this.setState({loggedIn: false})
     }   
 
     render(){
+        console.log('prooops', this.props)
+        console.log('staaate', this.state)
         return (
                 <div className="logged-in-nav">
                     <div>
@@ -25,7 +33,9 @@ class NavBar extends React.Component {
                         <div className="recipe-link">
                             <Link to={'/howitworks'}>How it works</Link>
                         </div>
-                        {this.props.loggedIn ? 
+
+
+                        {this.state.loggedIn ? 
                         <div className="loggedin-links">
                             <div className="recipe-link">
                                 <Link to={`/myrecipes/${this.props.currentUserId}`}>My Recipes</Link>
@@ -36,7 +46,7 @@ class NavBar extends React.Component {
                         </div> : <div></div>}
                     </div>
 
-                    {this.props.loggedIn ? 
+                    {this.state.loggedIn ? 
                         <div className="login-signup">
                             <div className="nav-bar-login">
                                 <button onClick={this.logoutUser}>Logout</button>

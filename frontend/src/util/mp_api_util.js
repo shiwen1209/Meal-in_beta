@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const createMealplan = (mealplan) => {
-    debugger
+    // debugger
     return axios.post('/api/mealplan', mealplan);
 }
 

@@ -5,7 +5,7 @@
     /* z-index: 45; */
     border-radius: 100px;
     display: flex;
-    margin-left: 200px;
+    margin-left: 315px;
     margin-top: 20px;
     justify-content: center;
     align-items: center;
@@ -19,9 +19,9 @@
 .user-handle{
     display: flex;
     /* border: 1px black solid; */
-    margin-left: 400px;
+    margin-left: 565px;
     font-size: 26px;
-    margin-top: -150px;
+    margin-top: -140px;
     width: 500px;
 
 }
@@ -74,7 +74,7 @@
 
 .recipe-count{
     padding-top: 20px;
-    margin-left: 400px;
+    margin-left: 500px;
 }
 
 .make-meal-plan-button{
@@ -206,7 +206,9 @@
     
 
 }
-
+.recipe-tabs{
+    border: 1px black solid
+}
 .profile-info{
     /* border: 1px black solid; */
     /* padding-bottom: 20px; */
@@ -215,3 +217,9 @@
     /* width: 570px; */
     
 }
+
+/* .user-info{
+    border: 3px rgb(195, 23, 23) solid;
+    height: 200px;
+    display: flex;
+} */

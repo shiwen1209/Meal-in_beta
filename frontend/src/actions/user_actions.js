@@ -13,10 +13,11 @@ export const receiveUser = (data) => {
     }
 };
 
-export const receiveUpdatedUser = (data) => {
+export const receiveUpdatedUser = (user) => {
+  console.log('aaaa', user)
   return {
     type: RECEIVE_UPDATED_USER,
-    user: data.user,
+    user: user,
   };
 };
 
@@ -27,8 +28,8 @@ export const fetchUser = (userId) => dispatch => (
 );
 
 export const updateUser = (user) => dispatch => {
-    return UserApiUtil.updateUser(user).then((payload) =>
-      dispatch(receiveUpdatedUser(payload.data))
+    return UserApiUtil.updateUser(user).then((newUser) =>
+      dispatch(receiveUpdatedUser(newUser))
     );
 };
 

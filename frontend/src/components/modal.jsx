@@ -31,13 +31,13 @@ class Modal extends React.Component{
       return null;
     }
     let component;
-    switch (this.props.modals) {
+    switch (this.props.modals.name) {
       //this code could be refactored to be significantly more modular and DRY
       case 'createRecipe':
         component = <CreateRecipeModal/>;
         break;
       case 'updateRecipe': 
-      component = <UpdateRecipeModal/>;
+      component = <UpdateRecipeModal recipeId={this.props.modals.payload}/>;
         break;
       default:
         return null;
