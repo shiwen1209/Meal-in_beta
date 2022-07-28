@@ -8,7 +8,7 @@ const mSTP = (state, ownProps) => {
     return{
         review: state.entities.rating,
         recipe: state.entities.currentRecipe,
-        total_rating: state.entities.currentRecipe.total_rating
+        total_rating: state.entities.currentRecipe.total_rating,
     }
 }
 

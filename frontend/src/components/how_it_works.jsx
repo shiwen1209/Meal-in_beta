@@ -2,9 +2,13 @@ import React from 'react';
 import mealplanbg from '../images/mealplanbg.jpg';
 import bginfo from '../images/bginfo.jpg';
 import bginfo1 from '../images/bginfo_1.jpg';
+import search from '../images/search.png';
+import show from '../images/show.png';
 import { RiPhoneFindLine } from 'react-icons/ri';
 import { MdOutlineDateRange } from 'react-icons/md';
 import { MdOutlineGeneratingTokens } from 'react-icons/md';
+import { Link } from "react-router-dom";
+
 class HowItWorks extends React.Component {
     render() {
         return (
@@ -15,7 +19,7 @@ class HowItWorks extends React.Component {
                     </div>
                     <div className='headline'>
                         <h1>Meal planning has never been easier</h1>
-                        <button>Make Mealplan Now</button>
+                        <button><Link to={'./login'}>Make Mealplan Now</Link></button>
                     </div>
                 </div>
                 <div className='howitworks1'>
@@ -43,19 +47,32 @@ class HowItWorks extends React.Component {
                 <div className='info-container-1'>
                     <img src={bginfo1} alt="" className="bginfo" />
                     <div class="centered">
+                        <div>
+                        <div className='info1-title'>Discover Your Favorites</div>
+                        <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
+                        </div>
+                        <img src={search} alt="" className='search'/>
+                    </div>
+                </div>
+
+                <div className='section3'>
+                    <img src={show} alt="show" className='show-img'/>
+                    <div className='info2'>
                         <div className='info1-title'>Discover Your Favorites</div>
                         <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
                     </div>
                 </div>
-                {/* <div className='section3'>
-                    </div>
+
                     <div className='info-container-1'>
                         <img src={bginfo} alt="" className="bginfo" />
                         <div class="centered-left">
+                            <div className='info3'>
                             <div className='info1-title'>Discover Your Favorites</div>
                             <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
+                            </div>
+                        <img src={search} alt="" className='mp' />
                         </div>
-                    </div> */}
+                    </div>
             </div>
         )
     }
