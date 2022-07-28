@@ -12,6 +12,7 @@ class NavBar extends React.Component {
     }
     render() {
         return (
+            <header>
             <div className="logged-in-nav">
                 <div>
                     <Link to={'/'} className="logo">
@@ -48,6 +49,7 @@ class NavBar extends React.Component {
                         </div>
                     </div>}
             </div>
+            </header>
         );
     }
 }

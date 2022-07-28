@@ -40,7 +40,7 @@ class Recipe extends React.Component{
                 <div className="left">
                 <div className='user-box'>
                     <div className="user-img">
-                        <img src={headshot} alt="" />
+                            <img src={recipe.author.pfp_url} alt="" />
                     </div>
                     <div className="show-user-info-box">
                         <div className="single-user-info">
