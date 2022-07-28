@@ -4,7 +4,6 @@ import { BiHeartCircle } from "react-icons/bi";
 class Like extends React.Component{
     constructor(props){
         super(props)
-        // debugger
         this.state = {
             userId: this.props.currentUserId,
             recipeId: this.props.recipe.id
@@ -44,7 +43,6 @@ class Like extends React.Component{
 
 
     render(){
-        console.log(this.state)
         const { recipe, currentRecipe } = this.props;
         if (!recipe) return null;
         return(

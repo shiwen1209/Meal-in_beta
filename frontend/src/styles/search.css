@@ -1,7 +1,13 @@
-.search-container{
+.search-container, .search-container2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 100px;
+
+}
+
+.search-container2{
+    margin-top: 31px;
 
 }
 
@@ -87,4 +93,12 @@
 .search-bar form select:nth-child(1){
     /* border: 1px solid red; */
     width: 180px;
+}
+
+.search-container .recipe-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1320px;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom'
 import donut from '../../images/donut.png'
+import RecipeIndexItem from '../recipes/recipe_index_item';
 // import UserEditFormContainer from './user_edit_form_container'
 // ;
 class UserShowPage extends React.Component {
@@ -60,7 +61,7 @@ class UserShowPage extends React.Component {
       return null;
     }
     
-    // debugger
+
     return (
       <div className="show-page-section">
         <div className="profile-container">
@@ -76,11 +77,11 @@ class UserShowPage extends React.Component {
                         <i className="fa-solid fa-pen"></i>
                       </div>
                     </div>
-                    <div className="recipe-count"> {recipes_created.length} created recipes</div>
+                    <div className="recipe-count"> {recipes_created.length} posted recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
                     <div id="">
                           {this.state.displayEdit ? (
-                            <div>
+                            <div className="edit-profile-area">
                               <textarea
                               className="editing-bio"
                                 onChange={this.handleUpdate}
@@ -103,27 +104,28 @@ class UserShowPage extends React.Component {
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
                         >Create a Recipe</button>
-                        <div className="make-meal-plan-button">Make a meal plan</div>
+                        <button className="make-meal-plan-button">Make a meal plan</button>
                       </div>
                     : 
                       <div></div>
                     }
-  
-
         </div>
 
 
-        <div classname="recipe-tabs">
-                <div>
-                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipes"})}>Created Recipes</h1>
+        <div className="recipe-tabs">
+                <div className={this.state.recipeDisplay === "createdRecipe" ? "tab-active" : "tab-inactive"}>
+                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipe"})}>My posted recipes</h1>
                 </div>
-                <div>
-                  <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>Liked Recipes</h1>
+          <div className={this.state.recipeDisplay === "likedRecipes" ? "tab-active" : "tab-inactive"}>
+                  <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>My liked recipes</h1>
+                </div>
+            <div>
+              <h1 onClick={(e) => this.setState({ recipeDisplay: "likedRecipes" })}>My mealplans</h1>
 
-                </div>
+            </div>
         </div>
 
-        {this.state.recipeDisplay === "createdRecipes" ?
+        {this.state.recipeDisplay === "createdRecipe" ?
         <div className="created-recipes-index">
           {recipes_created &&
             recipes_created.map((recipe, idx) => (
@@ -154,19 +156,17 @@ class UserShowPage extends React.Component {
         : 
         <div className="created-recipes-index">
           {recipes_liked &&
-            recipes_liked.map((recipe, idx) => (
-              <Link to={`/recipes/${recipe.id}`} key={idx}>
-                <div className="created-recipe">
-                  <img
-                    className="user-show-recipe-image"
-
-                    src={recipe.image_url}
-                    alt="background-pic"
-                  />
-                  <div className="user-show-recipe-title">{recipe.title}</div>
-                  
-                </div> 
-              </Link>
+            recipes_liked.map((recipe, idx) => ( 
+            <Link to={`/recipes/${recipe.id}`} key={idx}>
+              <div className="created-recipe">
+                <img
+                  className="user-show-recipe-image"
+                  src={recipe.image_url}
+                  alt="background-pic"
+                />
+                <div className="user-show-recipe-title">{recipe.title}</div>
+              </div> 
+            </Link>
             ))}
         </div>}
         

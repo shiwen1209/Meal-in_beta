@@ -2,14 +2,17 @@ import * as MpApiUtil from '../util/mp_api_util';
 
 export const RECEIVE_MEALPLAN = "RECEIVE_MEALPLAN";
 
-export const receiveMealplan = (mealplan) => ({
+export const receiveMealplan = (data) => ({
 type: RECEIVE_MEALPLAN,
- mealplan
+ mealplan: data.mealplan,
+ nutrients: data.nutrients
  })
 
  export const createMealplan = (mealplan) => dispatch => {
      return (
      MpApiUtil.createMealplan(mealplan)
-             .then((payload) => dispatch(receiveMealplan(payload.data)))
+             .then((payload) => {
+                return dispatch(receiveMealplan(payload.data))
+            })
      )
  }

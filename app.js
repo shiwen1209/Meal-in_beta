@@ -9,6 +9,8 @@ const likes = require("./routes/api/likes");
 const mainpage = require("./routes/api/mainpage");
 const mealplan = require("./routes/api/mealplan");
 const search = require("./routes/api/search");
+const testme = require("./routes/api/testme");
+
 
 const seedDb = require("./seed_plan");
 
@@ -39,7 +41,10 @@ app.use("/api/likes", likes);
 app.use("/api/mainpage", mainpage);
 app.use("/api/mealplan", mealplan);
 app.use("/api/search", search);
+app.use("/api/testme", testme);
+
 app.use(express.static(__dirname + "/frontend"));
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -32,7 +32,6 @@ class Modal extends React.Component{
     if (!this.props.modals) {
       return null;
     }
-    // debugger
     let component;
     switch (this.props.modals.name) {
       //this code could be refactored to be significantly more modular and DRY

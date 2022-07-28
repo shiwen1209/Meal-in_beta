@@ -1,3 +1,6 @@
+.show-page-section {
+    margin-top: 69px;
+}
 .user-profile-pic{
     width: 150px;
     height: 150px;
@@ -24,7 +27,7 @@
     font-size: 26px;
     /* margin-top: -140px; */
     width: 500px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 
@@ -35,28 +38,36 @@
     width: 270px;
     height: 230px;
     /* margin: 15px; */
-    box-shadow: 0 0 4px #8a8d91;
+    /* box-shadow: 0 0 4px #8a8d91; */
     border-radius: 10px;
+    /* border: 1px solid red; */
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.created-recipe:hover .user-show-recipe-title {
+    /* display: flex; */
+    /* opacity: 1; */
+    color: rgb(8, 76, 8);
 }
 
 .created-recipe:hover .user-show-recipe-image{
     opacity: 0.5;
-}
-.created-recipe:hover .user-show-recipe-title{
-    display: flex;
-    opacity: 1;
 }
 
 .created-recipe:hover .edit-button{
     display: flex;
 }
 
+
 .created-recipes-index{
-    
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     justify-content: flex-start;
+    /* border: 1px solid green; */
+    margin-left: 130px;
+    width: 1250px;    
     /* margin-top: 100px;
     margin-left: 110px;
     /* margin-left: 50px; */
@@ -72,7 +83,6 @@
 .make-meal-plan-button{
     width: 150px;
     height: 60px;
-    background: green;
     box-shadow: 0 0 4px #8a8d91;
     display: flex;
     /* margin-left: 1100px; */
@@ -90,16 +100,24 @@
 }
 
 .user-show-recipe-title{
-    display: none;
+    margin-left: -260px;
+    /* color: rgb(241, 215, 18); */
+    color: white;
+    width: 200px;
+    font-weight: bold;
+    /* background-color: green; */
+    /* background-color: white; */
+    height: 20px;
+    /* display: none; */
     /* position: absolute; */
     
     /* border: 1px black solid; */
-    height: 230px;
+    /* height: 230px;
     width: 270px;
     justify-content: center;
     align-items: center;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 500; */
     /* font-size: 60; */
     /* margin-left: 40px; */
     /* margin-top: 60px; */
@@ -144,6 +162,7 @@
     /* margin-top: 20px; */
     border-radius: 10px;
     /* padding: 10px; */
+    padding-top: 10px;
 }
 .bio-edit-container{
     width: 500px;
@@ -195,22 +214,23 @@
 
 
 .profile-container{
-    border: 1px solid green;
-    padding-bottom: 90px;
+    /* border: 1px solid green; */
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
     padding-top: 20px;
+        padding-bottom: 40px;
 }
 .user-buttons{
-    border: 1px black solid;
     /* width: 300px; */
     /* width: 150px; */
     /* height: 200px; */
     display: flex;
     flex-direction: row;
+    
 
     /* align-items: spac; */
     /* position: absolute; */
@@ -218,17 +238,58 @@
     margin-top: -200px; */
     align-content: space-around;
     color: white;
+    
 }
 
 .user-buttons button:nth-child(1){
     margin-right: 20px;
+    
+}
+
+.user-buttons button {
+    background-color: rgba(161, 213, 161, 0.333);
+    background-color: white;
+    color: green;
+    /* color: black; */
+    box-shadow: none;
+    border: 2px solid green;
 }
 
 .recipe-tabs{
-    border: 1px black solid
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 120px;
+    padding-left: 10px;
+    border-top: 1px solid lightgray;
+    width: 1160px;
 }
+
+.recipe-tabs div{
+
+    /* border: 1px solid red; */
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #027333;
+
+}
+
+.tab-active{
+    color: green;
+    font-weight: bold;
+    border-top: 2px solid #027333;
+}
+
+.tab-inactive{
+    font-weight: 400px;
+    border-top: none;
+
+}
+
+
 .profile-info{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display:  flex;
     flex-direction: row;
     justify-content: space-between;
@@ -240,7 +301,7 @@
 }
 
 .user-info{
-    border: 3px rgb(195, 23, 23) solid;
+    /* border: 3px rgb(195, 23, 23) solid; */
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -263,4 +324,14 @@
 }
 .user-info .icon > i {
     color: green;
+}
+
+.edit-profile-area{
+    /* border: 3px rgb(195, 23, 23) solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    
+
 }

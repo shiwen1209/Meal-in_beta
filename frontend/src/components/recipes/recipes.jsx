@@ -34,15 +34,13 @@ class Recipe extends React.Component{
         let ingredients = recipe.ingredients;
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
 
-        // debugger
         if (!recipe || !recipe.author) return null;
-        // debugger
         return (
             <div className="recipe-show-page">
                 <div className="left">
                 <div className='user-box'>
                     <div className="user-img">
-                        <img src={headshot} alt="" />
+                            <img src={recipe.author.pfp_url} alt="" />
                     </div>
                     <div className="show-user-info-box">
                         <div className="single-user-info">
@@ -64,10 +62,11 @@ class Recipe extends React.Component{
 
                     </div>
                 </div>
-
-                <div className="rating-review">
+                
+                {(currentUser.id !== undefined) ? 
+                (<div className="rating-review">
                     <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
-                </div>
+                </div>) : ""}
                 </div>
 
                 <div className="recipe-show-box">

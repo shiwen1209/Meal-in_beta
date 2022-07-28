@@ -10,11 +10,7 @@ const recipesReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_ALL_RECIPES:
-            nextState = Object.assign({}, state)
-            action.recipes.forEach((recipe)=>(
-                nextState[recipe.id] = recipe
-            ));
-            return nextState;
+            return action.recipes;
         case RECEIVE_USER:
             nextState = {};
             nextState['recipes_liked'] = action.recipes_liked

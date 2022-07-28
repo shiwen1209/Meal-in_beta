@@ -47,6 +47,7 @@
     margin-left: 5%;
     margin-right: 5%;
     font-family: 'Albert Sans', sans-serif;
+    margin-top: 100px;
 }
 
 .recipe-title{
@@ -161,7 +162,7 @@ ol{
 .rating-review{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
 
     position: fixed;
     border: 1px solid green;

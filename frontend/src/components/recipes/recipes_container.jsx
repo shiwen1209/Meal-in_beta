@@ -4,7 +4,6 @@ import { openModalPayload, closeModal } from "../../actions/modal_actions"
 import Recipe from './recipes'
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return{
         recipe: state.entities.currentRecipe,
         currentUser: state.session.user
