@@ -70,20 +70,17 @@ class SearchBar extends React.Component {
         }
         this.props.history.push(`${newLink}`)
     }
-        //
+    
     render() {
-        // debugger
         let searchResult;
         if (this.props.recipes.constructor === Array){
-            // debugger
           searchResult = this.props.recipes.map((recipe, idx) => (
                 <RecipeIndexItem key={idx} recipe={recipe} />
             ))
         }
 
-
         return (
-            <div id={this.props.page} className="search-container">
+            <div id={this.props.page} className={this.props.location.pathname === '/recipes' ? "search-container2" : "search-container"}>
                 <div className="search-bar">
                     <div className="icon">
                     <i className="fa-solid fa-utensils"></i>
@@ -131,9 +128,9 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
 
-                {this.props.page !== "index-search" ? 
-                    <div className="search-result">
-                        {searchResult}
+                {this.props.page !== "index-search" && this.props.location.pathname !== '/recipes' ? 
+                    <div className='recipe-box'>
+                            {searchResult}
                     </div> :
                     <div></div>
                 }

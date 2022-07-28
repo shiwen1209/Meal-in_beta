@@ -61,7 +61,7 @@ class RecipeIndex extends React.Component {
                 <div className='recipe-box'>
                     <div className='index-cg'>
                         <div>
-                            <h1>Recommended for your</h1>
+                            <h1>Recommended for you</h1>
                         </div>
                         <div className="recipe-cg-container">
                             {recipesList1}
@@ -93,7 +93,7 @@ class RecipeIndex extends React.Component {
                     </div>
                     <div className='index-cg'>
                         <div>
-                            <h1>Vegan loves</h1>
+                            <h1>Vegan cravings</h1>
                         </div>
                         <div className="recipe-cg-container">
                             {recipesList5}

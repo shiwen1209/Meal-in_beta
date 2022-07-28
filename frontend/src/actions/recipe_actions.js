@@ -8,7 +8,6 @@ export const RECEIVE_UPDATED_RECIPE = "RECEIVE_UPDATED_RECIPE";
 
 
 export const receiveAllRecipes = (recipes)=> {
-    // debugger
     return {
         type: RECEIVE_ALL_RECIPES,
         recipes

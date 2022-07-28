@@ -39,7 +39,6 @@ class MyMealplans extends React.Component {
         if(this.state.activeRecipe){
             const dup = this.state.mealplan.meals.filter((meal)=>(meal.day === day && meal.meal_type === meal_type))
             let mealplan = this.state.mealplan
-            // debugger
             const m = {
                 day,
                 meal_type,
@@ -52,7 +51,6 @@ class MyMealplans extends React.Component {
                 mealplan.meals = this.state.mealplan.meals.filter((meal) => (meal.day !== day || meal.meal_type !== meal_type))
                 mealplan.meals.push(m)
             }
-            // debugger
             this.setState({ mealplan, activeRecipe: null})
         }
         }

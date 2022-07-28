@@ -42,7 +42,6 @@ class CreateRatingForm extends React.Component{
     }
 
     handleUpdate(e) {
-        // debugger
         e.preventDefault();
         this.props.updateRating(this.state)
     }
@@ -63,7 +62,6 @@ class CreateRatingForm extends React.Component{
         }
     }
     render(){
-        // debugger
         const {recipe, review} = this.props;
         if (!recipe || !review) {
             return (

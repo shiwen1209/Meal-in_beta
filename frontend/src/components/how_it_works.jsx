@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 
 class HowItWorks extends React.Component {
     render() {
-        // debugger
         return (
             <div className='howitworks'>
                 <div className='howitworks-image'>
