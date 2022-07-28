@@ -30,7 +30,6 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
             nextState.user_liked = true;
             return nextState;
         case REMOVE_LIKE:
-            debugger
             nextState.num_likes -= 1;
             nextState.user_liked = false;
             return nextState;

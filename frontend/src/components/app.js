@@ -13,6 +13,7 @@ import HomePageContainer from './recipes/home_page_container';
 import HowItWorks from './how_it_works';
 import Modal from './modal'
 import ShoppingList from './shopping_list/shopping_list'
+import SearchContainer from "./search/search_bar"
 
 
 
@@ -22,6 +23,8 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={RecipeIndexContainer} />
+      <Route path="/search" component={SearchContainer} />
+
       <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

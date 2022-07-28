@@ -56,7 +56,7 @@ const seedDB = async () => {
         console.log(users[i]._id)
     }
 
-    console.log(JSON.stringify(mealDocs[0]))
+    // console.log(JSON.stringify(mealDocs[0]))
     try {
         await MealPlan.MealPlan.insertMany(mealDocs)
     } catch (e) {

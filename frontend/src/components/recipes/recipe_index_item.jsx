@@ -32,7 +32,7 @@ class RecipeIndex extends React.Component {
                         <div className='user-little-img'>
                             <img src={headshot} alt="" />
                         </div>
-                        <div className="user-little-name">{recipe.author_name}</div>
+                        <div className="user-little-name">{recipe.author.handle}</div>
                     </div>
                     {/* <div>{recipe.title}</div> */}
                     {/* <div>{recipe.description}</div> */}

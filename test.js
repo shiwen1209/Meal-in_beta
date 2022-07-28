@@ -4,4 +4,4 @@
 // {
 //     console.log(obj[i]);
 // }
-console.log(obj.slice(90, 100));
+// console.log(obj.slice(90, 100));
