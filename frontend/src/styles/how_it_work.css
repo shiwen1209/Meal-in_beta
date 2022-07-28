@@ -1,0 +1,17 @@
+.banner{
+    height: 400px;
+    overflow: hidden;
+}
+
+.section1{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section1-title{
+    margin-top: 50px;
+    font-size: 40px;
+}

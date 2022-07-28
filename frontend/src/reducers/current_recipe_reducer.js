@@ -1,7 +1,7 @@
 import {
   RECEIVE_RECIPE
 } from '../actions/recipe_actions';
-import {RECEIVE_RATING } from "../actions/review_actions";
+import {RECEIVE_RATING, RECEIVE_UPDATE_RATING } from "../actions/review_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
 
 
@@ -19,6 +19,11 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
             nextState.total_rating += action.rating.rating;
             nextState.user_rating = action.rating.rating;
             // nextState.user_liked = true;
+            return nextState;
+        case RECEIVE_UPDATE_RATING:
+            // debugger
+            nextState.total_rating += action.rating.data.rating;
+            nextState.user_rating = action.rating.data.rating;
             return nextState;
         case RECEIVE_LIKE:
             nextState.num_likes += 1;

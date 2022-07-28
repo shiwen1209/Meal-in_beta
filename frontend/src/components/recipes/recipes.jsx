@@ -39,6 +39,7 @@ class Recipe extends React.Component{
         // debugger
         return (
             <div className="recipe-show-page">
+                <div className="left">
                 <div className='user-box'>
                     <div className="user-img">
                         <img src={headshot} alt="" />
@@ -61,6 +62,12 @@ class Recipe extends React.Component{
                             <span>21 recipes</span>
                         </div>
                     </div>
+                </div>
+
+                <div className="rating-review">
+                    {/* <p>Rate this Recipe</p> */}
+                    <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
+                </div>
                 </div>
 
                 <div className="recipe-show-box">
@@ -105,10 +112,10 @@ class Recipe extends React.Component{
                             }</ol>
                         </div>
                     </div>
-                    <div className="rating-review">
+                    {/* <div className="rating-review">
                         <p>Rate this Recipe</p>
                         <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

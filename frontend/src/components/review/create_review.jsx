@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
+import Rating from "../rating/rating"
 
 class CreateRatingForm extends React.Component{
     constructor(props) {
@@ -14,7 +15,8 @@ class CreateRatingForm extends React.Component{
 
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
     componentDidMount() {
@@ -31,6 +33,18 @@ class CreateRatingForm extends React.Component{
         return (e) => this.setState({
             [field]: parseInt(e.currentTarget.value), 
             recipeId: this.props.recipe.id })
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            this.setState(this.props.recipe)
+        }
+    }
+
+    handleUpdate(e) {
+        // debugger
+        e.preventDefault();
+        this.props.updateRating(this.state)
     }
 
     rate() {
@@ -58,7 +72,9 @@ class CreateRatingForm extends React.Component{
         };
         return (
             <div>
-
+                {recipe.user_rating === null ? 
+            (<div>
+                    <div className="flex-rating-title">Rate this Recipe</div>
             <div className="rating-box">
 
                 <div className="form-rating">
@@ -76,6 +92,7 @@ class CreateRatingForm extends React.Component{
 
                     <label htmlFor="rating-5"><input id="rating-5" type="radio" value="5" name="rating" onChange={this.update("rating")} />
                         {this.state.rating >= 5 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+                     
                 </div>
 
                 <div>
@@ -84,7 +101,38 @@ class CreateRatingForm extends React.Component{
                 </div>
 
             </div>
-                <button className="submit-review-button" onClick={this.handleSubmit}>Submit</button>
+                <button className="submit-review-button" onClick={this.handleSubmit}>Submit</button> 
+                </div>)
+                
+                : (
+                    <div>
+                            <div className="flex-rating-title">Thanks for your feedback</div>
+                            <div className="rating-show"><Rating rating={recipe.user_rating} /> <span className="rating-show-1">({recipe.user_rating})</span></div>
+                            <div className="edit-rating">
+                            <div className="form-rating">
+                                <label htmlFor="rating-1"><input id="rating-1" type="radio" value="1" name="rating" onChange={this.update("rating")} />
+                                    {this.state.rating >= 1 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+
+                                <label htmlFor="rating-2"><input id="rating-2" type="radio" value="2" name="rating" onChange={this.update("rating")} />
+                                    {this.state.rating >= 2 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+
+                                <label htmlFor="rating-3"><input id="rating-3" type="radio" value="3" name="rating" onChange={this.update("rating")} />
+                                    {this.state.rating >= 3 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+
+                                <label htmlFor="rating-4"><input id="rating-4" type="radio" value="4" name="rating" onChange={this.update("rating")} />
+                                    {this.state.rating >= 4 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+
+                                <label htmlFor="rating-5"><input id="rating-5" type="radio" value="5" name="rating" onChange={this.update("rating")} />
+                                    {this.state.rating >= 5 ? <AiFillStar style={{ color: "green" }} /> : < AiOutlineStar style={{ color: "green" }} />}</label>
+
+                               
+                            </div>
+                            <button className="edit-review-button" onClick={this.handleUpdate}>Edit your rate</button> 
+                            </div>
+                    </div>
+                )
+            
+                }
             </div>
         )
     }
