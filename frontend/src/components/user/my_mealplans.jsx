@@ -1,4 +1,5 @@
 import React from 'react';
+import NutritionData from './my_mealplans_bar_chart';
 
 class MyMealplans extends React.Component {
     constructor(props){
@@ -299,7 +300,7 @@ class MyMealplans extends React.Component {
 
                     </div> : 
                     <div className='nutrition-sub'>
-                        <ul>
+                        {/* <ul>
                                 {nutrientsList.slice(0, 7)}
                         </ul>
                         <ul>
@@ -307,7 +308,9 @@ class MyMealplans extends React.Component {
                         </ul>
                         <ul>
                                 {nutrientsList.slice(14)}
-                        </ul>
+                        </ul> */}
+
+                            <NutritionData nutrients={nutrients}/>
 
                     </div>
                     }
