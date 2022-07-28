@@ -35,7 +35,7 @@ class Recipe extends React.Component{
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
 
         // debugger
-        if (!recipe ||!recipe.author) return null;
+        if (!recipe || !recipe.author) return null;
         // debugger
         return (
             <div className="recipe-show-page">
@@ -50,10 +50,6 @@ class Recipe extends React.Component{
                             <span>{recipe.author.handle}</span>
                         </div>
                         <div className="single-user-info">
-                            <span className="user-box-icon"><BiMessageSquareDetail /></span>
-                            <span>userbio</span>
-                        </div>
-                        <div className="single-user-info">
                             <span className="user-box-icon"><GiShadowFollower/></span>
                             <span>300 follow</span>
                         </div>
@@ -61,6 +57,11 @@ class Recipe extends React.Component{
                             <span className="user-box-icon"><MdOutlineFoodBank/></span>
                             <span>21 recipes</span>
                         </div>
+                        <div className="single-user-info">
+                            <span className="user-box-icon"><BiMessageSquareDetail /></span>
+                            <span>{recipe.author.bio}</span>
+                        </div>
+
                     </div>
                 </div>
 

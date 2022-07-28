@@ -4,6 +4,8 @@ import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom';
 import Rating from '../rating/rating';
 import LikeContainer from "../like/like_container";
+import { BiTimeFive } from "react-icons/bi";
+
 
 
 
@@ -30,10 +32,15 @@ class RecipeIndex extends React.Component {
                         </div>
                     </div>
                     <div className='user-little-info'>
-                        <div className='user-little-img'>
-                            <img src={headshot} alt="" />
-                        </div>
-                        <div className="user-little-name">{recipe.author.handle}</div>
+                        {/* <div className='user-little-img'> */}
+                            {/* <img src={headshot} alt="" /> */}
+                        {/* </div> */}
+                        {/* <div className="user-little-name">{recipe.author.handle}</div> */}
+                        <div>{recipe.title}</div>
+                            <div className="time">
+                                <span><BiTimeFive className="time-icon" /></span>
+                                <span>{recipe.prep_time}</span>
+                            </div>
                     </div>
                     {/* <div>{recipe.title}</div> */}
                     {/* <div>{recipe.description}</div> */}
