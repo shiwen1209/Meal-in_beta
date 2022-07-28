@@ -1,16 +1,16 @@
 import { RECEIVE_MEALPLAN } from "../actions/meaplan_actions";
 
-const mealplanReducer = (state = {}, action) => {
+const nutrientReducer = (state = {}, action) => {
     Object.freeze(state)
 
     let nextState = Object.assign({}, state);
 
     switch (action.type) {
          case RECEIVE_MEALPLAN:
-            return action.mealplan;
+            return action.nutrients;
         default: 
             return state;
     }
 }
 
-export default mealplanReducer;
+export default nutrientReducer;

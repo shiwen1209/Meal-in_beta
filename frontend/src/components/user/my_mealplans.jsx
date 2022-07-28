@@ -53,7 +53,6 @@ class MyMealplans extends React.Component {
             }
             // debugger
             this.setState({ mealplan, activeRecipe: null})
-            console.log(this.state)
         }
         }
     }
@@ -62,7 +61,6 @@ class MyMealplans extends React.Component {
         let mealplan = this.state.mealplan;
         mealplan.name = e.currentTarget.value;
         this.setState({mealplan})
-        console.log(this.state)
     }
 
     submitMealplan(e){
@@ -72,15 +70,22 @@ class MyMealplans extends React.Component {
     }
 
     render() {
-        console.log(this.state)
-        const { user, recipes, openModalPayload} = this.props;
+    
+        const { user, recipes, openModalPayload, nutrients, mealplan} = this.props;
         if(!user || !recipes){return null}
-   
+
+        const nutrientsList = Object.keys(nutrients).map((n_key, idx)=>(
+            <li key={idx}>
+                <p>{n_key}</p>
+                <p>{nutrients[n_key]}</p>
+            </li>
+
+        ))
+
         const recipesList = this.state.filteredResult.map((recipe, idx) => (
             <li key={idx} className="mp-recipe-item"
                 onClick={(e) => {
                     this.setState({ activeRecipe : recipe});
-                    console.log(this.state)
                     
                     }}>
                 <img src={recipe.image_url} alt="" className='recipe-index-img' />
@@ -295,55 +300,13 @@ class MyMealplans extends React.Component {
                     </div> : 
                     <div className='nutrition-sub'>
                         <ul>
-                                <li>
-                                    <h1>Calories</h1>
-                                    <div></div>
-                                </li>
-                                <li>
-                                    <h1>carbohydrates</h1>
-
-                                </li>
-                                <li>
-                                    <h1>carbohydrates</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Sugar</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Saturated fat</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Sugar</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Sugar</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Vitamin A</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Vitamin B</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Vitamin C</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Vitamin D</h1>
-
-                                </li>
-                                <li>
-                                    <h1>Protein</h1>
-
-                                </li>
-
+                                {nutrientsList.slice(0, 7)}
+                        </ul>
+                        <ul>
+                                {nutrientsList.slice(7, 14)}
+                        </ul>
+                        <ul>
+                                {nutrientsList.slice(14)}
                         </ul>
 
                     </div>

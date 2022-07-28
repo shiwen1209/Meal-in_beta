@@ -44,7 +44,6 @@ class Like extends React.Component{
 
 
     render(){
-        console.log(this.state)
         const { recipe, currentRecipe } = this.props;
         if (!recipe) return null;
         return(

@@ -53,7 +53,7 @@ const seedDB = async () => {
     }
 
     for (let i = 0; i < 3; ++i) {
-        console.log(users[i]._id)
+        // console.log(users[i]._id)
     }
 
     // console.log(JSON.stringify(mealDocs[0]))

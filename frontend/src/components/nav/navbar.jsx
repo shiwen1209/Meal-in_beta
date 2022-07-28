@@ -35,8 +35,8 @@ class NavBar extends React.Component {
                 </div>
                 {this.props.loggedIn ?
                     <div className="login-signup">
-                        <div className="nav-bar-login">
-                            <button onClick={this.logoutUser}>Logout</button>
+                        <div className="nav-bar-login" onClick={this.logoutUser}>
+                            <button >Logout</button>
                         </div>
                     </div> :
                     <div className="login-signup">

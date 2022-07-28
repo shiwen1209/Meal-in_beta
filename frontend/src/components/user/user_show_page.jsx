@@ -76,11 +76,11 @@ class UserShowPage extends React.Component {
                         <i className="fa-solid fa-pen"></i>
                       </div>
                     </div>
-                    <div className="recipe-count"> {recipes_created.length} created recipes</div>
+                    <div className="recipe-count"> {recipes_created.length} posted recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
                     <div id="">
                           {this.state.displayEdit ? (
-                            <div>
+                            <div className="edit-profile-area">
                               <textarea
                               className="editing-bio"
                                 onChange={this.handleUpdate}
@@ -113,9 +113,9 @@ class UserShowPage extends React.Component {
         </div>
 
 
-        <div classname="recipe-tabs">
+        <div className="recipe-tabs">
                 <div>
-                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipes"})}>Created Recipes</h1>
+                    <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipes"})}>Posted Recipes</h1>
                 </div>
                 <div>
                   <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>Liked Recipes</h1>
