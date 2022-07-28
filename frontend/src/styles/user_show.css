@@ -219,9 +219,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 50px;
         padding-bottom: 40px;
 }
 .user-buttons{
@@ -293,6 +293,7 @@
     display:  flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 300px;
     /* padding-bottom: 20px; */
     /* display:contents; */
     /* justify-content: center; */
@@ -314,7 +315,7 @@
     justify-content: space-between;
 }
 
-.user-info .icon{
+/* .user-info .icon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,7 +325,7 @@
 }
 .user-info .icon > i {
     color: green;
-}
+} */
 
 .edit-profile-area{
     /* border: 3px rgb(195, 23, 23) solid; */
@@ -334,4 +335,21 @@
     align-items: flex-end;
     
 
+}
+
+.edit-bio-icon{
+    display: flex;
+    /* position: static; */
+    /* position: absolute; */
+    margin-left: 20px;
+    font-size: 16px;
+    margin-top: 9px;
+
+    /* width: 50px; */
+    /* border: 1px black solid; */
+}
+
+#testinggg{
+    display: flex;
+    position: relative;
 }

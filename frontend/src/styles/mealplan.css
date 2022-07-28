@@ -123,11 +123,18 @@
 
 
 .mealplan-results{
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
+    border: 1px solid red;
 
+}
+
+.start-over{
+    background-color: #027333;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .shopping-link{

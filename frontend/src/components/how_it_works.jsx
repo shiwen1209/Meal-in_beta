@@ -19,7 +19,7 @@ class HowItWorks extends React.Component {
                     </div>
                     <div className='headline'>
                         <h1>Meal planning has never been easier</h1>
-                        <button><Link to={'./login'}>Make Mealplan Now</Link></button>
+                        <button><Link to={'./signup'}>Make Mealplan Now</Link></button>
                     </div>
                 </div>
                 <div className='howitworks1'>

@@ -15,11 +15,13 @@ class MyMealplans extends React.Component {
                 owner_id: this.props.currentUserId,
                 meals: []
             }
+        
         };
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleMPClick = this.handleMPClick.bind(this);
         this.updateMpName = this.updateMpName.bind(this);
         this.submitMealplan = this.submitMealplan.bind(this);
+        this.startOver = this.startOver.bind(this);
     }
 
     componentDidMount(){
@@ -35,24 +37,27 @@ class MyMealplans extends React.Component {
     }
 
     handleMPClick(day, meal_type){
-        return (e)=>{
-        if(this.state.activeRecipe){
-            const dup = this.state.mealplan.meals.filter((meal)=>(meal.day === day && meal.meal_type === meal_type))
-            let mealplan = this.state.mealplan
-            const m = {
-                day,
-                meal_type,
-                recipe_id: this.state.activeRecipe._id,
-                recipe_title: this.state.activeRecipe.title
+        if(!this.state.displayFinalize){
+            return (e)=>{
+            if(this.state.activeRecipe){
+                const dup = this.state.mealplan.meals.filter((meal)=>(meal.day === day && meal.meal_type === meal_type))
+                let mealplan = this.state.mealplan
+                const m = {
+                    day,
+                    meal_type,
+                    recipe_id: this.state.activeRecipe._id,
+                    recipe_title: this.state.activeRecipe.title
+                }
+                if(dup.length === 0 ){
+                    mealplan.meals.push(m)
+                } else {
+                    mealplan.meals = this.state.mealplan.meals.filter((meal) => (meal.day !== day || meal.meal_type !== meal_type))
+                    mealplan.meals.push(m)
+                }
+                this.setState({ mealplan, activeRecipe: null})
+                this.makeMealplan();
             }
-            if(dup.length === 0 ){
-                mealplan.meals.push(m)
-            } else {
-                mealplan.meals = this.state.mealplan.meals.filter((meal) => (meal.day !== day || meal.meal_type !== meal_type))
-                mealplan.meals.push(m)
             }
-            this.setState({ mealplan, activeRecipe: null})
-        }
         }
     }
 
@@ -64,8 +69,33 @@ class MyMealplans extends React.Component {
 
     submitMealplan(e){
         e.preventDefault();
-        this.props.createMealplan(this.state.mealplan);
+        this.makeMealplan()
+
         this.setState({ displayFinalize: true })
+    }
+
+    makeMealplan(){
+        if (this.state.mealplan.name.length === 0) {
+            const mealplan = this.state.mealplan;
+            mealplan.name = "my mealplan";
+            this.setState({ mealplan })
+        }
+        this.props.createMealplan(this.state.mealplan);
+    }
+
+    startOver(){
+        this.props.removeMealplan();
+        this.setState({
+                display: "mealplan",
+                displayFinalize: false,
+                searchValue: "",
+                filteredResult: this.props.recipes,
+                activeRecipe: null,
+                mealplan: {
+                    name: "",
+                    owner_id: this.props.currentUserId,
+                    meals: []
+        }})
     }
 
     render() {
@@ -280,18 +310,23 @@ class MyMealplans extends React.Component {
                         </div>
                         {!this.state.displayFinalize ? 
                             <div className='mealplan-buttons'>
-                                    <button className='nav-bar-login'>Clear All</button>
+                                    <button onClick={this.startOver} className='nav-bar-login'>Clear All</button>
                                     <button
                                         onClick={this.submitMealplan}
                                         className='nav-bar-login'>Finalize Mealplan</button>
                             </div> : 
                             <div className='mealplan-results'>
-                                    <h1 >Mealplan finalized!</h1>
-                                    <h1 onClick={e => {
-                                        console.log("clicked")
-                                        openModalPayload({ name: "shoppingList", payload: this.state.mealplan})}}
+                                    <div>
+                                        <h1 >Mealplan finalized!</h1>
+                                        <h1 onClick={e => {
+                                            console.log("clicked")
+                                            openModalPayload({ name: "shoppingList", payload: this.state.mealplan })
+                                        }}
 
-                                     className='shopping-link'>See shopping list</h1>
+                                            className='shopping-link'>See shopping list</h1>
+                                    </div>
+                                    <button onClick={this.startOver} className='start-over'>Start Over</button>
+
                             </div>
                         
                         
@@ -313,6 +348,8 @@ class MyMealplans extends React.Component {
 
                     </div>
                     }
+
+                    <NutritionData nutrients={nutrients} />
 
                 </div>
             </div>
