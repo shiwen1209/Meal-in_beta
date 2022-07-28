@@ -12,6 +12,9 @@ import UserShowPageContainer from './user/user_show_page_container';
 import HomePageContainer from './recipes/home_page_container';
 import HowItWorks from './how_it_works';
 import Modal from './modal'
+import ShoppingList from './shopping_list/shopping_list'
+
+
 import SearchContainer from "./search/search_bar_container"
 
 const App = () => (
@@ -36,6 +39,8 @@ const App = () => (
       />
       <Route exact path="/recipes" component={HomePageContainer} />
       <Route path="/howitworks" component={HowItWorks} />
+      <Route path='/shopping_list' component={ShoppingList} />
+
     </Switch>
   </div>
 );

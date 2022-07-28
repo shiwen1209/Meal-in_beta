@@ -4,6 +4,7 @@ import { BiHeartCircle } from "react-icons/bi";
 class Like extends React.Component{
     constructor(props){
         super(props)
+        // debugger
         this.state = {
             userId: this.props.currentUserId,
             recipeId: this.props.recipe.id
@@ -49,7 +50,7 @@ class Like extends React.Component{
         return(
             <div>
                     <button onClick={this.handleLike } >
-                    {!currentRecipe.user_liked ? <BiHeartCircle /> : <BiHeartCircle style={{ color: "red" }} />}
+                    {!currentRecipe.user_liked ? <BiHeartCircle style={{fontSize: "30px" }}/> : <BiHeartCircle style={{ color: "red", fontSize: "30px" }} />}
                     </button> 
             </div>
         )

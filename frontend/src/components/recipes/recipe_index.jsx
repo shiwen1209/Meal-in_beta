@@ -19,32 +19,32 @@ class RecipeIndex extends React.Component {
         const recipesList1 = recipes
         .filter((recipe) => (recipe.category === "world-cuisine") )
         .map((recipe, index)=>(
-            <RecipeIndexItem key={index} recipe ={recipe}/>
+            <RecipeIndexItem key={index} recipe ={recipe} currentUser={currentUser}/>
         ))
 
         const recipesList2 = recipes
             .filter((recipe) => (recipe.category === "main-dish"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser}/>
             ))
 
         const recipesList3 = recipes
             .filter((recipe) => (recipe.category === "breakfast-and-brunch" ||
                 recipe.category === "drinks"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
         const recipesList4 = recipes
             .filter((recipe) => (recipe.category === "appetizers-and-snacks"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
         const recipesList5 = recipes
             .filter((recipe) => (recipe.category === "salad"))
             .map((recipe, index) => (
-                <RecipeIndexItem key={index} recipe={recipe} />
+                <RecipeIndexItem key={index} recipe={recipe} currentUser={currentUser} />
             ))
 
 
