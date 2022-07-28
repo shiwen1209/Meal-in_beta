@@ -28,17 +28,15 @@ router.get("/", (req, res) => {
 })
 
 // get one recipe
-// router.get("/:id", (req, res) => {
-//     Recipe.findOne({id: req.params.id})
-//     .then(async recipe => 
-//     {
-//         console.log("recipe: ", recipe);
-//         let ans;
-//         await recipe.populate("author", "-email -recipes_liked -id -__v -password").then((result) => {ans = result;});
-//         return res.json(ans);
-//     })
-//     .catch(err => console.log(err));
-// })
+router.get("/:id", (req, res) => {
+    Recipe.findOne({id: req.params.id})
+    .then(async recipe => 
+    {
+        console.log("recipe: ", recipe);
+        return res.json(recipe);
+    })
+    .catch(err => console.log(err));
+})
 
 router.get("/:id/:userid", (req, res) => {
     Recipe.findOne({ id: req.params.id })

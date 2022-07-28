@@ -4,8 +4,9 @@ export const fetchUser = userId => {
     return axios.get(`/api/users/${userId}`);
 }
 
-export const updateUser = user => {
-    return axios.patch(`/api/users/${user.id}`, user);
+export const updateUser = async (user) => {
+    const response = await axios.patch(`/api/users/${user.id}`, user);
+    return response.data;
 }
 
 

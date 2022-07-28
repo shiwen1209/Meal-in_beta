@@ -6,7 +6,7 @@ import { createMealplan } from "../../actions/meaplan_actions";
 import { openModalPayload, closeModal } from "../../actions/modal_actions"
 
 
-const mstp = (state, ownProps)=>{
+const mstp = (state, ownProps) => {
     return{
         recipes: recipeSelector(state),
         user: state.entities.users[ownProps.match.params.userId],
@@ -22,5 +22,4 @@ const mdtp = (dispatch) => {
         closeModal: () => dispatch(closeModal())
     }
 }
-
 export default connect(mstp, mdtp)(MyMealplans)
