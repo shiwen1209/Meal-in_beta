@@ -7,9 +7,10 @@ import { RECEIVE_USER } from '../actions/user_actions';
 
 const recipesReducer = (state = {}, action) => {
     Object.freeze(state);
-    let nextState = Object.assign({}, state)
+    let nextState;
     switch (action.type) {
         case RECEIVE_ALL_RECIPES:
+            nextState = Object.assign({}, state)
             action.recipes.forEach((recipe)=>(
                 nextState[recipe.id] = recipe
             ));
@@ -22,9 +23,23 @@ const recipesReducer = (state = {}, action) => {
         case RECEIVE_NEW_RECIPES:
             return action.recipes;
         case RECEIVE_NEW_RECIPE:
-            return action.recipe;
+            nextState = {recipes_created: structuredClone(state.recipes_created),
+                recipes_liked: structuredClone(state.recipes_liked)
+            }
+            nextState.recipes_created.push(action.recipe);
+            return nextState;
         case RECEIVE_UPDATED_RECIPE:
-            return Object.assign({}, state, {[action.recipe.id]: action.recipe });
+            nextState = {recipes_created: structuredClone(state.recipes_created),
+                recipes_liked: structuredClone(state.recipes_liked)
+            }
+            for(let i = 0; i < nextState.recipes_created.length; i++){
+                console.log('peee', nextState.recipes_created[i], 'pooooooo', action.recipe)
+                if(nextState.recipes_created[i].id === action.recipe.id){
+                    nextState.recipes_created[i] = action.recipe
+                    break;
+                }
+            }
+            return nextState;
         default:
             return state;
     }

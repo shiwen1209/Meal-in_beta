@@ -25,11 +25,14 @@ class RecipeForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { processForm, closeModal, errors } = this.props;
-    processForm(this.state).then(() => {
-      if (errors.length === 0) {
-        closeModal();
-      }
-    });
+    // processForm(this.state).then(() => {
+    //   if (errors.length === 0) {
+    //     closeModal();
+    //   }
+    // });
+    processForm(this.state);
+    closeModal();
+  
 
 
   }

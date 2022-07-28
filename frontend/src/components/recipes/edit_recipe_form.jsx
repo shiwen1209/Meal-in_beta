@@ -24,12 +24,28 @@ class EditRecipeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { processForm, closeModal, errors } = this.props;
-    processForm(this.state).then(() => {
-      if (errors.length === 0) {
+    const { processForm, closeModal} = this.props;
+    processForm(this.state, this.props.recipeId).then(() => {
+     
         closeModal();
-      }
+      
     });
+  }
+
+  componentDidMount(){
+    this.props.fetchRecipe(this.props.recipeId).then((res) => {
+      let currentRecipe = res.data;
+      this.setState({
+        title: currentRecipe.title,
+        category: currentRecipe.category,
+        budget: currentRecipe.budget,
+        description: currentRecipe.description,
+        ingredients: currentRecipe.ingredients,
+        prep_time: currentRecipe.prep_time,
+        image_url: currentRecipe.image_url,
+        instructions: currentRecipe.instructions
+      })
+    })
   }
 
   addIngredient(e)

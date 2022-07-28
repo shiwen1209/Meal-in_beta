@@ -19,8 +19,8 @@ export const createRecipe = data => {
 };
 
 
-export const updateRecipe = recipe => {
+export const updateRecipe = (recipe, recipeId) => {
     console.log(recipe, 'lolo')
-    return axios.patch(`/api/recipes/${recipe.id}`, recipe )
+    return axios.patch(`/api/recipes/${recipeId}`, recipe )
 }
 

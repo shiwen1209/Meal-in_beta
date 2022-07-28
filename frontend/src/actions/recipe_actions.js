@@ -23,7 +23,7 @@ export const receiveUpdatedRecipe = (data) => {
     // console.log(data, 'data')
     return {
         type: RECEIVE_UPDATED_RECIPE,
-        recipe: data.recipe
+        recipe: data
     }
 }
 
@@ -51,11 +51,11 @@ export const fetchRecipe = (recipeId, userId) => dispatch => (
 
 export const createRecipe = data => dispatch => {
     RecipeApiUtil.createRecipe(data)
-        .then((recipe) => dispatch(receiveNewRecipe(recipe)))
+        .then((recipe) => dispatch(receiveNewRecipe(recipe.data)))
 }
 
-export const updateRecipe = (recipe) => dispatch => {
-    return RecipeApiUtil.updateRecipe(recipe).then((payload) =>
+export const updateRecipe = (recipe, recipeId) => dispatch => {
+    return RecipeApiUtil.updateRecipe(recipe, recipeId).then((payload) =>
     dispatch(receiveUpdatedRecipe(payload.data))
     )
 }
