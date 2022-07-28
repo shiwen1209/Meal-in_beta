@@ -10,107 +10,138 @@ const parser = require('node-html-parser')
 const jsdom = require("jsdom")
 const bcrypt = require("bcrypt")
 
-// let obj = require("./recipes.json");
+let obj = require("./recipes.json");
 
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log("Connected to MongoDB successfully for seeds!"))
     .catch(err => console.log(err));
 
+const sampleBios = ["I love you to the fridge and back.",
+    "Hi people, I want to share my experiences with food with you! Follow me!",
+    "They told me to follow my heart. Guess where it led me? To the fridge.",
+    "Life is uncertain. Eat dessert first.",
+    "I’m soy into you.",
+    "I can eat, sleep, drink biriyani!",
+    "It’s essential for every party to have cake. If there’s no cake, then it’s only a meeting.",
+    "If my plate is full, I'm happy.",
+    "When you eat food with your family and friends, it always tastes better!"]
+
+let nutrients_list = [
+    'calories',             'carbohydrates_g',
+    'sugars_g',             'fat_g',
+    'saturated_fat_g',      'cholesterol_mg',
+    'protein_g',            'dietary_fiber_g',
+    'sodium_mg',            'calories_from_fat',
+    'calcium_mg',           'iron_mg',
+    'magnesium_mg',         'potassium_mg',
+    'zinc_mg',              'phosphorus_mg',
+    'vitamin_a_iu_IU',      'niacin_equivalents_mg',
+    'vitamin_b6_mg',        'vitamin_c_mg',
+    'folate_mcg',           'thiamin_mg',
+    'riboflavin_mg',        'vitamin_e_iu_IU',
+    'vitamin_k_mcg',        'biotin_mcg',
+    'vitamin_b12_mcg',      'mono_fat_g',
+    'poly_fat_g',           'trans_fatty_acid_g',
+    'omega_3_fatty_acid_g', 'omega_6_fatty_acid_g'
+    ];
 
 const UserSeeds = [
     {
-        handle: "Jack", email: "jack@test.com", password: "test12"
+        handle: "Jack", email: "jack@test.com", password: "test12", pfp_url: "https://no-cookie.kiwifarms.net/data/avatars/l/106/106698.jpg?1638921799", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Joe", email: "joe@test.com", password: "test12"
+        handle: "Joe", email: "joe@test.com", password: "test12",  pfp_url: "https://www.mytechmag.com/wp-content/uploads/2019/09/Deepak-Seth.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "James", email: "james@test.com", password: "test12"
+        handle: "James", email: "james@test.com", password: "test12", pfp_url: "https://media.npr.org/assets/img/2019/01/15/homecook1-484a660dfc7381ce079fe37c79cd0c8188114669.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "George", email: "george@test.com", password: "test12"
+        handle: "George", email: "george@test.com", password: "test12", pfp_url: "https://static.toiimg.com/photo/63365346.cms", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Amanda", email: "amanda@test.com", password: "test12"
+        handle: "Amanda", email: "amanda@test.com", password: "test12", pfp_url: "https://i.pinimg.com/736x/f3/f6/f6/f3f6f6d96272b8a4ff7362b2d3ae807b.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Cynthia", email: "cynthia@test.com", password: "test12"
+        handle: "Cynthia", email: "cynthia@test.com", password: "test12", pfp_url: "https://pbs.twimg.com/media/D8dDZukXUAAXLdY.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Bobber", email: "bobber@test.com", password: "test12"
+        handle: "Bobber", email: "bobber@test.com", password: "test12", pfp_url: "https://www.random-name-generator.com/images/faces/male-white/05.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Barbara", email: "barbara@test.com", password: "test12", bio: "Aspiring chef"
+        handle: "Barbara", email: "barbara@test.com", password: "test12", bio: "Aspiring chef", pfp_url: "https://www.highspeedtraining.co.uk/hub/wp-content/uploads/2019/11/Chef-edit.jpg"
     },
     {
-        handle: "Alan", email: "alan@test.com", password: "test12"
+        handle: "Alan", email: "alan@test.com", password: "test12", pfp_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Evie", email: "evie@test.com", password: "test12"
+        handle: "Evie", email: "evie@test.com", password: "test12", pfp_url: "https://i.pinimg.com/736x/6c/27/78/6c27784756bd213664bfd60005f58b8e.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Adam", email: "adam@test.com", password: "test12"
+        handle: "Adam", email: "adam@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/gHFN3tp.png"
     },
     {
-        handle: "Richard", email: "richard@test.com", password: "test12"
+        handle: "Richard", email: "richard@test.com", password: "test12", pfp_url: "https://www.meme-arsenal.com/memes/2d3cf4e7b69495f50bb54cb32755d5db.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "thomas", email: "thomas@test.com", password: "test12"
+        handle: "thomas", email: "thomas@test.com", password: "test12", pfp_url: "https://i.insider.com/58751ab0ba58c32b198b46e6?width=700", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "tears", email: "tears@test.com", password: "test12"
+        handle: "tears", email: "tears@test.com", password: "test12", pfp_url: "https://preview.redd.it/lk6o0eq11cgz.jpg?auto=webp&s=84af7b5f6d69c69d1a2a1ed71e3d9e105722d8be", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Chef Boy R. Dee", email: "chefboy@test.com", password: "test12"
+        handle: "Chef Boy R. Dee", email: "chefboy@test.com", password: "test12", pfp_url: "https://upload.wikimedia.org/wikipedia/en/1/15/Chefboyardeepic.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Ramsay Gordon", email: "ramsay@test.com", password: "test12", bio: "you fookin donkey"
+        handle: "Ramsay Gordon", email: "ramsay@test.com", password: "test12", bio: "you donkey", pfp_url: "https://yt3.ggpht.com/bFpwiiOB_NLCVsIcVQ9UcwBjb1RzipnMmtNfLSWpeIaHboyGkBCq4KBitmovRbStk9WvIWIZOyo=s900-c-k-c0x00ffffff-no-rj"
     },
     {
-        handle: "Remy", email: "remy@test.com", password: "test12"
+        handle: "Remy", email: "remy@test.com", password: "test12", pfp_url: "https://static.wikia.nocookie.net/parody/images/a/ab/Remy_%28Ratatouille%29.png/revision/latest/scale-to-width-down/250?cb=20220212171837", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Auguste Gusteau", email: "ratatouille@test.com", password: "test12"
+        handle: "Auguste Gusteau", email: "ratatouille@test.com", bio: "Anyone can cook!", password: "test12", pfp_url: "https://static.wikia.nocookie.net/movies157/images/9/9a/Gusteau.jpg/revision/latest?cb=20210318215933"
     },
     {
-        handle: "Wendy", email: "wen@test.com", password: "test12"
+        handle: "Wendy", email: "wen@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/Isdr4fj.jpg"
     },
     {
-        handle: "Charlie", email: "char@test.com", password: "test12"
+        handle: "Charlie", email: "char@test.com", password: "test12", pfp_url: "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "alec", email: "alec@test.com", password: "test12"
+        handle: "alec", email: "alec@test.com", password: "test12", pfp_url: "https://static.generated.photos/vue-static/face-generator/landing/wall/20.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Zuzu", email: "zuzu@test.com", password: "test12"
+        handle: "Zuzu", email: "zuzu@test.com", password: "test12", pfp_url: "https://preview.redd.it/oh309qc0sp981.jpg?width=640&crop=smart&auto=webp&s=f8f3189e6598fe5d65add0399fac9ac09fdc2abb", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "Anthonie", email: "anthonie@test.com", password: "test12"
+        handle: "Anthonie", email: "anthonie@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/1PHx9KS.jpg"
     },
     {
-        handle: "Brian", email: "brian@test.com", password: "test12", bio: "brian eats owner and CEO"
+        handle: "Brian", email: "brian@test.com", password: "test12", bio: "brian eats owner and CEO", pfp_url: "https://imgur.com/yzrp94Y.jpg"
     },
     {
-        handle: "Lucy", email: "lucy@test.com", password: "test12"
+        handle: "Lucy", email: "lucy@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/RpIM9A2.png"
     },
     {
-        handle: "cindy", email: "cindy@test.com", password: "test12"
+        handle: "cindy", email: "cindy@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/hd7nALx.png"
     },
     {
-        handle: "danny", email: "danny@test.com", password: "test12"
+        handle: "danny", email: "danny@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/JR2DK4w.jpg"
     },
     {
-        handle: "alex", email: "alex@test.com", password: "test12"
+        handle: "alex", email: "alex@test.com", password: "test12", bio: sampleBios[Math.floor(Math.random()*9)], pfp_url: "https://i.imgur.com/p7I2d7P.png"
     },
     {
-        handle: "jacob", email: "jacob@test.com", password: "test12"
+        handle: "jacob", email: "jacob@test.com", password: "test12", pfp_url: "https://i.imgur.com/nvkDBMZ.png", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "peter", email: "peter@test.com", password: "test12"
+        handle: "peter", email: "peter@test.com", password: "test12", pfp_url: "https://mymodernmet.com/wp/wp-content/uploads/2019/09/100k-ai-faces-6.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "h", email: "h@test.com", password: "test12"
+        handle: "h", email: "h@test.com", password: "test12", pfp_url: "https://miro.medium.com/max/1024/1*vW234iL2w0KbhNdMuc0O1w.jpeg", bio: sampleBios[Math.floor(Math.random()*9)]
+    },
+    {
+        handle: "quang", email: "quang@test.com", password: "test12", pfp_url: "https://static01.nyt.com/newsgraphics/2020/11/12/fake-people/4b806cf591a8a76adfc88d19e90c8c634345bf3d/fallbacks/mobile-02.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     }
 ]
 
@@ -396,17 +427,23 @@ const fillScrapedRecipeInfo = async function(recipe, author) {
     newRecipe.num_ratings = recipe.rating_count;
     if(recipe.review_count)
     {
-        newRecipe.num_favorites = recipe.review_count + Math.floor(Math.random() * 15);
+        newRecipe.num_likes = recipe.review_count + Math.floor(Math.random() * 15);
     }
     else
     {
-        newRecipe.num_favorites = Math.floor(Math.random() * 15);
+        newRecipe.num_likes = Math.floor(Math.random() * 15);
     }
     if(recipe.rating && recipe.rating_count)
         newRecipe.total_rating = recipe.rating * recipe.rating_count;
    
     if(recipe.yield)
     newRecipe.yield = recipe.yield;
+
+    newRecipe.nutrients = {};
+    for(let i = 0; i< nutrients_list.length; i++)
+    {
+        newRecipe.nutrients[nutrients_list[i]] = recipe[nutrients_list[i]];
+    }
 
     if(author) //ignore Recipe Author
     {

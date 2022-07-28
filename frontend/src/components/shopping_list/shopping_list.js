@@ -1,9 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { FaTachometerAlt } from 'react-icons/fa';
 
 
 class ShoppingList extends React.Component{
-
+    componentDidMount()
+    {
+        console.log("bob", this.props);
+    }
 
     checked(){
         return "checked"
@@ -14,7 +18,7 @@ class ShoppingList extends React.Component{
         return (
             <div className="shopping-list">
                 
-                <div className="shoppinglist-title">Your Shopping List</div>
+                <div className="shoppinglist-title">{this.props.name}'s Shopping List</div>
 
                 <div className="list-box">
                     {
@@ -35,4 +39,16 @@ class ShoppingList extends React.Component{
     }
 }
 
-export default ShoppingList;
+const mstp = (state, ownProps) => {
+    return{
+        goodies: ownProps.payload.meals,
+        name: ownProps.payload.name
+    }
+}
+
+const mdtp = (dispatch) => {
+    return {
+        
+    }
+}
+export default connect(mstp, mdtp)(ShoppingList)

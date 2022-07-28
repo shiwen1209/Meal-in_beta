@@ -27,6 +27,8 @@ router.post("/", async (req, res) => {
         name: data.name,
         owner_id: data.owner_id,
         meals: data.meals,
+        nutrients: data.nutrients,
+        ingredients: data.ingredients
     })
 
     try {

@@ -44,7 +44,7 @@ class Modal extends React.Component{
         break;
       case 'shoppingList':
         // debugger
-        component = <ShoppingListContainer />;
+        component = <ShoppingListContainer payload={this.props.modals.payload}/>;
         break;
       case 'recipeLabel':
         component = <RecipeLabel payload={this.props.modals.payload}/>;

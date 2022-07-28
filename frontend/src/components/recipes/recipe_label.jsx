@@ -1,22 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import nutritionLabel from "nutrition-label-jquery-plugin"
+import nutritionLabel from "nutrition-label-jquery-plugin" //bruh
 
-const $ = window.jQuery; //bootstrapped bad boy
+const $ = window.jQuery; //bootstrapped bad boy 
 
 class RecipeLabel extends React.Component {
   componentDidMount() {
     // Use your jQuery as usual!
     let info = this.props.theWorks.nutrients;
 
+    //missing vitamin B and trans fat in the data scraping... need to redo to get info
     $('#recipeLabelerReplace').nutritionLabel({
       itemName : this.props.theWorks.title,
       showIngredients : false,
-      decimalPlacesForQuantityTextbox : 2,
+      decimalPlacesForQuantityTextbox : 3,
       valueServingUnitQuantity : 1,
-      allowFDARounding : true,
-      decimalPlacesForNutrition : 2,
+      decimalPlacesForNutrition : 0,
       showPolyFat : false,
       showMonoFat : false,
       showTransFat : false,
@@ -31,10 +31,10 @@ class RecipeLabel extends React.Component {
       valueFibers : info.dietary_fiber_g,
       valueSugars : info.sugars_g,
       valueProteins : info.protein_g,
-      valueVitaminA : info.vitamin_a_iu_IU * .3,
+      valueVitaminA : info.vitamin_a_iu_IU * .02,
       valueVitaminC : info.vitamin_c_mg,
-      valueCalcium : info.calcium_mg,
-      valueIron : info.iron_mg
+      valueCalcium : info.calcium_mg * .1,
+      valueIron : info.iron_mg * 5
     });
 
   }
