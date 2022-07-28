@@ -12,6 +12,7 @@ class RecipeIndex extends React.Component {
     render(){
         const { recipe, currentUser} = this.props
         const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
+        // debugger
         return(
             <div>
             <Link to={`/recipes/${recipe.id}`}>
@@ -23,7 +24,7 @@ class RecipeIndex extends React.Component {
                             <div className='recipe-little-info'>
                             <div className="text">{recipe.title}</div>
                             <div className="index-rating"><Rating rating={avgRating}/></div>
-                            {/* <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span> */}
+                            <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span>
 
                             </div>
                         </div>

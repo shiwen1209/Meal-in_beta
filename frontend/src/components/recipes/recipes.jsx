@@ -65,7 +65,6 @@ class Recipe extends React.Component{
                 </div>
 
                 <div className="rating-review">
-                    {/* <p>Rate this Recipe</p> */}
                     <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
                 </div>
                 </div>
