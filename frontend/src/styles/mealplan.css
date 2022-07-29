@@ -151,9 +151,6 @@
 
 .nutrition-sub,
 .mealplan-sub {
-
-    /* border: 1px solid red; */
-
     height: 620px;
     /* background-color: rgba(230, 218, 160, 0.371); */
         display: flex;

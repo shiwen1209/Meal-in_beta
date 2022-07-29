@@ -93,7 +93,7 @@ class RecipeIndex extends React.Component {
                     </div>
                     <div className='index-cg'>
                         <div>
-                            <h1>Vegan cravings</h1>
+                            <h1>Vege cravings</h1>
                         </div>
                         <div className="recipe-cg-container">
                             {recipesList5}

@@ -147,38 +147,48 @@ class RecipeForm extends React.Component {
               </div>
               <div>
                 <div id="tester" className="how-to">
-                  <input id="title-input" type='text' placeHolder="How long will this take to make?"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
+                  <input id="title-input" type='text' placeHolder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
                 </div>
               </div>
                   
                   <div >
                     <div>
-                    <ul div="ingredientsList" id="tester" className="how-to">
-                      {ingredientsList}
-                    </ul>
+                    
                     </div>
-                    <div id="tester" className="how-to">
-                    <input id="title-input" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                    <div className="list-add">
+                      <div id="tester" className="how-to">
+                      <input id="title-input-list" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                      </div>
+                      <div id="tester" className="how-to">
+                      <input  id="title-input-list" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
+                      </div>
                     </div>
-                    <div id="tester" className="how-to">
-                    <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                    <div className="add-buttons">
+                      <div id="tester" className="how-to">
+                       <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                      </div>
+                      <div id="tester" className="how-to">
+                        <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                      </div>
+
                     </div>
                     {/* /input here/  */} 
                   </div>
-
                   <div >
                     <div id="tester" className="how-to">
-                    <ul>
-                      {instructionsList}
-                    </ul>
-                    </div>
-                    <div id="tester" className="how-to">
-                    <input  id="title-input" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
-                    </div>
-                    <div id="tester" className="how-to">
-                    <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
                     </div>
                     {/* /input here/  */} 
+                    <ul div="ingredientsList" id="tester" className="how-to">
+                      <div className="list-section">
+                        <div className="list-of-ingred">
+                          {ingredientsList}
+                        </div>
+                        <div className="list-of-ingred">
+                          {instructionsList}
+                        </div>
+
+                      </div>
+                    </ul>
                   </div >
                   <div id="tester" className="how-to">
                   <button  className="submit-create-form">Save</button>
