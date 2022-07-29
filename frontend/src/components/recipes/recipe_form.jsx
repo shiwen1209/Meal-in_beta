@@ -118,8 +118,9 @@ class RecipeForm extends React.Component {
               </div>
               <div>
               
-                <div id="tester" className="how-to">
+                <div id="tester" className="selectors">
                   {/* <input id="title-input" type='text' value={this.state.category} onChange={this.handleUpdate("category")} /> */}
+                 <div>
                   <select name="category" className="category-drop">
                     <option value="appetizers-and-snacks">Appetizers/Snacks</option>
                     <option value="breakfast-and-brunch">Breakfast</option>
@@ -130,19 +131,19 @@ class RecipeForm extends React.Component {
                     <option value="salad">Salad</option>
                     <option value="world-cuisine">World Cuisine</option>
                   </select>
-                </div>
-              </div>
-              <div>
-                <div id="tester" className="how-to-title">
-                  How costly is this meal?
-                </div>
-                  {/* <input id="title-input" type='number' value={this.state.budget} onChange={this.handleUpdate("budget")}/> */}
+                 </div>
+                  <div>
                   <select name="budget" className="money-drop">
                     <option value="1">$</option>
                     <option value="2">$$</option>
                     <option value="3">$$$</option>
                     <option value="4">$$$$</option>
                   </select>
+                  </div>
+                </div>
+              </div>
+              <div>
+                  {/* <input id="title-input" type='number' value={this.state.budget} onChange={this.handleUpdate("budget")}/> */}
               </div>
               <div>
                 <div id="tester" className="how-to">
