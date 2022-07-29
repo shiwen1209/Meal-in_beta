@@ -12,7 +12,7 @@ const usersReducer = (state = {}, action) => {
         return action.user
       case RECEIVE_UPDATED_USER:
         console.log('logtest', action )
-        return Object.assign({}, state, { [action.user.id]: action.user });
+        return action.user;
       default:
         return state;
     }
