@@ -123,7 +123,7 @@
 
 .search{
     max-width: 500px;
-    box-shadow: #01401C 6px 10px 10px 3px;
+    box-shadow: #01401cd8 6px 10px 10px 3px;
     margin-left: 40px;
     max-height: 350px;
     border-radius: 10px;
@@ -136,6 +136,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 500px;
 }
 
 .centered-left {
@@ -151,7 +152,7 @@
 }
 
 .show-img{
-    max-width: 300px;
+    max-width: 450px;
     border: 1px solid grey;
     padding: 10px;
     box-shadow: #00420c -6px 10px 10px 3px;

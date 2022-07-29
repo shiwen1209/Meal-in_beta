@@ -4,7 +4,7 @@ import bginfo from '../images/bginfo.jpg';
 import bginfo1 from '../images/bginfo_1.jpg';
 import search from '../images/search.png';
 import shoppinglist from '../images/shoppinglist.png'
-import show from '../images/show.png';
+import mealplan from '../images/mealplan.png';
 import { RiPhoneFindLine } from 'react-icons/ri';
 import { MdOutlineDateRange } from 'react-icons/md';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -58,7 +58,7 @@ class HowItWorks extends React.Component {
                 </div>
 
                 <div className='section3'>
-                    <img src={show} alt="show" className='show-img'/>
+                    <img src={mealplan} alt="" className='show-img'/>
                     <div className='info2'>
                         <div className='info1-title'>Let's get mealplanning!</div>
                         <div className='info1-des'>Our mealplan tool is easy to use and give you the nutrition value instantly.</div>
