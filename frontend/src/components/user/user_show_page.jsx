@@ -3,7 +3,7 @@ import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom'
 import donut from '../../images/donut.png'
 import RecipeIndexItem from '../recipes/recipe_index_item';
-import dogcake from '../../images/dogcake.jpg';
+import ep from '../../images/ep.png';
 // import UserEditFormContainer from './user_edit_form_container'
 // ;
 class UserShowPage extends React.Component {
@@ -148,7 +148,7 @@ class UserShowPage extends React.Component {
                   />
                   :
                   <img className="user-show-recipe-image"
-                    src={dogcake}
+                      src={ep}
                     // alt="background-pic"
                   />
                   

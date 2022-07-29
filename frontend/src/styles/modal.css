@@ -24,6 +24,8 @@
     overflow-y: scroll;
     background: white;
     font-family: 'Lora', serif;
+    background-color: rgb(237, 250, 241);
+    border-radius: 5px;
   }
 
  .add-ingredients{
@@ -52,11 +54,15 @@
     width: 340px;
     height: 60px;
     margin-bottom: 20px;
+    /* background-color: #68A67E; */
+    background-color: rgb(247, 247, 247);
+
    
  }
  #description-input{
     width: 340px;
     height: 170px;
+    background-color: rgba(104, 166, 126, .2);
    
  }
  #tester{
@@ -68,6 +74,7 @@
  .how-to{
     display: flex;
     justify-content: center;
+  
  }
 
  .how-to-title{

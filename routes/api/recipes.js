@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
                 })
                 r.authorImageUrl = "";
                 r.image_url = recipe.image_url;
+                r.prep_time = recipe.prep_time;
                 r._id = recipe._id;
                 r.id = recipe.id;
                 return r;

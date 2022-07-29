@@ -105,25 +105,19 @@ class RecipeForm extends React.Component {
           <div className="recipe-form-title">Create a Recipe</div>
             <form className="creating-form" onSubmit={this.handleSubmit}>
               <div> 
-                <div id="tester" className="how-to-title">
-                  Please put a title
-                </div>
+              
                 <div id="tester" className="how-to">
-                  <input id="title-input" className="title-box"type='text' value={this.state.title} onChange={this.handleUpdate("title")} />
+                  <input id="title-input" className="title-box"type='text' placeHolder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
                 </div>
               </div>
-                <div id="tester" className="how-to-title">
-                  Please describe your dish
-                </div>
+               
               <div>
                 <div id="tester" className="how-to">
-                  <input id="description-input" type='text' value={this.state.description} onChange={this.handleUpdate('description')}/>
+                  <input id="description-input" type='text' value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
                 </div>
               </div>
               <div>
-                <div id="tester" className="how-to-title">
-                  Please select a category
-                </div>
+              
                 <div id="tester" className="how-to">
                   {/* <input id="title-input" type='text' value={this.state.category} onChange={this.handleUpdate("category")} /> */}
                   <select name="category" className="category-drop">
@@ -151,11 +145,8 @@ class RecipeForm extends React.Component {
                   </select>
               </div>
               <div>
-                <div id="tester" className="how-to-title">
-                  How long will this take to make?
-                </div>
                 <div id="tester" className="how-to">
-                  <input id="title-input" type='text' value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
+                  <input id="title-input" type='text' placeHolder="How long will this take to make?"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
                 </div>
               </div>
                   
@@ -166,7 +157,7 @@ class RecipeForm extends React.Component {
                     </ul>
                     </div>
                     <div id="tester" className="how-to">
-                    <input id="tester" className="how-to" type="text" value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                    <input id="title-input" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
                     </div>
                     <div id="tester" className="how-to">
                     <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
@@ -181,7 +172,7 @@ class RecipeForm extends React.Component {
                     </ul>
                     </div>
                     <div id="tester" className="how-to">
-                    <input  type="text" value={this.state.newInstruction} onChange={this.handleUpdate('newInstruction')}/>
+                    <input  id="title-input" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
                     </div>
                     <div id="tester" className="how-to">
                     <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
