@@ -50,7 +50,8 @@
 .created-recipe:hover .user-show-recipe-title {
     /* display: flex; */
     /* opacity: 1; */
-    color: rgb(8, 76, 8);
+    color: rgb(5, 56, 5);
+    opacity: 1;
 }
 
 .created-recipe:hover .user-show-recipe-image{
@@ -133,7 +134,7 @@
 .user-show-recipe-title{
     margin-left: -260px;
     /* color: rgb(241, 215, 18); */
-    color: white;
+    color: rgba(0, 0, 0, 0);
     width: 200px;
     font-weight: bold;
     padding-top: 10px;
