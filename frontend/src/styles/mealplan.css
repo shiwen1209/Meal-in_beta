@@ -2,11 +2,12 @@
 .my-mealplan {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 69px;
     padding-top: 20px;
     padding-left: 40px;
     padding-right: 40px;
+    /* background-color: rgb(243, 250, 215); */
 }
 
 .mealplan-recipes {
@@ -18,6 +19,7 @@
     padding: 0px;
     /* border: 1px solid green; */
     width: 420px;
+    border-radius: 5px;
     /* height: 600px; */
 }
 
@@ -29,8 +31,8 @@
 }
 
 .mealplan-main {
-    /* border: 1px solid green; */
-    width: 890px;
+    border: 1px solid green;
+    width: 750px;
     
 
 
@@ -48,13 +50,18 @@
 }
 
 .mealplan-recipes{
-    border: 1px solid lightgray;
+    max-width: 260px;
+    margin-right: 10px;
+}
 
+.mealplan-search{
+    border-radius: 50px;
+    margin-bottom: 10px;
 }
 
 .mealplan-search i{
-    color: white;
-    background-color: green;
+    color: green;
+    background-color: white;
     padding: 10px;
     border-radius: 50%;
 }
@@ -66,9 +73,47 @@
     box-shadow: none;
 }
 
+.mealplan-re-container{
+    position: relative;
+    cursor: pointer;
+}
+
+.mealplan-re-name h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .5s ease;
+    opacity: 0;
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #005023;
+    width: 200px;
+}
+
 .mp-recipe-item>img {
     height: 200px;
    
+}
+
+.recipe-index-img{
+    max-height: 230px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    opacity: 1;
+    display:block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.mealplan-re-container:hover .recipe-index-img{
+    opacity: 0.2;
+}
+
+.mealplan-re-container:hover .mealplan-re-name h2{
+    opacity:1;
 }
 
 .grid-container {
@@ -76,8 +121,8 @@
     grid-template-columns: auto auto auto auto;
     column-gap: 0px;
     font-size: 20px;
-    width: 810px;
- 
+    /* width: 810px; */
+    max-width: 750px;
     align-items: center;
 
 
@@ -86,15 +131,157 @@
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid lightgray;
-    ;
-    /* padding: 20px; */
+    padding: 10px 15px;
     font-size: 15px;
-    width: 200px;
-    height: 65px;
+    max-width: 180px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.grid-item-col-1 {
+    border-radius: 5px 0 0 0;
+    border: none;
+    color: white;
+    background-color: #187440;
+    padding: 10px;
+    font-size: 20px;
+    margin: 2px;
+    text-align: center;
+}
+
+.grid-item-col{
+    /* border-radius: 5px 5px 0 0; */
+    border: none;
+    color: white;
+    background-color: #005023;
+    padding: 10px;
+    margin: 1px;
+    text-align: center;
+}
+
+.grid-item-col-last {
+    border-radius: 0 5px 0 0;
+    border: none;
+    color: white;
+    background-color: #005023;
+    padding: 10px;
+    margin: 1px;
+    text-align: center;
+}
+
+.grid-item-row{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 50px;
+    border: none;
+    background-color: #adc8b8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px 0 0 5px;
+    max-width: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grid-item-mon{
+    border: none;
+    background-color: #e1efe7;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-tue{
+    border: none;
+    background-color: #d2e1d8;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-wed {
+    border: none;
+    background-color: #c6d4cc;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-thu {
+    border: none;
+    background-color: #bac8c0;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-fri {
+    border: none;
+    background-color: #acbbb3;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-sat {
+    border: none;
+    background-color: #a3b1aa;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
+.grid-item-sun {
+    border: none;
+    background-color: #9aa8a1;
+    color: rgb(55, 97, 57);
+    min-height: 38px;
+    font-size: 15px;
+    max-width: 180px;
+    padding: 11px 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-right: 1px solid white;
 }
 
 .mealplan-buttons, .mealplan-results {
@@ -102,7 +289,8 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
-    width: 810px;
+    width: 690px;
+    margin-left: 0;
     
     
 }
@@ -115,7 +303,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 810px;
+    width: 750px;
     margin-bottom: 20px;
    
 }
@@ -155,9 +343,11 @@
     /* background-color: rgba(230, 218, 160, 0.371); */
         display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             padding-top: 20px;
+            padding-left: 20px;
             background-color: rgba(36, 174, 36, 0.067);
+            border: 1px solid red;
 
 }
 
@@ -168,9 +358,6 @@
 
 }
 
-.mealplan-tabs>div {
-    /* border: 1px solid red; */
-}
 
 .mealplan-tabs>div {
     background-color: rgba(36, 174, 36, 0.067);;
