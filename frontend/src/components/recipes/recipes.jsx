@@ -30,7 +30,7 @@ class Recipe extends React.Component{
     render(){
         const {recipe, currentUser} = this.props;
         let ingredients = recipe.ingredients;
-        const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
+        const avgRating = recipe.total_rating / recipe.num_ratings
 
         if (!recipe || !recipe.author) return null;
         return (

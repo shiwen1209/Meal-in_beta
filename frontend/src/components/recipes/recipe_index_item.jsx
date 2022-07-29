@@ -5,14 +5,67 @@ import { Link } from 'react-router-dom';
 import Rating from '../rating/rating';
 import LikeContainer from "../like/like_container";
 import { BiTimeFive } from "react-icons/bi";
-import { AiFillStar } from "react-icons/ai";
-import { AiOutlineStar } from "react-icons/ai";
+
+import FullStar from '../../images/full_star.svg';
+import HalfStar from '../../images/half_star.svg';
+
+import EmptyStar from '../../images/empty_star.svg';
 
 
 class RecipeIndex extends React.Component {
     render(){
         const { recipe, currentUser} = this.props
-        const avgRating = Math.round(recipe.total_rating / recipe.num_ratings)
+        const avgRating = recipe.total_rating / recipe.num_ratings
+
+        let full_stars = 0;
+        let half_star = 0;
+        if(avgRating < 0.75)
+        {
+            half_star = 1;
+        }
+        else if(avgRating < 1.25)
+        {
+            full_stars = 1;
+        }
+        else if(avgRating < 1.75)
+        {
+            full_stars = 1;
+            half_star = 1;
+        }
+        else if(avgRating < 2.25)
+        {
+            full_stars = 2;
+        }
+        else if(avgRating < 2.75)
+        {
+            full_stars = 2;
+            half_star = 1;
+
+        }
+        else if(avgRating < 3.25)
+        {
+            full_stars = 3;
+        }
+        else if(avgRating < 3.75)
+        {
+            full_stars = 3;
+            half_star = 1;
+
+        }
+        else if(avgRating < 4.25)
+        {
+            full_stars = 4;
+        }
+        else if(avgRating < 4.75)
+        {
+            full_stars = 4;
+            half_star = 1;
+        }
+        else
+        {
+            full_stars = 5;
+        }
+
         return(
             <div>
             <Link to={`/recipes/${recipe.id}`}>
@@ -32,11 +85,17 @@ class RecipeIndex extends React.Component {
                             <h3>{recipe.title}</h3>
                             <div className='sub-info'>
                                 <div className='rating'>
-                                    {avgRating >= 1 ? <AiFillStar style={{ color: "green", fontSize: '15px' }} /> : < AiOutlineStar style={{ color: "green", fontSize: '15px' }} />}
-                                    {avgRating >= 2 ? <AiFillStar style={{ color: "green", fontSize: '15px' }} /> : < AiOutlineStar style={{ color: "green", fontSize: '15px' }} />}
-                                    {avgRating >= 3 ? <AiFillStar style={{ color: "green", fontSize: '15px' }} /> : < AiOutlineStar style={{ color: "green", fontSize: '15px' }} />}
-                                    {avgRating >= 4 ? <AiFillStar style={{ color: "green", fontSize: '15px' }} /> : < AiOutlineStar style={{ color: "green", fontSize: '15px' }} />}
-                                    {avgRating >= 5 ? <AiFillStar style={{ color: "green", fontSize: '15px' }} /> : < AiOutlineStar style={{ color: "green", fontSize: '15px' }} />}
+                                   {full_stars >= 1 ? <img className="star-2" src={FullStar}></img> : null}
+                                {full_stars >= 2 ? <img className="star-2" src={FullStar}></img> : null}
+                                {full_stars >= 3 ? <img className="star-2" src={FullStar}></img> : null}
+                                {full_stars >= 4 ? <img className="star-2" src={FullStar}></img> : null}
+                                {full_stars == 5 ? <img className="star-2" src={FullStar}></img> : null}
+                                {half_star === 1 ? <img className="star-2" src={HalfStar}></img> : null}
+                                {5 - full_stars - half_star >= 1 ? <img className="star-2" src={EmptyStar}></img> : null}
+                                {5 - full_stars - half_star >= 2 ? <img className="star-2" src={EmptyStar}></img> : null}
+                                {5 - full_stars - half_star >= 3 ? <img className="star-2" src={EmptyStar}></img> : null}
+                                {5 - full_stars - half_star >= 4 ? <img className="star-2" src={EmptyStar}></img> : null}
+                                {5 - full_stars - half_star >= 5 ? <img className="star-2" src={EmptyStar}></img> : null}
                                 </div>
                                 <div className="time">
                                         <span><BiTimeFive className="time-icon" /></span>

@@ -33,6 +33,7 @@ router.get("/:id", (req, res) => {
     Recipe.findOne({id: req.params.id})
     .then(async recipe => 
     {
+        await recipe.populate("author", "-email -recipes_liked -__v -password -recipes_rated")
         console.log("recipe: ", recipe);
         return res.json(recipe);
     })
