@@ -24,19 +24,15 @@
 }
 
 .mealplan-recipes .mp-recipe-list {
-    height: 650px;
+    height: 550px;
     overflow-y: scroll;
     width: 100%;
     /* border: 1px solid red; */
 }
 
 .mealplan-main {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 750px;
-    
-
-
-
 }
 
 .mealplan-search {
@@ -55,7 +51,7 @@
 }
 
 .mealplan-search{
-    border-radius: 50px;
+    border-radius: 8px;
     margin-bottom: 10px;
 }
 
@@ -94,12 +90,13 @@
 }
 
 .mp-recipe-item>img {
-    height: 200px;
+    height: 150px;
+    overflow: hidden;
    
 }
 
-.recipe-index-img{
-    max-height: 230px;
+.my-mealplan .recipe-index-img{
+    max-height: 150px;
     border-radius: 20px;
     margin-bottom: 10px;
     opacity: 1;
@@ -124,6 +121,7 @@
     /* width: 810px; */
     max-width: 750px;
     align-items: center;
+    height: 500px;
 
 
 }
@@ -199,7 +197,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -212,7 +210,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -225,7 +223,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -238,7 +236,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -251,7 +249,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -264,7 +262,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -277,7 +275,7 @@
     color: rgb(55, 97, 57);
     min-height: 38px;
     font-size: 15px;
-    max-width: 180px;
+    width: 180px;
     padding: 11px 15px;
     margin-bottom: 5px;
     text-align: center;
@@ -289,13 +287,21 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
-    width: 690px;
+    width: 660px;
     margin-left: 0;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
     
     
 }
-.mealplan-buttons button{
-    width: 200px;
+.mealplan-buttons button, .mealplan-results button{
+    margin: 0;
+    width: 150px;
+    font-size: 15px;
+    height: 30px;
 
 }
 
@@ -311,12 +317,18 @@
 
 
 .mealplan-results{
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
+}
+
+.mealplan-results > div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .start-over{
@@ -344,16 +356,19 @@
         display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding-top: 20px;
-            padding-left: 20px;
-            background-color: rgba(36, 174, 36, 0.067);
-            border: 1px solid red;
+            /* padding-top: 20px; */
+            padding-left: 40px;
+            /* background-color: rgba(36, 174, 36, 0.067); */
+            /* border: 1px solid red; */
 
 }
 
 .mealplan-tabs {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 50px;
     /* border: 1px solid red; */
 
 }
@@ -390,5 +405,18 @@
     writing-mode: sideways-rl;
     text-orientation: mixed;
     /* width: 70px; */
+
+}
+
+.mealplan-main label{
+    margin-right: 20px;
+    font-weight:  bold;
+}
+
+.mealplan-main input{
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 5px;
+    box-shadow: none;
 
 }

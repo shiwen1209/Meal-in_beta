@@ -37,38 +37,12 @@ class RecipeForm extends React.Component {
 
   }
 
-  // addIngredentList(){
-
-  //   let ingredientsArray = [];
-
-  //   while(true){
-  //     // let input = prompt("add an ingredient");
-  //     let input = <input type="text"/>;
-  //     if( input === null){
-  //       break;
-  //     }
-  //     ingredientsArray.push(input);
-  //     console.log(ingredientsArray)
-  //   }
-  //   // return (
-  //   //   <div> 
-  //   //   {
-  //   //     ingredientAarray.map((x) => <input>{x}</input>)
-  //   //   }
-  //   //   </div>
-  //   // )
-  // }
   
 
   addIngredient(e)
   {
     e.preventDefault();
-    console.log("before", this.state.ingredients);
-    
-    // this.state.ingredients.push(this.state.newIngredient);
-    // this.state.newIngredient = '';
     this.setState({ingredients: [...this.state.ingredients, this.state.newIngredient]}, ((res) => {
-      console.log("after", this.state.ingredients);
       this.setState({newIngredient: ''})
     }));
 
@@ -77,12 +51,7 @@ class RecipeForm extends React.Component {
   addInstruction(e)
   {
     e.preventDefault();
-    console.log("before", this.state.instructions);
-    
-    // this.state.ingredients.push(this.state.newIngredient);
-    // this.state.newIngredient = '';
     this.setState({instructions: [...this.state.instructions, this.state.newInstruction]}, ((res) => {
-      console.log("after", this.state.instructions);
       this.setState({newInstruction: ''})
     }));
 
@@ -113,7 +82,7 @@ class RecipeForm extends React.Component {
                
               <div>
                 <div id="tester" className="how-to">
-                  <input id="description-input" type='text' value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
+                  <textarea id="description-input"  value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
                 </div>
               </div>
               <div>
@@ -133,7 +102,7 @@ class RecipeForm extends React.Component {
                   </select>
                  </div>
                   <div>
-                  <select name="budget" className="money-drop">
+                  <select placeHolder="Category" name="budget" className="money-drop">
                     <option value="1">$</option>
                     <option value="2">$$</option>
                     <option value="3">$$$</option>
@@ -164,11 +133,11 @@ class RecipeForm extends React.Component {
                       </div>
                     </div>
                     <div className="add-buttons">
-                      <div id="tester" className="how-to">
-                       <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                      <div id="tester" className="how-to ins">
+                       <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>Add ingredient</button>
                       </div>
                       <div id="tester" className="how-to">
-                        <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                        <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>Add instruction</button>
                       </div>
 
                     </div>
@@ -183,7 +152,7 @@ class RecipeForm extends React.Component {
                         <div className="list-of-ingred">
                           {ingredientsList}
                         </div>
-                        <div className="list-of-ingred">
+                        <div className="list-of-ingred2">
                           {instructionsList}
                         </div>
 
@@ -193,6 +162,7 @@ class RecipeForm extends React.Component {
                   <div id="tester" className="how-to">
                   <button  className="submit-create-form">Save</button>
                   </div>
+                  <div id="extra-pad"></div>
 
             </form>
 

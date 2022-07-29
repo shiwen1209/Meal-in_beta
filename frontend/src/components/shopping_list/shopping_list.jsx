@@ -40,43 +40,19 @@ class ShoppingList extends React.Component{
         console.log("HUH?", this.state);
         let prelist = this.state.recipes.map((ele) => ele.ingredients);
         let lists = [].concat(...prelist);
-        // let postlist = {};
-
-        // for(let i = 0; i< prelist.length; i++)
-        // {
-        //     let temp_stuff = ingredients_array[i].split(' ');
-        //     let unit_index = -1;
-        //     for(let j = 0; j<temp_stuff.length; j++)
-        //     {
-        //         if(units.includes(temp_stuff[j]))
-        //         {
-        //             unit_index = j;
-        //             break;
-        //         }
-        //     }
-
-        //     if(unit_index === -1)
-        //     {
-        //         console.log("???", ingredients_array[i])
-        //         debugger
-        //     }
-
-        //     let num_units_unedited = temp_stuff[unit_index-1];
-        //     let unit_type = temp_stuff[i];
-        //     let actual_ingredient = temp_stuff.slice(i+1).join(" ");
-        //     if(num_units_unedited)
-        //     {
-
-        //     }
-
-        // }
-
 
         return (
             <div className="shopping-list">
-                
-                <div className="shoppinglist-title">Shopping List</div>
-                <button onClick="Nah man">Print</button>
+                <div className="shopping-list-header">
+                    <div className="print-container">
+                        <div>print</div>
+                        <i className="fa-solid fa-print"></i>
+                    </div>
+
+                    <div className="shoppinglist-title">My shopping list</div>
+
+                </div>
+
 
                 <div className="list-box">
                     {
@@ -90,6 +66,9 @@ class ShoppingList extends React.Component{
                         ))
                     }
 
+                </div>
+                <div>
+                    <button onClick={(e)=>this.props.closeModal()}>Save shoppinglist</button>
                 </div>
 
             </div>

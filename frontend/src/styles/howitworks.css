@@ -13,7 +13,6 @@
 }
 
 .howitworks-image>.headline {
-    background-color: #9DDAB8;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,13 +27,13 @@
 }
 
 .howitworks1 {
-    margin-top: 100px;
+    margin-top: 80px;
     /* border: 1px solid red; */
     /* height: 200px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .banner {
@@ -53,7 +52,7 @@
 .first-icon {
     font-size: 80px;
     padding: 20px;
-    background-color: #E1F9EB;
+    background-color: #0273330d;
     border-radius: 50px;
     color: #01401C;
 }
@@ -76,7 +75,7 @@
 
 .flow-title {
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 20px;
     color: #01401C;
     margin-top: 30px;
 }
@@ -106,9 +105,9 @@
 
 
 .info1-title {
-    font-size: 33px;
+    font-size: 30px;
     font-weight: bolder;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .info1-des {

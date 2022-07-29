@@ -6,7 +6,36 @@
 }
 
 .nutrition-data {
-    width: 800px;
-    /* height: 900px; */
-    /* border: 1px black solid; */
+    width: 350px;
+    height: 500px;
+    margin-top: 50px;
+    border: 1px solid green;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.nutrition-data h1 {
+    font: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.nutrition-chart{
+        width: 300px;
+            height: 500px;
+    z-index: 1;
+}
+
+.nutrition-header{
+        background-color: rgba(36, 174, 36, 0.067);
+            ;
+            width: 180px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 }

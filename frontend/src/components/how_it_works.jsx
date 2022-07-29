@@ -3,6 +3,7 @@ import mealplanbg from '../images/mealplanbg.jpg';
 import bginfo from '../images/bginfo.jpg';
 import bginfo1 from '../images/bginfo_1.jpg';
 import search from '../images/search.png';
+import shoppinglist from '../images/shoppinglist.png'
 import show from '../images/show.png';
 import { RiPhoneFindLine } from 'react-icons/ri';
 import { MdOutlineDateRange } from 'react-icons/md';
@@ -71,7 +72,7 @@ class HowItWorks extends React.Component {
                             <div className='info1-title'>Your shopping list is ready!</div>
                             <div className='info1-des'>No more frequent trips to the grocery markets and not knowing what to get. Get your shopping list auto generated from the mealplan!</div>
                             </div>
-                        <img src={search} alt="" className='mp' />
+                        <img src={shoppinglist} alt="" className='mp' />
                         </div>
                     </div>
             </div>

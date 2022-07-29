@@ -80,9 +80,12 @@ class UserShowPage extends React.Component {
                     </div>
                     <div className="amount-of-recipes">
                       <div className="chef-hat">
-                         <i class="fa-solid fa-user-chef"></i>
+                       <i id="food-bowl"class="fa-solid fa-bowl-food"></i>
                       </div>
                     <div className="recipe-count"> {recipes_created.length} posted recipes</div>
+                    <div className="chef-hat">
+                      <i  id="thumbs-up"class="fa-solid fa-thumbs-up"></i>
+                      </div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
                     </div>
                     <div id="testinggg">
@@ -108,13 +111,17 @@ class UserShowPage extends React.Component {
        
                     {currentUserId === user.id ? 
               <div className="user-buttons">
+                  <div id="adding-space">
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
                         >Create a Recipe</button>
+                  </div>
+                  <div id="adding-space-2" >
                         <Link to={`/mymealplans/${currentUserId}`}>
                           <button className="make-meal-plan-button">Make a meal plan</button>
                         </Link>
-                      </div>
+                  </div>
+              </div>
                     : 
                       <div></div>
                     }
