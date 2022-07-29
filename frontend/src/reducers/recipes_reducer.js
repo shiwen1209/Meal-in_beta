@@ -34,7 +34,6 @@ const recipesReducer = (state = {}, action) => {
                 recipes_liked: structuredClone(state.recipes_liked)
             }
             for(let i = 0; i < nextState.recipes_created.length; i++){
-                console.log('peee', nextState.recipes_created[i], 'pooooooo', action.recipe)
                 if(nextState.recipes_created[i].id === action.recipe.id){
                     nextState.recipes_created[i] = action.recipe
                     break;
