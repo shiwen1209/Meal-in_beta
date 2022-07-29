@@ -4,14 +4,24 @@
     padding: 20px;
     border-radius: 10px;
     min-height: 550px;
+}
 
-    max-height: 600px;
+.shopping-list .shopping-list-header{
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.shopping-list .shopping-list-header > div:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
 }
 
 .shoppinglist-title{
     display: flex;
     justify-content: center;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .container {
@@ -93,9 +103,30 @@
 }
 
 .shopping-list button{
-    height: 100px;
-    width: 50px;
+    text-align: center;
+    height: 40px;
+    width: 150px;
     background-color: green;
     color: white;
     border-radius: 5px;
+    margin-top: 10px;
+}
+
+.shopping-list > div:nth-child(3){
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    border-top: 1px solid lightgray;
+}
+
+.print-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.print-container > div{
+    margin-right: 10px;
 }

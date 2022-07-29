@@ -52,6 +52,7 @@
 
 .search-bar .icon:nth-child(1) i{
     color:#027333; 
+
     
 }
 
@@ -60,7 +61,6 @@
 }
 
 .search-bar form{
-    /* border: 1px solid red; */
     height: 100%;
     width: 680px;
     align-items: center;
@@ -78,6 +78,7 @@
             font-size: 15px;
             box-shadow: none;
             border-right: 1px solid lightgray;
+
 }
 
 .search-bar form select:hover{
@@ -89,7 +90,6 @@
 }
 
 .search-bar form select:nth-child(1){
-    /* border: 1px solid red; */
     width: 180px;
 }
 

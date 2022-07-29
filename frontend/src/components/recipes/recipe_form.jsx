@@ -37,38 +37,12 @@ class RecipeForm extends React.Component {
 
   }
 
-  // addIngredentList(){
-
-  //   let ingredientsArray = [];
-
-  //   while(true){
-  //     // let input = prompt("add an ingredient");
-  //     let input = <input type="text"/>;
-  //     if( input === null){
-  //       break;
-  //     }
-  //     ingredientsArray.push(input);
-  //     console.log(ingredientsArray)
-  //   }
-  //   // return (
-  //   //   <div> 
-  //   //   {
-  //   //     ingredientAarray.map((x) => <input>{x}</input>)
-  //   //   }
-  //   //   </div>
-  //   // )
-  // }
   
 
   addIngredient(e)
   {
     e.preventDefault();
-    console.log("before", this.state.ingredients);
-    
-    // this.state.ingredients.push(this.state.newIngredient);
-    // this.state.newIngredient = '';
     this.setState({ingredients: [...this.state.ingredients, this.state.newIngredient]}, ((res) => {
-      console.log("after", this.state.ingredients);
       this.setState({newIngredient: ''})
     }));
 
@@ -77,12 +51,7 @@ class RecipeForm extends React.Component {
   addInstruction(e)
   {
     e.preventDefault();
-    console.log("before", this.state.instructions);
-    
-    // this.state.ingredients.push(this.state.newIngredient);
-    // this.state.newIngredient = '';
     this.setState({instructions: [...this.state.instructions, this.state.newInstruction]}, ((res) => {
-      console.log("after", this.state.instructions);
       this.setState({newInstruction: ''})
     }));
 

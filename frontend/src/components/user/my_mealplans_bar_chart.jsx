@@ -21,7 +21,7 @@ function NutritionData({ nutrients }) {
         labels: Object.keys(newNutrients),
         datasets: [{
             indexAxis: 'y',
-            label: 'Daily intake (%)',
+            label: 'Average daily intake (%)',
             data: Object.values(newNutrients),
             options: {
                 // responsive: true,
