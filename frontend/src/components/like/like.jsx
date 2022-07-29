@@ -47,8 +47,8 @@ class Like extends React.Component{
         if (!recipe) return null;
         return(
             <div>
-                    <button onClick={this.handleLike } >
-                    {!currentRecipe.user_liked ? <BiHeartCircle style={{fontSize: "30px" }}/> : <BiHeartCircle style={{ color: "red", fontSize: "30px" }} />}
+                    <button onClick={this.handleLike }>
+                    {!currentRecipe.user_liked ? <BiHeartCircle style={{fontSize: "30px"  }}/> : <BiHeartCircle style={{ color: "red", fontSize: "30px" }} />}
                     </button> 
             </div>
         )
