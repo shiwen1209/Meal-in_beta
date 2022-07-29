@@ -1,10 +1,10 @@
 .shopping-list{
-    min-width: 400px;
+    width: 600px;
     background-color: white;
-    padding: 20px 10px;
+    padding: 20px;
     border-radius: 10px;
     min-height: 550px;
-    overflow-y:auto;
+
     max-height: 600px;
 }
 
@@ -82,10 +82,20 @@
 }
 
 .list{
-    padding: 20px;
+    padding: 10px;
 }
 
 .list-box{
     margin-top: 30px;
     padding-left: 20px;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.shopping-list button{
+    height: 100px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
 }

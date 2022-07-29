@@ -91,6 +91,9 @@ class ShoppingList extends React.Component{
                     }
 
                 </div>
+                <div>
+                    <button>Save shoppinglist</button>
+                </div>
 
             </div>
         )

@@ -85,7 +85,7 @@ class EditRecipeForm extends React.Component {
     let ingredientsList = this.state.ingredients.map((ingred) => <li>{ingred}</li>)
     return(
       <div className="create-form-container">
-        <div className="recipe-form-title">Create a Recipe</div>
+        <div className="recipe-form-title">Update a Recipe</div>
           <form className="creating-form" onSubmit={this.handleSubmit}>
             <div> 
             
@@ -96,7 +96,7 @@ class EditRecipeForm extends React.Component {
              
             <div>
               <div id="tester" className="how-to">
-                <input id="description-input" type='text' value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
+                <textarea id="description-input" value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
               </div>
             </div>
             <div>
@@ -148,10 +148,10 @@ class EditRecipeForm extends React.Component {
                   </div>
                   <div className="add-buttons">
                     <div id="tester" className="how-to ins">
-                     <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                     <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>Add ingredient</button>
                     </div>
                     <div id="tester" className="how-to">
-                      <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                      <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>Add instruction</button>
                     </div>
 
                   </div>

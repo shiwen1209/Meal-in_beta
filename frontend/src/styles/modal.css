@@ -1,4 +1,6 @@
-
+textarea, input{
+   padding: 5px;
+}
 .modal-background {
     position: fixed;
     top: 0;
@@ -26,6 +28,9 @@
     font-family: 'Lora', serif;
     /* background-color: rgb(237, 250, 241); */
     border-radius: 5px;
+  }
+  .create-form-container::-webkit-scrollbar{
+   display: none;
   }
 
  .add-ingredients{
@@ -125,6 +130,7 @@
     width: 600px;
     height: 170px;
     background-color: rgba(137, 216, 164, 0.2);
+    overflow-wrap: break-word;
    
  }
  #tester{
@@ -136,6 +142,7 @@
  .how-to{
     display: flex;
     justify-content: center;
+    
   
  }
 

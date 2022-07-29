@@ -113,7 +113,7 @@ class RecipeForm extends React.Component {
                
               <div>
                 <div id="tester" className="how-to">
-                  <input id="description-input" type='text' value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
+                  <textarea id="description-input"  value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
                 </div>
               </div>
               <div>
@@ -165,10 +165,10 @@ class RecipeForm extends React.Component {
                     </div>
                     <div className="add-buttons">
                       <div id="tester" className="how-to ins">
-                       <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                       <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>Add ingredient</button>
                       </div>
                       <div id="tester" className="how-to">
-                        <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                        <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>Add instruction</button>
                       </div>
 
                     </div>
