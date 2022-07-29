@@ -120,7 +120,6 @@ router.get("/:id", async(req, res) => {
         return Recipe.find({author: user._id}) //this kind of trash, can be optimized with adding subdocuments in User for Recipes-Created, with pre save middleware to auto-assoicate
                                                  
     }).then((recipes) => {
-        // console.log("recipes created", recipes);
         ans.recipes_created = [];
         for(let i = 0; i < recipes.length; i++)
         {

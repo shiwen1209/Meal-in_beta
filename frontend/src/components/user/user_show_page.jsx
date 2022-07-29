@@ -1,9 +1,6 @@
 import React from "react";
-import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom'
-import donut from '../../images/donut.png'
-import RecipeIndexItem from '../recipes/recipe_index_item';
-import ep from '../../images/ep.png';
+import plateholder from '../../images/plateholder.jpg';
 // import UserEditFormContainer from './user_edit_form_container'
 // ;
 class UserShowPage extends React.Component {
@@ -163,7 +160,7 @@ class UserShowPage extends React.Component {
                   />
                   :
                   <img className="user-show-recipe-image"
-                      src={ep}
+                      src={plateholder}
                     // alt="background-pic"
                   />
                   

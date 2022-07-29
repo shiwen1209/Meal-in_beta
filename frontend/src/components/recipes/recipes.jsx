@@ -9,6 +9,9 @@ import { BiTimeFive } from "react-icons/bi";
 import CreateRatingContainer from "../review/create_review_container";
 import LikeContainer from "../like/like_container";
 import { Link } from "react-router-dom";
+import plateholder from '../../images/plateholder.jpg';
+import user from '../../images/user.jpg';
+
 
 class Recipe extends React.Component{
     constructor(props){
@@ -36,7 +39,7 @@ class Recipe extends React.Component{
                 <div className='user-box'>
                         <Link to={`/myprofile/${recipe.author.id}`}>
                             <div className="user-img">
-                                <img src={recipe.author.pfp_url} alt="" />
+                                <img src={recipe.author.pfp_url ? recipe.author.pfp_url : user} alt="" />
                             </div>
                     </Link>
                     <div className="show-user-info-box">
@@ -86,7 +89,7 @@ class Recipe extends React.Component{
                     </div>
 
                     <div className="recipe-des">{recipe.description}</div>
-                    <img src={recipe.image_url} alt="recipeimg" className="recipe-img" />
+                    <img src={recipe.image_url ? recipe.image_url : plateholder} alt="recipeimg" className="recipe-img" />
 
                     <div className="ingredient-instruction-box">
                         <div className="ingredient">
