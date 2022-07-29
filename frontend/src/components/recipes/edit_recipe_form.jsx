@@ -85,31 +85,26 @@ class EditRecipeForm extends React.Component {
     let ingredientsList = this.state.ingredients.map((ingred) => <li>{ingred}</li>)
     return(
       <div className="create-form-container">
-        <div className="recipe-form-title">Update a Recipe</div>
+        <div className="recipe-form-title">Create a Recipe</div>
           <form className="creating-form" onSubmit={this.handleSubmit}>
             <div> 
-              <div id="tester" className="how-to-title">
-                Please put a title
-              </div>
+            
               <div id="tester" className="how-to">
-                <input id="title-input" className="title-box"type='text' value={this.state.title} onChange={this.handleUpdate("title")} />
+                <input id="title-input" className="title-box"type='text' placeHolder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
               </div>
             </div>
-              <div id="tester" className="how-to-title">
-                Please describe your dish
-              </div>
+             
             <div>
               <div id="tester" className="how-to">
-                <input id="description-input" type='text' value={this.state.description} onChange={this.handleUpdate('description')}/>
+                <input id="description-input" type='text' value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
               </div>
             </div>
             <div>
-              <div id="tester" className="how-to-title">
-                Please select a category
-              </div>
-              <div id="tester" className="how-to">
+            
+              <div id="tester" className="selectors">
                 {/* <input id="title-input" type='text' value={this.state.category} onChange={this.handleUpdate("category")} /> */}
-                <select name="category" className="money-drop">
+               <div>
+                <select name="category" className="category-drop">
                   <option value="appetizers-and-snacks">Appetizers/Snacks</option>
                   <option value="breakfast-and-brunch">Breakfast</option>
                   <option value="desserts">Desserts</option>
@@ -119,61 +114,69 @@ class EditRecipeForm extends React.Component {
                   <option value="salad">Salad</option>
                   <option value="world-cuisine">World Cuisine</option>
                 </select>
-              </div>
-            </div>
-            <div>
-              <div id="tester" className="how-to-title">
-                How costly is this meal?
-              </div>
-                {/* <input id="title-input" type='number' value={this.state.budget} onChange={this.handleUpdate("budget")}/> */}
-                <select name="budget" className="money-drop">
+               </div>
+                <div>
+                <select placeHolder="Category" name="budget" className="money-drop">
                   <option value="1">$</option>
                   <option value="2">$$</option>
                   <option value="3">$$$</option>
                   <option value="4">$$$$</option>
                 </select>
+                </div>
+              </div>
             </div>
             <div>
-              <div id="tester" className="how-to-title">
-                How long will this take to make?
-              </div>
+                {/* <input id="title-input" type='number' value={this.state.budget} onChange={this.handleUpdate("budget")}/> */}
+            </div>
+            <div>
               <div id="tester" className="how-to">
-                <input id="title-input" type='text' value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
+                <input id="title-input" type='text' placeHolder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
               </div>
             </div>
                 
                 <div >
                   <div>
-                  <ul div="ingredientsList" id="tester" className="how-to">
-                    {ingredientsList}
-                  </ul>
+                  
                   </div>
-                  <div id="tester" className="how-to">
-                  <input id="tester" className="how-to" type="text" value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                  <div className="list-add">
+                    <div id="tester" className="how-to">
+                    <input id="title-input-list" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                    </div>
+                    <div id="tester" className="how-to">
+                    <input  id="title-input-list" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
+                    </div>
                   </div>
-                  <div id="tester" className="how-to">
-                  <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                  <div className="add-buttons">
+                    <div id="tester" className="how-to ins">
+                     <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                    </div>
+                    <div id="tester" className="how-to">
+                      <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                    </div>
+
                   </div>
                   {/* /input here/  */} 
                 </div>
-
                 <div >
                   <div id="tester" className="how-to">
-                  <ul>
-                    {instructionsList}
-                  </ul>
-                  </div>
-                  <div id="tester" className="how-to">
-                  <input  type="text" value={this.state.newInstruction} onChange={this.handleUpdate('newInstruction')}/>
-                  </div>
-                  <div id="tester" className="how-to">
-                  <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
                   </div>
                   {/* /input here/  */} 
+                  <ul div="ingredientsList" id="tester" className="how-to">
+                    <div className="list-section">
+                      <ul className="list-of-ingred">
+                        {ingredientsList}
+                      </ul>
+                      <ul className="list-of-ingred2">
+                        {instructionsList}
+                      </ul>
+
+                    </div>
+                  </ul>
                 </div >
                 <div id="tester" className="how-to">
                 <button  className="submit-create-form">Save</button>
                 </div>
+                <div id="extra-pad"></div>
 
           </form>
 

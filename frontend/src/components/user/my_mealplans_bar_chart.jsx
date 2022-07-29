@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from 'chart.js/auto';
-import { Bar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";      
 function NutritionData({ nutrients }) {
     // console.log('nutirents', {nutrients})
     let newNutrients = {
@@ -16,46 +16,53 @@ function NutritionData({ nutrients }) {
         "Vitamin A": nutrients.vitamin_a_iu_IU * 3 / 3000,
         "Vitamin C": nutrients.vitamin_c_mg * 3 / 2000
     }
-    // console.log('newNutirents', newNutrients)
-    // let colors = [ 'rgba(194, 4, 54, 0.7)','rgba(39, 140, 93, 0.7)',]
+
     const data = {
         labels: Object.keys(newNutrients),
         datasets: [{
             indexAxis: 'y',
-            label: 'Nutrition Value',
+            label: 'Daily intake (%)',
             data: Object.values(newNutrients),
+            options: {
+                // responsive: true,
+                maintainAspectRatio: true,
+                yAxes: [{ ticks: { mirror: true } }],
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: "rgba(0, 0, 0, 0)"
+                        },
+                        ticks: {
+                                autoSkip: false,
+                                maxRotation: 90,
+                                minRotation: 90,
+                                padding: -110
+                            }
+        
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            show: false
+                        },
+                        ticks: { mirror: true }
+                    }]
+                }
+        },
             fill: false,
             backgroundColor: [
                 'rgba(39, 140, 93)',
                 'rgba(39, 140, 93)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
                 'rgba(39, 140, 93)',
                 'rgba(39, 140, 93)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
                 'rgba(39, 140, 93)',
                 'rgba(39, 140, 93)',
-            ],
-            borderColor: [
                 'rgba(39, 140, 93)',
                 'rgba(39, 140, 93)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
                 'rgba(39, 140, 93)',
-                'rgba(39, 140, 93)',
-                'rgba(194, 4, 54)',
-                'rgba(194, 4, 54)',
                 'rgba(39, 140, 93)',
                 'rgba(39, 140, 93)',
             ],
-            borderWidth: 1
-            // borderHeight: 2
-        }]
-    };
-    let scales = {
+        }],
         xAxes: [{
             gridLines: {
                 display: false
@@ -66,10 +73,14 @@ function NutritionData({ nutrients }) {
                 display: false
             }
         }]
-    }
+    };
     return (
         <div className="nutrition-data">
-            <Bar data={data} scales={scales} />
+            <h1>Nutrition dashboard</h1>
+            <div className="nutrition-chart">
+                <Bar data={data} height="1200" width="800" />
+            </div>
+
         </div>
     )
 }

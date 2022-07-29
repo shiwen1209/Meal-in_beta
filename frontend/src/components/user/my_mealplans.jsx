@@ -120,10 +120,12 @@ class MyMealplans extends React.Component {
                     
                     }}>
                 <div className='mealplan-re-container'>
-                <img src={recipe.image_url} alt="" className='recipe-index-img' />
-                <div className='mealplan-re-name'>
-                    <h2>{recipe.title}</h2>
-                </div>
+          
+                        <img src={recipe.image_url} alt="" className='recipe-index-img' />
+        
+                    <div className='mealplan-re-name'>
+                        <h2>{recipe.title}</h2>
+                    </div>
                 </div>
             </li>
         ))  
@@ -176,21 +178,21 @@ class MyMealplans extends React.Component {
                 </div>
                 <div className='mealplan-main'>
                     <div className='mealplan-tabs'>
-                        <div className='tab-1'>
-                            <h1 onClick={(e) => this.setState({display: "mealplan"})}>MyMealplans</h1>
-                        </div>
-                        <div className='tab-2'>
+                        {/* <div className='tab-1'>
+                            <h1 onClick={(e) => this.setState({display: "mealplan"})}>Create a mealplan</h1>
+                        </div> */}
+                        <label>Create a mealplan</label>
+                            <input type="text" placeholder='Enter a mealplan name'
+                                onChange={this.updateMpName} value={this.state.mealplan.name} />
+                        {/* <div className='tab-2'>
                             <h1 onClick={(e) => this.setState({display: "nutrition"})}>Nutrition Value</h1>
-                        </div>
+                        </div> */}
                     </div>
-                    {this.state.display === "mealplan" ?
+                    {/* {this.state.display === "mealplan" ? */}
                     <div className='mealplan-sub'>
                         <div>
-                            <label>Enter a mealplan name
-                                <input type="text" placeholder='Enter a mealplan name'
-                                onChange={this.updateMpName} value = {this.state.mealplan.name}/>
-                            </label>
-                            <p>Number of servings</p>
+
+                            {/* <p>Number of servings</p> */}
                         </div>
                         <div className="grid-container">
                             <div className="grid-item-col-1"><MdOutlineTipsAndUpdates/></div>
@@ -331,33 +333,18 @@ class MyMealplans extends React.Component {
 
                                             className='shopping-link'>See shopping list</h1>
                                     </div>
-                                    <button onClick={this.startOver} className='start-over'>Start Over</button>
+                                <button onClick={this.startOver} className='nav-bar-login'>Start Over</button>
 
                             </div>
                         
                         
                         }
 
-                    </div> : 
-                    <div className='nutrition-sub'>
-                        {/* <ul>
-                                {nutrientsList.slice(0, 7)}
-                        </ul>
-                        <ul>
-                                {nutrientsList.slice(7, 14)}
-                        </ul>
-                        <ul>
-                                {nutrientsList.slice(14)}
-                        </ul> */}
-
-                            <NutritionData nutrients={nutrients}/>
-
-                    </div>
-                    }
-
-                    <NutritionData nutrients={nutrients} />
-
-                </div>
+                    </div> 
+            </div>
+   
+                <NutritionData nutrients={nutrients} />
+          
             </div>
         )
 

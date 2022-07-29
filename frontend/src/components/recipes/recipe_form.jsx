@@ -133,7 +133,7 @@ class RecipeForm extends React.Component {
                   </select>
                  </div>
                   <div>
-                  <select name="budget" className="money-drop">
+                  <select placeHolder="Category" name="budget" className="money-drop">
                     <option value="1">$</option>
                     <option value="2">$$</option>
                     <option value="3">$$$</option>
@@ -164,11 +164,11 @@ class RecipeForm extends React.Component {
                       </div>
                     </div>
                     <div className="add-buttons">
-                      <div id="tester" className="how-to">
-                       <button onClick={(e) => this.addIngredient(e)}>add ingred</button>
+                      <div id="tester" className="how-to ins">
+                       <button  className="instruct-but" onClick={(e) => this.addIngredient(e)}>add ingred</button>
                       </div>
                       <div id="tester" className="how-to">
-                        <button onClick={(e) => this.addInstruction(e)}>add instruct</button>
+                        <button  className="instruct-but" onClick={(e) => this.addInstruction(e)}>add instruct</button>
                       </div>
 
                     </div>
@@ -183,7 +183,7 @@ class RecipeForm extends React.Component {
                         <div className="list-of-ingred">
                           {ingredientsList}
                         </div>
-                        <div className="list-of-ingred">
+                        <div className="list-of-ingred2">
                           {instructionsList}
                         </div>
 
@@ -193,6 +193,7 @@ class RecipeForm extends React.Component {
                   <div id="tester" className="how-to">
                   <button  className="submit-create-form">Save</button>
                   </div>
+                  <div id="extra-pad"></div>
 
             </form>
 
