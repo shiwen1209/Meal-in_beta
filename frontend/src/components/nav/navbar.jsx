@@ -27,7 +27,7 @@ class NavBar extends React.Component {
                     {this.props.loggedIn ?
                         <div className="loggedin-links">
                             <div className="recipe-link">
-                                <Link to={`/myrecipes/${this.props.currentUserId}`}>My recipes</Link>
+                                <Link to={`/myprofile/${this.props.currentUserId}`}>My profile</Link>
                             </div>
                             <div className="recipe-link">
                                 <Link to={`/mymealplans/${this.props.currentUserId}`}>Make a mealplan</Link>

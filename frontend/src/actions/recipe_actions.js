@@ -2,6 +2,7 @@ import * as RecipeApiUtil from '../util/recipe_api_util';
 
 export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
+export const REMOVE_RECIPE = "REMOVE_RECIPE";
 export const RECEIVE_NEW_RECIPES = "RECEIVE_NEW_RECIPES";
 export const RECEIVE_NEW_RECIPE = "RECEIVE_NEW_RECIPE";
 export const RECEIVE_UPDATED_RECIPE = "RECEIVE_UPDATED_RECIPE";
@@ -17,6 +18,12 @@ export const receiveRecipe = (recipe) => ({
     type: RECEIVE_RECIPE,
     recipe
 })
+
+export const removeRecipe = (recipe) => {
+    return {
+    type: REMOVE_RECIPE,
+    recipe
+}}
 
 export const receiveUpdatedRecipe = (data) => {
     // console.log(data, 'data')
@@ -56,6 +63,16 @@ export const createRecipe = data => dispatch => {
 export const updateRecipe = (recipe, recipeId) => dispatch => {
     return RecipeApiUtil.updateRecipe(recipe, recipeId).then((payload) =>
     dispatch(receiveUpdatedRecipe(payload.data))
+    )
+}
+
+export const deleteRecipe = (recipeId) => dispatch => {
+    return RecipeApiUtil.deleteRecipe(recipeId).then(
+        (payload) =>{
+            return dispatch(removeRecipe(payload.data))
+
+        }
+        
     )
 }
 

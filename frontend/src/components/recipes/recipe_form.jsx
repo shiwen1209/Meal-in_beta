@@ -72,17 +72,17 @@ class RecipeForm extends React.Component {
     return(
         <div className="create-form-container">
           <div className="recipe-form-title">Create a Recipe</div>
-            <form className="creating-form" onSubmit={this.handleSubmit}>
+            <form className="creating-form">
               <div> 
               
                 <div id="tester" className="how-to">
-                  <input id="title-input" className="title-box"type='text' placeHolder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
+                  <input id="title-input" className="title-box"type='text' placeholder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
                 </div>
               </div>
                
               <div>
                 <div id="tester" className="how-to">
-                  <textarea id="description-input"  value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
+                  <textarea id="description-input"  value={this.state.description} placeholder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
                 </div>
               </div>
               <div>
@@ -159,12 +159,14 @@ class RecipeForm extends React.Component {
                       </div>
                     </ul>
                   </div >
-                  <div id="tester" className="how-to">
-                  <button  className="submit-create-form">Save</button>
-                  </div>
+
                   <div id="extra-pad"></div>
 
             </form>
+            <div id="recipe-form-buttons" className="how-to">
+            <button onClick={this.handleSubmit}
+                className="submit-create-form">Save</button>
+            </div>
 
             
         </div>

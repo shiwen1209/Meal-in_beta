@@ -81,22 +81,22 @@ class EditRecipeForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
   render() {
-    let instructionsList = this.state.instructions.map((instruction) => <li>{instruction}</li>)
-    let ingredientsList = this.state.ingredients.map((ingred) => <li>{ingred}</li>)
+    let instructionsList = this.state.instructions.map((instruction, idx) => <li key={idx}>{instruction}</li>)
+    let ingredientsList = this.state.ingredients.map((ingred, idx) => <li key={idx}>{ingred}</li>)
     return(
       <div className="create-form-container">
         <div className="recipe-form-title">Update a Recipe</div>
-          <form className="creating-form" onSubmit={this.handleSubmit}>
+          <form className="creating-form" >
             <div> 
             
               <div id="tester" className="how-to">
-                <input id="title-input" className="title-box"type='text' placeHolder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
+                <input id="title-input" className="title-box"type='text' placeholder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
               </div>
             </div>
              
             <div>
               <div id="tester" className="how-to">
-                <textarea id="description-input" value={this.state.description} placeHolder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
+                <textarea id="description-input" value={this.state.description} placeholder="Please describe your dish in a couple words"onChange={this.handleUpdate('description')}/>
               </div>
             </div>
             <div>
@@ -116,7 +116,7 @@ class EditRecipeForm extends React.Component {
                 </select>
                </div>
                 <div>
-                <select placeHolder="Category" name="budget" className="money-drop">
+                <select placeholder="Category" name="budget" className="money-drop">
                   <option value="1">$</option>
                   <option value="2">$$</option>
                   <option value="3">$$$</option>
@@ -130,7 +130,7 @@ class EditRecipeForm extends React.Component {
             </div>
             <div>
               <div id="tester" className="how-to">
-                <input id="title-input" type='text' placeHolder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
+                <input id="title-input" type='text' placeholder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
               </div>
             </div>
                 
@@ -140,10 +140,10 @@ class EditRecipeForm extends React.Component {
                   </div>
                   <div className="list-add">
                     <div id="tester" className="how-to">
-                    <input id="title-input-list" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                    <input id="title-input-list" className="how-to" type="text" placeholder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
                     </div>
                     <div id="tester" className="how-to">
-                    <input  id="title-input-list" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
+                    <input  id="title-input-list" type="text" value={this.state.newInstruction} placeholder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
                     </div>
                   </div>
                   <div className="add-buttons">
@@ -173,12 +173,23 @@ class EditRecipeForm extends React.Component {
                     </div>
                   </ul>
                 </div >
-                <div id="tester" className="how-to">
-                <button  className="submit-create-form">Save</button>
-                </div>
-                <div id="extra-pad"></div>
 
           </form>
+          
+          <div id="recipe-form-buttons" className="how-to">
+            {this.props.formType === "Update" ?
+              <button onClick={(e) => {
+                return this.props.deleteRecipe(this.props.recipeId)
+                  .then(this.props.closeModal())
+              }}
+                className="submit-create-form" >Delete</button> :
+              <div></div>
+            }
+                  <button className="submit-create-form"
+                  onClick={this.handleSubmit }
+                  
+                  >Save</button>
+          </div>
 
           
       </div>

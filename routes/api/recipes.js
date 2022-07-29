@@ -96,6 +96,19 @@ router.patch("/:id", (req, res) => {
 })
 
 
-
+router.delete('/:id', (req, res) => {
+    Recipe.findOneAndDelete({ id: req.params.id },
+        (err, recipe) => {
+            if (err) return res.status(500).send(err);
+            return res.json({
+                title: recipe.title,
+                id: recipe.id,
+                _id: recipe._id,
+                image_url: recipe.image_url,
+                total_rating: recipe.total_rating,
+                num_ratings: recipe.num_ratings
+            });
+        })
+})
 
 module.exports = router;

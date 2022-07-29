@@ -48,7 +48,7 @@ class HowItWorks extends React.Component {
                 </div>
                 <div className='info-container-1'>
                     <img src={bginfo1} alt="" className="bginfo" />
-                    <div class="centered">
+                    <div className="centered">
                         <div>
                         <div className='info1-title'>Discover Your Favorites</div>
                             <div className='info1-des'>Don't know what you want to eat? Our crowed sourced recipes give you variaty of meals to choose and proven raitings.</div>
@@ -67,7 +67,7 @@ class HowItWorks extends React.Component {
 
                     <div className='info-container-1'>
                         <img src={bginfo} alt="" className="bginfo" />
-                        <div class="centered-left">
+                        <div className="centered-left">
                             <div className='info3'>
                             <div className='info1-title'>Your shopping list is ready!</div>
                             <div className='info1-des'>No more frequent trips to the grocery markets and not knowing what to get. Get your shopping list auto generated from the mealplan!</div>

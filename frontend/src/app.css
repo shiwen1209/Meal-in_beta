@@ -28,6 +28,11 @@
 
 }
 
+button:hover {
+    background-color: rgb(92, 149, 112);
+
+}
+
 .gallery {
     border: 1px solid #ccc;
     width: 300px;

@@ -64,25 +64,24 @@ class SignupForm extends React.Component {
                         <input  id="boxbox"type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            // placeholder="Email"
+
                         />
                            <div className="username-text">Username</div>
                         <input id ="boxbox" type="text"
                             value={this.state.handle}
                             onChange={this.update('handle')}
-                            // placeholder="Handle"
+
                         />
                            <div className="pass-text">Password</div>
                         <input id="boxbox"type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            // placeholder="Password"
+
                         />
                            <div className="confirm-pas-text">Confirm password</div>
                         <input id="boxbox"type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
-                            // placeholder="Confirm Password"
                         />
                         
                         <input className="signup-submit" type="submit" value="Submit" />

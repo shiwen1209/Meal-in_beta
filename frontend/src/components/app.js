@@ -27,14 +27,15 @@ const App = () => (
       <Route exact path="/recipes" component={HomePageContainer} />
       <ProtectedRoute
         exact
-        path="/myrecipes/:userId"
-        component={UserShowPageContainer}
-      />
-      <ProtectedRoute
-        exact
         path="/mymealplans/:userId"
         component={MyMealplansContainer}
       />
+      <ProtectedRoute
+        exact
+        path="/myprofile/:userId"
+        component={UserShowPageContainer}
+      />
+
       
       
       <Route exact path="/howitworks" component={HowItWorks} />

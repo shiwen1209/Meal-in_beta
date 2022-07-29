@@ -87,7 +87,14 @@
 
 .search-bar form input:hover {
     background-color: #02733336;
+    
 }
+
+.search-bar form input {
+    font-size: 17px;
+
+}
+
 
 .search-bar form select:nth-child(1){
     width: 180px;

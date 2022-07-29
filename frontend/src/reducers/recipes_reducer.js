@@ -1,5 +1,6 @@
 import {
-    RECEIVE_ALL_RECIPES, RECEIVE_NEW_RECIPE, RECEIVE_NEW_RECIPES, RECEIVE_UPDATED_RECIPE
+    RECEIVE_ALL_RECIPES, RECEIVE_NEW_RECIPE, RECEIVE_NEW_RECIPES, RECEIVE_UPDATED_RECIPE,
+    REMOVE_RECIPE
 } from '../actions/recipe_actions';
 // import { RECEIVE_RATING } from '../actions/review_actions';
 
@@ -18,6 +19,10 @@ const recipesReducer = (state = {}, action) => {
             return nextState;
         case RECEIVE_NEW_RECIPES:
             return action.recipes;
+        case REMOVE_RECIPE:
+            nextState = Object.assign({}, state)
+            nextState['recipes_created'] = nextState['recipes_created'].filter((recipe)=> recipe.id !== action.recipe.id)
+            return nextState;
         case RECEIVE_NEW_RECIPE:
             nextState = {recipes_created: structuredClone(state.recipes_created),
                 recipes_liked: structuredClone(state.recipes_liked)

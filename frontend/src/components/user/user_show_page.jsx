@@ -25,8 +25,13 @@ class UserShowPage extends React.Component {
     this.props.fetchUser(this.props.match.params.userId).then(() => this.setState({ user: this.props.user }))
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId){
+      this.props.fetchUser(this.props.match.params.userId).then(() => this.setState({ user: this.props.user }))
+    }
+  }
+
   handleClick(e){
-    console.log(this.state, 'yahear')
     if(this.state.displayEdit){
       this.setState({ displayEdit: false });
     } else {
@@ -55,8 +60,6 @@ class UserShowPage extends React.Component {
   }
 
   render() {
-    console.log('props', this.props)
-    console.log('state', this.state)
     const { recipes_liked, recipes_created, user, currentUserId, openModalPayload } = this.props;
     if (!recipes_created || !user || !recipes_liked) {
       return null;
@@ -68,23 +71,28 @@ class UserShowPage extends React.Component {
         <div className="profile-container">
             <div className="profile-info">
                   <div className="user-profile-pic">
-                    <img className="profile-pic-img" src={headshot} alt="" />
+              <img className="profile-pic-img" src={user.pfp_url} alt="" />
                   </div>
 
                   <div className="user-info">
                     <div>
-                      <div className="user-handle">{user && <div>{user.handle}</div>}  
-                      <div onClick={this.handleClick} className="edit-bio-icon">
-                        <i className="fa-solid fa-pen"></i>
-                      </div></div>
+                      <div className="user-handle">{user && <div>{user.handle}</div>}
+                    {currentUserId === user.id? 
+                        <div onClick={this.handleClick} className="edit-bio-icon">
+                          <i className="fa-solid fa-pen"></i>
+                        </div> : 
+                        <div></div>
+                    }  
+
+                      </div>
                     </div>
                     <div className="amount-of-recipes">
                       <div className="chef-hat">
-                       <i id="food-bowl"class="fa-solid fa-bowl-food"></i>
+                       <i id="food-bowl"className="fa-solid fa-bowl-food"></i>
                       </div>
-                    <div className="recipe-count"> {recipes_created.length} posted recipes</div>
+                    <div className="recipe-count">{recipes_created.length} posted recipes</div>
                     <div className="chef-hat">
-                      <i  id="thumbs-up"class="fa-solid fa-thumbs-up"></i>
+                      <i  id="thumbs-up"className="fa-solid fa-thumbs-up"></i>
                       </div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
                     </div>
@@ -162,9 +170,13 @@ class UserShowPage extends React.Component {
                 }
                 {/* (e)=>openModalPayload("updateRecipe" ) */}
                   <div className="user-show-recipe-title">{recipe.title}</div>
-                  <button className="edit-button" id={recipe.id} onClick={this.handleUpdateClick}>
-                    <i className="fa-solid fa-pen"></i>
-                  </button>
+                  {currentUserId === user.id ? 
+                    <div className="edit-button" id={recipe.id} onClick={this.handleUpdateClick}>
+                      <i className="fa-solid fa-pen"></i>
+                    </div> : 
+                    <div></div>
+                  }
+
                 </div> 
               </Link>
             ))}

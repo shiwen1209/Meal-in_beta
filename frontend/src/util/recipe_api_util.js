@@ -19,7 +19,6 @@ export const createRecipe = data => {
 
 
 export const updateRecipe = (recipe, recipeId) => {
-    console.log(recipe, 'lolo')
     return axios.patch(`/api/recipes/${recipeId}`, recipe )
 }
 
@@ -30,4 +29,9 @@ export const getRecipesBreakdown = (info) => {
             info: info
         }
     })
+}
+
+export const deleteRecipe = (recipeId) => {
+    debugger
+    return axios.delete(`/api/recipes/${recipeId}`)
 }

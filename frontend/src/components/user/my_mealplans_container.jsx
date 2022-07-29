@@ -9,7 +9,7 @@ import { openModalPayload, closeModal } from "../../actions/modal_actions"
 const mstp = (state, ownProps) => {
     return{
         recipes: recipeSelector(state),
-        user: state.entities.users[ownProps.match.params.userId],
+        user: state.entities.users,
         currentUserId: state.session.user._id,
         nutrients: state.entities.nutrients,
         mealplan: state.entities.mealplans

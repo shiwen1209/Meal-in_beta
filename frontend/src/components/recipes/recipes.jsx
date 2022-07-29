@@ -6,14 +6,9 @@ import { GiShadowFollower } from "react-icons/gi";
 import { MdOutlineFoodBank } from "react-icons/md";
 import { TiLeaf } from "react-icons/ti";
 import { BiTimeFive } from "react-icons/bi";
-import { FcLike } from "react-icons/fc";
-import { AiFillStar } from "react-icons/ai";
 import CreateRatingContainer from "../review/create_review_container";
 import LikeContainer from "../like/like_container";
-
-import headshot from '../../images/default_headshot.png';
-import recipeimg from '../../images/default_recipe.jpg';
-
+import { Link } from "react-router-dom";
 
 class Recipe extends React.Component{
     constructor(props){
@@ -39,9 +34,11 @@ class Recipe extends React.Component{
             <div className="recipe-show-page">
                 <div className="left">
                 <div className='user-box'>
-                    <div className="user-img">
-                            <img src={recipe.author.pfp_url} alt="" />
-                    </div>
+                        <Link to={`/myprofile/${recipe.author.id}`}>
+                            <div className="user-img">
+                                <img src={recipe.author.pfp_url} alt="" />
+                            </div>
+                    </Link>
                     <div className="show-user-info-box">
                         <div className="single-user-info">
                             <span className="user-box-icon"><SiCodechef /></span>

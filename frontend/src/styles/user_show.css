@@ -79,8 +79,9 @@
 
 .recipe-count{
     padding-top: 10px;
-    padding-right: 15px;
+    margin-right: 10px;
     /* margin-left: 560px; */
+    width: 200px;
 }
 
 
@@ -396,7 +397,7 @@
 }
 
 #thumbs-up{
-    color : rgb(43, 111, 200);
+    color : rgb(201, 87, 45);
 }
 
 .chef-hat{

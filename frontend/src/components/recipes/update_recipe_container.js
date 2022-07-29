@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
-import { updateRecipe } from "../../actions/recipe_actions"
+import { updateRecipe, deleteRecipe } from "../../actions/recipe_actions"
 import { fetchRecipe } from "../../util/recipe_api_util";
-// import { updateExp } from "../../actions/exp_actions";
-// import ExpForm from "./exp_form";
 import EditRecipeForm from "./edit_recipe_form";
 
 const mstp = (state, ownProps) => {
@@ -22,7 +20,7 @@ const mdtp = (dispatch) => {
   return {
     processForm: (exp, recipeId) => dispatch(updateRecipe(exp, recipeId)),
     closeModal: () => dispatch(closeModal()),
-
+    deleteRecipe: (recipeId)=> dispatch(deleteRecipe(recipeId))
   };
 };
 
