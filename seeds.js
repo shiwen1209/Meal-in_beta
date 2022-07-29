@@ -57,7 +57,7 @@ const UserSeeds = [
         handle: "James", email: "james@test.com", password: "test12", pfp_url: "https://media.npr.org/assets/img/2019/01/15/homecook1-484a660dfc7381ce079fe37c79cd0c8188114669.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
-        handle: "George", email: "george@test.com", password: "test12", pfp_url: "https://static.toiimg.com/photo/63365346.cms", bio: sampleBios[Math.floor(Math.random()*9)]
+        handle: "George", email: "george@test.com", password: "test12", pfp_url: "https://static.wikia.nocookie.net/seinfeld/images/7/76/George-costanza.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
     },
     {
         handle: "Amanda", email: "amanda@test.com", password: "test12", pfp_url: "https://i.pinimg.com/736x/f3/f6/f6/f3f6f6d96272b8a4ff7362b2d3ae807b.jpg", bio: sampleBios[Math.floor(Math.random()*9)]
