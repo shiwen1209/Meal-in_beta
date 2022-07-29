@@ -14,9 +14,9 @@ header{
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-family: 'Albert Sans', sans-serif;
     margin-top: 0px;
     background-color: white;
+    font-family: 'Lora', serif;
 }
 
 .logged-in-nav > div{
@@ -65,7 +65,7 @@ header{
     color: white;
     margin-left: 10px;
     border-radius: 5px;
-    font-family: 'Albert Sans', sans-serif;
+    font-family: 'Lora', serif;
 }
 
 .nav-bar-login:hover {

@@ -20,7 +20,7 @@ input{
 
 .login-info{
     /* border: 1px black solid; */
-    box-shadow: 0 0 11px #d4d8df;
+    box-shadow: 0 0 6px #d4d8df;
     border-radius: 5px;
     /* box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green; */
     width: 400px;
@@ -30,13 +30,14 @@ input{
     align-items: center;
     height: 400px;
     margin-top: 40px;
+    border: 1px solid lightgray;
 
     /* margin-left: 50px; */
     /* margin-right: -50px; */
 }
 
 .show-page-section{
-    font-family: 'Albert Sans', sans-serif;
+    font-family: 'Lora', serif;
 }
 
 
@@ -56,7 +57,8 @@ input{
     /* border: 1px black solid; */
     display: flex;
     justify-content: center;
-    font-family: 'Albert Sans', sans-serif;
+    margin-top: 80px;
+    font-family: 'Lora', serif;
 }
 
 .login-page-text-login{

@@ -3,6 +3,7 @@ import headshot from '../../images/default_headshot.png';
 import { Link } from 'react-router-dom'
 import donut from '../../images/donut.png'
 import RecipeIndexItem from '../recipes/recipe_index_item';
+import ep from '../../images/ep.png';
 // import UserEditFormContainer from './user_edit_form_container'
 // ;
 class UserShowPage extends React.Component {
@@ -72,14 +73,19 @@ class UserShowPage extends React.Component {
 
                   <div className="user-info">
                     <div>
-                      <div className="user-handle">{user && <div>{user.handle}</div>}</div>
-                      <div onClick={this.handleClick} className="icon">
+                      <div className="user-handle">{user && <div>{user.handle}</div>}  
+                      <div onClick={this.handleClick} className="edit-bio-icon">
                         <i className="fa-solid fa-pen"></i>
-                      </div>
+                      </div></div>
                     </div>
+                    <div className="amount-of-recipes">
+                      <div className="chef-hat">
+                         <i class="fa-solid fa-user-chef"></i>
+                      </div>
                     <div className="recipe-count"> {recipes_created.length} posted recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
-                    <div id="">
+                    </div>
+                    <div id="testinggg">
                           {this.state.displayEdit ? (
                             <div className="edit-profile-area">
                               <textarea
@@ -87,6 +93,7 @@ class UserShowPage extends React.Component {
                                 onChange={this.handleUpdate}
                                 value={ this.state.user.bio}
                               />
+                     
                               <button  className="edit-bio-button" onClick={this.submitUser}>Save</button>
                             </div>
                           ) : (
@@ -104,7 +111,9 @@ class UserShowPage extends React.Component {
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
                         >Create a Recipe</button>
-                        <button className="make-meal-plan-button">Make a meal plan</button>
+                        <Link to={`/mymealplans/${currentUserId}`}>
+                          <button className="make-meal-plan-button">Make a meal plan</button>
+                        </Link>
                       </div>
                     : 
                       <div></div>
@@ -135,12 +144,12 @@ class UserShowPage extends React.Component {
                   <img
                     className="user-show-recipe-image"
                     src={recipe.image_url}
-                    alt="background-pic"
+                    // alt="background-pic"
                   />
                   :
                   <img className="user-show-recipe-image"
-                    src={donut}
-                    alt="background-pic"
+                      src={ep}
+                    // alt="background-pic"
                   />
                   
                 }
@@ -162,7 +171,7 @@ class UserShowPage extends React.Component {
                 <img
                   className="user-show-recipe-image"
                   src={recipe.image_url}
-                  alt="background-pic"
+                  // alt="background-pic"
                 />
                 <div className="user-show-recipe-title">{recipe.title}</div>
               </div> 

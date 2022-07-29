@@ -6,8 +6,9 @@ import search from '../images/search.png';
 import show from '../images/show.png';
 import { RiPhoneFindLine } from 'react-icons/ri';
 import { MdOutlineDateRange } from 'react-icons/md';
-import { MdOutlineGeneratingTokens } from 'react-icons/md';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from "react-router-dom";
+
 
 class HowItWorks extends React.Component {
     render() {
@@ -19,7 +20,7 @@ class HowItWorks extends React.Component {
                     </div>
                     <div className='headline'>
                         <h1>Meal planning has never been easier</h1>
-                        <button><Link to={'./login'}>Make Mealplan Now</Link></button>
+                        <button><Link to={'./signup'}>Make mealplan now</Link></button>
                     </div>
                 </div>
                 <div className='howitworks1'>
@@ -27,20 +28,20 @@ class HowItWorks extends React.Component {
                     <div className='flow'>
                         <div className='single-flow'>
                             <RiPhoneFindLine className='first-icon' />
-                            <div className='flow-title'>Find Recipe</div>
-                            <div className='flow-des'>search recipe that you want and plan what your would like to eat for the following week</div>
+                            <div className='flow-title'>Search recipes</div>
+                            <div className='flow-des'>Search 200+ delicious recipes that fits your and your family's preferences</div>
                         </div>
                         <div className='line'></div>
                         <div className='single-flow'>
                             <MdOutlineDateRange className='first-icon' />
-                            <div className='flow-title'>Choose Your Recipes</div>
-                            <div className='flow-des'>pick the recipe you like and put them into your mealplan</div>
+                            <div className='flow-title'>Create mealplans</div>
+                            <div className='flow-des'>Create a mealplan with good food and balanced nutrients</div>
                         </div>
                         <div className='line'></div>
                         <div className='single-flow'>
-                            <MdOutlineGeneratingTokens className='first-icon' />
-                            <div className='flow-title'>Generate</div>
-                            <div className='flow-des'>generate your meals and check your shopping as well as the nutrition</div>
+                            <AiOutlineShoppingCart className='first-icon' />
+                            <div className='flow-title'>Generate shoplists</div>
+                            <div className='flow-des'>Generate a grocery shopping list and you are good to go</div>
                         </div>
                     </div>
                 </div>
@@ -49,7 +50,7 @@ class HowItWorks extends React.Component {
                     <div class="centered">
                         <div>
                         <div className='info1-title'>Discover Your Favorites</div>
-                        <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
+                            <div className='info1-des'>Don't know what you want to eat? Our crowed sourced recipes give you variaty of meals to choose and proven raitings.</div>
                         </div>
                         <img src={search} alt="" className='search'/>
                     </div>
@@ -58,8 +59,8 @@ class HowItWorks extends React.Component {
                 <div className='section3'>
                     <img src={show} alt="show" className='show-img'/>
                     <div className='info2'>
-                        <div className='info1-title'>Discover Your Favorites</div>
-                        <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
+                        <div className='info1-title'>Let's get mealplanning!</div>
+                        <div className='info1-des'>Our mealplan tool is easy to use and give you the nutrition value instantly.</div>
                     </div>
                 </div>
 
@@ -67,8 +68,8 @@ class HowItWorks extends React.Component {
                         <img src={bginfo} alt="" className="bginfo" />
                         <div class="centered-left">
                             <div className='info3'>
-                            <div className='info1-title'>Discover Your Favorites</div>
-                            <div className='info1-des'>Don't know your Pinot Noir from your Pinotage? Our wines come with tasting notes, flavor profiles, and the story behind the bottle to give you the confidence to select the right wine for any occasion - and inspire a lifelong love of wine.</div>
+                            <div className='info1-title'>Your shopping list is ready!</div>
+                            <div className='info1-des'>No more frequent trips to the grocery markets and not knowing what to get. Get your shopping list auto generated from the mealplan!</div>
                             </div>
                         <img src={search} alt="" className='mp' />
                         </div>

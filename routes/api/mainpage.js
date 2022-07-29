@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
                     newRecipe.title = recipes[i].title;
                     newRecipe._id = recipes[i]._id;
                     newRecipe.id = recipes[i].id;
-
+                    newRecipe.prep_time = recipes[i].prep_time;
                     newRecipe.num_likes = recipes[i].num_likes;
                     newRecipe.author = recipes[i].author;
                     newRecipe.num_ratings = recipes[i].num_ratings;
