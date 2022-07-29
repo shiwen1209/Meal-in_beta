@@ -78,8 +78,13 @@ class UserShowPage extends React.Component {
                         <i className="fa-solid fa-pen"></i>
                       </div></div>
                     </div>
+                    <div className="amount-of-recipes">
+                      <div className="chef-hat">
+                         <i class="fa-solid fa-user-chef"></i>
+                      </div>
                     <div className="recipe-count"> {recipes_created.length} posted recipes</div>
                     <div className="recipe-count"> {recipes_liked.length} liked recipes</div>
+                    </div>
                     <div id="testinggg">
                           {this.state.displayEdit ? (
                             <div className="edit-profile-area">

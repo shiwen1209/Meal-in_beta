@@ -23,6 +23,7 @@
     height: 600px;
     overflow-y: scroll;
     background: white;
+    font-family: 'Lora', serif;
   }
 
  .add-ingredients{
@@ -79,6 +80,12 @@
     margin-left: 390px;
     width: 100px;
  }
+ .category-drop{
+   margin-left: 390px;
+   width: 100px;
+}
+
+
 
 
  .creating-form{

@@ -2,8 +2,8 @@
     margin-top: 69px;
 }
 .user-profile-pic{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     box-shadow: 0 0 4px #8a8d91;
     /* z-index: 45; */
     border-radius: 100px;
@@ -12,11 +12,13 @@
     margin-top: 20px; */
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 50px;
+    margin-top: -20px;
+
 }
 .profile-pic-img{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 100px;
 }
 
@@ -219,7 +221,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 300px;
+    padding-left: 200px;
     padding-right: 300px;
     padding-top: 60px;
         padding-bottom: 20px;
@@ -352,4 +354,20 @@
 #testinggg{
     display: flex;
     position: relative;
+}
+
+.amount-of-recipes{
+    border: 1px black solid;
+    display: flex;
+    width: 300px;
+    justify-content: space-evenly;
+    
+}
+
+.chef-hat{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: 1px black solid;
+    background-color: blue;
 }

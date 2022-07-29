@@ -126,7 +126,7 @@ class RecipeForm extends React.Component {
                 </div>
                 <div id="tester" className="how-to">
                   {/* <input id="title-input" type='text' value={this.state.category} onChange={this.handleUpdate("category")} /> */}
-                  <select name="category" className="money-drop">
+                  <select name="category" className="category-drop">
                     <option value="appetizers-and-snacks">Appetizers/Snacks</option>
                     <option value="breakfast-and-brunch">Breakfast</option>
                     <option value="desserts">Desserts</option>
