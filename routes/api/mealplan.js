@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const router = express.Router()
 
 // TODO: Create actual validator function
-const MealPlan = require("../../models/Mealplan0")
+const MealPlan = require("../../models/MealPlan")
 const Recipe = require("../../models/Recipe")
 const Nutrients = require("../../models/Nutrients")
 const User = require("../../models/User")
