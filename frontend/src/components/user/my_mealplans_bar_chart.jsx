@@ -1,26 +1,20 @@
 import React from "react";
 import Chart from 'chart.js/auto';
 import { Bar } from "react-chartjs-2";
-function NutritionData({ nutrients, numRecipes }) {
-    console.log('nutirents', {nutrients})
-
-    let newNutrients = {}; //maybe 0's if it deosn't work for numRecipes = 0
-
-    if(numRecipes > 0)
-    {
-        newNutrients = {
-            Calcium: nutrients.calcium_mg * 3 / 1000 / numRecipes,
-            Calories: nutrients.calories * 3 / 2250 / numRecipes,
-            Carbohydrates: nutrients.carbohydrates_g * 3 / 275 / numRecipes,
-            Fiber: nutrients.dietary_fiber_g * 3 / 29 / numRecipes,
-            Fat: nutrients.fat_g * 3 / 60 / numRecipes,
-            Iron: nutrients.iron_mg * 3 / 16.3 / numRecipes,
-            Protein: nutrients.protein_g * 3 / 51 / numRecipes,
-            Sodium: nutrients.sodium_mg * 3 / 2300 / numRecipes,
-            Sugars: nutrients.sugars_g * 3 / 31 / numRecipes,
-            "Vitamin A": nutrients.vitamin_a_iu_IU * 3 / 2700 / numRecipes,
-            "Vitamin C": nutrients.vitamin_c_mg * 3 / 82 / numRecipes
-        }
+function NutritionData({ nutrients }) {
+    // console.log('nutirents', {nutrients})
+    let newNutrients = {
+        Calcium: nutrients.calcium_mg * 3 / 1000,
+        Calories: nutrients.calories * 3 / 2250,
+        Carbohydrates: nutrients.carbohydrates_g * 3 / 1300,
+        Fiber: nutrients.dietary_fiber_g * 3 / 25,
+        Fat: nutrients.fat_g * 3 / 77,
+        Iron: nutrients.iron_mg * 3 / 16.3,
+        Protein: nutrients.protein_g * 3 / 56,
+        Sodium: nutrients.sodium_mg * 3 / 2300,
+        Sugars: nutrients.sugars_g * 3 / 125,
+        "Vitamin A": nutrients.vitamin_a_iu_IU * 3 / 3000,
+        "Vitamin C": nutrients.vitamin_c_mg * 3 / 2000
     }
 
     const data = {
@@ -39,12 +33,12 @@ function NutritionData({ nutrients, numRecipes }) {
                             color: "rgba(0, 0, 0, 0)"
                         },
                         ticks: {
-                                autoSkip: false,
-                                maxRotation: 90,
-                                minRotation: 90,
-                                padding: -110
-                            }
-        
+                            autoSkip: false,
+                            maxRotation: 90,
+                            minRotation: 90,
+                            padding: -110
+                        }
+
                     }],
                     yAxes: [{
                         gridLines: {
@@ -53,7 +47,7 @@ function NutritionData({ nutrients, numRecipes }) {
                         ticks: { mirror: true }
                     }]
                 }
-        },
+            },
             fill: false,
             backgroundColor: [
                 'rgba(39, 140, 93)',
