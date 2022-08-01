@@ -18,7 +18,7 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from '../actions/like_actions'
             nextState.user_rating = action.rating.rating;
             return nextState;
         case RECEIVE_UPDATE_RATING:
-            nextState.total_rating += action.rating.data.rating;
+            nextState.total_rating += action.rating.data.rating; // needs update, not adding but replacing old rating
             nextState.user_rating = action.rating.data.rating;
             return nextState;
         case RECEIVE_LIKE:
