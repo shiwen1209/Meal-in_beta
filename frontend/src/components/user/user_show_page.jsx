@@ -119,11 +119,11 @@ class UserShowPage extends React.Component {
                   <div id="adding-space">
                         <button className="make-a-recipe"
                         onClick={(e)=>openModalPayload({name: "createRecipe"})}
-                        >Create a Recipe</button>
+                        >Create a recipe</button>
                   </div>
                   <div id="adding-space-2" >
                         <Link to={`/mymealplans/${currentUserId}`}>
-                          <button className="make-meal-plan-button">Make a meal plan</button>
+                          <button className="make-meal-plan-button">Make a mealplan</button>
                         </Link>
                   </div>
               </div>
