@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+const express = require("express");
+const app = express();
+
 // heroku changes
 const path = require('path');
 if (process.env.NODE_ENV === 'production') {
@@ -7,10 +11,6 @@ if (process.env.NODE_ENV === 'production') {
     })
 } // heroku changes
 
-
-const mongoose = require('mongoose');
-const express = require("express");
-const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const recipes = require("./routes/api/recipes");
