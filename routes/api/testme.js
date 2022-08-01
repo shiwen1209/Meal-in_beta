@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
     Recipe.find({
         '_id': { $in: req.query.info}
     }).select("ingredients nutrients title").exec((err, result) => {
-        console.log("yo?", result);
         return res.json(result);
     })
 })

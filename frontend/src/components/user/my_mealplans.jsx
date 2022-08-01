@@ -16,6 +16,27 @@ class MyMealplans extends React.Component {
                 name: "",
                 owner_id: this.props.currentUserId,
                 meals: []
+            },
+            totalNutrients: {
+                calcium_mg: 0,
+                calories: 0,
+                calories_from_fat:0,
+                carbohydrates_g: 0,
+                cholesterol_mg: 0,
+                dietary_fiber_g: 0,
+                fat_g: 0,
+                folate_mcg: 0,
+                iron_mg: 0,
+                magneisum_mg: 0,
+                niacin_equivalents_mg: 0,
+                potassium_mg: 0,
+                protein_g: 0,
+                saturated_fat_g: 0,
+                sodium_mg: 0,
+                sugars_g: 0,
+                thiamin_mg: 0,
+                vitamin_a_iu_IU: 0,
+                vitamin_c_mg: 0
             }
         
         };
@@ -57,7 +78,25 @@ class MyMealplans extends React.Component {
                     mealplan.meals.push(m)
                 }
                 this.setState({ mealplan, activeRecipe: null})
-                this.makeMealplan();
+                console.log("???")
+                this.makeMealplan().then((res) => {
+                    console.log("yes it was me");
+                    console.log(res);
+                    let newNutrients = res.nutrients;
+                    let nuts = Object.keys(this.state.totalNutrients);
+                    for(let i = 0; i < nuts.length; i++)
+                    {
+                        if(!newNutrients[nuts[i]]) //JIC
+                        {
+                            newNutrients[nuts[i]] = this.state.totalNutrients[nuts[i]];
+                        }
+                        else
+                        {
+                            newNutrients[nuts[i]] += this.state.totalNutrients[nuts[i]];
+                        }
+                    }
+                    this.setState({totalNutrients: newNutrients});
+                })
             }
             }
         }
@@ -82,7 +121,7 @@ class MyMealplans extends React.Component {
             mealplan.name = "my mealplan";
             this.setState({ mealplan })
         }
-        this.props.createMealplan(this.state.mealplan);
+        return this.props.createMealplan(this.state.mealplan);
     }
 
     startOver(){
@@ -93,6 +132,27 @@ class MyMealplans extends React.Component {
                 searchValue: "",
                 filteredResult: this.props.recipes,
                 activeRecipe: null,
+                totalNutrients: {
+                    calcium_mg: 0,
+                    calories: 0,
+                    calories_from_fat:0,
+                    carbohydrates_g: 0,
+                    cholesterol_mg: 0,
+                    dietary_fiber_g: 0,
+                    fat_g: 0,
+                    folate_mcg: 0,
+                    iron_mg: 0,
+                    magneisum_mg: 0,
+                    niacin_equivalents_mg: 0,
+                    potassium_mg: 0,
+                    protein_g: 0,
+                    saturated_fat_g: 0,
+                    sodium_mg: 0,
+                    sugars_g: 0,
+                    thiamin_mg: 0,
+                    vitamin_a_iu_IU: 0,
+                    vitamin_c_mg: 0
+                },
                 mealplan: {
                     name: "",
                     owner_id: this.props.currentUserId,
@@ -340,11 +400,26 @@ class MyMealplans extends React.Component {
                         
                         }
 
-                    </div> 
-            </div>
-   
-                <NutritionData nutrients={nutrients} />
-          
+                    </div> : 
+                    <div className='nutrition-sub'>
+                        {/* <ul>
+                                {nutrientsList.slice(0, 7)}
+                        </ul>
+                        <ul>
+                                {nutrientsList.slice(7, 14)}
+                        </ul>
+                        <ul>
+                                {nutrientsList.slice(14)}
+                        </ul> */}
+
+                            <NutritionData nutrients={nutrients} numRecipes={this.state.mealplan.meals.length}/>
+
+                    </div>
+                    }
+
+                    <NutritionData nutrients={nutrients} numRecipes={this.state.mealplan.meals.length}/>
+
+                </div>
             </div>
         )
 

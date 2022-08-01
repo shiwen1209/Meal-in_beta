@@ -5,9 +5,7 @@ import { fetchRecipe } from "../../util/recipe_api_util";
 import EditRecipeForm from "./edit_recipe_form";
 
 const mstp = (state, ownProps) => {
-  console.log(state, 'peepee')
-  console.log(ownProps, "poopoo")
-  
+
   return {
     formType: "Update",
     currentUserId: state.session.user._id,

@@ -78,12 +78,10 @@ router.post("/login", (req, res) => {
             errors.email = "This email does not exist";
             return res.status(400).json(errors);
         }
-        // console.log("huh???", user);
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
                 const payload = { id: user.id, handle: user.handle, _id: user._id };
-                // console.log("payload", payload);
 
                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
@@ -100,18 +98,15 @@ router.post("/login", (req, res) => {
 });
 
 
-// user show (myrecipes and my mealplans)
 router.get("/:id", async(req, res) => {
     const ans = {};
     User.findOne({id: req.params.id}).then( async (user) => {
-        // console.log("res", user);
         ans.user = {
             handle: user.handle,
             bio: user.bio,
             id: user.id,
             _id: user._id,
             pfp_url: user.pfp_url ///we should stick with just 1 tbh. i prefer id since it took me 90 min to get autoincrement to work
-            //PROFILE PICTURE HERE
         };
 
         await user.populate("recipes_liked", "_id title category num_ratings total_rating image_url id");
@@ -139,16 +134,14 @@ router.get("/:id", async(req, res) => {
 });
 
 
-// passport.authenticate('jwt', { session: false }) // add this later
 router.patch("/:id",  (req, res) => {
-        // const { errors, isValid } = validateStudentInput(req.body);
-        User.findOneAndUpdate({ id: req.params.id },
-            req.body,
-            { new: true, useFindAndModify: false },
-            (err, user) => {
-                if (err) return res.status(500).send(err);
-                return res.json(user);
-            })
+    User.findOneAndUpdate({ id: req.params.id },
+        req.body,
+        { new: true, useFindAndModify: false },
+        (err, user) => {
+            if (err) return res.status(500).send(err);
+            return res.json(user);
+        })
 })
 
 module.exports = router;

@@ -1,4 +1,8 @@
 
+.rating{
+    display: flex;
+}
+
 .rating-box{
     display: flex;
     flex-direction: row;
