@@ -20,12 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const passport = require('passport');
 
-//image upload functionality
-// const multer = require('multer')
-// const upload = multer({dest: 'uploads/'})
-// app.post('/images', upload.single())
-
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
     app.get('/', (req, res) => {
