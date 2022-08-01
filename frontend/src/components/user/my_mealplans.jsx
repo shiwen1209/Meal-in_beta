@@ -200,22 +200,6 @@ class MyMealplans extends React.Component {
             }
         }
 
-        // const mealGrid = meals.map((meal)=>{
-        //     if(meal[1] === 0 ){
-        //         return (<div className="grid-item">{meal[0]}</div>)
-        //     } else {
-        //         return (
-        //             <div className="grid-item" onClick={this.handleMPClick(meal[0], meal[1])}>
-        //                 {this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0] ?
-        //                 this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0].recipe_title : ""
-        //                 }
-        //             </div>
-        //         )
-        //     }
-        // })
-
-  
-
         
 
         return (
@@ -238,28 +222,16 @@ class MyMealplans extends React.Component {
                 </div>
                 <div className='mealplan-main'>
                     <div className='mealplan-tabs'>
-                        {/* <div className='tab-1'>
-                            <h1 onClick={(e) => this.setState({display: "mealplan"})}>Create a mealplan</h1>
-                        </div> */}
                         <label>Create a mealplan</label>
                             <input type="text" placeholder='Enter a mealplan name'
                                 onChange={this.updateMpName} value={this.state.mealplan.name} />
-                        {/* <div className='tab-2'>
-                            <h1 onClick={(e) => this.setState({display: "nutrition"})}>Nutrition Value</h1>
-                        </div> */}
                     </div>
-                    {/* {this.state.display === "mealplan" ? */}
                     <div className='mealplan-sub'>
-                        <div>
-
-                            {/* <p>Number of servings</p> */}
-                        </div>
                         <div className="grid-container">
                             <div className="grid-item-col-1"><MdOutlineTipsAndUpdates/></div>
                             <div className="grid-item-col">BREAKFAST</div>
                             <div className="grid-item-col">  LUNCH  </div>
                             <div className="grid-item-col-last">  DINNER </div>
-                            {/* {mealGrid} */}
 
                             <div className="grid-item-row">MON</div>
 
@@ -400,26 +372,10 @@ class MyMealplans extends React.Component {
                         
                         }
 
-                    </div> : 
-                    <div className='nutrition-sub'>
-                        {/* <ul>
-                                {nutrientsList.slice(0, 7)}
-                        </ul>
-                        <ul>
-                                {nutrientsList.slice(7, 14)}
-                        </ul>
-                        <ul>
-                                {nutrientsList.slice(14)}
-                        </ul> */}
-
-                            <NutritionData nutrients={nutrients} numRecipes={this.state.mealplan.meals.length}/>
-
-                    </div>
-                    }
-
-                    <NutritionData nutrients={nutrients} numRecipes={this.state.mealplan.meals.length}/>
-
+                    </div> 
+                    
                 </div>
+                <NutritionData nutrients={nutrients} numRecipes={this.state.mealplan.meals.length} />
             </div>
         )
 
