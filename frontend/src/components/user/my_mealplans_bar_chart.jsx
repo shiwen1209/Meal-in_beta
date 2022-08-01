@@ -8,7 +8,7 @@ function NutritionData({ nutrients }) {
         Calories: nutrients.calories * 3 / 2250,
         Carbohydrates: nutrients.carbohydrates_g * 3 / 1300,
         Fiber: nutrients.dietary_fiber_g * 3 / 25,
-        Fat: nutrients.fat_g * 3 / 44,
+        Fat: nutrients.fat_g * 3 / 77,
         Iron: nutrients.iron_mg * 3 / 16.3,
         Protein: nutrients.protein_g * 3 / 56,
         Sodium: nutrients.sodium_mg * 3 / 2300,

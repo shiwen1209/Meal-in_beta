@@ -15,17 +15,15 @@
     align-items: center;
     height: 500px;
     margin-top: 120px;
-
-
 }
+
 #boxbox{
     margin-top: 10px;
     width: 360px;
-
-    /* border: red 3px solid; */
     display: flex;
-    /* justify-content: center; */
     height: 40px;
+    background-color: #aec3e653;
+    padding-left: 10px;
 
 }
 
