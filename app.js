@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } // heroku changes
 
-const db = require('./config/keys').mongoURI;
+const db = require('./config/keys_prod').mongoURI;
 const users = require("./routes/api/users");
 const recipes = require("./routes/api/recipes");
 const ratings = require("./routes/api/ratings");
