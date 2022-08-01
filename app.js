@@ -25,12 +25,6 @@ const passport = require('passport');
 // const upload = multer({dest: 'uploads/'})
 // app.post('/images', upload.single())
 
-mongoose
-    .connect(db, { useNewUrlParser: true })
-    .then(() => console.log("Connected to MongoDB successfully"))
-    .then(seedDb) // can remove later
-    .catch(err => console.log(err));
-
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
@@ -38,6 +32,15 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     })
 } // heroku changes
+
+mongoose
+    .connect(db, { useNewUrlParser: true })
+    .then(() => console.log("Connected to MongoDB successfully"))
+    .then(seedDb) // can remove later
+    .catch(err => console.log(err));
+
+
+
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 app.use(passport.initialize());
