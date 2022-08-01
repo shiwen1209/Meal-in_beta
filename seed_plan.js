@@ -1,6 +1,6 @@
 const Faker = require('@faker-js/faker')
 const db = require('./config/keys').mongoURI;
-const MealPlan = require('./models/MealPlan.js')
+const MealPlan = require('./models/Mealplan.js')
 const User = require('./models/User.js');
 const Recipe = require('./models/Recipe.js')
 
