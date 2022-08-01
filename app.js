@@ -10,6 +10,7 @@ const mainpage = require("./routes/api/mainpage");
 const mealplan = require("./routes/api/mealplan");
 const search = require("./routes/api/search");
 const testme = require("./routes/api/testme");
+const path = require('path'); // heroku changes
 
 
 const seedDb = require("./seed_plan");
@@ -29,6 +30,14 @@ mongoose
     .then(() => console.log("Connected to MongoDB successfully"))
     .then(seedDb) // can remove later
     .catch(err => console.log(err));
+
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+} // heroku changes
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 app.use(passport.initialize());
