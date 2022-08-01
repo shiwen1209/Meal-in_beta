@@ -1,3 +1,11 @@
+const path = require('path'); // heroku changes
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+} // heroku changes
+
 const mongoose = require('mongoose');
 const express = require("express");
 const app = express();
@@ -10,7 +18,6 @@ const mainpage = require("./routes/api/mainpage");
 const mealplan = require("./routes/api/mealplan");
 const search = require("./routes/api/search");
 const testme = require("./routes/api/testme");
-const path = require('path'); // heroku changes
 
 
 const seedDb = require("./seed_plan");
@@ -20,12 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const passport = require('passport');
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'));
-    app.get('/', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-    })
-} // heroku changes
+
 
 mongoose
     .connect(db, { useNewUrlParser: true })
