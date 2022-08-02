@@ -13,7 +13,6 @@ class EditUserForm extends React.Component {
     }
 
     handleSubmit(e){
-        console.log('tester', this.state, 'yo', this.props)
         e.preventDefault();
         const formData = new FormData();
         formData.append('user[bio]', this.state.currentUser.bio);

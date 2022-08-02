@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.filters, "abc")
+        // console.log(this.props.filters, "abc")
         if(this.props.complexSearch)
         {
             this.props.searchRecipes(this.props.filters);

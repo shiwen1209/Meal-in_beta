@@ -4,7 +4,7 @@ const Recipe = require('../../models/Recipe');
 const User = require('../../models/User');
 
 router.post("/", async (req, res) => {
-    console.log(req);
+    // console.log(req);
     const u_id = req.body.userId;
     const r_id = req.body.recipeId;
 
@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 })
 
 router.patch("/", async (req, res) => {
-    console.log(req);
+    // console.log(req);
     const u_id = req.body.userId;
     const r_id = req.body.recipeId;
     const newRating = req.body.rating;
@@ -58,7 +58,7 @@ router.patch("/", async (req, res) => {
     });
 
     let ratingChange = req.body.rating - oldRating;
-    console.log("Rating net diff: ", ratingChange);
+    // console.log("Rating net diff: ", ratingChange);
 
     Recipe.findByIdAndUpdate(r_long_id, {
         $inc: {
@@ -91,7 +91,7 @@ router.patch("/", async (req, res) => {
 })
 
 router.delete("/", async (req, res) => {
-    console.log(req);
+    // console.log(req);
     const u_id = req.body.userId;
     const r_id = req.body.recipeId;
 
@@ -115,7 +115,7 @@ router.delete("/", async (req, res) => {
     User.findOneAndUpdate({ id: u_id }, { $pull: { recipes_rated: { recipe: r_long_id } } }, { new: true },
         ((err, ans) => {
             if (err) { console.log(err) }
-            console.log(ans);
+            // console.log(ans);
             let my_response = { recipe_id: r_id, user_id: u_id };
 
             return res.json(my_response);

@@ -51,12 +51,12 @@ class EditRecipeForm extends React.Component {
   addIngredient(e)
   {
     e.preventDefault();
-    console.log("before", this.state.ingredients);
+    // console.log("before", this.state.ingredients);
     
     // this.state.ingredients.push(this.state.newIngredient);
     // this.state.newIngredient = '';
     this.setState({ingredients: [...this.state.ingredients, this.state.newIngredient]}, ((res) => {
-      console.log("after", this.state.ingredients);
+      // console.log("after", this.state.ingredients);
       this.setState({newIngredient: ''})
     }));
 
@@ -65,12 +65,12 @@ class EditRecipeForm extends React.Component {
   addInstruction(e)
   {
     e.preventDefault();
-    console.log("before", this.state.instructions);
+    // console.log("before", this.state.instructions);
     
     // this.state.ingredients.push(this.state.newIngredient);
     // this.state.newIngredient = '';
     this.setState({instructions: [...this.state.instructions, this.state.newInstruction]}, ((res) => {
-      console.log("after", this.state.instructions);
+      // console.log("after", this.state.instructions);
       this.setState({newInstruction: ''})
     }));
 

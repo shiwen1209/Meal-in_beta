@@ -3,7 +3,7 @@ const router = express.Router();
 const Recipe = require('../../models/Recipe');
 
 router.get("/", (req, res) => {
-    console.log("requestt", req.query);
+    // console.log("requestt", req.query);
     // for(let i = 0; i < req.query.length; i++)
     // {
     //     console.log("going in", req.query[i])

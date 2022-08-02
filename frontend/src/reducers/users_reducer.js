@@ -11,7 +11,6 @@ const usersReducer = (state = {}, action) => {
       case RECEIVE_USER:
         return action.user
       case RECEIVE_UPDATED_USER:
-        console.log('logtest', action )
         return action.user;
       default:
         return state;

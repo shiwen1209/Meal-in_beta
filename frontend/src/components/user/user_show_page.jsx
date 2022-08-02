@@ -51,7 +51,6 @@ class UserShowPage extends React.Component {
   }
 
   submitUser(e){
-    console.log('submituser', this.state)
     this.props.updateUser(this.state.user);
     this.setState({ displayEdit: false });
   }

@@ -10,8 +10,10 @@ router.get("/", (req, res) => {
     console.log(req.query);
 
     let title = req.query.title;
-    let budget = req.query.budget;
+    let budget = parseInt(req.query.budget);
     let category = req.query.category;
+
+    console.log("budget is", budget);
     // let rating = req.query.rating; 
     //above needs refactoring the schema but im lazy, if needed pls contact me - charlie
     let sortme = req.query.sortme;
@@ -38,13 +40,13 @@ router.get("/", (req, res) => {
     }
 
 
-    console.log("filter?");
-    console.log(filter);
+    // console.log("filter?");
+    // console.log(filter);
 
     //note: sorting can be added later, but it requires converting an array of ObjectIds back into an array of objects
 
     Recipe.find(filter).sort(sortFilter).limit(20).exec().then((result) => {
-        console.log("res", result);
+        // console.log("res", result);
         return res.json(result);
     });
 

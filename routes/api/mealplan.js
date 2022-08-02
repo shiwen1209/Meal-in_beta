@@ -64,7 +64,7 @@ router.get("/", (req, res) => {
 
 
 router.get("/:id", (req, res) => {
-    console.log("TRYING TO GET ID")
+    // console.log("TRYING TO GET ID")
     MealPlan.MealPlan.findOne({ _id: req.params.id }).then(resp => {
         wrapPlan(resp).then(resp => {
             res.json(resp)

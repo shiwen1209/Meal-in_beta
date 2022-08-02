@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
 
             for (let i = 0; i < recipes.length; i++) //in future when massive recipe database, prematurely exit loop after hitting amount of what we want using a counter. also can do one-by-one category-specific search
             {
-                console.log("one entry:", recipes[i].category);
+                // console.log("one entry:", recipes[i].category);
                 if (category_names.includes(recipes[i].category) && categories[recipes[i].category] < 8) {
                     let newRecipe = {};
                     newRecipe.title = recipes[i].title;
@@ -51,7 +51,7 @@ router.get("/", async (req, res) => {
                     ans.push(newRecipe);
                 }
             }
-            console.log(ans.length);
+            // console.log(ans.length);
             return res.json(ans);
         })
         .catch(err => console.log(err));

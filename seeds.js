@@ -376,11 +376,11 @@ const fillScrapedRecipeInfo = async function(recipe, author) {
                 pic = dom.window.document.querySelector('div[data-main-recipe=true]')
             }
             if (!pic) {
-                console.log("nope");
+                // console.log("nope");
                 return ""
             }
             let ans = pic.getAttribute('data-src');
-            console.log(ans);
+            // console.log(ans);
             newRecipe.image_url = ans;
         })
     }
@@ -469,7 +469,7 @@ const seedDB = async () => {
             let randomUsers = User.aggregate([{ $sample: { size: 4 } }]); 
             (await randomUsers).forEach( async (a_user) => { 
                 // await addUserFavoriteToRecipe(res._id, a_user);
-                console.log(a_user);
+                // console.log(a_user);
                 await addRecipeToUserFavorite(a_user._id, res);
             }) 
 

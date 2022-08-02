@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
     .then(async recipe => 
     {
         await recipe.populate("author", "-email -recipes_liked -__v -password -recipes_rated")
-        console.log("recipe: ", recipe);
+        // console.log("recipe: ", recipe);
         return res.json(recipe);
     })
     .catch(err => console.log(err));
@@ -51,7 +51,7 @@ router.get("/:id/:userid", (req, res) => {
             });
 
             await User.findOne({ id: req.params.userid }).then((current_user) => {
-                console.log("cu", current_user);
+                // console.log("cu", current_user);
                 if (current_user.recipes_liked.includes(recipe._id)) {
                     ans.user_liked = true;
                 }
@@ -59,14 +59,14 @@ router.get("/:id/:userid", (req, res) => {
                     console.log(result.recipes_rated.length);
                     for (let i = 0; i < result.recipes_rated.length; i++) {
                         if (result.recipes_rated[i].recipe.equals(recipe._id)) {
-                            console.log("???")
+                            // console.log("???")
                             ans.user_rating = result.recipes_rated[i].rating;
                             break;
                         }
                     }
                 });
             })
-            console.log(ans, "ans");
+            // console.log(ans, "ans");
             return res.json(ans);
         })
         .catch(err => console.log(err));

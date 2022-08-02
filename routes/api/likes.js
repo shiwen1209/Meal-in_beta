@@ -6,10 +6,7 @@ const User = require('../../models/User');
 router.post("/", async (req, res) => {
     const u_id = req.query.userId;
     const r_id = req.query.recipeId;
-    console.log("uuuuuuuuuu" + u_id);
-    console.log("rrrrrrrrr" + r_id)
     let r_long_id = await Recipe.findOne({ id: r_id }).then((result) => {
-        console.log("recipe", result);
         return result._id;
     });
 
@@ -44,11 +41,6 @@ router.post("/", async (req, res) => {
 router.delete("/", async (req, res) => {
     const u_id = req.query.userId;
     const r_id = req.query.recipeId;
-    console.log ("reqqqqqqq" + req.body);
-    console.log("reqqqqqqq" + req.params);
-    console.log("reqqqqqqq" + req.query);
-    console.log("uuuuuuu" + u_id)
-    console.log("rrrrrrrrr" + r_id)
     let r_long_id = await Recipe.findOne({ id: r_id }).then((result) => result._id);
     
     Recipe.findByIdAndUpdate(r_long_id, {

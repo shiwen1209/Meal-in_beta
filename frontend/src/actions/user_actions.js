@@ -14,7 +14,7 @@ export const receiveUser = (data) => {
 };
 
 export const receiveUpdatedUser = (user) => {
-  console.log('aaaa', user)
+  // console.log('aaaa', user)
   return {
     type: RECEIVE_UPDATED_USER,
     user: user,
