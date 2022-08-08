@@ -47,7 +47,6 @@ class UserShowPage extends React.Component {
     const newUser = Object.assign({}, prevUser);
     newUser.bio = e.currentTarget.value; 
     this.setState({user: newUser})
-    // console.log(this.state, "hhandleupdate")
   }
 
   submitUser(e){
@@ -67,7 +66,7 @@ class UserShowPage extends React.Component {
         <div className="profile-container">
             <div className="profile-info">
                   <div className="user-profile-pic">
-              <img className="profile-pic-img" src={user.pfp_url} alt="" />
+                      <img className="profile-pic-img" src={user.pfp_url} alt="" />
                   </div>
 
                   <div className="user-info">
@@ -136,11 +135,11 @@ class UserShowPage extends React.Component {
                 <div className={this.state.recipeDisplay === "createdRecipe" ? "tab-active" : "tab-inactive"}>
                     <h1 onClick={(e) => this.setState({recipeDisplay: "createdRecipe"})}>My posted recipes</h1>
                 </div>
-          <div className={this.state.recipeDisplay === "likedRecipes" ? "tab-active" : "tab-inactive"}>
-                  <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>My liked recipes</h1>
-                </div>
-            <div>
-              <h1 onClick={(e) => this.setState({ recipeDisplay: "likedRecipes" })}>My mealplans</h1>
+              <div className={this.state.recipeDisplay === "likedRecipes" ? "tab-active" : "tab-inactive"}>
+                      <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>My liked recipes</h1>
+              </div>
+              <div>
+                <h1 onClick={(e) => this.setState({ recipeDisplay: "likedRecipes" })}>My mealplans</h1>
 
             </div>
         </div>
@@ -186,7 +185,6 @@ class UserShowPage extends React.Component {
                 <img
                   className="user-show-recipe-image"
                   src={recipe.image_url}
-                  // alt="background-pic"
                 />
                 <div className="user-show-recipe-title">{recipe.title}</div>
               </div> 

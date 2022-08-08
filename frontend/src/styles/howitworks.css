@@ -1,5 +1,10 @@
 .howitworks{
     margin-top: 69px;
+    width: 100%;
+}
+
+.howitworks-image{
+    width: 100%;
 }
 
 .howitworks-image>.headline {
@@ -8,7 +13,7 @@
     font-size: 60px;
     font-weight: bold;
     margin-top: -300px;
-    margin-left: 850px;
+    margin-left: 60%;
     width: 500px;
 }
 
@@ -39,6 +44,7 @@
 .banner {
     width: 100%;
     margin-bottom: 50px;
+    height: 500px;
 }
 
 .howitworks1 h2 {

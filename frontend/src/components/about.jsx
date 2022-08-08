@@ -1,14 +1,12 @@
 import React from 'react';
 import banner from '../images/about-banner.jpg';
-import profImg from '../images/user.jpg';
-import { FaRegAddressCard } from 'react-icons/fa';
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa';
+import { FaAngellist } from 'react-icons/fa';
 import wendy from '../images/wendy.jpg';
 import alec from '../images/alec.jpg';
-import evie from '../images/evie.jpg';
-
-
+import evie from '../images/evie.png';
+import charlie from '../images/charlie.jpg'
 
 
 class About extends React.Component{
@@ -19,10 +17,13 @@ class About extends React.Component{
                 <div className='about-banner'>
                     <img src={banner} alt="banner" />
                     <div className='about-text'>
-                        <h1 className='about-title'>Meal'in Mission</h1>
-                        <p className='about-des'>Meal'in was a group project made by 4 skilled developers who love food. It was built with a Node.js, Express and MongoDB backend and a React/Redux frontend for improving the quality of life.</p>
-                        <br />
-                        <p className='about-des'>This web app that allows users to easily discover various recipes. Users can use our mealplan tool to plan weekly meal based on the automatically generated nutrition value. Besides, it allows users to upload their exclusive recipe and rates others recipe. There are more features waiting for you to explore...</p>
+                        <h1 className='about-title'>Our Mission</h1>
+                        <div className="about-description">
+                            <p className='about-des'>Meal'in was a group project made by 4 skilled developers who love food. It was built with a Node.js, Express and MongoDB backend and a React/Redux frontend for improving the quality of life.</p>
+                            <br />
+                            <p className='about-des'>You can select from 200+ recipes here. Our mealplan tool allow you to customize your weekly mealplan with automated nutrition dahsboard. It also auto-generate a grocery shopping list once the mealplan is finalzied. And there're more features waiting for you to explore...</p>
+                        </div>
+
                         <button className='team-button'><a href="#about">Our Team</a></button>
                     </div>
                 </div>
@@ -43,30 +44,30 @@ class About extends React.Component{
                             <div className='social-media'>
                                     <a href="https://www.linkedin.com/in/wendy-shi/" target="_blank" rel="noopener noreferrer" className='social-icon'><FaLinkedin style={{color: "green", fontSize:"35px"}} /></a>
                                     <a href="https://github.com/shiwen1209" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" className='social-icon'><FaRegAddressCard style={{ color: "green", fontSize: "35px" }}/></a>
+                                    <a href="https://angel.co/u/wendy-shi" target="_blank" rel="noopener noreferrer" className='social-icon'><FaAngellist style={{ color: "green", fontSize: "35px" }}/></a>
                             </div>
                         </div>
                     </div>
-                    
 
                     <div className="profile-gallery">
-
-                        <div><img src={profImg} alt="profile-img" className='about-profile-img' /></div>
-                        <div className="p-desc">
                             <div>
-                                <div className='job-title'>Backend Lead</div>
-                                <div className='profile-name'>Charlie Xu</div>
-                                    <div className='personal-des'>Charlie is a fast learner who's always eager to explore different technologies and challenge himself. He has talent and a keen interest in AI. He mastered JavaScript, Ruby, Express, React, Redux and MongoDB within four months of learning at Bootcamp.</div>
+                                <img src={evie} alt="profile-img" className='about-profile-img' />
                             </div>
+                            <div className="p-desc">
+                                <div>
+                                    <div className='job-title'>Frontend Lead</div>
+                                    <div className='profile-name'>Evie Zeng</div>
+                                    <div className='personal-des'>Evie as a full stack software developer, she has enjoyed using Ruby, JavaScript, React/Redux, Ruby on Rails, PostgreSQL, MongoDB, Node, CSS, and HTML in her projects. Currently, she self-learning Python. She always finding time to learn more!</div>
+                                </div>
 
-                            <div className='social-media'>
-                                    <a href="https://www.linkedin.com/in/charlie-xu-8a1731150/" target="_blank" rel="noopener noreferrer"className='social-icon'><FaLinkedin style={{ color: "green", fontSize: "35px" }} /></a>
-                                    <a href="https://github.com/ForgoneReality" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" className='social-icon'><FaRegAddressCard style={{ color: "green", fontSize: "35px" }} /></a>
+                                <div className='social-media'>
+                                    <a href="https://www.linkedin.com/in/evie-zeng-863a3622a/" target="_blank" rel="noopener noreferrer" className='social-icon'><FaLinkedin style={{ color: "green", fontSize: "35px" }} /></a>
+                                    <a href="https://github.com/evieeee123" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
+                                    <a href="https://angel.co/u/evie-zeng" target="_blank" rel="noopener noreferrer" className='social-icon'><FaAngellist style={{ color: "green", fontSize: "35px" }} /></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                    
                     <div className="profile-gallery">
 
                         <div><img src={alec} alt="profile-img" className='about-profile-img' /></div>
@@ -80,28 +81,29 @@ class About extends React.Component{
                             <div className='social-media'>
                                     <a href="https://www.linkedin.com/in/alec-choy-387aab13b/" target="_blank" rel="noopener noreferrer" className='social-icon'><FaLinkedin style={{ color: "green", fontSize: "35px" }} /></a>
                                     <a href="https://github.com/Alecchoy" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" className='social-icon'><FaRegAddressCard style={{ color: "green", fontSize: "35px" }} /></a>
+                                    <a href="https://angel.co/u/alec-choy" target="_blank" rel="noopener noreferrer" className='social-icon'><FaAngellist style={{ color: "green", fontSize: "35px" }} /></a>
                             </div>
                         </div>
                     </div>
 
                     <div className="profile-gallery">
 
-                        <div><img src={evie} alt="profile-img" className='about-profile-img' /></div>
-                        <div className="p-desc">
-                            <div>
-                                <div className='job-title'>Frontend Lead</div>
-                                <div className='profile-name'>Evie Zeng</div>
-                                    <div className='personal-des'>Evie as a full stack software developer, she has enjoyed using Ruby, JavaScript, React/Redux, Ruby on Rails, PostgreSQL, MongoDB, Node, CSS, and HTML in her projects. Currently, she self-learning Python. She always finding time to learn more!</div>
-                            </div>
+                            <div><img src={charlie} alt="profile-img" className='about-profile-img' /></div>
+                            <div className="p-desc">
+                                <div>
+                                    <div className='job-title'>Backend Lead</div>
+                                    <div className='profile-name'>Charlie Xu</div>
+                                    <div className='personal-des'>Charlie is a fast learner who's always eager to explore different technologies and challenge himself. He has talent and a keen interest in AI. He mastered JavaScript, Ruby, Express, React, Redux and MongoDB within four months of learning at Bootcamp.</div>
+                                </div>
 
-                            <div className='social-media'>
-                                    <a href="https://www.linkedin.com/in/evie-zeng-863a3622a/" target="_blank" rel="noopener noreferrer" className='social-icon'><FaLinkedin style={{ color: "green", fontSize: "35px" }} /></a>
-                                    <a href="https://github.com/evieeee123" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
-                                <a href="http://" target="_blank" rel="noopener noreferrer" className='social-icon'><FaRegAddressCard style={{ color: "green", fontSize: "35px" }} /></a>
+                                <div className='social-media'>
+                                    <a href="https://www.linkedin.com/in/charlie-xu-8a1731150/" target="_blank" rel="noopener noreferrer" className='social-icon'><FaLinkedin style={{ color: "green", fontSize: "35px" }} /></a>
+                                    <a href="https://github.com/ForgoneReality" target="_blank" rel="noopener noreferrer" className='social-icon'><FaGithubSquare style={{ color: "green", fontSize: "35px" }} /></a>
+                                    <a href="http://" target="_blank" rel="noopener noreferrer" className='social-icon'><FaAngellist style={{ color: "green", fontSize: "35px" }} /></a>
+                                </div>
                             </div>
-                        </div>
                     </div>
+
 
                 </div>
 

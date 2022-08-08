@@ -4,6 +4,7 @@ header{
     width: 100%;
     top: 0;
     margin-top: 0px;
+    /* border: 1px solid red; */
 }
 .logged-in-nav{
     border-bottom: 1px solid lightgray;
@@ -26,9 +27,10 @@ header{
 }
 
 .logged-in-nav>div:nth-child(1){
-    width: 800px;
+    /* width: 800px; */
     justify-content: flex-start;
     padding-left: 40px;
+    /* border: 1px solid red; */
 }
 
 .logged-in-nav>div:nth-child(2) {
@@ -39,7 +41,7 @@ header{
 .logo{
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 40px;
     color: #027333;
     font-weight: bold;
     font-size: 30px;
@@ -48,11 +50,11 @@ header{
 .recipe-link{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 14px;
     color: #72735F;
-    width: 150px;
     /* border: 1px black solid; */
+    padding-right: 50px;
 }
 
 .nav-bar-login {

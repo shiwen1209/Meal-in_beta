@@ -16,12 +16,14 @@
 .about-text{
     position: absolute;
     top: 52%;
-    left: 70%;
+    left: 75%;
     transform: translate(-50%, -50%);
     /* background-color: rgb(232, 244, 232); */
     /* box-shadow: 2px 2px 5px 2px rgb(227, 246, 171); */
     padding: 20px;
     border-radius: 10px;
+    /* border: 1px solid red; */
+    width: 500px;
 }
 
 .about-title{
@@ -32,9 +34,9 @@
 }
 
 .about-des{
-    font-size: calc(600vw / 350);
+    font-size: calc(600vw / 400);
     color: rgb(80, 111, 80);
-    /* text-align: left; */
+    text-align: left;
 }
 
 .team-button{
@@ -50,17 +52,17 @@
 @keyframes glowing {
     0% {
         background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        /* box-shadow: 0 0 5px #2ba805; */
     }
 
     50% {
         background-color: #49e819;
-        box-shadow: 0 0 20px #49e819;
+        /* box-shadow: 0 0 20px #49e819; */
     }
 
     100% {
         background-color: #2ba805;
-        box-shadow: 0 0 5px #2ba805;
+        /* box-shadow: 0 0 5px #2ba805; */
     }
 }
 
@@ -76,7 +78,7 @@
     font-weight: bolder;
     padding-top: 90px;
     padding-left: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .team-profile{
@@ -129,13 +131,13 @@ div.p-desc {
     color:rgb(0, 53, 0);
     font-size: 25px;
     font-weight: bolder;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .personal-des{
     font-size: 18px;
     line-height: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .social-icon{

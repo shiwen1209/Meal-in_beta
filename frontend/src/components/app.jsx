@@ -21,31 +21,31 @@ const App = () => (
   <div>
     <Modal />
     <NavBarContainer />
-    <Switch>   
-      <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/recipes" component={HomePageContainer} />
-      <ProtectedRoute
-        exact
-        path="/mymealplans/:userId"
-        component={MyMealplansContainer}
-      />
-      <ProtectedRoute
-        exact
-        path="/myprofile/:userId"
-        component={UserShowPageContainer}
-      />
+    <div className='main'>
+      <Switch>
+        <Route exact path="/recipes/:recipeId" component={RecipeContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <Route exact path="/recipes" component={HomePageContainer} />
+        <ProtectedRoute
+          exact
+          path="/mymealplans/:userId"
+          component={MyMealplansContainer}
+        />
+        <ProtectedRoute
+          exact
+          path="/myprofile/:userId"
+          component={UserShowPageContainer}
+        />
+        <Route exact path="/howitworks" component={HowItWorks} />
+        <Route exact path='/shopping_list' component={ShoppingList} />
+        <Route path='/about' component={About} />
+        <Route path="/search" component={SearchContainer} />
+        <Route exact path="/" component={RecipeIndexContainer} />
+      </Switch>
+    </div>
+    
 
-      
-      
-      <Route exact path="/howitworks" component={HowItWorks} />
-      <Route exact path='/shopping_list' component={ShoppingList} />
-      <Route path='/about' component={About} />
-      <Route path="/search" component={SearchContainer} />
-      <Route exact path="/" component={RecipeIndexContainer} />
-
-    </Switch>
   </div>
 );
 

@@ -24,8 +24,14 @@
     
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .recipe-item {
-    /* border: 1px solid red; */
 
 }
 
@@ -38,6 +44,7 @@ button:hover {
     border: 1px solid #ccc;
     width: 300px;
     border-radius: 5px;
+
 }
 
 .overlay {
@@ -107,7 +114,6 @@ button:hover {
     padding-top: 70px;
     font-family: 'Lora', serif;
     font-weight: lighter;
-
     /* border: 1px solid red; */
 }
 
@@ -198,9 +204,14 @@ div.gallery img {
 
 .image-section{
     /* border: 5px green solid; */
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     
+}
+
+.image-section img{
+    height: 1100px;
+    margin-top: -200px;
 }
 
 .image-container{
@@ -228,6 +239,7 @@ div.gallery img {
 
 
 .recipe-index{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
