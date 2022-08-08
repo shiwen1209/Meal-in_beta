@@ -1,10 +1,10 @@
-# Meal-in
+# Meal'in
+
+*[Meal'in Live](https://meal-in.herokuapp.com/#/)
 
 Meal'in is a crowd sourced recipe central and social media platform. It integrates social media and utility by featuring auto generated meal plans shopping list to transform the meal prepping and home cooking experience.
 
-User can select from 200+ recipes on the up. Our mealplan tool allow user to customize weekly mealplan with automated nutrition dahsboard. It also auto-generates a grocery shopping list once the mealplan is finalzied. 
-
-live site: https://meal-in.herokuapp.com/#/
+User can select from 200+ recipes on the app. Our mealplan tool allow user to customize weekly mealplan with automated nutrition dahsboard. It also auto-generates a grocery shopping list once the mealplan is finalzied. 
 
 # About the team
 
