@@ -1,0 +1,149 @@
+.background-color{
+    background-color: rgb(250, 247, 237);
+    background-image: linear-gradient(rgb(250,
+    247,
+    237), rgb(207, 225, 157));
+    position: relative;
+    height: 103em;
+}
+
+.about-banner{
+    position: relative;
+    text-align: center;
+    /* color: white; */
+}
+
+.about-text{
+    position: absolute;
+    top: 52%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    /* background-color: rgb(232, 244, 232); */
+    /* box-shadow: 2px 2px 5px 2px rgb(227, 246, 171); */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about-title{
+    font-size: calc(600vw / 200);
+    color: rgb(2, 94, 2);
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.about-des{
+    font-size: calc(600vw / 350);
+    color: rgb(80, 111, 80);
+    /* text-align: left; */
+}
+
+.team-button{
+    margin-top: 40px;
+    padding: 15px;
+    background-color: green;
+    color: white;
+    font-size: calc(600vw / 320);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
+
+    50% {
+        background-color: #49e819;
+        box-shadow: 0 0 20px #49e819;
+    }
+
+    100% {
+        background-color: #2ba805;
+        box-shadow: 0 0 5px #2ba805;
+    }
+}
+
+.team-button {
+    animation: glowing 1300ms infinite;
+}
+
+.team-profile-title{
+    display: flex;
+    justify-content: left;
+    font-size: 38px;
+    color: rgb(2, 79, 2);
+    font-weight: bolder;
+    padding-top: 90px;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.team-profile{
+    margin-left: 5%;
+    margin-right: 5%;
+    /* position: absolute; */
+}
+
+div.profile-gallery {
+    margin: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 20px;
+    float: left;
+    /* width: 500px; */
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    
+}
+
+div.profile-gallery:hover {
+    border: 0.5px solid #777;
+}
+
+/* div.profile-gallery img {
+    width: 186px;
+    height: auto;
+} */
+
+div.p-desc {
+    padding: 10px;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.about-profile-img{
+    width: 186px;
+    border-radius: 50%;
+}
+
+.job-title{
+    margin-bottom: 30px;
+    color: rgb(93, 93, 93);
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+.profile-name{
+    color:rgb(0, 53, 0);
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.personal-des{
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+
+.social-icon{
+    cursor: pointer;
+    margin-right: 30px;
+    filter: brightness(70%);
+}
+
+.social-icon:hover{
+    filter: brightness(150%);
+}
