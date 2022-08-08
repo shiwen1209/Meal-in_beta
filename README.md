@@ -1,6 +1,6 @@
 # Meal'in
 
-*[Meal'in Live](https://meal-in.herokuapp.com/#/)
+[Meal'in Live](https://meal-in.herokuapp.com/#/)
 
 Meal'in is a crowd sourced recipe central and social media platform. It integrates social media and utility by featuring auto generated meal plans shopping list to transform the meal prepping and home cooking experience.
 
@@ -14,18 +14,17 @@ Meal'in was a group project made by 4 skilled developers who love food. It was b
 * Role: Team Lead
 * Wendy is a full stack software engineer who's proficient in Javascript, Python, React.js, Redux.js, Ruby and Ruby on Rails. She's currently looking for opportunities to work as a full-stack, front-end or back-end software engineer.
 
-## Charlie Xu
-* Role: Backend Lead
-* Charlie is a fast learner who's always eager to explore different technologies and challenge himself. He has talent and a keen interest in AI. He mastered JavaScript, Ruby, Express, React, Redux and MongoDB within four months of learning at Bootcamp.
-
 ## Evie Zeng
-* Role: Frontend Lead
+** Role: Frontend Lead
 * Evie as a full stack software developer, she has enjoyed using Ruby, JavaScript, React/Redux, Ruby on Rails, PostgreSQL, MongoDB, Node, CSS, and HTML in her projects. Currently, she self-learning Python. She always finding time to learn more!
 
 ## Alec Choy
-* Role: UI/UX Lead
+** Role: UI/UX Lead
 * Alec is a software engineer with an educational background in Business Economics from UC Riverside. He has always been interested in tech so he immediately dove into learning as much as he could. As a result of that effort, He's now a software engineer experienced in JavaScript, React, Redux, Ruby, Rails, HTML, CSS, MongoDB, Node, and Express.
 
+## Charlie Xu
+* Role: Backend Lead
+* Charlie is a fast learner who's always eager to explore different technologies and challenge himself. He has talent and a keen interest in AI. He mastered JavaScript, Ruby, Express, React, Redux and MongoDB within four months of learning at Bootcamp.
 
 
 
