@@ -24,6 +24,10 @@ class NavBar extends React.Component {
                     <div className="recipe-link">
                         <Link to={'/howitworks'}>How it works</Link>
                     </div>
+                    <div className="recipe-link">
+                        <Link to={'/about'}>About us</Link>
+                    </div>
+                    
                     {this.props.loggedIn ?
                         <div className="loggedin-links">
                             <div className="recipe-link">
@@ -48,6 +52,7 @@ class NavBar extends React.Component {
                             <Link to={'/signup'}>Sign up</Link>
                         </div>
                     </div>}
+                    
             </div>
             </header>
         );
