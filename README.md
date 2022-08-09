@@ -32,28 +32,6 @@ Meal'in was a group project made by 4 skilled developers who love food. It was b
 * **Social medial**: [github](https://github.com/ForgoneReality)   [LinkedIn](https://www.linkedin.com/in/charlie-xu-8a1731150/)   [Angelist](https://angel.co/u/wendy-shi)
 
 
-
-# Functionality and MVPs
-
-* User authentication, sign in and sign up
-
-* User profile CRUD
-
-* Recipes, including recipe CRUD, recipe ratings CRUD and recipe likes CRUD
-    * User can see posts from all of their connections
-    * User can comment on the posts
-    * User can like a post or a comment 
-* Search
-    * User can search recipes by one or a combination of the following filters
-        * Meal category (breakfast, lunch or dinner)
-        * Budget
-        * Dish name
-    * User can also sort the search result by most recent or most popular
-* Mealplans
-    * User can user a 7-day mealplan tool to by populating the mealplan with the recipes that they've liked
-    * The mealplan tool offers live and real-time nutrition dashboard, so user can be mindful when populating the mealplan with the recipe choices
-    * Once the mealplan is finalized, user can see a auto-generated grocery shopping list that compiles all the ingredients required to cook all the recipes on the mealplan
-
 # Technologies Used
 
  ## Hosting & Server
@@ -67,6 +45,32 @@ Meal'in was a group project made by 4 skilled developers who love food. It was b
  * React
  * Redux
  * Chart.js
+ 
+ # Features Summary
+ ## User authentication and profile CRUD
+* User authentication, sign in and sign up
+* User profile CRUD
+ ## Recipes CRUD, recipes ratings CRUD and recipes likes CRUD
+  * User can see posts from all of their connections
+  * User can comment on the posts
+  * User can like a post or a comment 
+ ## Recipes search
+ * User can search recipes by one or a combination of the following filters
+   * Meal category (breakfast, lunch or dinner)
+   * Budget
+   * Dish name
+* User can also sort the search result by most recent or most popular
+ ## Mealplans CRUD, with auto-generated nutrition dashboard and shopping list
+* User can user a 7-day mealplan tool to by populating the mealplan with the recipes that they've liked
+* The mealplan tool offers live and real-time nutrition dashboard, so user can be mindful when populating the mealplan with the recipe choices
+* Once the mealplan is finalized, user can see a auto-generated grocery shopping list that compiles all the ingredients required to cook all the recipes on the 
+
+ # Features Highlight
+
+## Recipes search
+
+## Mealplans CRUD, with auto-generated nutrition dashboard and shopping list
+
 
 
 
