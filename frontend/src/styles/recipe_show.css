@@ -187,3 +187,16 @@ ol{
     width: 15px;
     height: 15px;
 }
+
+.star{
+    display: flex;
+    flex-direction: row;
+}
+
+#user-rating {
+    border: 1px solid red;
+        display: flex;
+            flex-direction: row;
+            align-items: center;
+
+}
