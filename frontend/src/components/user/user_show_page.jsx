@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import plateholder from '../../images/plateholder.jpg';
-// import UserEditFormContainer from './user_edit_form_container'
-// ;
+import userprofilepic from '../../images/user.jpg'
+
 class UserShowPage extends React.Component {
 
   constructor(props){
@@ -66,7 +66,7 @@ class UserShowPage extends React.Component {
         <div className="profile-container">
             <div className="profile-info">
                   <div className="user-profile-pic">
-                      <img className="profile-pic-img" src={user.pfp_url} alt="" />
+              <img className="profile-pic-img" src={user.pfp_url ? user.pfp_url : userprofilepic } alt="" />
                   </div>
 
                   <div className="user-info">

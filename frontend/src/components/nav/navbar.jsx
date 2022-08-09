@@ -45,12 +45,16 @@ class NavBar extends React.Component {
                         </div>
                     </div> :
                     <div className="login-signup">
+                        <Link to={'/login'}>
+                            <div className="nav-bar-login">
+                                Login
+                            </div>
+                        </Link>
+                        <Link to={'/signup'}>
                         <div className="nav-bar-login">
-                            <Link to={'/login'}>Login</Link>
+                            Sign up
                         </div>
-                        <div className="nav-bar-login">
-                            <Link to={'/signup'}>Sign up</Link>
-                        </div>
+                        </Link>
                     </div>}
                     
             </div>
