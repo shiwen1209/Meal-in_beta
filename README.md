@@ -2,7 +2,7 @@
 
 [Meal'in Live](https://meal-in.herokuapp.com/#/)
 
-Meal'in is a recipe and mealplan app.
+Meal'in is a recipe and mealplan app. User can select from 200+ recipes on the app. The mealplan tool allow user to customize weekly mealplan with automated nutrition dahsboard. It also auto-generates a grocery shopping list once the mealplan is finalzied. 
 
 # Technologies Used
 
