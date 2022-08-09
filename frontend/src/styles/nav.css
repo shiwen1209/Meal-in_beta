@@ -57,6 +57,11 @@ header{
     padding-right: 50px;
 }
 
+.recipe-link:hover{
+    color: #027333;
+    font-weight: bold;
+}
+
 .nav-bar-login {
     width: 100px;
     height: 40px;

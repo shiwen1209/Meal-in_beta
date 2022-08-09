@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 import CreateRatingForm from "./create_review"
-import {createRating, updateRating} from '../../actions/review_actions';
+import {createRating, updateRating, removeOldRating} from '../../actions/review_actions';
 import { fetchRecipe } from '../../actions/recipe_actions';
-
 
 const mSTP = (state, ownProps) => {
     return{
@@ -16,7 +15,8 @@ const mDTP = (dispatch) => {
     return {
         createRating: (rating) => dispatch(createRating(rating)),
         fetchRecipe: (recipeId, userId) => dispatch(fetchRecipe(recipeId, userId)),
-        updateRating: (rating) => dispatch(updateRating(rating))
+        updateRating: (rating) => dispatch(updateRating(rating)),
+        removeOldRating: (rating) => dispatch(removeOldRating(rating))
     }
 }
 

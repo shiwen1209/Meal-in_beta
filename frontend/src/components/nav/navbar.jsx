@@ -34,7 +34,7 @@ class NavBar extends React.Component {
                                 <Link to={`/myprofile/${this.props.currentUserId}`}>My profile</Link>
                             </div>
                             <div className="recipe-link">
-                                <Link to={`/mymealplans/${this.props.currentUserId}`}>Make a mealplan</Link>
+                                <Link to={`/mymealplans/${this.props.currentUserId}`}>Make a meal plan</Link>
                             </div>
                         </div> : <div></div>}
                 </div>

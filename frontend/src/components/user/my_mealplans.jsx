@@ -79,7 +79,7 @@ class MyMealplans extends React.Component {
     makeMealplan() {
         if (this.state.mealplan.name.length === 0) {
             const mealplan = this.state.mealplan;
-            mealplan.name = "my mealplan";
+            mealplan.name = "my meal plan";
             this.setState({ mealplan })
         }
         this.props.createMealplan(this.state.mealplan);
@@ -182,8 +182,8 @@ class MyMealplans extends React.Component {
                         {/* <div className='tab-1'>
                             <h1 onClick={(e) => this.setState({display: "mealplan"})}>Create a mealplan</h1>
                         </div> */}
-                        <label>Create a mealplan</label>
-                        <input type="text" placeholder='Enter a mealplan name'
+                        <label>Create a meal plan</label>
+                        <input type="text" placeholder='Enter a meal plan name'
                             onChange={this.updateMpName} value={this.state.mealplan.name} />
                         {/* <div className='tab-2'>
                             <h1 onClick={(e) => this.setState({display: "nutrition"})}>Nutrition Value</h1>
@@ -319,10 +319,10 @@ class MyMealplans extends React.Component {
                         </div>
                         {!this.state.displayFinalize ?
                             <div className='mealplan-buttons'>
-                                <button onClick={this.startOver} className='nav-bar-login'>Clear All</button>
+                                <button onClick={this.startOver} className='nav-bar-login'>Clear all</button>
                                 <button
                                     onClick={this.submitMealplan}
-                                    className='nav-bar-login'>Finalize Mealplan</button>
+                                    className='nav-bar-login'>Finalize meal plan</button>
                             </div> :
                             <div className='mealplan-results'>
                                 <div>

@@ -2,7 +2,8 @@ import React from "react";
 import Rating from "../rating/rating"
 import { SiCodechef } from "react-icons/si";
 import { BiMessageSquareDetail } from "react-icons/bi";
-import { GiShadowFollower } from "react-icons/gi";
+import { FiUsers } from "react-icons/fi";
+import { BiHeartCircle } from "react-icons/bi";
 import { MdOutlineFoodBank } from "react-icons/md";
 import { TiLeaf } from "react-icons/ti";
 import { BiTimeFive } from "react-icons/bi";
@@ -48,8 +49,8 @@ class Recipe extends React.Component{
                             <span>{recipe.author.handle}</span>
                         </div>
                         <div className="single-user-info">
-                            <span className="user-box-icon"><GiShadowFollower/></span>
-                            <span>300 follow</span>
+                                <span className="user-box-icon"><FiUsers /></span>
+                            <span>30 follows</span>
                         </div>
                         <div className="single-user-info">
                             <span className="user-box-icon"><MdOutlineFoodBank/></span>
@@ -82,8 +83,11 @@ class Recipe extends React.Component{
                             <span>({recipe.num_ratings})</span>
                         </div>
                         <div className="time">
+                            {(currentUser.id !== undefined) ?
                             <span><LikeContainer currentUserId={currentUser.id} recipe={recipe} /></span>
-                            {/* <span><FcLike className="time-icon" /></span> */}
+                                : <BiHeartCircle style={{ fontSize: "30px" }} /> 
+
+                            }
                             <span>{recipe.num_likes}</span>
                         </div>
                     </div>
@@ -105,16 +109,12 @@ class Recipe extends React.Component{
                         <div className="instruction">
                             <div className="instruction-title">INSTRUCTIONS</div>
                             <ol>{
-                            recipe.instructions.map(instruction => (
-                                <li>{instruction}</li>
+                            recipe.instructions.map((instruction, idx) => (
+                                <li key={idx}>{instruction}</li>
                             ))
                             }</ol>
                         </div>
                     </div>
-                    {/* <div className="rating-review">
-                        <p>Rate this Recipe</p>
-                        <CreateRatingContainer currentUserId={currentUser.id} recipe={recipe} />
-                    </div> */}
                 </div>
             </div>
         )

@@ -7,10 +7,8 @@ class Like extends React.Component{
         this.state = {
             userId: this.props.currentUserId,
             recipeId: this.props.recipe.id
-            // user_liked: this.props.currentRecipe.user_liked
         }
         this.handleLike = this.handleLike.bind(this);
-        // this.handleDislike = this.handleDislike.bind(this);
     }
 
     componentDidMount() {
@@ -20,26 +18,11 @@ class Like extends React.Component{
     handleLike(e){
         e.preventDefault();
         if (this.props.currentRecipe.user_liked){
-            // this.setState({user_liked: false})
             this.props.deleteLike(this.state);
         }else{
-            // this.setState({
-            //     user_liked: true
-            // })
             this.props.createLike(this.state);
         }
     };
-
-    // handleDislike(){
-    //     // e.preventDefault();
-    //     this.props.deleteLike(this.state)
-    // }
-
-    // update(field) {
-    //     return (e) => this.setState({
-    //         [field]: e.currentTarget.value
-    //     })
-    // }
 
 
     render(){

@@ -111,7 +111,7 @@ button:hover {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 70px;
+    padding-top: 30px;
     font-family: 'Lora', serif;
     font-weight: lighter;
     /* border: 1px solid red; */
@@ -204,14 +204,14 @@ div.gallery img {
 
 .image-section{
     /* border: 5px green solid; */
-    height: 500px;
+    height: 520px;
     overflow: hidden;
     
 }
 
 .image-section img{
-    height: 1100px;
-    margin-top: -200px;
+    height: 220%;
+    margin-top: -16%;
 }
 
 .image-container{

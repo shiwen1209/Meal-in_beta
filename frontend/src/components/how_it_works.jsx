@@ -21,7 +21,7 @@ class HowItWorks extends React.Component {
                     </div>
                     <div className='headline'>
                         <h1>Meal planning has never been easier</h1>
-                        <button><Link to={'./signup'}>Make mealplan now</Link></button>
+                        <button><Link to={'./signup'}>Make a meal plan now</Link></button>
                     </div>
                 </div>
                 <div className='howitworks1'>
@@ -35,13 +35,13 @@ class HowItWorks extends React.Component {
                         <div className='line'></div>
                         <div className='single-flow'>
                             <MdOutlineDateRange className='first-icon' />
-                            <div className='flow-title'>Create mealplans</div>
-                            <div className='flow-des'>Create a mealplan with good food and balanced nutrients</div>
+                            <div className='flow-title'>Create a meal plan</div>
+                            <div className='flow-des'>Create a meal plan with good food and balanced nutrients</div>
                         </div>
                         <div className='line'></div>
                         <div className='single-flow'>
                             <AiOutlineShoppingCart className='first-icon' />
-                            <div className='flow-title'>Generate shoplists</div>
+                            <div className='flow-title'>Generate a shopping list</div>
                             <div className='flow-des'>Generate a grocery shopping list and you are good to go</div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ class HowItWorks extends React.Component {
                     <div className="centered">
                         <div>
                         <div className='info1-title'>Discover Your Favorites</div>
-                            <div className='info1-des'>Don't know what you want to eat? Our crowed sourced recipes give you variaty of meals to choose and proven raitings.</div>
+                            <div className='info1-des'>Our crowd-sourced recipe database give you a variety of meals with proven ratings to choose from!</div>
                         </div>
                         <img src={search} alt="" className='search'/>
                     </div>
@@ -61,7 +61,7 @@ class HowItWorks extends React.Component {
                     <img src={mealplan} alt="" className='show-img'/>
                     <div className='info2'>
                         <div className='info1-title'>Let's get mealplanning!</div>
-                        <div className='info1-des'>Our mealplan tool is easy to use and give you the nutrition value instantly.</div>
+                        <div className='info1-des'>Our meal planning tool is easy to use and gives you the nutritional value instantaneously</div>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ class HowItWorks extends React.Component {
                         <div className="centered-left">
                             <div className='info3'>
                             <div className='info1-title'>Your shopping list is ready!</div>
-                            <div className='info1-des'>No more frequent trips to the grocery markets and not knowing what to get. Get your shopping list auto generated from the mealplan!</div>
+                            <div className='info1-des'>No more frequent trips to the grocery store without knowing what you should get. Our meal plan can create an auto-generated shopping list for you!</div>
                             </div>
                         <img src={shoppinglist} alt="" className='mp' />
                         </div>
