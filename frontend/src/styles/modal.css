@@ -275,3 +275,9 @@
  #recipe-form-buttons button{
    margin: 0;
  }
+
+ .title-error {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }

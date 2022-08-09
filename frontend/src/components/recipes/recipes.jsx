@@ -60,7 +60,6 @@ class Recipe extends React.Component{
                             <span className="user-box-icon"><BiMessageSquareDetail /></span>
                             <span>{recipe.author.bio}</span>
                         </div>
-
                     </div>
                 </div>
                 

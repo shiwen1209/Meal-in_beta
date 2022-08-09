@@ -15,7 +15,9 @@ class RecipeForm extends React.Component {
       image_url: '',
       instructions: [],
       newIngredient: '',
-      newInstruction: ''
+      newInstruction: '',
+      errors: "",
+      errors2: "",
     }
     this.addIngredient = this.addIngredient.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,16 +27,13 @@ class RecipeForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { processForm, closeModal, errors } = this.props;
-    // processForm(this.state).then(() => {
-    //   if (errors.length === 0) {
-    //     closeModal();
-    //   }
-    // });
-    processForm(this.state);
-    closeModal();
-  
-
-
+    if(this.state.title.length > 0){
+      this.setState({ errors2: '' });
+      processForm(this.state);
+      closeModal();
+    } else {
+      this.setState({ errors2: 'Title cannot be empty' });
+    }
   }
 
   
@@ -42,18 +41,30 @@ class RecipeForm extends React.Component {
   addIngredient(e)
   {
     e.preventDefault();
-    this.setState({ingredients: [...this.state.ingredients, this.state.newIngredient]}, ((res) => {
-      this.setState({newIngredient: ''})
-    }));
+    if (this.state.newIngredient.length > 0){
+      this.setState({ ingredients: [...this.state.ingredients, this.state.newIngredient] }, ((res) => {
+        this.setState({ newIngredient: '' });
+        this.setState({ errors: '' });
+      }));
+    } else {
+      this.setState({ errors: 'Ingredient cannot be empty' });
+    }
+
 
   }
 
   addInstruction(e)
   {
     e.preventDefault();
+    if (this.state.newInstruction.length > 0) {
     this.setState({instructions: [...this.state.instructions, this.state.newInstruction]}, ((res) => {
-      this.setState({newInstruction: ''})
+      this.setState({newInstruction: ''});
+      this.setState({ errors: '' });
     }));
+    } else {
+      this.setState({ errors: 'Instruction cannot be empty' });
+    }
+
 
   }
 
@@ -66,7 +77,6 @@ class RecipeForm extends React.Component {
   // budget: null,
 
   render() {
-    // let cost = ['$', '$$', '$$$', '$$$$', '$$$$$']
     let instructionsList = this.state.instructions.map((instruction) => <li>{instruction}</li>)
     let ingredientsList = this.state.ingredients.map((ingred) => <li>{ingred}</li>)
     return(
@@ -74,7 +84,11 @@ class RecipeForm extends React.Component {
           <div className="recipe-form-title">Create a Recipe</div>
             <form className="creating-form">
               <div> 
-              
+                <div className="title-error">
+                  <p>
+                  {this.state.errors2}
+                  </p>
+                  </div>
                 <div id="tester" className="how-to">
                   <input id="title-input" className="title-box"type='text' placeholder="Please put a title"value={this.state.title} onChange={this.handleUpdate("title")} />
                 </div>
@@ -102,7 +116,7 @@ class RecipeForm extends React.Component {
                   </select>
                  </div>
                   <div>
-                  <select placeHolder="Category" name="budget" className="money-drop">
+                  <select placeholder="Category" name="budget" className="money-drop">
                     <option value="1">$</option>
                     <option value="2">$$</option>
                     <option value="3">$$$</option>
@@ -116,20 +130,24 @@ class RecipeForm extends React.Component {
               </div>
               <div>
                 <div id="tester" className="how-to">
-                  <input id="title-input" type='text' placeHolder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
+                  <input id="title-input" type='text' placeholder="How long will this take to make? EX: 55mins or 1hr 20mins"value={this.state.prep_time} onChange={this.handleUpdate('prep_time')}/>
                 </div>
               </div>
                   
                   <div >
-                    <div>
-                    
+                    <div className="list-add">
+                        <div id="tester" className="how-to">
+                          <p>{this.state.errors}</p>
+                        </div>
+                        <div id="tester" className="how-to">
+                        </div>
                     </div>
                     <div className="list-add">
                       <div id="tester" className="how-to">
-                      <input id="title-input-list" className="how-to" type="text" placeHolder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
+                      <input id="title-input-list" className="how-to" type="text" placeholder="Please add ingredients here!"value={this.state.newIngredient} onChange={this.handleUpdate('newIngredient')}/>
                       </div>
                       <div id="tester" className="how-to">
-                      <input  id="title-input-list" type="text" value={this.state.newInstruction} placeHolder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
+                      <input  id="title-input-list" type="text" value={this.state.newInstruction} placeholder="Please add instructions here!"onChange={this.handleUpdate('newInstruction')}/>
                       </div>
                     </div>
                     <div className="add-buttons">

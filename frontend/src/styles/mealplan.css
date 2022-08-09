@@ -89,10 +89,15 @@
     width: 200px;
 }
 
-.mp-recipe-item>img {
+.mp-recipe-item>img .mp-recipe-item2 >img {
     height: 150px;
     overflow: hidden;
    
+}
+
+.mp-recipe-item2 {
+    border: 4px solid rgb(19, 205, 19);
+    border-radius: 10px;
 }
 
 .my-mealplan .recipe-index-img{
@@ -420,4 +425,19 @@
     box-shadow: none;
     border: 1px solid lightgray;
 
+}
+
+#mp-instruction {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 5px;
+}
+
+#mp-instruction p {
+    margin-right: 10px;
+}
+
+#mp-instruction p:nth-child(1){
+    font-weight: bold;
 }

@@ -138,10 +138,10 @@ class UserShowPage extends React.Component {
               <div className={this.state.recipeDisplay === "likedRecipes" ? "tab-active" : "tab-inactive"}>
                       <h1 onClick={(e) => this.setState({recipeDisplay: "likedRecipes"})}>My liked recipes</h1>
               </div>
-              <div>
+              {/* <div>
                 <h1 onClick={(e) => this.setState({ recipeDisplay: "likedRecipes" })}>My mealplans</h1>
 
-            </div>
+            </div> */}
         </div>
 
         {this.state.recipeDisplay === "createdRecipe" ?

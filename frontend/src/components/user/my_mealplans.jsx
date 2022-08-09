@@ -114,22 +114,23 @@ class MyMealplans extends React.Component {
 
         ))
 
-        const recipesList = this.state.filteredResult.map((recipe, idx) => (
-            <li key={idx} className="mp-recipe-item"
-                onClick={(e) => {
-                    this.setState({ activeRecipe: recipe });
+        const recipesList = this.state.filteredResult.map((recipe, idx) => {
+            
+            return (
+                <li key={idx} className={this.state.activeRecipe && this.state.activeRecipe.id === recipe.id ? "mp-recipe-item2" : "mp-recipe-item"}
+                    onClick={(e) => {
+                        this.setState({ activeRecipe: recipe });
+                    }}>
+                    <div className='mealplan-re-container'>
 
-                }}>
-                <div className='mealplan-re-container'>
+                        <img src={recipe.image_url} alt="" className='recipe-index-img' />
 
-                    <img src={recipe.image_url} alt="" className='recipe-index-img' />
-
-                    <div className='mealplan-re-name'>
-                        <h2>{recipe.title}</h2>
+                        <div className='mealplan-re-name'>
+                            <h2>{recipe.title}</h2>
+                        </div>
                     </div>
-                </div>
-            </li>
-        ))
+                </li>
+        )})
 
 
         const meals = [];
@@ -140,23 +141,6 @@ class MyMealplans extends React.Component {
                 meals.push([days[i], mealTypes[j]]);
             }
         }
-
-        // const mealGrid = meals.map((meal)=>{
-        //     if(meal[1] === 0 ){
-        //         return (<div className="grid-item">{meal[0]}</div>)
-        //     } else {
-        //         return (
-        //             <div className="grid-item" onClick={this.handleMPClick(meal[0], meal[1])}>
-        //                 {this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0] ?
-        //                 this.state.mealplan.meals.filter((meal) => (meal.day === meal[0] && meal.meal_type === meal[1]))[0].recipe_title : ""
-        //                 }
-        //             </div>
-        //         )
-        //     }
-        // })
-
-
-
 
 
         return (
@@ -179,21 +163,17 @@ class MyMealplans extends React.Component {
                 </div>
                 <div className='mealplan-main'>
                     <div className='mealplan-tabs'>
-                        {/* <div className='tab-1'>
-                            <h1 onClick={(e) => this.setState({display: "mealplan"})}>Create a mealplan</h1>
-                        </div> */}
+
                         <label>Create a meal plan</label>
                         <input type="text" placeholder='Enter a meal plan name'
                             onChange={this.updateMpName} value={this.state.mealplan.name} />
-                        {/* <div className='tab-2'>
-                            <h1 onClick={(e) => this.setState({display: "nutrition"})}>Nutrition Value</h1>
-                        </div> */}
+     
                     </div>
-                    {/* {this.state.display === "mealplan" ? */}
-                    <div className='mealplan-sub'>
-                        <div>
 
-                            {/* <p>Number of servings</p> */}
+                    <div className='mealplan-sub'>
+                        <div id='mp-instruction'>
+                            <p>Instruction:</p>
+                            <p>click a recipe on the left, then click the grid below to populate the meal plan</p>
                         </div>
                         <div className="grid-container">
                             <div className="grid-item-col-1"><MdOutlineTipsAndUpdates /></div>
