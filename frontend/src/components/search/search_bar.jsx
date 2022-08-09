@@ -7,12 +7,13 @@ class SearchBar extends React.Component {
         super(props);
         this.state = {
             title: '',
-            budget: null,
-            category: null,
-            sortme: null
+            budget: '',
+            category: '',
+            sortme: ''
         };
         this.update = this.update.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClearSearch = this.handleClearSearch.bind(this);
     }
 
     update(property) {
@@ -20,10 +21,10 @@ class SearchBar extends React.Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.filters, "abc")
         if(this.props.complexSearch)
         {
             this.props.searchRecipes(this.props.filters);
+
         }
     }
 
@@ -73,6 +74,19 @@ class SearchBar extends React.Component {
         }
         this.props.history.push(`${newLink}`)
     }
+
+   async handleClearSearch(e){
+        await this.props.history.push(`/search`)
+       this.setState(
+           {
+               title: '',
+               budget: '',
+               category: "",
+               sortme: ""
+           }
+       )
+
+    }
     
     render() {
         let searchResult;
@@ -91,8 +105,8 @@ class SearchBar extends React.Component {
 
                     <form id="search-form" onSubmit={this.handleSubmit}>
                         {/* <form id="search-form" onSubmit={this.handleSubmit}> */}
-                        <select value={this.state.catgeory} onChange={this.update("category")}>
-                            <option value={null} selected>Select meal category</option>
+                        <select value={this.state.category} onChange={this.update("category")} >
+                            <option value={""}>Select meal category</option>
                             <option value="appetizers-and-snacks">Appetizers and Snacks</option>
                             <option value="breakfast-and-brunch">Breakfast</option>
                             <option value="desserts">Desserts</option>
@@ -102,8 +116,8 @@ class SearchBar extends React.Component {
                             <option value="Salad">Salad</option>
                             <option value="World Cuisine">World Cuisine</option>
                         </select>
-                        <select value={this.state.budget} onChange={this.update("budget")}>
-                            <option value={null} selected>Select budget</option>
+                        <select value={this.state.budget} onChange={this.update("budget")} >
+                            <option value={""}>Select budget</option>
                             <option value="1">$</option>
                             <option value="2">$$</option>
                             <option value="3">$$$</option>
@@ -120,7 +134,7 @@ class SearchBar extends React.Component {
 
                         {/* <label htmlFor="sort-method-select">Sorted By:</label> */}
                         <select id="sort-method-select" value={this.state.sortme} onChange={this.update("sortme")}>
-                            <option value={null} selected >Sort by type</option>
+                            <option value={""} >Sort by type</option>
                             <option value="recent" >Recent</option>
                             <option value="popularity" >Popular</option>
                         </select>
@@ -130,6 +144,18 @@ class SearchBar extends React.Component {
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
+                
+                {this.props.location.pathname !== '/recipes' && this.props.location.search.length > 0 ?
+                        <div className="clear-search">
+                            <div>
+                                <i className="fa-solid fa-xmark"></i>
+                                <p onClick={this.handleClearSearch}> Clear search</p> 
+                            </div>
+
+                       </div> 
+                    : <div></div>
+                }
+                
 
                 {this.props.page !== "index-search" && this.props.location.pathname !== '/recipes' ? 
                     <div className='recipe-box'>

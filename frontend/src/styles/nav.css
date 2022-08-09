@@ -68,6 +68,7 @@ header{
     margin-left: 10px;
     border-radius: 5px;
     font-family: 'Lora', serif;
+    cursor: pointer;
 }
 
 .nav-bar-login:hover {
