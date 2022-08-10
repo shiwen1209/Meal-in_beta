@@ -37,11 +37,7 @@ Meal'in is a recipe and mealplan app. User can select from 200+ recipes on the a
 * The mealplan tool offers live and real-time nutrition dashboard, so user can be mindful when populating the mealplan with the recipe choices
 * Once the mealplan is finalized, user can see a auto-generated grocery shopping list that compiles all the ingredients required to cook all the recipes on the 
 
- # Features Highlight
 
-## Recipes search
-
-## Mealplans CRUD, with auto-generated nutrition dashboard and shopping list
 
 
 
