@@ -40,7 +40,9 @@ Meal'in is a recipe and mealplan app. User can select from 200+ recipes on the a
  # Features Spotlight
  ## Recipes Search
 https://user-images.githubusercontent.com/39010644/184064469-ac92d8c7-ba59-4800-8312-aad94e888baa.mov
+ ## Mealplan
 
+https://user-images.githubusercontent.com/39010644/184064919-8cf00de0-7fec-4d11-a9eb-7abe60f2e493.mov
 
 
 
