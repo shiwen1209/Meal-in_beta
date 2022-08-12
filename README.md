@@ -47,47 +47,41 @@ Meal'in is a recipe and mealplan app. User can select from 200+ recipes on the a
 https://user-images.githubusercontent.com/39010644/184064469-ac92d8c7-ba59-4800-8312-aad94e888baa.mov
 
 ```js
-//mainpage.js
- router.get("/", async (req, res) => {
-    Recipe.find({})
-        .populate('author', '-password -email -recipes_liked -recipes_rated')
-        .then(async (recipes) => {
-            let ans = [];
-            let categories = {
-                "appetizers-and-snacks": 0,
-                "breakfast-and-brunch": 0,
-                "desserts": 0,
-                "drinks": 0,
-                "main-dish": 0,
-                "meat-and-poultry": 0,
-                "salad": 0,
-                "world-cuisine": 0
-            };
+//search.js
 
-            let category_names = Object.keys(categories);
+router.get("/", (req, res) => {
+    let filter = {};
+    let sortFilter = '';
+    let title = req.query.title;
+    let budget = parseInt(req.query.budget);
+    let category = req.query.category;
+    let sortme = req.query.sortme;
+    if (title)
+        filter.title = { $regex: title, $options: "i" };
+    if (budget)
+        filter.budget = budget;
+    if (category)
+        filter.category = category;
+    if (sortme) {
+        if (sortme === 'popularity') {
+            sortFilter = '-num_likes';
+        }
+        else if (sortme === 'recent') {
+            sortFilter = '-createdAt'
+        }
+    }
 
-            for (let i = 0; i < recipes.length; i++) {
-                if (category_names.includes(recipes[i].category) && categories[recipes[i].category] < 8) {
-                    let newRecipe = {};
-                    newRecipe.title = recipes[i].title;
-                    newRecipe._id = recipes[i]._id;
-                    newRecipe.id = recipes[i].id;
-                    newRecipe.prep_time = recipes[i].prep_time;
-                    newRecipe.num_likes = recipes[i].num_likes;
-                    newRecipe.author = recipes[i].author;
-                    newRecipe.num_ratings = recipes[i].num_ratings;
+    Recipe.find(filter).sort(sortFilter).limit(20).exec().then((result) => {
+        return res.json(result);
+    });
 
-                    newRecipe.total_rating = recipes[i].total_rating;
-                    newRecipe.category = recipes[i].category;
-                    newRecipe.image_url = recipes[i].image_url;
-                    categories[recipes[i].category] += 1;
-                    ans.push(newRecipe);
-                }
-            }
-            return res.json(ans);
-        })
-        .catch(err => console.log(err));
 })
+
+module.exports = router;
+
+
+     
+
 ```
  ## Mealplan
  * User can user a 7-day mealplan tool to by populating the mealplan with the recipes that they've liked
