@@ -7,17 +7,6 @@ router.get("/", async (req, res) => {
         .populate('author', '-password -email -recipes_liked -recipes_rated')
         .then(async (recipes) => {
             let ans = [];
-            // let categories = {
-            //     "appetizers-and-snacks": [],
-            //     "breakfast-and-brunch": [],
-            //     "desserts": [],
-            //     "drinks": [],
-            //     "main-dish": [],
-            //     "meat-and-poultry": [],
-            //     "salad": [],
-            //     "world-cuisine": []
-            //     };
-
             let categories = {
                 "appetizers-and-snacks": 0,
                 "breakfast-and-brunch": 0,
@@ -51,7 +40,6 @@ router.get("/", async (req, res) => {
                     ans.push(newRecipe);
                 }
             }
-            // console.log(ans.length);
             return res.json(ans);
         })
         .catch(err => console.log(err));
