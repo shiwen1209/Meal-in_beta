@@ -32,7 +32,7 @@ import EmptyStar from '../../images/empty_star.svg';
 class Rating extends React.Component {
     constructor(props) {
         super(props)
-        console.log("Rate", this.props.rating);
+        // console.log("Rate", this.props.rating);
     }
 
     render() {

@@ -7,13 +7,13 @@ router.get("/", (req, res) => {
     let filter = {};
     let sortFilter = '';
 
-    console.log(req.query);
+    // console.log(req.query);
 
     let title = req.query.title;
     let budget = parseInt(req.query.budget);
     let category = req.query.category;
 
-    console.log("budget is", budget);
+    // console.log("budget is", budget);
     // let rating = req.query.rating; 
     //above needs refactoring the schema but im lazy, if needed pls contact me - charlie
     let sortme = req.query.sortme;

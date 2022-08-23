@@ -32,6 +32,6 @@ export const getRecipesBreakdown = (info) => {
 }
 
 export const deleteRecipe = (recipeId) => {
-    debugger
+    // debugger
     return axios.delete(`/api/recipes/${recipeId}`)
 }
