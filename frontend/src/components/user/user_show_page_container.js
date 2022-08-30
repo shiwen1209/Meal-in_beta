@@ -10,8 +10,7 @@ const mstp = ( state, ownProps) => {
       recipes_liked: state.entities.recipes.recipes_liked,
       recipes_created: state.entities.recipes.recipes_created,
       user: state.entities.users,
-      currentUserId: state.session.user.id,
-      // recipes2: state.entities.recipes
+      currentUserId: state.session.user.id
     };
 }
 
